@@ -110,6 +110,9 @@
   .vd-ok{color:#137a37;font-weight:700;white-space:nowrap;}
   .vd-mid{color:#8a5a00;font-weight:700;white-space:nowrap;}
   .vd-no{color:#b23b3b;font-weight:700;white-space:nowrap;}
+  .spotlist li.daysep{display:block;background:transparent;border:none;padding:10px 0 2px;}
+  .spotlist .ds-h{font-weight:800;color:var(--accent2);font-size:14px;border-left:4px solid var(--accent);padding-left:8px;}
+  .optpill{font-size:10px;background:#f1eef7;color:#6b4bb0;border:1px solid #ddd2ee;border-radius:999px;padding:1px 7px;font-weight:700;}
   footer{margin-top:40px;text-align:center;color:var(--sub);font-size:12px;}
   .stars{color:var(--gold);}
   a.inline{color:var(--accent2);}
@@ -279,9 +282,9 @@
         <thead><tr><th>日期</th><th>定位</th><th>主要內容</th><th>車程</th></tr></thead>
         <tbody>
           <tr><td class="day">10/13 二</td><td>抵達適應</td><td><b>✈ 台北 10:05 → 新千歲 15:10 落地</b> → 入住<b>千歲</b>飯店，休息</td><td>接駁</td></tr>
-          <tr><td class="day">10/14 三</td><td>去程公路旅行</td><td>09:00 取車 → 開往美瑛；下午輕鬆、<b>白金溫泉泡湯</b>，早安頓車泊</td><td>~2.5h</td></tr>
-          <tr><td class="day">10/15 四</td><td>美瑛精華＋南移</td><td>上午精神好時看<b>青池</b>＋四季彩之丘 → 午後南下<b>定山溪溫泉鄉</b>車泊</td><td>~2.5h</td></tr>
-          <tr><td class="day">10/16 五</td><td>湖畔溫泉慢日</td><td><b>短車程</b>：定山溪二見吊橋紅葉、豊平峽、泡湯喝咖啡，幾乎不趕路</td><td>30–60m</td></tr>
+          <tr><td class="day">10/14 三</td><td>去程公路旅行</td><td>09:00 取車 → 開往美瑛；下午輕鬆、<b>白金温泉洗澡</b>，早安頓車泊</td><td>~2.5h</td></tr>
+          <tr><td class="day">10/15 四</td><td>美瑛精華＋南移</td><td>上午精神好時看<b>青池</b>＋四季彩之丘 → 午後南下定山溪，<b>定山渓温泉洗澡</b>＋車泊</td><td>~2.5h</td></tr>
+          <tr><td class="day">10/16 五</td><td>湖畔溫泉慢日</td><td><b>短車程</b>：定山溪二見吊橋紅葉 → <b>豊平峡温泉洗澡</b>＋咖啡，幾乎不趕路</td><td>30–60m</td></tr>
           <tr><td class="day">10/17 六</td><td>還車＋進札幌</td><td>定山溪／湖畔 → 千歲 15:30–16:00 <b>還露營車</b> → 接駁＋JR 進<b>札幌</b>；傍晚<b>狸小路＋湯咖哩</b>晚餐</td><td>~1.5h</td></tr>
           <tr><td class="day">10/18 日</td><td>小樽一日</td><td>晨遊<b>北大銀杏並木</b> → <b>租小車</b>往<b>小樽</b>（運河・堺町通・咖啡），可順遊<b>余市／朝里</b> → 傍晚回札幌還車</td><td>租車</td></tr>
           <tr><td class="day">10/19 一</td><td>賦歸</td><td>晨<b>北海道神宮・円山公園</b>（<span class="vd-mid">彈性・可略過</span>，累就留北大）→ JR 札幌→新千歲 約 40 分 → <b>✈ 新千歲 16:25 → 台北 19:35</b></td><td>JR</td></tr>
@@ -290,6 +293,15 @@
     </div>
 
     <div class="small" style="margin-top:10px">＊已依需求捨棄「美瑛雙晚」替代案（無追求丘陵紅葉深度的執著），全程以均勻車程＋溫泉慢節奏為主軸。</div>
+
+    <div class="note" style="margin-top:12px"><b>♨ 露營車三晚・每晚都有溫泉洗澡（睡車上必備）：</b>
+      <ul class="clean" style="margin-top:4px">
+        <li><b>10/14</b>　白金温泉（美瑛白金・車泊①）</li>
+        <li><b>10/15</b>　定山渓温泉（紅葉溫泉鄉・車泊②）</li>
+        <li><b>10/16</b>　豊平峡温泉（露天名湯＋咖哩・車泊③）</li>
+      </ul>
+      都是<b>日歸溫泉</b>，泡完暖呼呼回車上睡；地點與連結見下方「景點・溫泉・車泊點」。
+    </div>
 
     <div class="note" style="margin-top:12px"><b>札幌市區散策（已納入你想去的點）＋長輩貼心：</b>
       <ul class="clean" style="margin-top:4px">
@@ -403,6 +415,7 @@
   <section id="spots">
     <h2>景點・溫泉・車泊點（含 Google 地圖）</h2>
     <div class="card">
+      <div class="small" style="margin-bottom:10px">依<b>日期順序</b>排列；每個露營車夜都含 <b>♨ 洗澡溫泉</b>。標 <span class="optpill">可選</span> 者為未排入的備案景點，想去再機動加。</div>
       <ul class="spotlist" id="spotlist"></ul>
       <div class="small" style="margin-top:10px">🅿 車泊點（道の駅／露營車營地）與溫泉的營業季，10 月中下旬部分露營場會關閉過冬，<b>務必逐一致電/查官網確認 10/14–16 是否營業與可預約</b>；建議以「民營 露營車營地（多全年）＋道の駅」為可靠主力。</div>
     </div>
@@ -504,26 +517,27 @@
 <script>
   const C = { base:'#2563eb', biei:'#e05a2b', onsen:'#7c3aed', otaru:'#0891b2', sapporo:'#16a34a' };
   const spots = [
-    {name:'新千歳空港', lat:42.7752, lng:141.6923, cat:'base', q:'新千歳空港', ds:'去回程機場'},
-    {name:'NOMAD 露營車 千歳店', lat:42.8180, lng:141.6565, cat:'base', q:'北海道千歳市青葉2丁目17-32', ds:'取還車（近JR千歳站）'},
-    {name:'青い池（青池）', lat:43.4926, lng:142.6306, cat:'biei', q:'青い池 美瑛', ds:'必訪・清晨最美'},
-    {name:'白鬚の滝', lat:43.4082, lng:142.6635, cat:'biei', q:'白ひげの滝 美瑛', ds:'白金・橋上短程'},
-    {name:'四季彩の丘', lat:43.5828, lng:142.4602, cat:'biei', q:'四季彩の丘 美瑛', ds:'有電動車・輪椅友善'},
-    {name:'拼布之路（Ken&Mary之樹）', lat:43.6153, lng:142.4271, cat:'biei', q:'ケンとメリーの木 美瑛', ds:'車上看丘陵'},
-    {name:'新栄の丘展望公園', lat:43.6421, lng:142.5028, cat:'biei', q:'新栄の丘展望公園', ds:'夕陽展望'},
-    {name:'道の駅 白金ビルケ', lat:43.4472, lng:142.6360, cat:'biei', q:'道の駅 びえい白金ビルケ', ds:'🅿車泊候選（近青池）'},
-    {name:'白金温泉', lat:43.4060, lng:142.6620, cat:'onsen', q:'白金温泉 美瑛', ds:'♨ 美瑛日歸溫泉'},
-    {name:'定山渓温泉', lat:42.9686, lng:141.1600, cat:'onsen', q:'定山渓温泉', ds:'♨ 紅葉溫泉鄉（方案B車泊）'},
-    {name:'二見吊橋（定山渓）', lat:42.9648, lng:141.1583, cat:'onsen', q:'二見吊橋 定山渓', ds:'定山溪紅葉散策'},
-    {name:'朝里川温泉', lat:43.1470, lng:141.0360, cat:'onsen', q:'朝里川温泉 小樽', ds:'♨ 小樽近郊（方案A車泊）'},
-    {name:'支笏湖', lat:42.7549, lng:141.3517, cat:'onsen', q:'支笏湖', ds:'近千歲・湖畔備案'},
-    {name:'小樽運河', lat:43.1990, lng:140.9946, cat:'otaru', q:'小樽運河', ds:'慢遊・平坦好走'},
-    {name:'堺町通り', lat:43.1918, lng:140.9985, cat:'otaru', q:'堺町通り 小樽', ds:'老街・咖啡・LeTAO'},
-    {name:'札幌 大通公園', lat:43.0608, lng:141.3469, cat:'sapporo', q:'大通公園 札幌', ds:'緩衝日市區'},
-    {name:'札幌場外市場', lat:43.0774, lng:141.3180, cat:'sapporo', q:'札幌場外市場', ds:'海鮮早餐'},
-    {name:'北海道大學 銀杏並木', lat:43.0757, lng:141.3419, cat:'sapporo', q:'北海道大学 銀杏並木', ds:'✅平坦好走・10月下旬金黃（10/18晨）'},
-    {name:'狸小路商店街（湯咖哩）', lat:43.0567, lng:141.3536, cat:'sapporo', q:'狸小路商店街', ds:'✅有頂棚平坦・湯咖哩晚餐（10/17夕）'},
-    {name:'北海道神宮（円山公園）', lat:43.0540, lng:141.3070, cat:'sapporo', q:'北海道神宮', ds:'⚠️彈性可略過・參道碎石台階（10/19晨）'},
+    {name:'新千歳空港', lat:42.7752, lng:141.6923, cat:'base', q:'新千歳空港', day:'10/13', opt:false, ds:'去程 15:10 落地／回程 16:25 起飛'},
+    {name:'NOMAD 露營車 千歳店', lat:42.8180, lng:141.6565, cat:'base', q:'北海道千歳市青葉2丁目17-32', day:'10/14', opt:false, ds:'10/14 取車・10/17 還車'},
+    {name:'道の駅 白金ビルケ', lat:43.4472, lng:142.6360, cat:'biei', q:'道の駅 びえい白金ビルケ', day:'10/14', opt:false, ds:'🅿 車泊①（近青池）'},
+    {name:'白金温泉', lat:43.4060, lng:142.6620, cat:'onsen', q:'白金温泉 美瑛', day:'10/14', opt:false, ds:'♨ 洗澡・日歸溫泉（車泊①）'},
+    {name:'四季彩の丘', lat:43.5828, lng:142.4602, cat:'biei', q:'四季彩の丘 美瑛', day:'10/14', opt:false, ds:'有電動車・輪椅友善'},
+    {name:'拼布之路（Ken&Mary之樹）', lat:43.6153, lng:142.4271, cat:'biei', q:'ケンとメリーの木 美瑛', day:'10/14', opt:true, ds:'車上看丘陵（可選）'},
+    {name:'新栄の丘展望公園', lat:43.6421, lng:142.5028, cat:'biei', q:'新栄の丘展望公園', day:'10/14', opt:true, ds:'夕陽展望（可選）'},
+    {name:'青い池（青池）', lat:43.4926, lng:142.6306, cat:'biei', q:'青い池 美瑛', day:'10/15', opt:false, ds:'必訪・清晨最美'},
+    {name:'白鬚の滝', lat:43.4082, lng:142.6635, cat:'biei', q:'白ひげの滝 美瑛', day:'10/15', opt:true, ds:'白金・青池旁短程（可選）'},
+    {name:'定山渓温泉', lat:42.9686, lng:141.1600, cat:'onsen', q:'定山渓温泉', day:'10/15', opt:false, ds:'♨ 洗澡・車泊②（紅葉溫泉鄉）'},
+    {name:'二見吊橋（定山渓）', lat:42.9648, lng:141.1583, cat:'onsen', q:'二見吊橋 定山渓', day:'10/16', opt:false, ds:'定山溪紅葉散策'},
+    {name:'豊平峡温泉', lat:42.9500, lng:141.1400, cat:'onsen', q:'豊平峡温泉', day:'10/16', opt:false, ds:'♨ 洗澡・露天名湯＋咖哩（車泊③）'},
+    {name:'狸小路商店街（湯咖哩）', lat:43.0567, lng:141.3536, cat:'sapporo', q:'狸小路商店街', day:'10/17', opt:false, ds:'✅ 有頂棚平坦・湯咖哩晚餐'},
+    {name:'札幌 大通公園', lat:43.0608, lng:141.3469, cat:'sapporo', q:'大通公園 札幌', day:'10/17', opt:true, ds:'市區散步（可選）'},
+    {name:'北海道大學 銀杏並木', lat:43.0757, lng:141.3419, cat:'sapporo', q:'北海道大学 銀杏並木', day:'10/18', opt:false, ds:'✅ 平坦・10月下旬金黃（晨）'},
+    {name:'小樽運河', lat:43.1990, lng:140.9946, cat:'otaru', q:'小樽運河', day:'10/18', opt:false, ds:'慢遊・平坦好走'},
+    {name:'堺町通り', lat:43.1918, lng:140.9985, cat:'otaru', q:'堺町通り 小樽', day:'10/18', opt:false, ds:'老街・咖啡'},
+    {name:'朝里川温泉', lat:43.1470, lng:141.0360, cat:'onsen', q:'朝里川温泉 小樽', day:'10/18', opt:true, ds:'♨ 小樽近郊（可選）'},
+    {name:'北海道神宮（円山公園）', lat:43.0540, lng:141.3070, cat:'sapporo', q:'北海道神宮', day:'10/19', opt:true, ds:'⚠️ 彈性可略過・參道碎石台階'},
+    {name:'札幌場外市場', lat:43.0774, lng:141.3180, cat:'sapporo', q:'札幌場外市場', day:'10/19', opt:true, ds:'海鮮早餐（可選）'},
+    {name:'支笏湖', lat:42.7549, lng:141.3517, cat:'onsen', q:'支笏湖', day:'備案', opt:true, ds:'近千歲・湖畔備案（可選）'},
   ];
   function gmap(q){ return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q); }
 
@@ -555,15 +569,33 @@
     m.bindPopup('<b>候選：'+s.name+'</b><br><span style="color:#666;font-size:12px">大點之間・待評估</span><br><a href="'+gmap(s.q)+'" target="_blank" style="color:#2563eb;font-weight:700">→ Google 地圖導航</a>');
   });
 
-  // 景點清單
+  // 景點清單（依日期順序）
   const ul = document.getElementById('spotlist');
-  const order = ['base','biei','onsen','otaru','sapporo'];
-  spots.slice().sort((a,b)=>order.indexOf(a.cat)-order.indexOf(b.cat)).forEach(s=>{
-    const li = document.createElement('li');
-    li.innerHTML = '<div><span class="nm" style="border-left:3px solid '+C[s.cat]+';padding-left:8px">'+
-      s.name+'</span><br><span class="ds">'+s.ds+'</span></div>'+
-      '<a style="background:'+C[s.cat]+'" href="'+gmap(s.q)+'" target="_blank">Google 地圖 ↗</a>';
-    ul.appendChild(li);
+  const dayOrder = ['10/13','10/14','10/15','10/16','10/17','10/18','10/19','備案'];
+  const dayTitle = {
+    '10/13':'10/13 抵達',
+    '10/14':'10/14 美瑛丘陵・白金 ｜ 車泊① ♨白金温泉',
+    '10/15':'10/15 青池 → 定山溪 ｜ 車泊② ♨定山渓温泉',
+    '10/16':'10/16 定山溪湖畔慢日 ｜ 車泊③ ♨豊平峡温泉',
+    '10/17':'10/17 還車 → 進札幌',
+    '10/18':'10/18 小樽（租車）',
+    '10/19':'10/19 賦歸',
+    '備案':'備案・機動（未排入）'
+  };
+  dayOrder.forEach(d=>{
+    const items = spots.filter(s=>s.day===d);
+    if(!items.length) return;
+    const h = document.createElement('li');
+    h.className = 'daysep';
+    h.innerHTML = '<div class="ds-h">'+dayTitle[d]+'</div>';
+    ul.appendChild(h);
+    items.forEach(s=>{
+      const li = document.createElement('li');
+      li.innerHTML = '<div><span class="nm" style="border-left:3px solid '+C[s.cat]+';padding-left:8px">'+
+        s.name+(s.opt?' <span class="optpill">可選</span>':'')+'</span><br><span class="ds">'+s.ds+'</span></div>'+
+        '<a style="background:'+C[s.cat]+'" href="'+gmap(s.q)+'" target="_blank">Google 地圖 ↗</a>';
+      ul.appendChild(li);
+    });
   });
 
   function copyMsg(){
