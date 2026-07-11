@@ -220,7 +220,7 @@
         <span>━━ 露營車自駕</span>
         <span>┈┈ JR 鐵路</span>
       </div>
-      <div class="small" style="margin-top:6px">真實地圖底圖（OpenStreetMap，已淡化至 20% 讓路線清楚）；圓圈數字為日期順序，實際導航請用「行程」分頁互動地圖的 Google 地圖連結。</div>
+      <div class="small" style="margin-top:6px">真實地圖底圖（OpenStreetMap，淡化至 60%）；圓圈數字為日期順序，實際導航請用「行程」分頁互動地圖的 Google 地圖連結。</div>
     </div>
   </section>
 
@@ -773,7 +773,7 @@
     };
     const rmap=L.map('routemap',{scrollWheelZoom:false}).setView([43.0,141.6],8);
     window._rmap=rmap;
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,opacity:0.2,attribution:'© OpenStreetMap'}).addTo(rmap);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,opacity:0.6,attribution:'© OpenStreetMap'}).addTo(rmap);
     function seg(a,b,color,jr){ L.polyline([a,b],{color:color,weight:4,opacity:0.9,dashArray:jr?'3 9':null,lineCap:'round'}).addTo(rmap); }
     seg(P.kuko,P.chitose,'#2563eb',false);   // ① 抵達接駁
     seg(P.chitose,P.biei,'#e05a2b',false);    // ② 露營車
@@ -782,29 +782,29 @@
     seg(P.chitose,P.sapp,'#16a34a',true);     // ⑤b JR
     seg(P.sapp,P.otaru,'#0891b2',true);       // ⑥ JR
     seg(P.sapp,P.kuko,'#6b7280',true);        // ⑦ JR
-    function node(pt,label,color){
+    function node(pt,label,color,dir,off){
       L.circleMarker(pt,{radius:8,color:'#fff',weight:2,fillColor:color,fillOpacity:1}).addTo(rmap)
-        .bindTooltip(label,{permanent:true,direction:'top',className:'rnode',offset:[0,-6]});
+        .bindTooltip(label,{permanent:true,direction:dir||'top',className:'rnode',offset:off||[0,-6]});
     }
-    node(P.biei,'美瑛・青池','#e05a2b');
-    node(P.joza,'定山渓温泉','#7c3aed');
-    node(P.sapp,'札幌（住×2）','#16a34a');
-    node(P.otaru,'小樽','#0891b2');
-    node(P.chitose,'千歳・還車','#2563eb');
-    node(P.kuko,'新千歳空港','#2563eb');
+    node(P.biei,'美瑛・青池','#e05a2b','top');
+    node(P.joza,'定山渓温泉','#7c3aed','bottom',[0,8]);
+    node(P.sapp,'札幌（住×2）','#16a34a','top');
+    node(P.otaru,'小樽','#0891b2','top');
+    node(P.chitose,'千歳・還車','#2563eb','right',[8,0]);
+    node(P.kuko,'新千歳空港','#2563eb','bottom',[0,8]);
     function mid(a,b){ return [(a[0]+b[0])/2,(a[1]+b[1])/2]; }
     function badge(pt,num,color){
       L.circleMarker(pt,{radius:0.1,opacity:0,fillOpacity:0}).addTo(rmap)
         .bindTooltip('<span class="rnum" style="background:'+color+'">'+num+'</span>',
           {permanent:true,direction:'center',className:'rbadge-wrap'});
     }
-    badge([42.80,141.675],'①','#2563eb');            // 空港↔千歳
+    badge([42.80,141.80],'①','#2563eb');             // 空港↔千歳（東側空地）
     badge(mid(P.chitose,P.biei),'②','#e05a2b');       // 千歳→美瑛
     badge(mid(P.biei,P.joza),'③','#d1491f');          // 美瑛→定山溪
-    badge([42.985,141.09],'④','#7c3aed');            // 定山溪（西側）
-    badge([42.995,141.47],'⑤','#16a34a');            // 千歳→札幌（上）
+    badge([43.03,141.05],'④','#7c3aed');             // 定山溪（西北山區）
+    badge([43.08,141.55],'⑤','#16a34a');             // 千歳→札幌（東北空地）
     badge(mid(P.sapp,P.otaru),'⑥','#0891b2');         // 札幌⇄小樽
-    badge([42.885,141.565],'⑦','#6b7280');           // 札幌→空港（下）
+    badge([42.94,141.60],'⑦','#6b7280');             // 札幌→空港（東側）
     rmap.fitBounds([P.kuko,P.chitose,P.biei,P.joza,P.sapp,P.otaru],{padding:[45,45]});
     setTimeout(()=>rmap.invalidateSize(),300);
     window.addEventListener('load',()=>rmap.invalidateSize());
