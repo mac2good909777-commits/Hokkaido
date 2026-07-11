@@ -50,7 +50,7 @@
   .pill{display:inline-block;font-size:11px;padding:2px 9px;border-radius:999px;font-weight:700;}
   .rec{background:#e8f6ec;color:#137a37;border:1px solid #bfe6cb;}
   .alt{background:#f1eef7;color:#6b4bb0;border:1px solid #ddd2ee;}
-  #map{height:440px;border-radius:14px;border:1px solid var(--line);z-index:1;}
+  #leafletmap{height:440px;border-radius:14px;border:1px solid var(--line);z-index:1;}
   .legend{display:flex;flex-wrap:wrap;gap:12px;margin-top:10px;font-size:12px;color:var(--sub);}
   .legend .d{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:5px;vertical-align:middle;}
   .spotlist{list-style:none;padding:0;margin:0;display:grid;gap:8px;}
@@ -91,6 +91,12 @@
   .totcard .t .k{font-size:12px;opacity:.92;margin-top:2px;}
   a.mlink{display:inline-block;font-size:12px;text-decoration:none;color:#fff;background:var(--blue);padding:5px 10px;border-radius:8px;font-weight:600;white-space:nowrap;}
   a.mlink:hover{filter:brightness(.92);}
+  .refgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+  @media(max-width:720px){.refgrid{grid-template-columns:1fr;}}
+  .refgroup{display:flex;flex-direction:column;gap:7px;}
+  .refgroup .rt{font-weight:700;color:var(--accent2);margin-bottom:2px;}
+  .refgroup a{text-decoration:none;color:var(--ink);background:var(--soft);border:1px solid var(--line);border-radius:9px;padding:9px 12px;font-size:14px;}
+  .refgroup a:hover{border-color:var(--accent);color:var(--accent2);}
   footer{margin-top:40px;text-align:center;color:var(--sub);font-size:12px;}
   .stars{color:var(--gold);}
   a.inline{color:var(--accent2);}
@@ -107,12 +113,13 @@
 <nav class="toc"><div class="in">
   <a href="#summary">總覽</a>
   <a href="#map">地圖</a>
-  <a href="#plan">兩個方案</a>
+  <a href="#plan">行程</a>
   <a href="#van">露營車</a>
-  <a href="#hotel">飯店動線</a>
+  <a href="#hotel">飯店</a>
   <a href="#budget">費用試算</a>
   <a href="#spots">景點連結</a>
   <a href="#check">必問清單</a>
+  <a href="#ref">參考網站</a>
 </div></nav>
 
 <div class="wrap">
@@ -142,7 +149,7 @@
   <!-- 地圖 -->
   <section id="map-sec">
     <h2 id="map">互動地圖</h2>
-    <div id="map"></div>
+    <div id="leafletmap"></div>
     <div class="legend">
       <span><span class="d" style="background:var(--blue)"></span>機場・取還車</span>
       <span><span class="d" style="background:var(--biei)"></span>美瑛・紅葉</span>
@@ -270,12 +277,12 @@
     <div class="card">
       <div class="rate">
         <b>匯率設定：</b>1 日圓 =
-        <input type="number" id="rate" value="0.21" step="0.001" min="0" oninput="calcBudget()"> 台幣
+        <input type="number" id="rate" value="0.21" step="0.001" min="0" oninput="syncAll()"> 台幣
         <span class="small">（日圓項目依此換算成台幣加總；請填當下實際匯率）</span>
       </div>
       <div style="overflow-x:auto">
       <table class="bt">
-        <thead><tr><th>項目</th><th>幣別</th><th>單價</th><th>數量</th><th>小計</th><th></th></tr></thead>
+        <thead><tr><th>項目</th><th>單價<br>日圓 ¥</th><th>單價<br>台幣 NT$</th><th>數量</th><th>小計<br>台幣</th><th></th></tr></thead>
         <tbody id="budgetBody"></tbody>
       </table>
       </div>
@@ -286,7 +293,7 @@
         <div class="t"><div class="v" id="totJPY">—</div><div class="k">約合日圓（JPY）</div></div>
         <div class="t"><div class="v" id="totPP">—</div><div class="k">每人（台幣 ÷ 3）</div></div>
       </div>
-      <div class="small" style="margin-top:8px">預設數字為<b>粗估草案</b>，請依實際報價修改。空白＝0；幣別可切 JPY／TWD；可新增或刪除任何項目。</div>
+      <div class="small" style="margin-top:8px">預設數字為<b>粗估草案</b>，請依實際報價修改。<b>日圓與台幣兩欄會自動互相換算</b>——填任一欄，另一欄依匯率自動帶出；改匯率時全表重算。小計與總計一律以<b>台幣</b>計。空白＝0；可新增或刪除任何項目。</div>
     </div>
   </section>
 
@@ -322,6 +329,43 @@
     </div>
   </section>
 
+  <!-- 參考網站 -->
+  <section id="ref-sec">
+    <h2 id="ref">參考網站</h2>
+    <div class="card">
+      <div class="refgrid">
+        <div class="refgroup">
+          <div class="rt">🚐 交通・租車</div>
+          <a href="https://nomad-zh.jp/price/" target="_blank">NOMAD 露營車・價格頁 ↗</a>
+          <a href="https://nomad-zh.jp/" target="_blank">NOMAD 露營車・首頁 ↗</a>
+          <a href="https://www.starlux-airlines.com/" target="_blank">星宇航空 ↗</a>
+          <a href="https://www.skyscanner.com.tw/" target="_blank">Skyscanner 機票比價 ↗</a>
+        </div>
+        <div class="refgroup">
+          <div class="rt">🍁 觀光・景點</div>
+          <a href="https://www.biei-hokkaido.jp/ja/facility/shirogane-blue-pond" target="_blank">美瑛・青池（官方）↗</a>
+          <a href="https://www.biei-hokkaido.jp/ja/" target="_blank">美瑛町觀光協會 ↗</a>
+          <a href="https://otaru.gr.jp/" target="_blank">小樽觀光協會 ↗</a>
+          <a href="https://jozankei.jp/" target="_blank">定山溪觀光協會 ↗</a>
+          <a href="https://www.visit-hokkaido.jp/" target="_blank">HOKKAIDO LOVE!（北海道官方）↗</a>
+        </div>
+        <div class="refgroup">
+          <div class="rt">🛏 車泊・道の駅</div>
+          <a href="https://www.rvpark.jp/" target="_blank">RV Park 官方檢索 ↗</a>
+          <a href="https://carstay.jp/" target="_blank">Carstay 車泊點 ↗</a>
+          <a href="https://www.michi-no-eki.jp/" target="_blank">全國道の駅 ↗</a>
+        </div>
+        <div class="refgroup">
+          <div class="rt">🛡 安全・實用</div>
+          <a href="https://jaf.or.jp/common/global-support/switch-to-japan/translation" target="_blank">JAF 駕照日文譯本 ↗</a>
+          <a href="https://northern-road.jp/navi/" target="_blank">北海道道路情報（冬季路況）↗</a>
+          <a href="https://tenki.jp/" target="_blank">tenki.jp 天氣預報 ↗</a>
+        </div>
+      </div>
+      <div class="small" style="margin-top:12px">連結為各服務官方／常用網站，內容以對方最新公告為準；行前請再次確認露營車條款、車泊點營業季與道路／天氣狀況。</div>
+    </div>
+  </section>
+
   <footer>
     北海道 Vanlife 行程規劃　·　製作日 2026-07-11　·　資料為規劃草案，車泊點/溫泉營業與價格請以各官方最新公告為準
   </footer>
@@ -351,7 +395,7 @@
   ];
   function gmap(q){ return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q); }
 
-  const map = L.map('map').setView([43.15, 141.75], 8);
+  const map = L.map('leafletmap').setView([43.15, 141.75], 8);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
     {maxZoom:18, attribution:'© OpenStreetMap'}).addTo(map);
 
@@ -384,7 +428,7 @@
     });
   }
 
-  /* ===== 費用試算 ===== */
+  /* ===== 費用試算（日圓＋台幣雙欄・自動換算・總計台幣） ===== */
   const defaultRows=[
     ['機票（星宇直飛）','TWD',22046,3],
     ['露營車 ZIL520（4天基本費用）','JPY',134000,1],
@@ -399,36 +443,47 @@
     ['其他（雜支／接送等）','JPY',0,1],
   ];
   function fmt(n){ return Math.round(n).toLocaleString('en-US'); }
-  function rowHTML(label,cur,price,qty){
+  function getRate(){ return parseFloat(document.getElementById('rate').value)||0; }
+  function rowHTML(label,jpy,twd){
     return '<td><input class="lbl" value="'+label.replace(/"/g,'&quot;')+'"></td>'+
-      '<td><select onchange="calcBudget()">'+
-        '<option value="JPY"'+(cur==='JPY'?' selected':'')+'>JPY</option>'+
-        '<option value="TWD"'+(cur==='TWD'?' selected':'')+'>TWD</option></select></td>'+
-      '<td><input class="num price" type="number" min="0" value="'+price+'" oninput="calcBudget()"></td>'+
-      '<td><input class="qty" type="number" min="0" value="'+qty+'" oninput="calcBudget()"></td>'+
+      '<td><input class="num jpy" type="number" min="0" value="'+jpy+'" oninput="onJPY(this)"></td>'+
+      '<td><input class="num twd" type="number" min="0" value="'+twd+'" oninput="onTWD(this)"></td>'+
+      '<td><input class="qty" type="number" min="0" value="1" oninput="calcBudget()"></td>'+
       '<td class="sub">—</td>'+
       '<td><button class="delrow" onclick="delRow(this)">✕</button></td>';
   }
-  function addRow(label,cur,price,qty){
+  function syncRow(tr){
+    const r=getRate(), src=tr.dataset.src||'jpy';
+    const jpy=tr.querySelector('.jpy'), twd=tr.querySelector('.twd');
+    if(src==='twd'){ const t=parseFloat(twd.value)||0; jpy.value = r? Math.round(t/r) : 0; }
+    else { const j=parseFloat(jpy.value)||0; twd.value = r? Math.round(j*r) : 0; }
+  }
+  function onJPY(inp){ const tr=inp.closest('tr'); tr.dataset.src='jpy'; syncRow(tr); calcBudget(); }
+  function onTWD(inp){ const tr=inp.closest('tr'); tr.dataset.src='twd'; syncRow(tr); calcBudget(); }
+  function syncAll(){ document.querySelectorAll('#budgetBody tr').forEach(syncRow); calcBudget(); }
+  function addRow(label,cur,value,qty){
     const tr=document.createElement('tr');
-    tr.innerHTML=rowHTML(label||'新項目', cur||'JPY', price!=null?price:0, qty!=null?qty:1);
+    const isJ=(cur||'JPY')==='JPY';
+    tr.dataset.src=isJ?'jpy':'twd';
+    tr.innerHTML=rowHTML(label||'新項目', isJ?(value!=null?value:0):0, isJ?0:(value!=null?value:0));
+    tr.querySelector('.qty').value = qty!=null?qty:1;
     document.getElementById('budgetBody').appendChild(tr);
-    calcBudget();
+    syncRow(tr); calcBudget();
   }
   function delRow(btn){ btn.closest('tr').remove(); calcBudget(); }
   function calcBudget(){
-    const rate=parseFloat(document.getElementById('rate').value)||0;
-    let totalTWD=0;
+    const r=getRate(); let totalTWD=0;
     document.querySelectorAll('#budgetBody tr').forEach(tr=>{
-      const cur=tr.querySelector('select').value;
-      const price=parseFloat(tr.querySelector('.price').value)||0;
       const qty=parseFloat(tr.querySelector('.qty').value)||0;
-      const sub=price*qty;
-      totalTWD += (cur==='JPY' ? sub*rate : sub);
-      tr.querySelector('.sub').innerText=(cur==='JPY'?'¥':'NT$')+fmt(sub);
+      const src=tr.dataset.src||'jpy';
+      const unitTWD = (src==='twd')
+        ? (parseFloat(tr.querySelector('.twd').value)||0)
+        : (parseFloat(tr.querySelector('.jpy').value)||0)*r;
+      const sub=unitTWD*qty; totalTWD+=sub;
+      tr.querySelector('.sub').innerText='NT$'+fmt(sub);
     });
     document.getElementById('totTWD').innerText='NT$ '+fmt(totalTWD);
-    document.getElementById('totJPY').innerText= rate>0 ? '¥ '+fmt(totalTWD/rate) : '—';
+    document.getElementById('totJPY').innerText= r>0 ? '¥ '+fmt(totalTWD/r) : '—';
     document.getElementById('totPP').innerText='NT$ '+fmt(totalTWD/3);
   }
   defaultRows.forEach(r=>addRow(r[0],r[1],r[2],r[3]));
