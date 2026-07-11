@@ -213,12 +213,23 @@
     <h2 id="route">日期路徑圖</h2>
     <div class="card">
       <div id="routemap"></div>
-      <div class="small" style="margin-top:10px;line-height:2.1">
-        <b>①</b> 10/13 抵達　<b>②</b> 10/14 千歳→美瑛 🚐　<b>③</b> 10/15 美瑛→定山溪 🚐　<b>④</b> 10/16 定山溪慢日　<b>⑤</b> 10/17 定山溪→千歲還車→札幌　<b>⑥</b> 10/18 札幌⇄小樽 JR　<b>⑦</b> 10/19 札幌→機場 JR
+      <div style="overflow-x:auto;margin-top:10px">
+      <table>
+        <thead><tr><th>天</th><th>日期</th><th>路段</th><th>交通</th><th>距離／預估車程</th></tr></thead>
+        <tbody>
+          <tr><td>①</td><td>10/13</td><td>空港 → 千歲飯店</td><td>接駁</td><td>約 10 分</td></tr>
+          <tr><td>②</td><td>10/14</td><td>千歲 → 美瑛</td><td>🚐 露營車</td><td>~180 km／約 2.5h</td></tr>
+          <tr><td>③</td><td>10/15</td><td>美瑛 → 定山溪</td><td>🚐 露營車</td><td>~200 km／約 2.5–3h</td></tr>
+          <tr><td>④</td><td>10/16</td><td>定山溪慢日</td><td>🚐 露營車</td><td>短程 &lt;30 km</td></tr>
+          <tr><td>⑤</td><td>10/17</td><td>定山溪 → 千歲(還車) → 札幌</td><td>🚐 ＋ JR</td><td>~55 km／1h ＋ JR 約 40 分</td></tr>
+          <tr><td>⑥</td><td>10/18</td><td>札幌 ⇄ 小樽</td><td>🚗 租車</td><td>單程 ~40 km／約 40 分</td></tr>
+          <tr><td>⑦</td><td>10/19</td><td>札幌 → 新千歲機場</td><td>JR</td><td>約 40 分</td></tr>
+        </tbody>
+      </table>
       </div>
-      <div class="callegend" style="margin-top:6px">
-        <span>━━ 露營車自駕</span>
-        <span>┈┈ JR 鐵路</span>
+      <div class="callegend" style="margin-top:8px">
+        <span><span style="display:inline-block;width:28px;height:0;border-top:4px solid #888;vertical-align:middle;margin-right:5px"></span>自駕（露營車／租車）</span>
+        <span><span style="display:inline-block;width:28px;height:0;border-top:3px dashed #888;vertical-align:middle;margin-right:5px"></span>JR 鐵路</span>
       </div>
       <div class="small" style="margin-top:6px">真實地圖底圖（OpenStreetMap，淡化至 60%）；圓圈數字為日期順序，實際導航請用「行程」分頁互動地圖的 Google 地圖連結。</div>
     </div>
@@ -780,7 +791,7 @@
     seg(P.biei,P.joza,'#d1491f',false);       // ③ 露營車
     seg(P.joza,P.chitose,'#16a34a',false);    // ⑤a 露營車還車
     seg(P.chitose,P.sapp,'#16a34a',true);     // ⑤b JR
-    seg(P.sapp,P.otaru,'#0891b2',true);       // ⑥ JR
+    seg(P.sapp,P.otaru,'#0891b2',false);      // ⑥ 租車（自駕）
     seg(P.sapp,P.kuko,'#6b7280',true);        // ⑦ JR
     function node(pt,label,color,dir,off){
       L.circleMarker(pt,{radius:8,color:'#fff',weight:2,fillColor:color,fillOpacity:1}).addTo(rmap)
