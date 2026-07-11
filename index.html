@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026 北海道 Vanlife 行程規劃</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#faf7f2; --card:#ffffff; --ink:#2b2622; --sub:#6b6156;
+    --line:#e8ded0; --accent:#e05a2b; --accent2:#c9451c;
+    --blue:#2563eb; --biei:#e05a2b; --onsen:#7c3aed; --otaru:#0891b2; --sapporo:#16a34a;
+    --gold:#c8973f; --soft:#f3ece1;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Noto Sans TC",system-ui,-apple-system,"Microsoft JhengHei",sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.7;font-size:15px;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 16px 80px;}
+  header.hero{background:linear-gradient(135deg,#e05a2b 0%,#c9451c 55%,#9c3312 100%);
+    color:#fff;padding:38px 20px 30px;text-align:center;position:relative;overflow:hidden;}
+  header.hero:before{content:"🍁";position:absolute;font-size:120px;opacity:.12;right:10px;top:-10px;}
+  header.hero:after{content:"🏔️";position:absolute;font-size:110px;opacity:.10;left:0px;bottom:-20px;}
+  header.hero h1{margin:0 0 6px;font-size:26px;font-weight:900;letter-spacing:1px;}
+  header.hero .sub{opacity:.95;font-size:14px;}
+  header.hero .tag{display:inline-block;margin-top:12px;background:rgba(255,255,255,.18);
+    border:1px solid rgba(255,255,255,.35);padding:5px 14px;border-radius:999px;font-size:13px;}
+  nav.toc{position:sticky;top:0;z-index:500;background:rgba(250,247,242,.95);backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);padding:8px 0;margin-bottom:6px;}
+  nav.toc .in{max-width:960px;margin:0 auto;padding:0 12px;display:flex;gap:6px;overflow-x:auto;}
+  nav.toc a{white-space:nowrap;font-size:13px;color:var(--sub);text-decoration:none;
+    padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:#fff;}
+  nav.toc a:hover{color:var(--accent);border-color:var(--accent);}
+  section{margin-top:28px;}
+  h2{font-size:20px;margin:0 0 14px;padding-left:12px;border-left:5px solid var(--accent);}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 18px;
+    box-shadow:0 2px 10px rgba(120,90,50,.05);}
+  .grid{display:grid;gap:12px;}
+  .g4{grid-template-columns:repeat(4,1fr);}
+  .g2{grid-template-columns:repeat(2,1fr);}
+  @media(max-width:720px){.g4{grid-template-columns:repeat(2,1fr);}.g2{grid-template-columns:1fr;}}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;text-align:center;}
+  .kpi .n{font-size:19px;font-weight:800;color:var(--accent2);}
+  .kpi .l{font-size:12px;color:var(--sub);margin-top:2px;}
+  table{width:100%;border-collapse:collapse;font-size:14px;}
+  th,td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{background:var(--soft);font-weight:700;font-size:13px;}
+  td.day{white-space:nowrap;font-weight:700;color:var(--accent2);}
+  .pill{display:inline-block;font-size:11px;padding:2px 9px;border-radius:999px;font-weight:700;}
+  .rec{background:#e8f6ec;color:#137a37;border:1px solid #bfe6cb;}
+  .alt{background:#f1eef7;color:#6b4bb0;border:1px solid #ddd2ee;}
+  #map{height:440px;border-radius:14px;border:1px solid var(--line);z-index:1;}
+  .legend{display:flex;flex-wrap:wrap;gap:12px;margin-top:10px;font-size:12px;color:var(--sub);}
+  .legend .d{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:5px;vertical-align:middle;}
+  .spotlist{list-style:none;padding:0;margin:0;display:grid;gap:8px;}
+  .spotlist li{display:flex;justify-content:space-between;align-items:center;gap:10px;
+    padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;}
+  .spotlist a{font-size:12px;text-decoration:none;color:#fff;background:var(--blue);
+    padding:5px 11px;border-radius:8px;white-space:nowrap;font-weight:600;}
+  .spotlist a:hover{filter:brightness(.92);}
+  .spotlist .nm{font-weight:600;}
+  .spotlist .ds{font-size:12px;color:var(--sub);}
+  .note{background:#fff7ed;border:1px solid #fbd9a8;border-radius:12px;padding:14px 16px;font-size:14px;}
+  .warn{background:#fef2f2;border:1px solid #fbc4c4;border-radius:12px;padding:14px 16px;font-size:14px;}
+  .warn b,.note b{color:var(--accent2);}
+  ul.clean{margin:6px 0 0;padding-left:20px;}
+  ul.clean li{margin:4px 0;}
+  .msgbox{position:relative;}
+  pre.msg{background:#1f2937;color:#e8edf3;border-radius:12px;padding:16px 16px;font-size:13px;
+    line-height:1.7;white-space:pre-wrap;font-family:inherit;overflow:auto;}
+  .copybtn{position:absolute;top:10px;right:10px;background:var(--accent);color:#fff;border:none;
+    padding:6px 12px;border-radius:8px;font-size:12px;cursor:pointer;font-family:inherit;font-weight:700;}
+  .copybtn:active{transform:scale(.96);}
+  .small{font-size:12px;color:var(--sub);}
+  .flag{font-size:12px;background:#fdecc8;color:#8a5a00;padding:2px 8px;border-radius:6px;font-weight:700;}
+  .bt input,.bt select{font-family:inherit;font-size:14px;border:1px solid var(--line);border-radius:7px;padding:6px 8px;background:#fff;}
+  .bt input.lbl{width:100%;min-width:150px;}
+  .bt input.num{width:100px;text-align:right;}
+  .bt input.qty{width:64px;text-align:right;}
+  .bt td,.bt th{vertical-align:middle;}
+  .bt .sub{font-weight:700;text-align:right;white-space:nowrap;color:var(--accent2);}
+  .delrow{background:#fbeaea;color:#b23b3b;border:none;border-radius:6px;padding:6px 9px;cursor:pointer;font-weight:700;}
+  .addrow{background:var(--accent);color:#fff;border:none;border-radius:9px;padding:9px 16px;cursor:pointer;font-weight:700;font-family:inherit;margin-top:12px;font-size:14px;}
+  .rate{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:14px;}
+  .rate input{width:96px;text-align:right;}
+  .totcard{background:linear-gradient(135deg,#e05a2b,#c9451c);color:#fff;border-radius:14px;padding:18px;margin-top:16px;display:grid;gap:10px;grid-template-columns:repeat(3,1fr);}
+  @media(max-width:720px){.totcard{grid-template-columns:1fr;}}
+  .totcard .t{text-align:center;}
+  .totcard .t .v{font-size:23px;font-weight:900;letter-spacing:.5px;}
+  .totcard .t .k{font-size:12px;opacity:.92;margin-top:2px;}
+  footer{margin-top:40px;text-align:center;color:var(--sub);font-size:12px;}
+  .stars{color:var(--gold);}
+  a.inline{color:var(--accent2);}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>2026 北海道 Vanlife・Road Trip</h1>
+  <div class="sub">露營車 × 長輩慢旅 × 秋日紅葉　｜　3 人（駕駛・媽媽 74・哥哥 48）</div>
+  <div class="tag">🗓 2026 / 10 / 13（二） – 10 / 19（一）　7 天 6 夜</div>
+</header>
+
+<nav class="toc"><div class="in">
+  <a href="#summary">總覽</a>
+  <a href="#map">地圖</a>
+  <a href="#plan">兩個方案</a>
+  <a href="#van">露營車</a>
+  <a href="#hotel">飯店動線</a>
+  <a href="#budget">費用試算</a>
+  <a href="#spots">景點連結</a>
+  <a href="#check">必問清單</a>
+</div></nav>
+
+<div class="wrap">
+
+  <!-- 總覽 -->
+  <section id="summary">
+    <h2>行程總覽</h2>
+    <div class="grid g4">
+      <div class="kpi"><div class="n">10/13→10/19</div><div class="l">星宇直飛・7天6夜</div></div>
+      <div class="kpi"><div class="n">TPE 10:05→15:10</div><div class="l">去程 CTS ｜ 回 16:25→19:35</div></div>
+      <div class="kpi"><div class="n">3 晚車泊</div><div class="l">露營車 10/14–10/17</div></div>
+      <div class="kpi"><div class="n">最長 2.5h</div><div class="l">單日車程上限</div></div>
+    </div>
+    <div class="card" style="margin-top:12px">
+      <b>規劃核心：</b>舒服、放鬆、生活感 &gt; 景點數量。全程只有 <b>2 個大移動日</b>，其餘都是定點/短程；露營車只落腳 <b>2 個區域</b>，媽媽只需適應一次新環境。青池安排在精神最好的時段、小樽銜接還車動線，不走回頭路。
+    </div>
+    <div class="grid g2" style="margin-top:12px">
+      <div class="note"><b>為什麼選 10 月中？</b> 比原訂 11 月初<b>暖約 5°C</b>（怕冷的媽媽友善）、正逢<b>美瑛/定山溪紅葉盛期</b>、初雪與結冰風險大降、白天更長。票價也在便宜區間。</div>
+      <div class="warn"><b>出發前務必確認 3 件事：</b><ul class="clean" style="margin-top:4px">
+        <li>台灣駕照的<b>日文譯本</b>（JAF／交流協會核發，非國際駕照）</li>
+        <li>交車時是否已換<b>冬胎</b>（白金海拔高、10月中可能結冰）</li>
+        <li>地暖/空調能否<b>熄火整夜運轉</b>（不靠發電機）</li>
+      </ul></div>
+    </div>
+  </section>
+
+  <!-- 地圖 -->
+  <section id="map-sec">
+    <h2 id="map">互動地圖</h2>
+    <div id="map"></div>
+    <div class="legend">
+      <span><span class="d" style="background:var(--blue)"></span>機場・取還車</span>
+      <span><span class="d" style="background:var(--biei)"></span>美瑛・紅葉</span>
+      <span><span class="d" style="background:var(--onsen)"></span>溫泉・湖畔</span>
+      <span><span class="d" style="background:var(--otaru)"></span>小樽</span>
+      <span><span class="d" style="background:var(--sapporo)"></span>札幌</span>
+    </div>
+    <div class="small" style="margin-top:6px">點地圖上任一標記 → 彈出視窗內有「Google Maps 導航」連結。標記位置為概略，導航連結指向正確地點。</div>
+  </section>
+
+  <!-- 兩個方案 -->
+  <section id="plan">
+    <h2>兩個方案（同班機・同租期，差在路線主軸）</h2>
+
+    <div class="card">
+      <div style="margin-bottom:10px"><span class="pill rec">★ 推薦</span> <b>方案 B — 單晚美瑛 ＋ 湖畔溫泉派</b>　<span class="small">車程更均勻、溫泉更多、青池在清晨最清爽時去，最貼近「舒服放鬆」的核心。</span></div>
+      <table>
+        <thead><tr><th>Day</th><th>定位</th><th>主要內容</th><th>車程</th></tr></thead>
+        <tbody>
+          <tr><td class="day">10/13 二</td><td>抵達適應</td><td>15:10 落地 → 入住<b>千歲</b>飯店，休息</td><td>接駁</td></tr>
+          <tr><td class="day">10/14 三</td><td>去程 Road Trip</td><td>09:00 取車 → 開往美瑛；下午輕鬆、<b>白金溫泉泡湯</b>，早安頓車泊</td><td>~2.5h</td></tr>
+          <tr><td class="day">10/15 四</td><td>美瑛精華＋南移</td><td>上午精神好時看<b>青池</b>＋四季彩之丘 → 午後南下<b>定山溪溫泉鄉</b>車泊</td><td>~2.5h</td></tr>
+          <tr><td class="day">10/16 五</td><td>湖畔溫泉慢日</td><td><b>短車程</b>：定山溪二見吊橋紅葉、豊平峽、泡湯喝咖啡，幾乎不趕路</td><td>30–60m</td></tr>
+          <tr><td class="day">10/17 六</td><td>小樽慢遊＋還車</td><td>上午<b>小樽</b> → 開回千歲 15:30–16:00 還車 → 入住飯店</td><td>~1–1.5h</td></tr>
+          <tr><td class="day">10/18 日</td><td>緩衝／札幌</td><td>彈性休息（大通・場外市場）或定山溪日歸溫泉</td><td>彈性</td></tr>
+          <tr><td class="day">10/19 一</td><td>賦歸</td><td>上午從容 → 約 13:30 到機場，16:25 起飛</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card" style="margin-top:14px">
+      <div style="margin-bottom:10px"><span class="pill alt">替代</span> <b>方案 A — 美瑛雙晚・紅葉森林派</b>　<span class="small">若你/哥哥對「一望無際的丘陵紅葉」特別執著，願用 Day4 一段較長車程換美瑛深度。</span></div>
+      <table>
+        <thead><tr><th>Day</th><th>定位</th><th>主要內容</th><th>車程</th></tr></thead>
+        <tbody>
+          <tr><td class="day">10/13 二</td><td>抵達適應</td><td>15:10 落地 → 入住千歲飯店</td><td>接駁</td></tr>
+          <tr><td class="day">10/14 三</td><td>去程 Road Trip</td><td>09:00 取車 → 美瑛，白金溫泉泡湯，車泊白金一帶</td><td>~2.5h</td></tr>
+          <tr><td class="day">10/15 四</td><td>美瑛探索（核心）</td><td>定點：青池＋白鬚瀑布＋四季彩之丘＋拼布之路</td><td>短程</td></tr>
+          <tr><td class="day">10/16 五</td><td>回程 Road Trip</td><td>美瑛 → 小樽方向（中途砂川/岩見沢休息），車泊朝里川溫泉</td><td>~2.5–3h</td></tr>
+          <tr><td class="day">10/17 六</td><td>小樽慢遊＋還車</td><td>上午小樽 → 開回千歲 15:30–16:00 還車 → 飯店</td><td>~1h</td></tr>
+          <tr><td class="day">10/18 日</td><td>緩衝／札幌</td><td>彈性休息</td><td>彈性</td></tr>
+          <tr><td class="day">10/19 一</td><td>賦歸</td><td>上午從容 → 16:25 起飛</td><td>—</td></tr>
+        </tbody>
+      </table>
+      <div class="small" style="margin-top:8px">比較：美瑛深度 A&gt;B｜長輩舒適度 B&gt;A｜溫泉/慢節奏 B&gt;A｜最長車程 A(2.5–3h) &gt; B(都在2.5h內且拆開)。</div>
+    </div>
+  </section>
+
+  <!-- 露營車 -->
+  <section id="van">
+    <h2>露營車 — NOMAD ZIL520</h2>
+    <div class="card">
+      <div class="grid g4" style="margin-bottom:12px">
+        <div class="kpi"><div class="n">就寢 5 人</div><div class="l">你們 3 人・非常寬裕</div></div>
+        <div class="kpi"><div class="n">地板暖氣＋空調</div><div class="l">10月夜間 0–4°C 關鍵配備</div></div>
+        <div class="kpi"><div class="n">10/14→10/17</div><div class="l">4 天・3 晚車泊</div></div>
+        <div class="kpi"><div class="n"><span class="stars">★</span>4.7 (43)</div><div class="l">千歲店評價</div></div>
+      </div>
+      <b>取還車地點：</b>北海道千歲市青葉2丁目17-32（近 JR 千歲站 5–10 分、新千歲機場 8–10 分，免費接送）
+      <a class="inline" href="https://www.google.com/maps/search/?api=1&query=%E5%8C%97%E6%B5%B7%E9%81%93%E5%8D%83%E6%AD%B3%E5%B8%82%E9%9D%92%E8%91%892%E4%B8%81%E7%9B%AE17-32" target="_blank">（地圖）</a>
+
+      <h3 style="margin:16px 0 8px;font-size:15px">季節價（含稅／日）— <span class="flag">你的日期落在「常規季」</span></h3>
+      <table>
+        <thead><tr><th>季節</th><th>每日（含稅）</th><th>備註</th></tr></thead>
+        <tbody>
+          <tr><td>淡季</td><td>¥28,600</td><td>你原本抓的數字＝淡季底價</td></tr>
+          <tr><td><b>常規・平日</b></td><td><b>¥35,200</b></td><td>10/14–16（三四五）</td></tr>
+          <tr><td><b>常規・週末</b></td><td><b>¥38,500</b></td><td>10/17（六）</td></tr>
+          <tr><td>旺季 / 冬季</td><td>¥50,600 / ¥41,800</td><td>—</td></tr>
+        </tbody>
+      </table>
+      <div class="note" style="margin-top:10px"><b>預算修正：</b>4 天估約 <b>¥130,000–145,000</b>（對得上你看到的 ¥134,000），比「28,600×4＝114,400」的舊估算高約 2 萬。<br>
+      「一日」＝09:00–17:00，<b>17:00 後每小時加收 ¥5,280</b> → 還車務必 15:30–16:00 抵達。</div>
+      <div class="small" style="margin-top:8px">駕駛提醒：ZIL520 是車高約 3m 的「キャブコン」，比廂型車高寬。注意限高、側風、倒車，第一天先在空曠處熟悉車身。</div>
+    </div>
+  </section>
+
+  <!-- 飯店動線 -->
+  <section id="hotel">
+    <h2>飯店動線建議</h2>
+    <div class="card">
+      <b>把三晚飯店重心放在「千歲」</b>，讓取車、還車、進出機場都是幾分鐘的事：
+      <ul class="clean">
+        <li><b>10/13（Day1）</b>：住<b>千歲</b>。隔天 09:00 千歲取車，走幾步/接駁即到；別住札幌（早上要多花 40 分鐘電車回千歲）。</li>
+        <li><b>10/17（還車後）</b>：住<b>千歲</b>，還車、隔天彈性都輕鬆。</li>
+        <li><b>10/18（緩衝）</b>：住千歲最省事；若想逛札幌市區可那晚住札幌，10/19 早上回新千歲（40 分鐘，班機 16:25 從容）。</li>
+      </ul>
+      <div class="warn" style="margin-top:8px"><b>週末人潮：</b>10/17（六）小樽、10/18（日）札幌逢週末＋紅葉季，飯店與小樽行程<b>盡早訂、盡早出門</b>避開人潮。</div>
+    </div>
+  </section>
+
+  <!-- 費用試算 -->
+  <section id="budget-sec">
+    <h2 id="budget">費用試算（可自行填入・自動加總）</h2>
+    <div class="card">
+      <div class="rate">
+        <b>匯率設定：</b>1 日圓 =
+        <input type="number" id="rate" value="0.21" step="0.001" min="0" oninput="calcBudget()"> 台幣
+        <span class="small">（日圓項目依此換算成台幣加總；請填當下實際匯率）</span>
+      </div>
+      <div style="overflow-x:auto">
+      <table class="bt">
+        <thead><tr><th>項目</th><th>幣別</th><th>單價</th><th>數量</th><th>小計</th><th></th></tr></thead>
+        <tbody id="budgetBody"></tbody>
+      </table>
+      </div>
+      <button class="addrow" onclick="addRow()">＋ 新增項目</button>
+
+      <div class="totcard">
+        <div class="t"><div class="v" id="totTWD">—</div><div class="k">總計（台幣 TWD）</div></div>
+        <div class="t"><div class="v" id="totJPY">—</div><div class="k">約合日圓（JPY）</div></div>
+        <div class="t"><div class="v" id="totPP">—</div><div class="k">每人（台幣 ÷ 3）</div></div>
+      </div>
+      <div class="small" style="margin-top:8px">預設數字為<b>粗估草案</b>，請依實際報價修改。空白＝0；幣別可切 JPY／TWD；可新增或刪除任何項目。</div>
+    </div>
+  </section>
+
+  <!-- 景點連結 -->
+  <section id="spots">
+    <h2>景點・溫泉・車泊點（含 Google Maps）</h2>
+    <div class="card">
+      <ul class="spotlist" id="spotlist"></ul>
+      <div class="small" style="margin-top:10px">🅿 車泊點（道の駅／RV Park）與溫泉的營業季，10 月中下旬部分露營場會關閉過冬，<b>務必逐一致電/查官網確認 10/14–16 是否營業與可預約</b>；建議以「民營 RV Park（多全年）＋道の駅」為可靠主力。</div>
+    </div>
+  </section>
+
+  <!-- 必問清單 -->
+  <section id="check">
+    <h2>下訂前必問清單 & 詢問訊息</h2>
+    <div class="warn">
+      <b>最關鍵兩題：</b>第 4 題（暖氣能否整夜供暖）決定媽媽晚上暖不暖；第 7 題（台灣駕照譯本）決定你能不能合法把車開出去。這兩題答案回來後，車即可拍板。
+    </div>
+    <div class="msgbox" style="margin-top:12px">
+      <button class="copybtn" onclick="copyMsg()">📋 複製</button>
+      <pre class="msg" id="inquiry">您好，我想預約 ZIL520（10/14 取車～10/17 還車，3 名乘客），有幾點想確認：
+
+1. 這段日期的實際車資與季節認定？含稅總額？
+2. 保險/免責補償制度與費用？是否有「免責額全免（安心補償）」可加購？
+3. 寢具（棉被、枕頭）是否含在車資內？10 月夜間偏冷，是否為冬用厚被？
+4. 地板暖氣與空調，能否在熄火、不使用發電機的狀態下整夜運轉？電力來源為何（副電瓶／FF 燃油暖房）？
+5. 車上是否有廁所（卡式馬桶）？
+6. 交車時是否已是冬胎（スタッドレスタイヤ）？
+7. 我持台灣駕照，需要準備日文譯本（JAF 或交流協會核發）嗎？ZIL520 用普通駕照可駕嗎？
+8. 里程限制、還車加油規定、ETC 卡、取消政策、免費接送時段（我 10/13 傍晚抵達、10/14 早上取車）？
+
+另想請問：媽媽 74 歲同行，是否有適用的高齡優惠？謝謝！</pre>
+    </div>
+  </section>
+
+  <footer>
+    北海道 Vanlife 行程規劃　·　製作日 2026-07-11　·　資料為規劃草案，車泊點/溫泉營業與價格請以各官方最新公告為準
+  </footer>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  const C = { base:'#2563eb', biei:'#e05a2b', onsen:'#7c3aed', otaru:'#0891b2', sapporo:'#16a34a' };
+  const spots = [
+    {name:'新千歳空港', lat:42.7752, lng:141.6923, cat:'base', q:'新千歳空港', ds:'去回程機場'},
+    {name:'NOMAD 露營車 千歳店', lat:42.8180, lng:141.6565, cat:'base', q:'北海道千歳市青葉2丁目17-32', ds:'取還車（近JR千歳站）'},
+    {name:'青い池（青池）', lat:43.4926, lng:142.6306, cat:'biei', q:'青い池 美瑛', ds:'必訪・清晨最美'},
+    {name:'白鬚の滝', lat:43.4082, lng:142.6635, cat:'biei', q:'白ひげの滝 美瑛', ds:'白金・橋上短程'},
+    {name:'四季彩の丘', lat:43.5828, lng:142.4602, cat:'biei', q:'四季彩の丘 美瑛', ds:'有電動車・輪椅友善'},
+    {name:'拼布之路（Ken&Mary之樹）', lat:43.6153, lng:142.4271, cat:'biei', q:'ケンとメリーの木 美瑛', ds:'車上看丘陵'},
+    {name:'新栄の丘展望公園', lat:43.6421, lng:142.5028, cat:'biei', q:'新栄の丘展望公園', ds:'夕陽展望'},
+    {name:'道の駅 白金ビルケ', lat:43.4472, lng:142.6360, cat:'biei', q:'道の駅 びえい白金ビルケ', ds:'🅿車泊候選（近青池）'},
+    {name:'白金温泉', lat:43.4060, lng:142.6620, cat:'onsen', q:'白金温泉 美瑛', ds:'♨ 美瑛日歸溫泉'},
+    {name:'定山渓温泉', lat:42.9686, lng:141.1600, cat:'onsen', q:'定山渓温泉', ds:'♨ 紅葉溫泉鄉（方案B車泊）'},
+    {name:'二見吊橋（定山渓）', lat:42.9648, lng:141.1583, cat:'onsen', q:'二見吊橋 定山渓', ds:'定山溪紅葉散策'},
+    {name:'朝里川温泉', lat:43.1470, lng:141.0360, cat:'onsen', q:'朝里川温泉 小樽', ds:'♨ 小樽近郊（方案A車泊）'},
+    {name:'支笏湖', lat:42.7549, lng:141.3517, cat:'onsen', q:'支笏湖', ds:'近千歲・湖畔備案'},
+    {name:'小樽運河', lat:43.1990, lng:140.9946, cat:'otaru', q:'小樽運河', ds:'慢遊・平坦好走'},
+    {name:'堺町通り', lat:43.1918, lng:140.9985, cat:'otaru', q:'堺町通り 小樽', ds:'老街・咖啡・LeTAO'},
+    {name:'札幌 大通公園', lat:43.0608, lng:141.3469, cat:'sapporo', q:'大通公園 札幌', ds:'緩衝日市區'},
+    {name:'札幌場外市場', lat:43.0774, lng:141.3180, cat:'sapporo', q:'札幌場外市場', ds:'海鮮早餐'},
+  ];
+  function gmap(q){ return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q); }
+
+  const map = L.map('map').setView([43.15, 141.75], 8);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+    {maxZoom:18, attribution:'© OpenStreetMap'}).addTo(map);
+
+  const bounds = [];
+  spots.forEach(s=>{
+    const m = L.circleMarker([s.lat,s.lng],
+      {radius:8, color:'#fff', weight:2, fillColor:C[s.cat], fillOpacity:1}).addTo(map);
+    m.bindPopup('<b>'+s.name+'</b><br><span style="color:#666;font-size:12px">'+s.ds+'</span><br>'+
+      '<a href="'+gmap(s.q)+'" target="_blank" style="color:#2563eb;font-weight:700">→ Google Maps 導航</a>');
+    bounds.push([s.lat,s.lng]);
+  });
+  map.fitBounds(bounds, {padding:[30,30]});
+
+  // 景點清單
+  const ul = document.getElementById('spotlist');
+  const order = ['base','biei','onsen','otaru','sapporo'];
+  spots.slice().sort((a,b)=>order.indexOf(a.cat)-order.indexOf(b.cat)).forEach(s=>{
+    const li = document.createElement('li');
+    li.innerHTML = '<div><span class="nm" style="border-left:3px solid '+C[s.cat]+';padding-left:8px">'+
+      s.name+'</span><br><span class="ds">'+s.ds+'</span></div>'+
+      '<a style="background:'+C[s.cat]+'" href="'+gmap(s.q)+'" target="_blank">Google Maps ↗</a>';
+    ul.appendChild(li);
+  });
+
+  function copyMsg(){
+    const t = document.getElementById('inquiry').innerText;
+    navigator.clipboard.writeText(t).then(()=>{
+      const b=document.querySelector('.copybtn'); const o=b.innerText;
+      b.innerText='✓ 已複製'; setTimeout(()=>b.innerText=o,1600);
+    });
+  }
+
+  /* ===== 費用試算 ===== */
+  const defaultRows=[
+    ['機票（星宇直飛）','TWD',22046,3],
+    ['露營車 ZIL520（4天基本費用）','JPY',134000,1],
+    ['露營車 保險／免責補償（每日）','JPY',2500,4],
+    ['飯店 千歲（每晚 × 3晚）','JPY',15000,3],
+    ['RV Park／車泊費（每晚）','JPY',3000,2],
+    ['日歸溫泉 泡湯（人 × 次）','JPY',1500,6],
+    ['油費（露營車）','JPY',9000,1],
+    ['高速道路 ETC 過路費','JPY',5000,1],
+    ['餐飲（每人每日）','JPY',3000,21],
+    ['伴手禮／購物','JPY',0,1],
+    ['其他（雜支／接送等）','JPY',0,1],
+  ];
+  function fmt(n){ return Math.round(n).toLocaleString('en-US'); }
+  function rowHTML(label,cur,price,qty){
+    return '<td><input class="lbl" value="'+label.replace(/"/g,'&quot;')+'"></td>'+
+      '<td><select onchange="calcBudget()">'+
+        '<option value="JPY"'+(cur==='JPY'?' selected':'')+'>JPY</option>'+
+        '<option value="TWD"'+(cur==='TWD'?' selected':'')+'>TWD</option></select></td>'+
+      '<td><input class="num price" type="number" min="0" value="'+price+'" oninput="calcBudget()"></td>'+
+      '<td><input class="qty" type="number" min="0" value="'+qty+'" oninput="calcBudget()"></td>'+
+      '<td class="sub">—</td>'+
+      '<td><button class="delrow" onclick="delRow(this)">✕</button></td>';
+  }
+  function addRow(label,cur,price,qty){
+    const tr=document.createElement('tr');
+    tr.innerHTML=rowHTML(label||'新項目', cur||'JPY', price!=null?price:0, qty!=null?qty:1);
+    document.getElementById('budgetBody').appendChild(tr);
+    calcBudget();
+  }
+  function delRow(btn){ btn.closest('tr').remove(); calcBudget(); }
+  function calcBudget(){
+    const rate=parseFloat(document.getElementById('rate').value)||0;
+    let totalTWD=0;
+    document.querySelectorAll('#budgetBody tr').forEach(tr=>{
+      const cur=tr.querySelector('select').value;
+      const price=parseFloat(tr.querySelector('.price').value)||0;
+      const qty=parseFloat(tr.querySelector('.qty').value)||0;
+      const sub=price*qty;
+      totalTWD += (cur==='JPY' ? sub*rate : sub);
+      tr.querySelector('.sub').innerText=(cur==='JPY'?'¥':'NT$')+fmt(sub);
+    });
+    document.getElementById('totTWD').innerText='NT$ '+fmt(totalTWD);
+    document.getElementById('totJPY').innerText= rate>0 ? '¥ '+fmt(totalTWD/rate) : '—';
+    document.getElementById('totPP').innerText='NT$ '+fmt(totalTWD/3);
+  }
+  defaultRows.forEach(r=>addRow(r[0],r[1],r[2],r[3]));
+</script>
+</body>
+</html>
