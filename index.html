@@ -57,6 +57,7 @@
   #leafletmap{height:440px;border-radius:14px;border:1px solid var(--line);z-index:1;}
   #routemap{height:480px;border-radius:14px;border:1px solid var(--line);z-index:1;}
   .rbadge{color:#fff;padding:2px 8px;border-radius:8px;font-size:11.5px;font-weight:800;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,.35);}
+  .rnum{display:inline-block;min-width:24px;height:24px;line-height:22px;text-align:center;color:#fff;border-radius:50%;font-size:13px;font-weight:800;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.45);}
   .leaflet-tooltip.rbadge-wrap{background:none;border:none;box-shadow:none;padding:0;}
   .leaflet-tooltip.rbadge-wrap:before{display:none;border:none;}
   .leaflet-tooltip.rnode{background:#fff;border:1px solid #e8ded0;font-weight:700;font-size:12px;color:#2b2622;box-shadow:0 1px 3px rgba(0,0,0,.2);}
@@ -212,12 +213,14 @@
     <h2 id="route">日期路徑圖</h2>
     <div class="card">
       <div id="routemap"></div>
-      <div class="callegend">
-        <span>━━ 露營車自駕（10/14–10/17）</span>
-        <span>┈┈ JR 鐵路（10/17 後）</span>
-        <span>①–⑦ = 第1天–第7天</span>
+      <div class="small" style="margin-top:10px;line-height:2.1">
+        <b>①</b> 10/13 抵達　<b>②</b> 10/14 千歳→美瑛 🚐　<b>③</b> 10/15 美瑛→定山溪 🚐　<b>④</b> 10/16 定山溪慢日　<b>⑤</b> 10/17 定山溪→千歲還車→札幌　<b>⑥</b> 10/18 札幌⇄小樽 JR　<b>⑦</b> 10/19 札幌→機場 JR
       </div>
-      <div class="small" style="margin-top:6px">真實地圖底圖（OpenStreetMap），路線依實際座標連線；①–⑦ 為日期順序，實線＝露營車、虛線＝JR。實際導航請點上方「互動地圖」的 Google 地圖連結。</div>
+      <div class="callegend" style="margin-top:6px">
+        <span>━━ 露營車自駕</span>
+        <span>┈┈ JR 鐵路</span>
+      </div>
+      <div class="small" style="margin-top:6px">真實地圖底圖（OpenStreetMap，已淡化至 20% 讓路線清楚）；圓圈數字為日期順序，實際導航請用「行程」分頁互動地圖的 Google 地圖連結。</div>
     </div>
   </section>
 
@@ -243,13 +246,13 @@
 
     <div class="small" style="margin-top:10px">＊已依需求捨棄「美瑛雙晚」替代案（無追求丘陵紅葉深度的執著），全程以均勻車程＋溫泉慢節奏為主軸。</div>
 
-    <div class="note" style="margin-top:12px"><b>♨ 露營車三晚・每晚都有溫泉洗澡（睡車上必備）：</b>
+    <div class="note" style="margin-top:12px"><b>🏕♨ 露營車三晚・住宿＋洗澡溫泉：</b>
       <ul class="clean" style="margin-top:4px">
-        <li><b>10/14</b>　白金温泉（美瑛白金・車泊①）</li>
-        <li><b>10/15</b>　定山渓温泉（紅葉溫泉鄉・車泊②）</li>
-        <li><b>10/16</b>　豊平峡温泉（露天名湯＋咖哩・車泊③）</li>
+        <li><b>10/14 車泊①</b>　住：<b>星に手のとどく丘</b>（中富良野・オートキャンプ＋觀星；隔天回青池多繞約 40 分）或 道の駅白金ビルケ（近青池・免費）　洗澡：白金温泉</li>
+        <li><b>10/15 車泊②</b>　住：<b>定山渓自然の村</b>（オートキャンプ）　洗澡：定山渓温泉</li>
+        <li><b>10/16 車泊③</b>　住：<b>定山渓自然の村</b>　洗澡：豊平峡温泉（露天＋咖哩）</li>
       </ul>
-      都是<b>日歸溫泉</b>，泡完暖呼呼回車上睡；地點與連結見下方「景點・溫泉・車泊點」。
+      皆為<b>日歸溫泉</b>，泡完暖呼呼回車上睡。<b>營區 10 月中營業與可停露營車務必先電話確認</b>；離線備援：道の駅白金ビルケ、豊平峡温泉停車場。
     </div>
 
     <div class="note" style="margin-top:12px"><b>札幌市區散策（已納入你想去的點）＋長輩貼心：</b>
@@ -437,7 +440,7 @@
         <thead><tr><th>候選</th><th>類型</th><th>位置</th><th>順路評估</th><th>地圖</th></tr></thead>
         <tbody>
           <tr><td><b>苫小牧アルテン</b><br><span class="small">オートリゾート苫小牧アルテン</span></td><td>露營/車泊</td><td>苫小牧（千歲南 40km）</td><td><span class="vd-ok">✅ 順路</span>・全年五星，可當首/末晚車泊基地</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=オートリゾート苫小牧アルテン">地圖 ↗</a></td></tr>
-          <tr><td><b>星に手のとどく丘</b><br><span class="small">星手之丘</span></td><td>露營/觀星</td><td>中富良野（美瑛南）</td><td><span class="vd-ok">✅ 順路</span>・美瑛車泊＋觀星選項</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=星に手のとどく丘">地圖 ↗</a></td></tr>
+          <tr><td><b>星に手のとどく丘</b><br><span class="small">星手之丘</span></td><td>露營/觀星</td><td>中富良野（美瑛南）</td><td><span class="vd-ok">✅ 已排入</span>・10/14 車泊①（美瑛車泊＋觀星）</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=星に手のとどく丘">地圖 ↗</a></td></tr>
           <tr><td><b>北の住まい設計社</b><br><span class="small">北之住傢俱中心</span></td><td>選物/咖啡</td><td>東川町（美瑛旁）</td><td><span class="vd-ok">✅ 順路</span>・平坦好走、質感咖啡，長輩友善</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=北の住まい設計社 東川">地圖 ↗</a></td></tr>
           <tr><td><b>バーチ 白樺 PAACHI</b></td><td>森林餐廳</td><td>東川町（美瑛旁）</td><td><span class="vd-ok">✅ 順路</span>・美瑛區用餐點</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=バーチ PAACHI 東川">地圖 ↗</a></td></tr>
           <tr><td><b>旭山動物園</b></td><td>景點</td><td>旭川（美瑛北約 40 分）</td><td><span class="vd-mid">⚠️ 小繞</span>・可半日加碼，但步行多、建議用輪椅</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=旭山動物園">地圖 ↗</a></td></tr>
@@ -525,14 +528,16 @@
   const spots = [
     {name:'新千歳空港', lat:42.7752, lng:141.6923, cat:'base', q:'新千歳空港', day:'10/13', opt:false, ds:'去程 15:10 落地／回程 16:25 起飛'},
     {name:'NOMAD 露營車 千歳店', lat:42.8180, lng:141.6565, cat:'base', q:'北海道千歳市青葉2丁目17-32', day:'10/14', opt:false, ds:'10/14 取車・10/17 還車'},
-    {name:'道の駅 白金ビルケ', lat:43.4472, lng:142.6360, cat:'biei', q:'道の駅 びえい白金ビルケ', day:'10/14', opt:false, ds:'🅿 車泊①（近青池）'},
+    {name:'星に手のとどく丘（車泊①）', lat:43.4067, lng:142.4436, cat:'biei', q:'星に手のとどく丘', day:'10/14', opt:false, ds:'⛺ 露營車泊①・オートキャンプ＋觀星（需確認營業）'},
+    {name:'道の駅 白金ビルケ', lat:43.4472, lng:142.6360, cat:'biei', q:'道の駅 びえい白金ビルケ', day:'10/14', opt:true, ds:'🅿 車泊①備援（近青池・免費）'},
     {name:'白金温泉', lat:43.4060, lng:142.6620, cat:'onsen', q:'白金温泉 美瑛', day:'10/14', opt:false, ds:'♨ 洗澡・日歸溫泉（車泊①）'},
     {name:'四季彩の丘', lat:43.5828, lng:142.4602, cat:'biei', q:'四季彩の丘 美瑛', day:'10/14', opt:false, ds:'有電動車・輪椅友善'},
     {name:'拼布之路（Ken&Mary之樹）', lat:43.6153, lng:142.4271, cat:'biei', q:'ケンとメリーの木 美瑛', day:'10/14', opt:true, ds:'車上看丘陵（可選）'},
     {name:'新栄の丘展望公園', lat:43.6421, lng:142.5028, cat:'biei', q:'新栄の丘展望公園', day:'10/14', opt:true, ds:'夕陽展望（可選）'},
     {name:'青い池（青池）', lat:43.4926, lng:142.6306, cat:'biei', q:'青い池 美瑛', day:'10/15', opt:false, ds:'必訪・清晨最美'},
     {name:'白鬚の滝', lat:43.4082, lng:142.6635, cat:'biei', q:'白ひげの滝 美瑛', day:'10/15', opt:true, ds:'白金・青池旁短程（可選）'},
-    {name:'定山渓温泉', lat:42.9686, lng:141.1600, cat:'onsen', q:'定山渓温泉', day:'10/15', opt:false, ds:'♨ 洗澡・車泊②（紅葉溫泉鄉）'},
+    {name:'定山渓温泉', lat:42.9686, lng:141.1600, cat:'onsen', q:'定山渓温泉', day:'10/15', opt:false, ds:'♨ 洗澡（紅葉溫泉鄉）'},
+    {name:'定山渓自然の村（車泊②③）', lat:42.9424, lng:141.1840, cat:'onsen', q:'定山渓自然の村', day:'10/15', opt:false, ds:'⛺ 露營車泊②③・オートサイト（需確認營業）'},
     {name:'二見吊橋（定山渓）', lat:42.9648, lng:141.1583, cat:'onsen', q:'二見吊橋 定山渓', day:'10/16', opt:false, ds:'定山溪紅葉散策'},
     {name:'豊平峡温泉', lat:42.9500, lng:141.1400, cat:'onsen', q:'豊平峡温泉', day:'10/16', opt:false, ds:'♨ 洗澡・露天名湯＋咖哩（車泊③）'},
     {name:'狸小路商店街（湯咖哩）', lat:43.0567, lng:141.3536, cat:'sapporo', q:'狸小路商店街', day:'10/17', opt:false, ds:'✅ 有頂棚平坦・湯咖哩晚餐'},
@@ -756,7 +761,7 @@
     };
     const rmap=L.map('routemap',{scrollWheelZoom:false}).setView([43.0,141.6],8);
     window._rmap=rmap;
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'© OpenStreetMap'}).addTo(rmap);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,opacity:0.2,attribution:'© OpenStreetMap'}).addTo(rmap);
     function seg(a,b,color,jr){ L.polyline([a,b],{color:color,weight:4,opacity:0.9,dashArray:jr?'3 9':null,lineCap:'round'}).addTo(rmap); }
     seg(P.kuko,P.chitose,'#2563eb',false);   // ① 抵達接駁
     seg(P.chitose,P.biei,'#e05a2b',false);    // ② 露營車
@@ -776,18 +781,18 @@
     node(P.chitose,'千歳・還車','#2563eb');
     node(P.kuko,'新千歳空港','#2563eb');
     function mid(a,b){ return [(a[0]+b[0])/2,(a[1]+b[1])/2]; }
-    function badge(pt,text,color){
+    function badge(pt,num,color){
       L.circleMarker(pt,{radius:0.1,opacity:0,fillOpacity:0}).addTo(rmap)
-        .bindTooltip('<span class="rbadge" style="background:'+color+'">'+text+'</span>',
+        .bindTooltip('<span class="rnum" style="background:'+color+'">'+num+'</span>',
           {permanent:true,direction:'center',className:'rbadge-wrap'});
     }
-    badge(mid(P.kuko,P.chitose),'① 10/13','#2563eb');
-    badge(mid(P.chitose,P.biei),'② 10/14 🚐','#e05a2b');
-    badge(mid(P.biei,P.joza),'③ 10/15 🚐','#d1491f');
-    badge(P.joza,'④ 10/16 慢日','#7c3aed');
-    badge(mid(P.chitose,P.sapp),'⑤ 10/17','#16a34a');
-    badge(mid(P.sapp,P.otaru),'⑥ 10/18 JR','#0891b2');
-    badge(mid(P.sapp,P.kuko),'⑦ 10/19 JR','#6b7280');
+    badge([42.80,141.675],'①','#2563eb');            // 空港↔千歳
+    badge(mid(P.chitose,P.biei),'②','#e05a2b');       // 千歳→美瑛
+    badge(mid(P.biei,P.joza),'③','#d1491f');          // 美瑛→定山溪
+    badge([42.985,141.09],'④','#7c3aed');            // 定山溪（西側）
+    badge([42.995,141.47],'⑤','#16a34a');            // 千歳→札幌（上）
+    badge(mid(P.sapp,P.otaru),'⑥','#0891b2');         // 札幌⇄小樽
+    badge([42.885,141.565],'⑦','#6b7280');           // 札幌→空港（下）
     rmap.fitBounds([P.kuko,P.chitose,P.biei,P.joza,P.sapp,P.otaru],{padding:[45,45]});
     setTimeout(()=>rmap.invalidateSize(),300);
     window.addEventListener('load',()=>rmap.invalidateSize());
