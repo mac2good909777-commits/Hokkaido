@@ -17,7 +17,11 @@
   *{box-sizing:border-box}
   body{margin:0;font-family:"Noto Sans TC",system-ui,-apple-system,"Microsoft JhengHei",sans-serif;
     background:var(--bg);color:var(--ink);line-height:1.7;font-size:15px;}
-  .wrap{max-width:960px;margin:0 auto;padding:0 16px 80px;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 16px 80px;display:flex;flex-direction:column;}
+  .wrap > footer{order:99;}
+  .tab-btn{white-space:nowrap;font-size:14px;color:var(--sub);background:#fff;border:1px solid var(--line);padding:8px 16px;border-radius:999px;cursor:pointer;font-family:inherit;font-weight:700;}
+  .tab-btn:hover{border-color:var(--accent);color:var(--accent);}
+  .tab-btn.active{background:var(--accent);color:#fff;border-color:var(--accent);}
   header.hero{background:linear-gradient(135deg,#e05a2b 0%,#c9451c 55%,#9c3312 100%);
     color:#fff;padding:38px 20px 30px;text-align:center;position:relative;overflow:hidden;}
   header.hero:before{content:"🍁";position:absolute;font-size:120px;opacity:.12;right:10px;top:-10px;}
@@ -144,25 +148,17 @@
 </header>
 
 <nav class="toc"><div class="in">
-  <a href="#summary">總覽</a>
-  <a href="#calendar">日曆</a>
-  <a href="#map">地圖</a>
-  <a href="#route">路徑圖</a>
-  <a href="#plan">行程</a>
-  <a href="#van">露營車</a>
-  <a href="#hotel">飯店</a>
-  <a href="#budget">費用試算</a>
-  <a href="#checklist-sec">準備清單</a>
-  <a href="#spots">景點連結</a>
-  <a href="#cand">候選景點</a>
-  <a href="#check">必問清單</a>
-  <a href="#ref">參考網站</a>
+  <button class="tab-btn" data-tab="overview">總覽</button>
+  <button class="tab-btn" data-tab="plan">行程</button>
+  <button class="tab-btn" data-tab="stay">交通住宿</button>
+  <button class="tab-btn" data-tab="budget">費用・清單</button>
+  <button class="tab-btn" data-tab="ref">參考</button>
 </div></nav>
 
 <div class="wrap">
 
   <!-- 總覽 -->
-  <section id="summary">
+  <section id="summary" data-tab="overview" style="order:1">
     <h2>行程總覽</h2>
     <div class="grid g4">
       <div class="kpi"><div class="n">10/13→10/19</div><div class="l">星宇直飛・7天6夜</div></div>
@@ -184,7 +180,7 @@
   </section>
 
   <!-- 行程日曆 -->
-  <section id="cal-sec">
+  <section id="cal-sec" data-tab="overview" style="order:2">
     <h2 id="calendar">行程日曆（2026 年 10 月）</h2>
     <div class="card">
       <div class="cal" id="cal"></div>
@@ -197,7 +193,7 @@
   </section>
 
   <!-- 地圖 -->
-  <section id="map-sec">
+  <section id="map-sec" data-tab="plan" style="order:5">
     <h2 id="map">互動地圖</h2>
     <div id="leafletmap"></div>
     <div class="legend">
@@ -212,7 +208,7 @@
   </section>
 
   <!-- 日期路徑圖 -->
-  <section id="route-sec">
+  <section id="route-sec" data-tab="overview" style="order:3">
     <h2 id="route">日期路徑圖</h2>
     <div class="card">
       <div id="routemap"></div>
@@ -225,8 +221,8 @@
     </div>
   </section>
 
-  <!-- 兩個方案 -->
-  <section id="plan">
+  <!-- 行程方案 -->
+  <section id="plan" data-tab="plan" style="order:4">
     <h2>行程方案（已定案）</h2>
 
     <div class="card">
@@ -266,7 +262,7 @@
   </section>
 
   <!-- 露營車 -->
-  <section id="van">
+  <section id="van" data-tab="stay" style="order:8">
     <h2>露營車 — NOMAD ZIL520</h2>
     <div class="card">
       <div class="grid g4" style="margin-bottom:12px">
@@ -295,7 +291,7 @@
   </section>
 
   <!-- 飯店動線 -->
-  <section id="hotel">
+  <section id="hotel" data-tab="stay" style="order:9">
     <h2>飯店動線建議</h2>
     <div class="card">
       <b>飯店配置：千歲 1 晚（取車用）＋ 札幌 2 晚（放鬆用）</b>
@@ -339,7 +335,7 @@
   </section>
 
   <!-- 費用試算 -->
-  <section id="budget-sec">
+  <section id="budget-sec" data-tab="budget" style="order:10">
     <h2 id="budget">費用試算（可自行填入・自動加總）</h2>
     <div class="card">
       <div class="rate">
@@ -365,7 +361,7 @@
   </section>
 
   <!-- 準備清單 -->
-  <section id="checklist-sec">
+  <section id="checklist-sec" data-tab="budget" style="order:11">
     <h2>出發前準備清單</h2>
     <div class="card" id="checklist">
       <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
@@ -422,7 +418,7 @@
   </section>
 
   <!-- 景點連結 -->
-  <section id="spots">
+  <section id="spots" data-tab="plan" style="order:6">
     <h2>景點・溫泉・車泊點（含 Google 地圖）</h2>
     <div class="card">
       <div class="small" style="margin-bottom:10px">依<b>日期順序</b>排列；每個露營車夜都含 <b>♨ 洗澡溫泉</b>。標 <span class="optpill">可選</span> 者為未排入的備案景點，想去再機動加。</div>
@@ -432,7 +428,7 @@
   </section>
 
   <!-- 候選景點評估 -->
-  <section id="cand-sec">
+  <section id="cand-sec" data-tab="plan" style="order:7">
     <h2 id="cand">大點之間・候選景點評估</h2>
     <div class="card">
       <div class="small" style="margin-bottom:10px">你提供的候選露營地／景點，依「是否順路」評估（本趟路線 Plan B：千歲→美瑛→定山溪→小樽→千歲）。<span class="vd-ok">✅ 建議納入</span>、<span class="vd-mid">⚠️ 可評估・需小繞</span>。（離路線太遠者已移除，留待下次道東／道北專程。）順路的 6 個已加到上方地圖（金色點）。</div>
@@ -454,7 +450,7 @@
   </section>
 
   <!-- 必問清單 -->
-  <section id="check">
+  <section id="check" data-tab="budget" style="order:12">
     <h2>下訂前必問清單 & 詢問訊息</h2>
     <div class="warn">
       <b>最關鍵兩題：</b>第 4 題（暖氣能否整夜供暖）決定媽媽晚上暖不暖；第 7 題（台灣駕照譯本）決定你能不能合法把車開出去。這兩題答案回來後，車即可拍板。
@@ -477,7 +473,7 @@
   </section>
 
   <!-- 參考網站 -->
-  <section id="ref-sec">
+  <section id="ref-sec" data-tab="ref" style="order:13">
     <h2 id="ref">參考網站</h2>
     <div class="card">
       <div class="refgrid">
@@ -552,6 +548,7 @@
   function gmap(q){ return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q); }
 
   const map = L.map('leafletmap').setView([43.15, 141.75], 8);
+  window._map = map;
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
     {maxZoom:18, attribution:'© OpenStreetMap'}).addTo(map);
 
@@ -758,6 +755,7 @@
       joza:[42.9686,141.1600], sapp:[43.0618,141.3545], otaru:[43.1990,140.9946]
     };
     const rmap=L.map('routemap',{scrollWheelZoom:false}).setView([43.0,141.6],8);
+    window._rmap=rmap;
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'© OpenStreetMap'}).addTo(rmap);
     function seg(a,b,color,jr){ L.polyline([a,b],{color:color,weight:4,opacity:0.9,dashArray:jr?'3 9':null,lineCap:'round'}).addTo(rmap); }
     seg(P.kuko,P.chitose,'#2563eb',false);   // ① 抵達接駁
@@ -793,6 +791,27 @@
     rmap.fitBounds([P.kuko,P.chitose,P.biei,P.joza,P.sapp,P.otaru],{padding:[45,45]});
     setTimeout(()=>rmap.invalidateSize(),300);
     window.addEventListener('load',()=>rmap.invalidateSize());
+  })();
+
+  /* ===== 分類分頁 ===== */
+  (function(){
+    const btns=[...document.querySelectorAll('.tab-btn')];
+    const sections=[...document.querySelectorAll('.wrap > section')];
+    function show(tab){
+      sections.forEach(s=>{ s.style.display = (s.dataset.tab===tab)?'':'none'; });
+      btns.forEach(b=>b.classList.toggle('active', b.dataset.tab===tab));
+      try{ localStorage.setItem('hokkaido_tab', tab); }catch(e){}
+      // 重新計算被隱藏過的地圖尺寸
+      setTimeout(()=>{
+        if(window._map) window._map.invalidateSize();
+        if(window._rmap) window._rmap.invalidateSize();
+      },40);
+      window.scrollTo({top:0,behavior:'auto'});
+    }
+    btns.forEach(b=>b.addEventListener('click',()=>show(b.dataset.tab)));
+    let start='overview';
+    try{ const saved=localStorage.getItem('hokkaido_tab'); if(saved && btns.some(b=>b.dataset.tab===saved)) start=saved; }catch(e){}
+    show(start);
   })();
 </script>
 </body>
