@@ -51,6 +51,11 @@
   .rec{background:#e8f6ec;color:#137a37;border:1px solid #bfe6cb;}
   .alt{background:#f1eef7;color:#6b4bb0;border:1px solid #ddd2ee;}
   #leafletmap{height:440px;border-radius:14px;border:1px solid var(--line);z-index:1;}
+  #routemap{height:480px;border-radius:14px;border:1px solid var(--line);z-index:1;}
+  .rbadge{color:#fff;padding:2px 8px;border-radius:8px;font-size:11.5px;font-weight:800;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,.35);}
+  .leaflet-tooltip.rbadge-wrap{background:none;border:none;box-shadow:none;padding:0;}
+  .leaflet-tooltip.rbadge-wrap:before{display:none;border:none;}
+  .leaflet-tooltip.rnode{background:#fff;border:1px solid #e8ded0;font-weight:700;font-size:12px;color:#2b2622;box-shadow:0 1px 3px rgba(0,0,0,.2);}
   .legend{display:flex;flex-wrap:wrap;gap:12px;margin-top:10px;font-size:12px;color:var(--sub);}
   .legend .d{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:5px;vertical-align:middle;}
   .spotlist{list-style:none;padding:0;margin:0;display:grid;gap:8px;}
@@ -210,78 +215,13 @@
   <section id="route-sec">
     <h2 id="route">日期路徑圖</h2>
     <div class="card">
-      <div style="overflow-x:auto">
-      <svg viewBox="0 0 820 560" width="100%" style="min-width:640px;font-family:'Noto Sans TC',sans-serif" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <marker id="ah-b" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2563eb"/></marker>
-          <marker id="ah-o" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e05a2b"/></marker>
-          <marker id="ah-r" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#d1491f"/></marker>
-          <marker id="ah-p" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7c3aed"/></marker>
-          <marker id="ah-g" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#16a34a"/></marker>
-          <marker id="ah-t" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#0891b2"/></marker>
-          <marker id="ah-t0" markerWidth="9" markerHeight="9" refX="3" refY="3" orient="auto"><path d="M6,0 L0,3 L6,6 Z" fill="#0891b2"/></marker>
-          <marker id="ah-gy" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#6b7280"/></marker>
-        </defs>
-
-        <rect x="0" y="0" width="820" height="560" fill="#faf7f2" rx="14"/>
-        <text x="705" y="46" font-size="13" fill="#9a8f80">北 ↑</text>
-
-        <!-- paths -->
-        <!-- D2 千歳→美瑛 (露營車) -->
-        <path d="M545,420 C612,320 640,215 653,122" fill="none" stroke="#e05a2b" stroke-width="4" marker-end="url(#ah-o)"/>
-        <!-- D3 美瑛→定山溪 (露營車) -->
-        <path d="M648,112 C500,150 380,265 312,332" fill="none" stroke="#d1491f" stroke-width="4" marker-end="url(#ah-r)"/>
-        <!-- D4 定山溪 慢日 loop -->
-        <path d="M283,322 a20,20 0 1 0 12,-14" fill="none" stroke="#7c3aed" stroke-width="3.5" marker-end="url(#ah-p)"/>
-        <!-- D5a 定山溪→千歳 (露營車, 還車) -->
-        <path d="M312,348 C405,402 470,415 536,425" fill="none" stroke="#16a34a" stroke-width="4" marker-end="url(#ah-g)"/>
-        <!-- D5b 千歳→札幌 (JR) -->
-        <path d="M543,417 L455,268" fill="none" stroke="#16a34a" stroke-width="3" stroke-dasharray="2 7" stroke-linecap="round" marker-end="url(#ah-g)"/>
-        <!-- D6 札幌⇄小樽 (JR) -->
-        <path d="M432,247 L262,160" fill="none" stroke="#0891b2" stroke-width="3" stroke-dasharray="2 7" stroke-linecap="round" marker-start="url(#ah-t0)" marker-end="url(#ah-t)"/>
-        <!-- D7 札幌→空港 (JR) -->
-        <path d="M452,266 C522,335 560,420 580,486" fill="none" stroke="#6b7280" stroke-width="3" stroke-dasharray="2 7" stroke-linecap="round" marker-end="url(#ah-gy)"/>
-        <!-- D1 空港→千歳 (接駁) -->
-        <path d="M582,490 L550,432" fill="none" stroke="#2563eb" stroke-width="3.5" marker-end="url(#ah-b)"/>
-
-        <!-- nodes -->
-        <g stroke="#fff" stroke-width="3">
-          <circle cx="655" cy="112" r="10" fill="#e05a2b"/>
-          <circle cx="302" cy="340" r="10" fill="#7c3aed"/>
-          <circle cx="445" cy="255" r="10" fill="#16a34a"/>
-          <circle cx="250" cy="150" r="10" fill="#0891b2"/>
-          <circle cx="545" cy="425" r="10" fill="#2563eb"/>
-          <circle cx="585" cy="495" r="9" fill="#2563eb"/>
-        </g>
-
-        <!-- node labels -->
-        <g font-size="14" font-weight="700" fill="#2b2622">
-          <text x="655" y="94" text-anchor="middle">美瑛・青池</text>
-          <text x="300" y="366" text-anchor="middle">定山溪溫泉</text>
-          <text x="452" y="236" text-anchor="start">札幌（住×2）</text>
-          <text x="250" y="134" text-anchor="middle">小樽</text>
-          <text x="560" y="424" text-anchor="start">千歲・還車</text>
-          <text x="597" y="512" text-anchor="start">新千歲空港</text>
-        </g>
-
-        <!-- day badges -->
-        <g font-size="12.5" font-weight="800" paint-order="stroke" stroke="#faf7f2" stroke-width="4">
-          <text x="560" y="470" fill="#2563eb">① 10/13 抵達</text>
-          <text x="648" y="300" text-anchor="middle" fill="#e05a2b">② 10/14 🚐2.5h</text>
-          <text x="455" y="178" text-anchor="middle" fill="#d1491f">③ 10/15 🚐2.5h</text>
-          <text x="212" y="315" text-anchor="middle" fill="#7c3aed">④ 10/16 慢日</text>
-          <text x="392" y="404" text-anchor="middle" fill="#16a34a">⑤ 10/17 還車→札幌</text>
-          <text x="322" y="182" text-anchor="middle" fill="#0891b2">⑥ 10/18 JR 小樽</text>
-          <text x="566" y="392" text-anchor="middle" fill="#6b7280">⑦ 10/19 JR→機場</text>
-        </g>
-      </svg>
-      </div>
+      <div id="routemap"></div>
       <div class="callegend">
         <span>━━ 露營車自駕（10/14–10/17）</span>
         <span>┈┈ JR 鐵路（10/17 後）</span>
         <span>①–⑦ = 第1天–第7天</span>
       </div>
-      <div class="small" style="margin-top:6px">示意圖：地點依大致方位擺放，非精確比例；實際導航請點上方「互動地圖」的 Google 地圖連結。</div>
+      <div class="small" style="margin-top:6px">真實地圖底圖（OpenStreetMap），路線依實際座標連線；①–⑦ 為日期順序，實線＝露營車、虛線＝JR。實際導航請點上方「互動地圖」的 Google 地圖連結。</div>
     </div>
   </section>
 
@@ -808,6 +748,52 @@
     ckUpdate();
   }
   window.resetCheck=resetCheck;
+
+  /* ===== 日期路徑圖（真實地圖底圖） ===== */
+  (function(){
+    const el=document.getElementById('routemap');
+    if(!el||typeof L==='undefined') return;
+    const P={
+      kuko:[42.7752,141.6923], chitose:[42.8180,141.6565], biei:[43.4926,142.6306],
+      joza:[42.9686,141.1600], sapp:[43.0618,141.3545], otaru:[43.1990,140.9946]
+    };
+    const rmap=L.map('routemap',{scrollWheelZoom:false}).setView([43.0,141.6],8);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'© OpenStreetMap'}).addTo(rmap);
+    function seg(a,b,color,jr){ L.polyline([a,b],{color:color,weight:4,opacity:0.9,dashArray:jr?'3 9':null,lineCap:'round'}).addTo(rmap); }
+    seg(P.kuko,P.chitose,'#2563eb',false);   // ① 抵達接駁
+    seg(P.chitose,P.biei,'#e05a2b',false);    // ② 露營車
+    seg(P.biei,P.joza,'#d1491f',false);       // ③ 露營車
+    seg(P.joza,P.chitose,'#16a34a',false);    // ⑤a 露營車還車
+    seg(P.chitose,P.sapp,'#16a34a',true);     // ⑤b JR
+    seg(P.sapp,P.otaru,'#0891b2',true);       // ⑥ JR
+    seg(P.sapp,P.kuko,'#6b7280',true);        // ⑦ JR
+    function node(pt,label,color){
+      L.circleMarker(pt,{radius:8,color:'#fff',weight:2,fillColor:color,fillOpacity:1}).addTo(rmap)
+        .bindTooltip(label,{permanent:true,direction:'top',className:'rnode',offset:[0,-6]});
+    }
+    node(P.biei,'美瑛・青池','#e05a2b');
+    node(P.joza,'定山渓温泉','#7c3aed');
+    node(P.sapp,'札幌（住×2）','#16a34a');
+    node(P.otaru,'小樽','#0891b2');
+    node(P.chitose,'千歳・還車','#2563eb');
+    node(P.kuko,'新千歳空港','#2563eb');
+    function mid(a,b){ return [(a[0]+b[0])/2,(a[1]+b[1])/2]; }
+    function badge(pt,text,color){
+      L.circleMarker(pt,{radius:0.1,opacity:0,fillOpacity:0}).addTo(rmap)
+        .bindTooltip('<span class="rbadge" style="background:'+color+'">'+text+'</span>',
+          {permanent:true,direction:'center',className:'rbadge-wrap'});
+    }
+    badge(mid(P.kuko,P.chitose),'① 10/13','#2563eb');
+    badge(mid(P.chitose,P.biei),'② 10/14 🚐','#e05a2b');
+    badge(mid(P.biei,P.joza),'③ 10/15 🚐','#d1491f');
+    badge(P.joza,'④ 10/16 慢日','#7c3aed');
+    badge(mid(P.chitose,P.sapp),'⑤ 10/17','#16a34a');
+    badge(mid(P.sapp,P.otaru),'⑥ 10/18 JR','#0891b2');
+    badge(mid(P.sapp,P.kuko),'⑦ 10/19 JR','#6b7280');
+    rmap.fitBounds([P.kuko,P.chitose,P.biei,P.joza,P.sapp,P.otaru],{padding:[45,45]});
+    setTimeout(()=>rmap.invalidateSize(),300);
+    window.addEventListener('load',()=>rmap.invalidateSize());
+  })();
 </script>
 </body>
 </html>
