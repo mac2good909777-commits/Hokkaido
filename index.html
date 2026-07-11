@@ -537,10 +537,11 @@
     {name:'青い池（青池）', lat:43.4926, lng:142.6306, cat:'biei', q:'青い池 美瑛', day:'10/15', opt:false, ds:'必訪・清晨最美'},
     {name:'白鬚の滝', lat:43.4082, lng:142.6635, cat:'biei', q:'白ひげの滝 美瑛', day:'10/15', opt:true, ds:'白金・青池旁短程（可選）'},
     {name:'定山渓温泉', lat:42.9686, lng:141.1600, cat:'onsen', q:'定山渓温泉', day:'10/15', opt:false, ds:'♨ 洗澡（紅葉溫泉鄉）'},
-    {name:'オートリゾート滝野（車泊②③）', lat:42.9160, lng:141.3490, cat:'onsen', q:'オートリゾート滝野', day:'10/15', opt:false, ds:'⛺ 露營車泊②③・可停露營車＋電源（需確認營業）'},
+    {name:'オートリゾート滝野（車泊②）', lat:42.9160, lng:141.3490, cat:'onsen', q:'オートリゾート滝野', day:'10/15', opt:false, ds:'⛺ 露營車泊②・可停露營車＋電源（需確認營業）'},
     {name:'道の駅 望羊中山（車宿備援）', lat:42.8790, lng:141.1080, cat:'onsen', q:'道の駅 望羊中山', day:'10/15', opt:true, ds:'🅿 車宿備援・近定山溪、免費可靠'},
     {name:'二見吊橋（定山渓）', lat:42.9648, lng:141.1583, cat:'onsen', q:'二見吊橋 定山渓', day:'10/16', opt:false, ds:'定山溪紅葉散策'},
-    {name:'豊平峡温泉', lat:42.9500, lng:141.1400, cat:'onsen', q:'豊平峡温泉', day:'10/16', opt:false, ds:'♨ 洗澡・露天名湯＋咖哩（車泊③）'},
+    {name:'豊平峡温泉', lat:42.9500, lng:141.1400, cat:'onsen', q:'豊平峡温泉', day:'10/16', opt:false, ds:'♨ 洗澡・露天名湯＋咖哩'},
+    {name:'オートリゾート滝野（車泊③）', lat:42.9160, lng:141.3490, cat:'onsen', q:'オートリゾート滝野', day:'10/16', opt:false, ds:'⛺ 露營車泊③・回滝野睡（同 10/15）'},
     {name:'狸小路商店街（湯咖哩）', lat:43.0567, lng:141.3536, cat:'sapporo', q:'狸小路商店街', day:'10/17', opt:false, ds:'✅ 有頂棚平坦・湯咖哩晚餐'},
     {name:'札幌 大通公園', lat:43.0608, lng:141.3469, cat:'sapporo', q:'大通公園 札幌', day:'10/17', opt:true, ds:'市區散步（可選）'},
     {name:'北海道大學 銀杏並木', lat:43.0757, lng:141.3419, cat:'sapporo', q:'北海道大学 銀杏並木', day:'10/18', opt:false, ds:'✅ 平坦・10月下旬金黃（晨）'},
@@ -595,8 +596,13 @@
     '10/19':'10/19 賦歸',
     '備案':'備案・機動（未排入）'
   };
+  function spotRank(s){
+    const stay = /^道の駅|車泊|車宿|オートリゾート|星に手/.test(s.name); // 車宿露營場 → 墊底
+    const bath = !stay && /温泉/.test(s.name);                          // 洗澡溫泉 → 次後
+    return stay?2 : (bath?1:0);
+  }
   dayOrder.forEach(d=>{
-    const items = spots.filter(s=>s.day===d);
+    const items = spots.filter(s=>s.day===d).sort((a,b)=>spotRank(a)-spotRank(b));
     if(!items.length) return;
     const h = document.createElement('li');
     h.className = 'daysep';
