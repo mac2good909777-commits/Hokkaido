@@ -97,6 +97,19 @@
   .refgroup .rt{font-weight:700;color:var(--accent2);margin-bottom:2px;}
   .refgroup a{text-decoration:none;color:var(--ink);background:var(--soft);border:1px solid var(--line);border-radius:9px;padding:9px 12px;font-size:14px;}
   .refgroup a:hover{border-color:var(--accent);color:var(--accent2);}
+  .cal{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;}
+  .cal .dow{text-align:center;font-size:12px;color:var(--sub);font-weight:700;padding:4px 0;}
+  .cal .cell{min-height:62px;border:1px solid var(--line);border-radius:8px;padding:5px 6px;font-size:12px;background:#fff;}
+  .cal .cell.empty{background:transparent;border:none;}
+  .cal .cell.trip{color:#fff;border:none;}
+  .cal .cell .dn{font-weight:800;font-size:13px;}
+  .cal .cell .rl{font-size:10px;line-height:1.25;margin-top:3px;opacity:.96;}
+  .cal .cell.wknd .dn{color:var(--accent2);}
+  .callegend{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px;font-size:12px;color:var(--sub);}
+  @media(max-width:720px){.cal .cell{min-height:52px;padding:3px 4px;} .cal .cell .rl{font-size:9px;}}
+  .vd-ok{color:#137a37;font-weight:700;white-space:nowrap;}
+  .vd-mid{color:#8a5a00;font-weight:700;white-space:nowrap;}
+  .vd-no{color:#b23b3b;font-weight:700;white-space:nowrap;}
   footer{margin-top:40px;text-align:center;color:var(--sub);font-size:12px;}
   .stars{color:var(--gold);}
   a.inline{color:var(--accent2);}
@@ -112,12 +125,14 @@
 
 <nav class="toc"><div class="in">
   <a href="#summary">總覽</a>
+  <a href="#calendar">日曆</a>
   <a href="#map">地圖</a>
   <a href="#plan">行程</a>
   <a href="#van">露營車</a>
   <a href="#hotel">飯店</a>
   <a href="#budget">費用試算</a>
   <a href="#spots">景點連結</a>
+  <a href="#cand">候選景點</a>
   <a href="#check">必問清單</a>
   <a href="#ref">參考網站</a>
 </div></nav>
@@ -146,6 +161,19 @@
     </div>
   </section>
 
+  <!-- 行程日曆 -->
+  <section id="cal-sec">
+    <h2 id="calendar">行程日曆（2026 年 10 月）</h2>
+    <div class="card">
+      <div class="cal" id="cal"></div>
+      <div class="callegend">
+        <span>🚐 = 露營車車泊夜（10/14–10/16，共 3 晚）</span>
+        <span>取車 10/14 09:00　·　還車 10/17 約 15:30–16:00</span>
+        <span>飯店：10/13・10/17・10/18（千歲）</span>
+      </div>
+    </div>
+  </section>
+
   <!-- 地圖 -->
   <section id="map-sec">
     <h2 id="map">互動地圖</h2>
@@ -156,6 +184,7 @@
       <span><span class="d" style="background:var(--onsen)"></span>溫泉・湖畔</span>
       <span><span class="d" style="background:var(--otaru)"></span>小樽</span>
       <span><span class="d" style="background:var(--sapporo)"></span>札幌</span>
+      <span><span class="d" style="background:#c8973f"></span>候選（待評估）</span>
     </div>
     <div class="small" style="margin-top:6px">點地圖上任一標記 → 彈出視窗內有「Google Maps 導航」連結。標記位置為概略，導航連結指向正確地點。</div>
   </section>
@@ -198,16 +227,16 @@
 
       <h3 style="margin:16px 0 8px;font-size:15px">季節價（含稅／日）— <span class="flag">你的日期落在「常規季」</span></h3>
       <table>
-        <thead><tr><th>季節</th><th>每日（含稅）</th><th>備註</th></tr></thead>
+        <thead><tr><th>季節</th><th>每日 含稅（日圓・台幣約）</th><th>備註</th></tr></thead>
         <tbody>
-          <tr><td>淡季</td><td>¥28,600</td><td>你原本抓的數字＝淡季底價</td></tr>
-          <tr><td><b>常規・平日</b></td><td><b>¥35,200</b></td><td>10/14–16（三四五）</td></tr>
-          <tr><td><b>常規・週末</b></td><td><b>¥38,500</b></td><td>10/17（六）</td></tr>
-          <tr><td>旺季 / 冬季</td><td>¥50,600 / ¥41,800</td><td>—</td></tr>
+          <tr><td>淡季</td><td><span class="j2t" data-jpy="28600"></span></td><td>你原本抓的數字＝淡季底價</td></tr>
+          <tr><td><b>常規・平日</b></td><td><b><span class="j2t" data-jpy="35200"></span></b></td><td>10/14–16（三四五）</td></tr>
+          <tr><td><b>常規・週末</b></td><td><b><span class="j2t" data-jpy="38500"></span></b></td><td>10/17（六）</td></tr>
+          <tr><td>旺季 / 冬季</td><td><span class="j2t" data-jpy="50600"></span> / <span class="j2t" data-jpy="41800"></span></td><td>—</td></tr>
         </tbody>
       </table>
-      <div class="note" style="margin-top:10px"><b>預算修正：</b>4 天估約 <b>¥130,000–145,000</b>（對得上你看到的 ¥134,000），比「28,600×4＝114,400」的舊估算高約 2 萬。<br>
-      「一日」＝09:00–17:00，<b>17:00 後每小時加收 ¥5,280</b> → 還車務必 15:30–16:00 抵達。</div>
+      <div class="note" style="margin-top:10px"><b>預算修正：</b>4 天估約 <b><span class="j2t" data-jpy="130000-145000"></span></b>（對得上你看到的 <span class="j2t" data-jpy="134000"></span>），比舊估「¥28,600×4＝<span class="j2t" data-jpy="114400"></span>」高約 <span class="j2t" data-jpy="20000"></span>。<br>
+      「一日」＝09:00–17:00，<b>17:00 後每小時加收 <span class="j2t" data-jpy="5280"></span></b> → 還車務必 15:30–16:00 抵達。</div>
       <div class="small" style="margin-top:8px">駕駛提醒：ZIL520 是車高約 3m 的「キャブコン」，比廂型車高寬。注意限高、側風、倒車，第一天先在空曠處熟悉車身。</div>
     </div>
   </section>
@@ -227,40 +256,40 @@
       <h3 style="margin:18px 0 8px;font-size:15px">千歲飯店候選（近 JR 千歲站／機場）</h3>
       <div style="overflow-x:auto">
       <table>
-        <thead><tr><th>飯店</th><th>定位・特色</th><th>每晚價位帶<br>（每房）</th><th>建議夜</th><th>地圖</th></tr></thead>
+        <thead><tr><th>飯店</th><th>定位・特色</th><th>每晚價位帶／房<br>（日圓・台幣約）</th><th>建議夜</th><th>地圖</th></tr></thead>
         <tbody>
           <tr>
             <td><b>スーパーホテル千歳</b></td>
             <td>平價 CP 高・人工溫泉大浴場・免費早餐；長輩泡湯放鬆</td>
-            <td>¥8,000–13,000</td>
+            <td><span class="j2t" data-jpy="8000-13000"></span></td>
             <td>10/13・10/17</td>
             <td><a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=スーパーホテル千歳">Maps ↗</a></td>
           </tr>
           <tr>
             <td><b>JR イン千歳</b></td>
             <td>近車站・新穎・頂樓大浴場；動線方便</td>
-            <td>¥10,000–16,000</td>
+            <td><span class="j2t" data-jpy="10000-16000"></span></td>
             <td>任一晚</td>
             <td><a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=JR+イン千歳">Maps ↗</a></td>
           </tr>
           <tr>
             <td><b>ホテルグランテラス千歳</b></td>
             <td>商務舒適・早餐口碑佳・房間較寬</td>
-            <td>¥9,000–15,000</td>
+            <td><span class="j2t" data-jpy="9000-15000"></span></td>
             <td>任一晚</td>
             <td><a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=ホテルグランテラス千歳">Maps ↗</a></td>
           </tr>
           <tr>
             <td><b>ANA クラウンプラザ千歳</b></td>
             <td>房大、設施齊、適合最後一晚好好放鬆</td>
-            <td>¥13,000–22,000</td>
+            <td><span class="j2t" data-jpy="13000-22000"></span></td>
             <td>10/18</td>
             <td><a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=ANAクラウンプラザホテル千歳">Maps ↗</a></td>
           </tr>
           <tr>
             <td><b>ポルトムインターナショナル北海道</b></td>
             <td>機場旁高級飯店・最省搬行李；隔天登機零奔波</td>
-            <td>¥22,000–38,000</td>
+            <td><span class="j2t" data-jpy="22000-38000"></span></td>
             <td>10/18</td>
             <td><a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=ポルトムインターナショナル北海道">Maps ↗</a></td>
           </tr>
@@ -306,6 +335,35 @@
     </div>
   </section>
 
+  <!-- 候選景點評估 -->
+  <section id="cand-sec">
+    <h2 id="cand">大點之間・候選景點評估</h2>
+    <div class="card">
+      <div class="small" style="margin-bottom:10px">你提供的候選露營地／景點，依「是否順路」評估（本趟路線 Plan B：千歲→美瑛→定山溪→小樽→千歲）。<span class="vd-ok">✅ 建議納入</span>、<span class="vd-mid">⚠️ 可評估・需小繞</span>、<span class="vd-no">❌ 離路線太遠</span>。順路的 6 個已加到上方地圖（金色點）。</div>
+      <div style="overflow-x:auto">
+      <table>
+        <thead><tr><th>候選</th><th>類型</th><th>位置</th><th>順路評估</th><th>地圖</th></tr></thead>
+        <tbody>
+          <tr><td><b>苫小牧アルテン</b><br><span class="small">オートリゾート苫小牧アルテン</span></td><td>露營/車泊</td><td>苫小牧（千歲南 40km）</td><td><span class="vd-ok">✅ 順路</span>・全年五星，可當首/末晚車泊基地</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=オートリゾート苫小牧アルテン">Maps ↗</a></td></tr>
+          <tr><td><b>星に手のとどく丘</b><br><span class="small">星手之丘</span></td><td>露營/觀星</td><td>中富良野（美瑛南）</td><td><span class="vd-ok">✅ 順路</span>・美瑛車泊＋觀星選項</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=星に手のとどく丘">Maps ↗</a></td></tr>
+          <tr><td><b>北の住まい設計社</b><br><span class="small">北之住傢俱中心</span></td><td>選物/咖啡</td><td>東川町（美瑛旁）</td><td><span class="vd-ok">✅ 順路</span>・平坦好走、質感咖啡，長輩友善</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=北の住まい設計社 東川">Maps ↗</a></td></tr>
+          <tr><td><b>バーチ 白樺 PAACHI</b></td><td>森林餐廳</td><td>東川町（美瑛旁）</td><td><span class="vd-ok">✅ 順路</span>・美瑛區用餐點</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=バーチ PAACHI 東川">Maps ↗</a></td></tr>
+          <tr><td><b>旭山動物園</b></td><td>景點</td><td>旭川（美瑛北約 40 分）</td><td><span class="vd-mid">⚠️ 小繞</span>・可半日加碼，但步行多、建議用輪椅</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=旭山動物園">Maps ↗</a></td></tr>
+          <tr><td><b>かなやま湖</b><br><span class="small">金山湖・湖畔露營場</span></td><td>湖/露營</td><td>南富良野（美瑛南約 1h）</td><td><span class="vd-mid">⚠️ 小繞</span>・往南才順路</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=かなやま湖">Maps ↗</a></td></tr>
+          <tr><td>中札內美術村</td><td>美術館</td><td>帶廣・十勝</td><td><span class="vd-no">❌ 太遠</span>・反方向</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=中札内美術村">Maps ↗</a></td></tr>
+          <tr><td>洞爺 財田キャンプ場</td><td>露營</td><td>洞爺湖（西南）</td><td><span class="vd-no">❌ 太遠</span></td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=洞爺水辺の里財田キャンプ場">Maps ↗</a></td></tr>
+          <tr><td>真狩焚き火キャンプ場</td><td>露營</td><td>羊蹄山麓（ニセコ方向）</td><td><span class="vd-no">❌ 太遠</span></td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=真狩焚き火キャンプ場">Maps ↗</a></td></tr>
+          <tr><td>朱鞠内湖畔キャンプ場</td><td>露營</td><td>幌加內（道北）</td><td><span class="vd-no">❌ 太遠</span></td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=朱鞠内湖畔キャンプ場">Maps ↗</a></td></tr>
+          <tr><td>Snow Peak 十勝ポロシリ</td><td>露營</td><td>帶廣・十勝</td><td><span class="vd-no">❌ 太遠</span></td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=スノーピーク十勝ポロシリキャンプフィールド">Maps ↗</a></td></tr>
+          <tr><td>釧路 山花オートキャンプ場</td><td>露營</td><td>釧路（道東）</td><td><span class="vd-no">❌ 太遠</span></td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=釧路市山花公園オートキャンプ場">Maps ↗</a></td></tr>
+          <tr><td>十勝川溫泉</td><td>溫泉</td><td>帶廣（道東）</td><td><span class="vd-no">❌ 太遠</span></td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=十勝川温泉">Maps ↗</a></td></tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="small" style="margin-top:8px">建議：<b>順路 4 點（苫小牧アルテン、星手之丘、北の住まい設計社、PAACHI）</b>可自然融入現有路線；旭山動物園與金山湖屬「想去才小繞」；其餘離路線太遠，本趟不建議，留待下次道東/道北專程。露營地營業季請務必查官網。</div>
+    </div>
+  </section>
+
   <!-- 必問清單 -->
   <section id="check">
     <h2>下訂前必問清單 & 詢問訊息</h2>
@@ -340,6 +398,11 @@
           <a href="https://nomad-zh.jp/" target="_blank">NOMAD 露營車・首頁 ↗</a>
           <a href="https://www.starlux-airlines.com/" target="_blank">星宇航空 ↗</a>
           <a href="https://www.skyscanner.com.tw/" target="_blank">Skyscanner 機票比價 ↗</a>
+        </div>
+        <div class="refgroup">
+          <div class="rt">🚙 Vanlife 靈感（ORI Vanlife）</div>
+          <a href="https://orivanlife.com/" target="_blank">ORI Vanlife 官網 ↗</a>
+          <a href="https://www.facebook.com/orivanlife/?locale=zh_TW" target="_blank">ORI Vanlife Facebook ↗</a>
         </div>
         <div class="refgroup">
           <div class="rt">🍁 觀光・景點</div>
@@ -409,6 +472,20 @@
   });
   map.fitBounds(bounds, {padding:[30,30]});
 
+  // 候選景點（金色，不影響地圖縮放範圍）
+  const cands=[
+    {name:'苫小牧アルテン', lat:42.599, lng:141.606, q:'オートリゾート苫小牧アルテン'},
+    {name:'星に手のとどく丘', lat:43.4067, lng:142.4436, q:'星に手のとどく丘'},
+    {name:'北の住まい設計社', lat:43.6866, lng:142.530, q:'北の住まい設計社 東川'},
+    {name:'バーチ PAACHI', lat:43.660, lng:142.531, q:'バーチ PAACHI 東川'},
+    {name:'旭山動物園', lat:43.7686, lng:142.4804, q:'旭山動物園'},
+    {name:'かなやま湖', lat:43.2717, lng:142.3986, q:'かなやま湖'},
+  ];
+  cands.forEach(s=>{
+    const m=L.circleMarker([s.lat,s.lng],{radius:7,color:'#fff',weight:2,fillColor:'#c8973f',fillOpacity:1}).addTo(map);
+    m.bindPopup('<b>候選：'+s.name+'</b><br><span style="color:#666;font-size:12px">大點之間・待評估</span><br><a href="'+gmap(s.q)+'" target="_blank" style="color:#2563eb;font-weight:700">→ Google Maps 導航</a>');
+  });
+
   // 景點清單
   const ul = document.getElementById('spotlist');
   const order = ['base','biei','onsen','otaru','sapporo'];
@@ -460,7 +537,16 @@
   }
   function onJPY(inp){ const tr=inp.closest('tr'); tr.dataset.src='jpy'; syncRow(tr); calcBudget(); }
   function onTWD(inp){ const tr=inp.closest('tr'); tr.dataset.src='twd'; syncRow(tr); calcBudget(); }
-  function syncAll(){ document.querySelectorAll('#budgetBody tr').forEach(syncRow); calcBudget(); }
+  function renderJ2T(){
+    const r=getRate();
+    document.querySelectorAll('.j2t').forEach(el=>{
+      const p=String(el.dataset.jpy).split('-').map(x=>parseFloat(x)||0);
+      el.innerText = (p.length===2)
+        ? '¥'+fmt(p[0])+'–'+fmt(p[1])+'（約 NT$'+fmt(p[0]*r)+'–'+fmt(p[1]*r)+'）'
+        : '¥'+fmt(p[0])+'（約 NT$'+fmt(p[0]*r)+'）';
+    });
+  }
+  function syncAll(){ document.querySelectorAll('#budgetBody tr').forEach(syncRow); calcBudget(); renderJ2T(); }
   function addRow(label,cur,value,qty){
     const tr=document.createElement('tr');
     const isJ=(cur||'JPY')==='JPY';
@@ -487,6 +573,36 @@
     document.getElementById('totPP').innerText='NT$ '+fmt(totalTWD/3);
   }
   defaultRows.forEach(r=>addRow(r[0],r[1],r[2],r[3]));
+  renderJ2T();
+
+  /* ===== 行程日曆（2026 年 10 月，10/1 = 週四） ===== */
+  (function(){
+    const cal=document.getElementById('cal');
+    if(!cal) return;
+    const trips={
+      13:{c:'#2563eb',t:'抵達適應'},
+      14:{c:'#e05a2b',t:'去程 Road Trip 🚐'},
+      15:{c:'#d1491f',t:'美瑛精華＋南移 🚐'},
+      16:{c:'#7c3aed',t:'湖畔溫泉慢日 🚐'},
+      17:{c:'#0891b2',t:'小樽＋還車'},
+      18:{c:'#16a34a',t:'緩衝／札幌'},
+      19:{c:'#6b7280',t:'賦歸'}
+    };
+    ['日','一','二','三','四','五','六'].forEach(d=>{
+      const e=document.createElement('div'); e.className='dow'; e.textContent=d; cal.appendChild(e);
+    });
+    const firstDow=4, days=31;   // 2026-10-01 = 週四
+    for(let i=0;i<firstDow;i++){ const e=document.createElement('div'); e.className='cell empty'; cal.appendChild(e); }
+    for(let d=1;d<=days;d++){
+      const e=document.createElement('div');
+      const dow=(firstDow+d-1)%7;
+      const tr=trips[d];
+      if(tr){ e.className='cell trip'; e.style.background=tr.c;
+        e.innerHTML='<div class="dn">'+d+'</div><div class="rl">'+tr.t+'</div>'; }
+      else { e.className='cell'+((dow===0||dow===6)?' wknd':''); e.innerHTML='<div class="dn">'+d+'</div>'; }
+      cal.appendChild(e);
+    }
+  })();
 </script>
 </body>
 </html>
