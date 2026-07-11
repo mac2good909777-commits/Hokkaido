@@ -113,6 +113,18 @@
   .spotlist li.daysep{display:block;background:transparent;border:none;padding:10px 0 2px;}
   .spotlist .ds-h{font-weight:800;color:var(--accent2);font-size:14px;border-left:4px solid var(--accent);padding-left:8px;}
   .optpill{font-size:10px;background:#f1eef7;color:#6b4bb0;border:1px solid #ddd2ee;border-radius:999px;padding:1px 7px;font-weight:700;}
+  .ckgroup{margin-bottom:16px;}
+  .ckgroup h3{font-size:15px;margin:0 0 8px;color:var(--accent2);border-left:4px solid var(--accent);padding-left:8px;}
+  .ck{display:flex;align-items:flex-start;gap:10px;padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;margin-bottom:7px;cursor:pointer;}
+  .ck input{margin-top:2px;width:18px;height:18px;flex:0 0 auto;accent-color:var(--accent);cursor:pointer;}
+  .ck.done{background:#f2f7f3;border-color:#cfe6cb;}
+  .ck.done .cktext{text-decoration:line-through;color:var(--sub);}
+  .cktext{font-size:14px;}
+  .urgent{font-size:10px;background:#fdecc8;color:#8a5a00;border-radius:999px;padding:1px 7px;font-weight:800;margin-left:6px;white-space:nowrap;}
+  .urgent.hot{background:#fde2e2;color:#b23b3b;}
+  .ckbar{height:12px;background:#eee;border-radius:999px;overflow:hidden;margin:8px 0 4px;}
+  .ckbar > i{display:block;height:100%;background:linear-gradient(90deg,#e05a2b,#16a34a);width:0;transition:width .3s;}
+  .ckreset{background:none;border:1px solid var(--line);color:var(--sub);border-radius:8px;padding:5px 12px;font-size:12px;cursor:pointer;font-family:inherit;}
   footer{margin-top:40px;text-align:center;color:var(--sub);font-size:12px;}
   .stars{color:var(--gold);}
   a.inline{color:var(--accent2);}
@@ -135,6 +147,7 @@
   <a href="#van">露營車</a>
   <a href="#hotel">飯店</a>
   <a href="#budget">費用試算</a>
+  <a href="#checklist-sec">準備清單</a>
   <a href="#spots">景點連結</a>
   <a href="#cand">候選景點</a>
   <a href="#check">必問清單</a>
@@ -408,6 +421,63 @@
         <div class="t"><div class="v" id="totPP">—</div><div class="k">每人（台幣 ÷ 3）</div></div>
       </div>
       <div class="small" style="margin-top:8px">預設數字為<b>粗估草案</b>，請依實際報價修改。<b>日圓與台幣兩欄會自動互相換算</b>——填任一欄，另一欄依匯率自動帶出；改匯率時全表重算。小計與總計一律以<b>台幣</b>計。空白＝0；可新增或刪除任何項目。</div>
+    </div>
+  </section>
+
+  <!-- 準備清單 -->
+  <section id="checklist-sec">
+    <h2>出發前準備清單</h2>
+    <div class="card" id="checklist">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div><b>完成進度：</b><span class="ckprog" id="ckprog">—</span></div>
+        <button class="ckreset" onclick="resetCheck()">清除全部勾選</button>
+      </div>
+      <div class="ckbar"><i id="ckbarfill"></i></div>
+      <div class="small" style="margin-bottom:14px">打勾會自動記在這台裝置的瀏覽器（重整、關頁再開都還在）。<span class="urgent hot">最優先</span> 為有前置時間、拖不得的項目。</div>
+
+      <div class="ckgroup">
+        <h3>A. 護照・證件（前置時間最長，先辦）</h3>
+        <label class="ck"><input type="checkbox" data-k="pass-bro"><span class="cktext"><b>哥哥：申請護照</b>（首次辦理，需本人臨櫃、約 10 個工作天）<span class="urgent hot">最優先</span></span></label>
+        <label class="ck"><input type="checkbox" data-k="pass-mom"><span class="cktext"><b>媽媽：更新護照</b>（效期需 ≥ 出發後 6 個月，即 ≥ 2026/04）<span class="urgent hot">最優先</span></span></label>
+        <label class="ck"><input type="checkbox" data-k="pass-me"><span class="cktext">我：確認護照效期 ≥ 2026/04</span></label>
+        <label class="ck"><input type="checkbox" data-k="license"><span class="cktext">台灣駕照「<b>日文譯本</b>」（JAF／日台交流協會核發，非國際駕照）<span class="urgent">急</span></span></label>
+        <label class="ck"><input type="checkbox" data-k="id-copy"><span class="cktext">證件影本備份（護照＋駕照＋譯本各一份）</span></label>
+      </div>
+
+      <div class="ckgroup">
+        <h3>B. 訂位・預約（越早越省、越有位）</h3>
+        <label class="ck"><input type="checkbox" data-k="flight"><span class="cktext"><b>機票</b>：星宇直飛（10/13 去・10/19 回・3 人）<span class="urgent hot">未訂</span></span></label>
+        <label class="ck"><input type="checkbox" data-k="camper"><span class="cktext"><b>露營車</b> NOMAD ZIL520（10/14 取・10/17 還）</span></label>
+        <label class="ck"><input type="checkbox" data-k="camper-ins"><span class="cktext">露營車保險／免責補償加購</span></label>
+        <label class="ck"><input type="checkbox" data-k="hotel-chitose"><span class="cktext">千歲飯店 ×1（10/13）</span></label>
+        <label class="ck"><input type="checkbox" data-k="hotel-sapporo"><span class="cktext">札幌飯店 ×2（10/17・10/18，近札幌駅）</span></label>
+        <label class="ck"><input type="checkbox" data-k="car-1018"><span class="cktext">10/18 小樽日租小車（含保險）</span></label>
+        <label class="ck"><input type="checkbox" data-k="insurance"><span class="cktext"><b>海外旅遊平安＋醫療險</b>（長輩必備）</span></label>
+        <label class="ck"><input type="checkbox" data-k="wifi"><span class="cktext">網路：eSIM／WiFi 分享器</span></label>
+      </div>
+
+      <div class="ckgroup">
+        <h3>C. 露營車確認（下訂前問清楚）</h3>
+        <label class="ck"><input type="checkbox" data-k="heat"><span class="cktext"><b>暖氣能否熄火整夜運轉</b>（不靠發電機）</span></label>
+        <label class="ck"><input type="checkbox" data-k="tire"><span class="cktext">交車是否已換<b>冬胎</b>（スタッドレス）</span></label>
+        <label class="ck"><input type="checkbox" data-k="bedding"><span class="cktext">寢具是否含（冬用厚被）</span></label>
+        <label class="ck"><input type="checkbox" data-k="toilet"><span class="cktext">車上廁所（卡式馬桶）</span></label>
+        <label class="ck"><input type="checkbox" data-k="misc-car"><span class="cktext">里程／加油／ETC 卡／接送時段</span></label>
+      </div>
+
+      <div class="ckgroup">
+        <h3>D. 溫泉・車泊確認</h3>
+        <label class="ck"><input type="checkbox" data-k="onsen-hours"><span class="cktext">三晚溫泉營業時間＋費用（白金／定山渓／豊平峡）</span></label>
+        <label class="ck"><input type="checkbox" data-k="park-open"><span class="cktext">車泊點・道の駅 10 月中營業確認</span></label>
+      </div>
+
+      <div class="ckgroup">
+        <h3>E. 出發前打包（長輩優先）</h3>
+        <label class="ck"><input type="checkbox" data-k="wheelchair"><span class="cktext">媽媽輕便折疊輪椅（備用）</span></label>
+        <label class="ck"><input type="checkbox" data-k="meds"><span class="cktext">常備藥＋保暖衣物（夜間 0–4°C）</span></label>
+        <label class="ck"><input type="checkbox" data-k="power"><span class="cktext">轉接插頭・行動電源</span></label>
+        <label class="ck"><input type="checkbox" data-k="cash"><span class="cktext">日圓現金＋信用卡</span></label>
+      </div>
     </div>
   </section>
 
@@ -706,6 +776,38 @@
       cal.appendChild(e);
     }
   })();
+
+  /* ===== 準備清單（localStorage 記憶勾選） ===== */
+  const CK_KEY='hokkaido_check_v1';
+  let ckSaved={};
+  try{ ckSaved=JSON.parse(localStorage.getItem(CK_KEY)||'{}'); }catch(e){}
+  const ckBoxes=[...document.querySelectorAll('#checklist input[type=checkbox]')];
+  function ckUpdate(){
+    let done=0;
+    ckBoxes.forEach(b=>{
+      const li=b.closest('.ck');
+      if(b.checked){ done++; li.classList.add('done'); } else li.classList.remove('done');
+    });
+    const pct=ckBoxes.length?Math.round(done/ckBoxes.length*100):0;
+    const fill=document.getElementById('ckbarfill'); if(fill) fill.style.width=pct+'%';
+    const prog=document.getElementById('ckprog'); if(prog) prog.textContent=done+' / '+ckBoxes.length+'（'+pct+'%）';
+  }
+  ckBoxes.forEach(b=>{
+    if(ckSaved[b.dataset.k]) b.checked=true;
+    b.addEventListener('change',()=>{
+      ckSaved[b.dataset.k]=b.checked;
+      try{ localStorage.setItem(CK_KEY,JSON.stringify(ckSaved)); }catch(e){}
+      ckUpdate();
+    });
+  });
+  ckUpdate();
+  function resetCheck(){
+    ckBoxes.forEach(b=>b.checked=false);
+    ckSaved={};
+    try{ localStorage.removeItem(CK_KEY); }catch(e){}
+    ckUpdate();
+  }
+  window.resetCheck=resetCheck;
 </script>
 </body>
 </html>
