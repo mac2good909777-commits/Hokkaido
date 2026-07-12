@@ -233,7 +233,7 @@
         <span><span style="display:inline-block;width:28px;height:0;border-top:4px solid #888;vertical-align:middle;margin-right:5px"></span>自駕（露營車／租車）</span>
         <span><span style="display:inline-block;width:28px;height:0;border-top:3px dashed #888;vertical-align:middle;margin-right:5px"></span>JR 鐵路</span>
       </div>
-      <div class="small" style="margin-top:6px">真實地圖底圖（OpenStreetMap，淡化至 60%）；圓圈數字為日期順序，實際導航請用「行程」分頁互動地圖的 Google 地圖連結。</div>
+      <div class="small" style="margin-top:6px">真實地圖底圖（OpenStreetMap，淡化至 60%）；地圖上 <b>②–⑦ 為每天移動路線</b>（① 抵達接駁見下表），地名以細引線拉到旁邊標示。顏色對應下表。實際導航請用「行程」分頁互動地圖的 Google 地圖連結。</div>
     </div>
   </section>
 
@@ -274,6 +274,28 @@
         <li><b>北海道大學 銀杏並木</b>（10/18 晨，距札幌駅步行約 7 分）：<span class="vd-ok">✅</span> 10 月下旬金黃盛開、路面平坦好推輪椅——<b>只走銀杏並木精華段</b>，別走全校（校園很大）。</li>
         <li><b>北海道神宮・円山公園</b>（10/19 晨・<span class="vd-mid">彈性・可略過</span>）：地下鐵円山公園駅＋步行約 15 分，紅葉美但<b>參道有碎石與台階</b>、主殿前有階梯；讓媽媽慢走、平坦段用輪椅。<b>時間／體力不足或天氣差就直接略過</b>，改在札幌駅旁悠閒吃早餐或看北大銀杏即可。</li>
       </ul>
+    </div>
+  </section>
+
+  <!-- 露營車 -->
+  <!-- 交通方式 -->
+  <section id="transport-sec" data-tab="stay" style="order:7">
+    <h2>交通方式</h2>
+    <div class="card">
+      <div style="overflow-x:auto">
+      <table>
+        <thead><tr><th>日期</th><th>交通</th><th>路段</th><th>時間／說明</th></tr></thead>
+        <tbody>
+          <tr><td>10/13</td><td>✈ 星宇直飛</td><td>台北 → 新千歲</td><td>10:05 → 15:10 落地</td></tr>
+          <tr><td>10/14–10/17</td><td>🚐 露營車（NOMAD ZIL520）</td><td>千歲取車 → 美瑛／定山溪 → 千歲還車</td><td>10/14 09:00 取・10/17 約 15:30–16:00 還（詳見下方露營車）</td></tr>
+          <tr><td>10/17</td><td>🚆 JR 快速エアポート</td><td>千歲 → 札幌</td><td>約 40 分（還車後 NOMAD 接駁到 JR 千歳站再搭）</td></tr>
+          <tr><td>10/18</td><td>🚗 日租小車</td><td>札幌 ⇄ 小樽（可順遊余市）</td><td>單程約 40 分；早上取、傍晚還</td></tr>
+          <tr><td>10/19</td><td>🚆 JR 快速エアポート</td><td>札幌 → 新千歲空港</td><td>約 40 分</td></tr>
+          <tr><td>10/19</td><td>✈ 星宇直飛</td><td>新千歲 → 台北</td><td>16:25 → 19:35</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="note" style="margin-top:10px"><b>🚆 JR 快速エアポート（後半段主力）：</b>札幌 ⇄ 新千歲空港／小樽方向的快速列車，<b>班次密集（約每 15 分一班）、車程短</b>。10/17 進札幌、10/19 去機場都靠它，3 人到站直接買票即可（無需訂位）。實際班次以 JR 北海道官網為準。</div>
     </div>
   </section>
 
@@ -499,6 +521,7 @@
           <a href="https://nomad-zh.jp/" target="_blank">NOMAD 露營車・首頁 ↗</a>
           <a href="https://www.starlux-airlines.com/" target="_blank">星宇航空 ↗</a>
           <a href="https://www.skyscanner.com.tw/" target="_blank">Skyscanner 機票比價 ↗</a>
+          <a href="https://www.jrhokkaido.co.jp/" target="_blank">JR 北海道（時刻表）↗</a>
         </div>
         <div class="refgroup">
           <div class="rt">🚙 露營車生活 靈感（ORI Vanlife）</div>
@@ -795,30 +818,35 @@
     seg(P.chitose,P.sapp,'#16a34a',true);     // ⑤b JR
     seg(P.sapp,P.otaru,'#0891b2',false);      // ⑥ 租車（自駕）
     seg(P.sapp,P.kuko,'#6b7280',true);        // ⑦ JR
-    function node(pt,label,color,dir,off){
-      L.circleMarker(pt,{radius:8,color:'#fff',weight:2,fillColor:color,fillOpacity:1}).addTo(rmap)
-        .bindTooltip(label,{permanent:true,direction:dir||'top',className:'rnode',offset:off||[0,-6]});
+    // 地點標籤移到空白處，用細引線連回實際位置
+    const anchors=[];
+    function node(pt,label,color,anchor){
+      L.circleMarker(pt,{radius:8,color:'#fff',weight:2,fillColor:color,fillOpacity:1}).addTo(rmap);
+      L.polyline([pt,anchor],{color:'#8a8a8a',weight:1.5,opacity:0.75}).addTo(rmap);
+      L.circleMarker(anchor,{radius:0.1,opacity:0,fillOpacity:0}).addTo(rmap)
+        .bindTooltip(label,{permanent:true,direction:'center',className:'rnode'});
+      anchors.push(anchor);
     }
-    node(P.biei,'美瑛・青池','#e05a2b','top');
-    node(P.joza,'定山渓温泉','#7c3aed','bottom',[0,8]);
-    node(P.sapp,'札幌（住×2）','#16a34a','top');
-    node(P.otaru,'小樽','#0891b2','top');
-    node(P.chitose,'千歳・還車','#2563eb','right',[8,0]);
-    node(P.kuko,'新千歳空港','#2563eb','bottom',[0,8]);
+    node(P.biei,'美瑛・青池','#e05a2b',[43.52,142.30]);
+    node(P.otaru,'小樽','#0891b2',[43.33,140.90]);
+    node(P.sapp,'札幌（住×2）','#16a34a',[43.30,141.33]);
+    node(P.joza,'定山渓温泉','#7c3aed',[42.905,140.90]);
+    node(P.chitose,'千歳・還車','#2563eb',[42.74,141.95]);
+    node(P.kuko,'新千歳空港','#2563eb',[42.68,141.52]);
     function mid(a,b){ return [(a[0]+b[0])/2,(a[1]+b[1])/2]; }
     function badge(pt,num,color){
       L.circleMarker(pt,{radius:0.1,opacity:0,fillOpacity:0}).addTo(rmap)
         .bindTooltip('<span class="rnum" style="background:'+color+'">'+num+'</span>',
           {permanent:true,direction:'center',className:'rbadge-wrap'});
     }
-    badge([42.80,141.80],'①','#2563eb');             // 空港↔千歳（東側空地）
-    badge(mid(P.chitose,P.biei),'②','#e05a2b');       // 千歳→美瑛
-    badge(mid(P.biei,P.joza),'③','#d1491f');          // 美瑛→定山溪
-    badge([43.03,141.05],'④','#7c3aed');             // 定山溪（西北山區）
-    badge([43.08,141.55],'⑤','#16a34a');             // 千歳→札幌（東北空地）
-    badge(mid(P.sapp,P.otaru),'⑥','#0891b2');         // 札幌⇄小樽
-    badge([42.94,141.60],'⑦','#6b7280');             // 札幌→空港（東側）
-    rmap.fitBounds([P.kuko,P.chitose,P.biei,P.joza,P.sapp,P.otaru],{padding:[45,45]});
+    badge(mid(P.chitose,P.biei),'②','#e05a2b');
+    badge(mid(P.biei,P.joza),'③','#d1491f');
+    badge([42.99,141.22],'④','#7c3aed');
+    badge([42.985,141.46],'⑤','#16a34a');
+    badge(mid(P.sapp,P.otaru),'⑥','#0891b2');
+    badge([42.875,141.55],'⑦','#6b7280');
+    window._rmapBounds=[P.kuko,P.chitose,P.biei,P.joza,P.sapp,P.otaru].concat(anchors);
+    rmap.fitBounds(window._rmapBounds,{padding:[25,25]});
     setTimeout(()=>rmap.invalidateSize(),300);
     window.addEventListener('load',()=>rmap.invalidateSize());
   })();
@@ -834,7 +862,7 @@
       // 重新計算被隱藏過的地圖尺寸
       setTimeout(()=>{
         if(window._map) window._map.invalidateSize();
-        if(window._rmap) window._rmap.invalidateSize();
+        if(window._rmap){ window._rmap.invalidateSize(); if(window._rmapBounds) window._rmap.fitBounds(window._rmapBounds,{padding:[25,25]}); }
       },40);
       window.scrollTo({top:0,behavior:'auto'});
     }
