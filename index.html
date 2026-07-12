@@ -17,7 +17,7 @@
   *{box-sizing:border-box}
   body{margin:0;font-family:"Noto Sans TC",system-ui,-apple-system,"Microsoft JhengHei",sans-serif;
     background:var(--bg);color:var(--ink);line-height:1.7;font-size:15px;}
-  .wrap{max-width:960px;margin:0 auto;padding:0 16px 80px;display:flex;flex-direction:column;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 16px 80px;display:flex;flex-direction:column;overflow-x:clip;}
   .wrap > footer{order:99;}
   .tab-btn{white-space:nowrap;font-size:14px;color:var(--sub);background:#fff;border:1px solid var(--line);padding:8px 16px;border-radius:999px;cursor:pointer;font-family:inherit;font-weight:700;}
   .tab-btn:hover{border-color:var(--accent);color:var(--accent);}
@@ -140,6 +140,24 @@
   footer{margin-top:40px;text-align:center;color:var(--sub);font-size:12px;}
   .stars{color:var(--gold);}
   a.inline{color:var(--accent2);}
+
+  /* ===== 放大字級：最小 20px、關鍵項目 24px 起、隨視窗縮放、自動換行 ===== */
+  :root{ --fs: clamp(20px, 0.9vw + 15px, 25px); --fs-key: clamp(24px, 1.3vw + 17px, 32px); }
+  body{ font-size: var(--fs); overflow-wrap:break-word; }
+  p, li, td, th, label, a, .cktext, .spotlist .ds, .spotlist a, .small, .note, .warn,
+  .callegend, .legend, .kpi .l, .totcard .t .k, .refgroup a, .refgroup .rt, .tab-btn,
+  .bt input, .bt select, .addrow, .ckreset, a.mlink, .flag, .hero .sub, .tag,
+  table, pre.msg, .rate, .ds-h { font-size: var(--fs) !important; }
+  h1{ font-size: clamp(30px, 3vw + 18px, 44px) !important; }
+  h2, h3, .card h3, .ckgroup h3, .kpi .n, .totcard .t .v, .ds-h { font-size: var(--fs-key) !important; }
+  .pill, .optpill, .urgent, .vd-ok, .vd-mid, .vd-no { font-size: calc(var(--fs) * 0.82) !important; }
+  td, th, li, p, .ds, .cktext, .note, .warn, .small { overflow-wrap:break-word; word-break:normal; }
+  /* 空間受限的小元件維持精簡（放大會使地圖標籤重疊、日曆爆版） */
+  .rnum{ min-width:24px; height:24px; line-height:20px; font-size:13px !important; }
+  .dnum{ min-width:30px; height:30px; line-height:30px; font-size:18px !important; }
+  .leaflet-tooltip.rnode, .rbadge{ font-size:12px !important; }
+  .cal .cell .rl{ font-size:15px !important; }
+  .cal .cell .dn{ font-size:18px !important; }
 </style>
 </head>
 <body>
@@ -847,8 +865,10 @@
     badge([42.875,141.55],'⑦','#6b7280');
     window._rmapBounds=[P.kuko,P.chitose,P.biei,P.joza,P.sapp,P.otaru].concat(anchors);
     rmap.fitBounds(window._rmapBounds,{padding:[25,25]});
-    setTimeout(()=>rmap.invalidateSize(),300);
-    window.addEventListener('load',()=>rmap.invalidateSize());
+    function refit(){ rmap.invalidateSize(); if(window._rmapBounds) rmap.fitBounds(window._rmapBounds,{padding:[25,25]}); }
+    setTimeout(refit,300);
+    window.addEventListener('load',refit);
+    var rzt; window.addEventListener('resize',function(){ clearTimeout(rzt); rzt=setTimeout(function(){ refit(); if(window._map) window._map.invalidateSize(); },200); });
   })();
 
   /* ===== 分類分頁 ===== */
