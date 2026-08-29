@@ -164,12 +164,13 @@
 
 <header class="hero">
   <h1>2026 北海道 露營車公路旅行</h1>
-  <div class="sub">露營車 × 長輩慢旅 × 秋日紅葉　｜　3 人（駕駛・媽媽 74・哥哥 48）</div>
+  <div class="sub">露營車 × 長輩慢旅 × 秋日紅葉　｜　5 人（我・媽媽 74・叔叔・嬸嬸・姑姑）</div>
   <div class="tag">🗓 2026 / 10 / 13（二） – 10 / 19（一）　7 天 6 夜</div>
 </header>
 
 <nav class="toc"><div class="in">
   <button class="tab-btn" data-tab="overview">總覽</button>
+  <button class="tab-btn" data-tab="weather">天氣</button>
   <button class="tab-btn" data-tab="plan">行程</button>
   <button class="tab-btn" data-tab="stay">交通住宿</button>
   <button class="tab-btn" data-tab="budget">費用・清單</button>
@@ -255,6 +256,45 @@
     </div>
   </section>
 
+  <!-- 天氣 -->
+  <section id="weather-sec" data-tab="weather" style="order:1">
+    <h2>天氣參考</h2>
+    <div class="warn"><b>⚠️ 下表為歷史氣候平均（非即時預報）</b>，用來抓穿衣與行程節奏的大方向。<b>出發前 7–10 天請務必查「即時預報」再決定當天怎麼穿、要不要調整戶外時段</b>——連結見下方。</div>
+
+    <div class="card" style="margin-top:14px">
+      <h3 style="margin:0 0 10px;font-size:var(--fs-key)">10 月中旬 各地歷史氣候平均</h3>
+      <div style="overflow-x:auto">
+      <table>
+        <thead><tr><th>地點</th><th>白天均溫</th><th>夜間均溫</th><th>特徵</th><th>日期對應</th></tr></thead>
+        <tbody>
+          <tr><td><b>千歲・新千歲空港</b></td><td>約 14–16°C</td><td>約 6–8°C</td><td>沿海平原，日夜溫差中等</td><td>10/13・10/17</td></tr>
+          <tr><td><b>美瑛・白金</b></td><td>約 11–14°C</td><td>約 2–5°C</td><td>內陸盆地＋山區，<b>日夜溫差最大、清晨最冷</b></td><td>10/14・10/15</td></tr>
+          <tr><td><b>定山溪</b></td><td>約 11–14°C</td><td>約 3–6°C</td><td>山谷地形，早晚涼、溫泉正好</td><td>10/15・10/16</td></tr>
+          <tr><td><b>札幌市區</b></td><td>約 13–16°C</td><td>約 6–9°C</td><td>平地都市，較溫和</td><td>10/17・10/18</td></tr>
+          <tr><td><b>小樽</b></td><td>約 13–16°C</td><td>約 7–9°C</td><td>沿海，稍微溫和、風稍大</td><td>10/18</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="note" style="margin-top:10px"><b>給媽媽（及同行長輩）的重點：</b>10/14–10/16 露營車三晚，<b>美瑛清晨可能只有 2–5°C</b>，是全程最冷的時段——洋蔥式穿法＋保暖睡衣、車上地暖務必確認能整夜運轉（見「露營車確認」清單）。10 月北海道日降雨機率中等，備一件輕便雨衣／防風外套即可，不需重裝雨具。</div>
+      <div class="small" style="margin-top:8px">日落時間約在 <b>16:35–16:45</b>（10/13→10/19 逐漸提早），比夏天早很多——戶外景點建議安排在 16:00 前結束，避免摸黑收車或走山路。</div>
+    </div>
+
+    <div class="card" style="margin-top:14px">
+      <h3 style="margin:0 0 10px;font-size:var(--fs-key)">出發前查即時預報</h3>
+      <div class="refgrid">
+        <div class="refgroup">
+          <a href="https://tenki.jp/forecast/1/02/" target="_blank">tenki.jp 北海道天氣 ↗</a>
+          <a href="https://www.jma.go.jp/bosai/forecast/#area_type=class20s&area_code=0110100" target="_blank">気象庁 官方預報（札幌）↗</a>
+        </div>
+        <div class="refgroup">
+          <a href="https://www.jma.go.jp/bosai/forecast/#area_type=class20s&area_code=0120600" target="_blank">気象庁 官方預報（美瑛／上川）↗</a>
+          <a href="https://www.windy.com/?43.062,141.354,7" target="_blank">Windy（風向／降雨雷達）↗</a>
+        </div>
+      </div>
+      <div class="small" style="margin-top:10px">若出發前預報顯示美瑛／定山溪有<b>初雪或路面結冰</b>機率，請重新確認露營車冬胎與行車路線（見「必問清單」）。</div>
+    </div>
+  </section>
+
   <!-- 行程方案 -->
   <section id="plan" data-tab="plan" style="order:4">
     <h2>行程方案（已定案）</h2>
@@ -269,7 +309,7 @@
           <tr><td class="day">10/15 四</td><td>美瑛精華＋南移</td><td>上午精神好時看<b>青池</b>＋四季彩之丘 → 午後南下定山溪，<b>定山渓温泉洗澡</b>＋車泊</td><td>~2.5h</td></tr>
           <tr><td class="day">10/16 五</td><td>湖畔溫泉慢日</td><td><b>短車程</b>：定山溪二見吊橋紅葉 → <b>豊平峡温泉洗澡</b>＋咖啡，幾乎不趕路</td><td>30–60m</td></tr>
           <tr><td class="day">10/17 六</td><td>還車＋進札幌</td><td>定山溪／湖畔 → 千歲 15:30–16:00 <b>還露營車</b> → 接駁＋JR 進<b>札幌</b>；傍晚<b>狸小路＋湯咖哩</b>晚餐</td><td>~1.5h</td></tr>
-          <tr><td class="day">10/18 日</td><td>小樽一日</td><td>晨遊<b>北大銀杏並木</b> → <b>租小車</b>往<b>小樽</b>（運河・堺町通・咖啡），可順遊<b>余市／朝里</b> → 傍晚回札幌還車</td><td>租車</td></tr>
+          <tr><td class="day">10/18 日</td><td>小樽一日</td><td>晨遊<b>北大銀杏並木</b> → <b>租車（5人座休旅／小型廂型車）</b>往<b>小樽</b>（運河・堺町通・咖啡），可順遊<b>余市／朝里</b> → 傍晚回札幌還車</td><td>租車</td></tr>
           <tr><td class="day">10/19 一</td><td>賦歸</td><td>晨<b>北海道神宮・円山公園</b>（<span class="vd-mid">彈性・可略過</span>，累就留北大）→ JR 札幌→新千歲 約 40 分 → <b>✈ 新千歲 16:25 → 台北 19:35</b></td><td>JR</td></tr>
         </tbody>
       </table>
@@ -307,13 +347,13 @@
           <tr><td>10/13</td><td>✈ 星宇直飛</td><td>台北 → 新千歲</td><td>10:05 → 15:10 落地</td></tr>
           <tr><td>10/14–10/17</td><td>🚐 露營車（NOMAD ZIL520）</td><td>千歲取車 → 美瑛／定山溪 → 千歲還車</td><td>10/14 09:00 取・10/17 約 15:30–16:00 還（詳見下方露營車）</td></tr>
           <tr><td>10/17</td><td>🚆 JR 快速エアポート</td><td>千歲 → 札幌</td><td>約 40 分（還車後 NOMAD 接駁到 JR 千歳站再搭）</td></tr>
-          <tr><td>10/18</td><td>🚗 日租小車</td><td>札幌 ⇄ 小樽（可順遊余市）</td><td>單程約 40 分；早上取、傍晚還</td></tr>
+          <tr><td>10/18</td><td>🚗 日租車（5人座休旅）</td><td>札幌 ⇄ 小樽（可順遊余市）</td><td>單程約 40 分；早上取、傍晚還</td></tr>
           <tr><td>10/19</td><td>🚆 JR 快速エアポート</td><td>札幌 → 新千歲空港</td><td>約 40 分</td></tr>
           <tr><td>10/19</td><td>✈ 星宇直飛</td><td>新千歲 → 台北</td><td>16:25 → 19:35</td></tr>
         </tbody>
       </table>
       </div>
-      <div class="note" style="margin-top:10px"><b>🚆 JR 快速エアポート（後半段主力）：</b>札幌 ⇄ 新千歲空港／小樽方向的快速列車，<b>班次密集（約每 15 分一班）、車程短</b>。10/17 進札幌、10/19 去機場都靠它，3 人到站直接買票即可（無需訂位）。實際班次以 JR 北海道官網為準。</div>
+      <div class="note" style="margin-top:10px"><b>🚆 JR 快速エアポート（後半段主力）：</b>札幌 ⇄ 新千歲空港／小樽方向的快速列車，<b>班次密集（約每 15 分一班）、車程短</b>。10/17 進札幌、10/19 去機場都靠它，5 人到站直接買票即可（無需訂位）。實際班次以 JR 北海道官網為準。</div>
     </div>
   </section>
 
@@ -322,7 +362,7 @@
     <h2>露營車 — NOMAD ZIL520</h2>
     <div class="card">
       <div class="grid g4" style="margin-bottom:12px">
-        <div class="kpi"><div class="n">就寢 5 人</div><div class="l">你們 3 人・非常寬裕</div></div>
+        <div class="kpi"><div class="n">就寢 5 人</div><div class="l">你們剛好 5 人・已滿載</div></div>
         <div class="kpi"><div class="n">地板暖氣＋空調</div><div class="l">10月夜間 0–4°C 關鍵配備</div></div>
         <div class="kpi"><div class="n">10/14→10/17</div><div class="l">4 天・3 晚車泊</div></div>
         <div class="kpi"><div class="n"><span class="stars">★</span>4.7 (43)</div><div class="l">千歲店評價</div></div>
@@ -343,6 +383,7 @@
       <div class="note" style="margin-top:10px"><b>預算修正：</b>4 天估約 <b><span class="j2t" data-jpy="130000-145000"></span></b>（對得上你看到的 <span class="j2t" data-jpy="134000"></span>），比舊估「¥28,600×4＝<span class="j2t" data-jpy="114400"></span>」高約 <span class="j2t" data-jpy="20000"></span>。<br>
       「一日」＝09:00–17:00，<b>17:00 後每小時加收 <span class="j2t" data-jpy="5280"></span></b> → 還車務必 15:30–16:00 抵達。</div>
       <div class="small" style="margin-top:8px">駕駛提醒：ZIL520 是車高約 3m 的「キャブコン」，比廂型車高寬。注意限高、側風、倒車，第一天先在空曠處熟悉車身。</div>
+      <div class="warn" style="margin-top:10px"><b>⚠️ 5 人＝滿載，不再寬裕：</b>ZIL520 就寢定員剛好 5 人，人數從 3 人增加到 5 人後，<b>車上不再有多餘鋪位當置物空間</b>，行李需精簡、盡量用軟袋而非硬殼行李箱堆疊。乘車定員 6 人（含駕駛），5 人乘坐沒問題，但<b>建議跟 NOMAD 確認車內收納空間是否足夠 5 人的行李與換洗衣物</b>，必要時行李可分裝、白天先放車頂箱或飯店寄放。</div>
     </div>
   </section>
 
@@ -357,7 +398,7 @@
         <li><b>10/18</b>：續住<b>札幌</b>，白天去小樽（見下）。</li>
         <li><b>10/19</b>：<b>札幌 → 新千歲空港 JR 約 40 分</b>，班機 16:25，上午從容。</li>
       </ul>
-      <div class="warn" style="margin-top:8px"><b>10/18 租車一日遊：</b>早上在札幌取小車 → 小樽（約 40 分，運河・堺町通・咖啡），有體力可再往<b>余市（威士忌蒸餾所）或朝里／天狗山</b> → 傍晚回札幌還車。租車讓長輩<b>門到門、不必走車站</b>，也能跑火車到不了的海岸。小樽停車位假日較緊，<b>早點出門</b>；還車時間別壓到太晚。</div>
+      <div class="warn" style="margin-top:8px"><b>10/18 租車一日遊：</b>5 人＋行李，建議租<b>5人座休旅或小型廂型車</b>（一般轎車後座擠 3 人不夠舒服）。早上在札幌取車 → 小樽（約 40 分，運河・堺町通・咖啡），有體力可再往<b>余市（威士忌蒸餾所）或朝里／天狗山</b> → 傍晚回札幌還車。租車讓長輩<b>門到門、不必走車站</b>，也能跑火車到不了的海岸。小樽停車位假日較緊，<b>早點出門</b>；還車時間別壓到太晚。</div>
 
       <h3 style="margin:18px 0 8px;font-size:15px">飯店候選</h3>
 
@@ -386,7 +427,7 @@
         </tbody>
       </table>
       </div>
-      <div class="small" style="margin-top:8px">札幌兩晚建議選<b>近札幌駅</b>：10/17 從千歲進札幌、10/19 從札幌去機場，都靠 JR 快速エアポート（約 40 分）最省力。上列為<b>每房</b>概估（多含早餐），3 人可訂三人房或雙人＋單人房。10/17（六）逢紅葉週末偏高，<b>建議先訂</b>。</div>
+      <div class="small" style="margin-top:8px">札幌兩晚建議選<b>近札幌駅</b>：10/17 從千歲進札幌、10/19 從札幌去機場，都靠 JR 快速エアポート（約 40 分）最省力。上列為<b>每房</b>概估（多含早餐）；<b>5 人建議訂 2 房</b>——例如媽媽與姑姑一間雙人房、你與叔叔嬸嬸一間三人房，或兩間雙人＋一間單人視喜好調整。10/17（六）逢紅葉週末偏高，<b>建議先訂</b>。</div>
     </div>
   </section>
 
@@ -410,7 +451,7 @@
       <div class="totcard">
         <div class="t"><div class="v" id="totTWD">—</div><div class="k">總計（台幣）</div></div>
         <div class="t"><div class="v" id="totJPY">—</div><div class="k">約合日圓</div></div>
-        <div class="t"><div class="v" id="totPP">—</div><div class="k">每人（台幣 ÷ 3）</div></div>
+        <div class="t"><div class="v" id="totPP">—</div><div class="k">每人（台幣 ÷ 5）</div></div>
       </div>
       <div class="small" style="margin-top:8px">預設數字為<b>粗估草案</b>，請依實際報價修改。<b>日圓與台幣兩欄會自動互相換算</b>——填任一欄，另一欄依匯率自動帶出；改匯率時全表重算。小計與總計一律以<b>台幣</b>計。空白＝0；可新增或刪除任何項目。</div>
     </div>
@@ -426,11 +467,14 @@
       </div>
       <div class="ckbar"><i id="ckbarfill"></i></div>
       <div class="small" style="margin-bottom:14px">打勾會自動記在這台裝置的瀏覽器（重整、關頁再開都還在）。<span class="urgent hot">最優先</span> 為有前置時間、拖不得的項目。</div>
+      <div class="note" style="margin-bottom:14px"><b>成員從 3 人增為 5 人（我・媽媽・叔叔・嬸嬸・姑姑）：</b>目前行程的步行量、休息節奏是依<b>媽媽（74歲）</b>的體力抓的。<b>請先確認叔叔／嬸嬸／姑姑的體力與行動狀況</b>——若也有人不適合久走或需要輪椅，行程步行量與休息時間要再往下調整，跟我說我可以重排。</div>
 
       <div class="ckgroup">
         <h3>A. 護照・證件（前置時間最長，先辦）</h3>
-        <label class="ck"><input type="checkbox" data-k="pass-bro"><span class="cktext"><b>哥哥：申請護照</b>（首次辦理，需本人臨櫃、約 10 個工作天）<span class="urgent hot">最優先</span></span></label>
         <label class="ck"><input type="checkbox" data-k="pass-mom"><span class="cktext"><b>媽媽：更新護照</b>（效期需 ≥ 出發後 6 個月，即 ≥ 2026/04）<span class="urgent hot">最優先</span></span></label>
+        <label class="ck"><input type="checkbox" data-k="pass-uncle"><span class="cktext"><b>叔叔：護照效期／是否需辦新照</b>（≥ 2026/04）<span class="urgent hot">最優先</span></span></label>
+        <label class="ck"><input type="checkbox" data-k="pass-auntie1"><span class="cktext"><b>嬸嬸：護照效期／是否需辦新照</b>（≥ 2026/04）<span class="urgent hot">最優先</span></span></label>
+        <label class="ck"><input type="checkbox" data-k="pass-auntie2"><span class="cktext"><b>姑姑：護照效期／是否需辦新照</b>（≥ 2026/04）<span class="urgent hot">最優先</span></span></label>
         <label class="ck"><input type="checkbox" data-k="pass-me"><span class="cktext">我：確認護照效期 ≥ 2026/04</span></label>
         <label class="ck"><input type="checkbox" data-k="license"><span class="cktext">台灣駕照「<b>日文譯本</b>」（JAF／日台交流協會核發，非國際駕照）<span class="urgent">急</span></span></label>
         <label class="ck"><input type="checkbox" data-k="id-copy"><span class="cktext">證件影本備份（護照＋駕照＋譯本各一份）</span></label>
@@ -438,12 +482,12 @@
 
       <div class="ckgroup">
         <h3>B. 訂位・預約（越早越省、越有位）</h3>
-        <label class="ck"><input type="checkbox" data-k="flight"><span class="cktext"><b>機票</b>：星宇直飛（10/13 去・10/19 回・3 人）<span class="urgent hot">未訂</span></span></label>
+        <label class="ck"><input type="checkbox" data-k="flight"><span class="cktext"><b>機票</b>：星宇直飛（10/13 去・10/19 回・5 人）<span class="urgent hot">未訂</span></span></label>
         <label class="ck"><input type="checkbox" data-k="camper"><span class="cktext"><b>露營車</b> NOMAD ZIL520（10/14 取・10/17 還）</span></label>
         <label class="ck"><input type="checkbox" data-k="camper-ins"><span class="cktext">露營車保險／免責補償加購</span></label>
         <label class="ck"><input type="checkbox" data-k="hotel-chitose"><span class="cktext">千歲飯店 ×1（10/13）</span></label>
         <label class="ck"><input type="checkbox" data-k="hotel-sapporo"><span class="cktext">札幌飯店 ×2（10/17・10/18，近札幌駅）</span></label>
-        <label class="ck"><input type="checkbox" data-k="car-1018"><span class="cktext">10/18 小樽日租小車（含保險）</span></label>
+        <label class="ck"><input type="checkbox" data-k="car-1018"><span class="cktext">10/18 小樽日租車・5人座休旅（含保險）</span></label>
         <label class="ck"><input type="checkbox" data-k="insurance"><span class="cktext"><b>海外旅遊平安＋醫療險</b>（長輩必備）</span></label>
         <label class="ck"><input type="checkbox" data-k="wifi"><span class="cktext">網路：eSIM／WiFi 分享器</span></label>
       </div>
@@ -513,7 +557,7 @@
     </div>
     <div class="msgbox" style="margin-top:12px">
       <button class="copybtn" onclick="copyMsg()">📋 複製</button>
-      <pre class="msg" id="inquiry">您好，我想預約 ZIL520（10/14 取車～10/17 還車，3 名乘客），有幾點想確認：
+      <pre class="msg" id="inquiry">您好，我想預約 ZIL520（10/14 取車～10/17 還車，5 名乘客），有幾點想確認：
 
 1. 這段日期的實際車資與季節認定？含稅總額？
 2. 保險/免責補償制度與費用？是否有「免責額全免（安心補償）」可加購？
@@ -523,8 +567,9 @@
 6. 交車時是否已是冬胎（スタッドレスタイヤ）？
 7. 我持台灣駕照，需要準備日文譯本（JAF 或交流協會核發）嗎？ZIL520 用普通駕照可駕嗎？
 8. 里程限制、還車加油規定、ETC 卡、取消政策、免費接送時段（我 10/13 傍晚抵達、10/14 早上取車）？
+9. 就寢定員剛好 5 人，車內收納空間是否足夠 5 人的行李（含換洗衣物 4 天份）？
 
-另想請問：媽媽 74 歲同行，是否有適用的高齡優惠？謝謝！</pre>
+另想請問：同行有多位長輩（媽媽 74 歲及其他年長者），是否有適用的高齡優惠？謝謝！</pre>
     </div>
   </section>
 
@@ -686,17 +731,17 @@
 
   /* ===== 費用試算（日圓＋台幣雙欄・自動換算・總計台幣） ===== */
   const defaultRows=[
-    ['機票（星宇直飛）','TWD',22046,3],
+    ['機票（星宇直飛）','TWD',22046,5],
     ['露營車 ZIL520（4天基本費用）','JPY',134000,1],
     ['露營車 保險／免責補償（每日）','JPY',2500,4],
-    ['飯店（千歲1＋札幌2晚／3人）','JPY',18000,3],
-    ['JR（10/17 進札幌・10/19 去機場，3人）','JPY',7000,1],
-    ['10/18 日租小車（含保險・油資）','JPY',10000,1],
+    ['飯店（千歲1＋札幌2晚／5人・2房）','JPY',32000,3],
+    ['JR（10/17 進札幌・10/19 去機場，5人）','JPY',11500,1],
+    ['10/18 日租車（5人座休旅・含保險油資）','JPY',13000,1],
     ['露營車營地／車泊費（每晚）','JPY',3000,2],
-    ['日歸溫泉 泡湯（人 × 次）','JPY',1500,6],
+    ['日歸溫泉 泡湯（人 × 次）','JPY',1500,10],
     ['油費（露營車）','JPY',9000,1],
     ['高速公路過路費','JPY',5000,1],
-    ['餐飲（每人每日）','JPY',3000,21],
+    ['餐飲（每人每日）','JPY',3000,35],
     ['伴手禮／購物','JPY',0,1],
     ['其他（雜支／接送等）','JPY',0,1],
   ];
@@ -751,7 +796,7 @@
     });
     document.getElementById('totTWD').innerText='NT$ '+fmt(totalTWD);
     document.getElementById('totJPY').innerText= r>0 ? '¥ '+fmt(totalTWD/r) : '—';
-    document.getElementById('totPP').innerText='NT$ '+fmt(totalTWD/3);
+    document.getElementById('totPP').innerText='NT$ '+fmt(totalTWD/5);
   }
   defaultRows.forEach(r=>addRow(r[0],r[1],r[2],r[3]));
   renderJ2T();
