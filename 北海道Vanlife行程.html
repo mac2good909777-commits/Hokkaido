@@ -231,6 +231,10 @@
     radial-gradient(circle at 88% 22%, rgba(124,58,237,.04) 0, transparent 40%),
     radial-gradient(circle at 50% 92%, rgba(22,163,74,.035) 0, transparent 45%);
     background-attachment:fixed;}
+  #deadline{background:#fff4e6;border-color:#f0b26b;}
+  #deadline.urgent{background:#fdecec;border-color:#e88;}
+  #deadline .dl-t{font-weight:900;color:var(--accent2);font-size:calc(var(--fs)*1.02);}
+  #deadline .dl-n{font-size:calc(var(--fs)*1.5);font-weight:900;color:#b23b3b;}
   /* ===== 飄落楓葉 ===== */
   #leaves{position:fixed;inset:0;pointer-events:none;z-index:9;overflow:hidden;}
   #leaves i{position:absolute;top:-8vh;display:block;will-change:transform;font-style:normal;
@@ -270,6 +274,7 @@
   <!-- 總覽 -->
   <section id="summary" data-tab="overview" style="order:1">
     <h2>🍁 行程總覽</h2>
+    <div id="deadline" class="warn" style="border-width:2px;margin-bottom:14px"></div>
     <div class="grid g4 kpigrid">
       <div class="kpi"><div class="k">旅行日期</div><div class="n">10/13 – 10/19</div><div class="l">7 天 6 夜</div></div>
       <div class="kpi"><div class="k">航班・星宇直飛</div><div class="n nsm">去 09:00 → 13:55<br>回 15:00 → 18:25</div><div class="l">台中 ⇄ 新千歲</div></div>
@@ -751,6 +756,7 @@
         <label class="ck"><input type="checkbox" data-k="flight"><span class="cktext"><b>機票</b>：星宇 台中出發 JX318／JX319（10/13 去・10/19 回・5 人）<span class="pill rec" style="font-size:calc(var(--fs)*0.7)">✅ 已訂</span></span></label>
         <label class="ck"><input type="checkbox" data-k="camper"><span class="cktext"><b>露營車</b> NOMAD ZIL520 <span class="urgent hot">最優先</span>（10/14 09:00 取・10/16 約 15:30 還）＋保險加購</span></label>
         <label class="ck"><input type="checkbox" data-k="van-7seat"><span class="cktext"><b>7人座客車</b>租車：<b>10/17 札幌取車・10/18 千歲還車</b>（確認<b>異地還車費用</b>）</span></label>
+        <label class="ck"><input type="checkbox" data-k="hotel-deadline"><span class="cktext"><b>⏰ 10/05（一）前完成所有訂房</b>：千歲 ×2、札幌 ×2<span class="urgent hot">截止日</span></span></label>
         <label class="ck"><input type="checkbox" data-k="hotel-chitose"><span class="cktext">千歲飯店 <b>×2（10/13・10/18）</b>——近 JR 千歲站、有機場接駁、<b>有大浴場</b>者</span></label>
         <label class="ck"><input type="checkbox" data-k="hotel-biei"><span class="cktext"><b>白金温泉</b> 碧の美ゆゆ ×2 晚（5人1室・含早晚餐）<span class="pill rec" style="font-size:calc(var(--fs)*0.7)">✅ 已訂</span><b>紅葉旺季要早訂</b></span></label>
         <label class="ck"><input type="checkbox" data-k="hotel-sapporo"><span class="cktext">札幌飯店 <b>×2（10/16・10/17）</b>——選<b>狸小路／大通／札幌駅</b>能逛街、且<b>有大浴場</b>者</span></label>
@@ -1249,6 +1255,28 @@
       el.style.opacity=(0.35+Math.random()*0.3).toFixed(2);
       box.appendChild(el);
     }
+  })();
+
+
+  /* ===== 訂房截止倒數 ===== */
+  (function(){
+    var box=document.getElementById('deadline');
+    if(!box) return;
+    var due=new Date(2026,9,5);           // 2026/10/05 訂房確認截止
+    var trip=new Date(2026,9,13);         // 2026/10/13 出發
+    var now=new Date(); now.setHours(0,0,0,0);
+    var d1=Math.round((due-now)/86400000), d2=Math.round((trip-now)/86400000);
+    var html='';
+    if(d1>0){
+      html='<div class="dl-t">⏰ 訂房確認截止：10/05（一）</div>'+
+        '<div style="margin-top:6px">還有 <span class="dl-n">'+d1+'</span> 天｜距出發 '+d2+' 天</div>';
+    } else if(d2>0){
+      box.classList.add('urgent');
+      html='<div class="dl-t">⚠️ 訂房截止日（10/05）已過</div><div style="margin-top:6px">距出發只剩 <span class="dl-n">'+d2+'</span> 天</div>';
+    } else { box.style.display='none'; return; }
+    html+='<div class="small" style="margin-top:8px;color:inherit">尚未訂：<b>千歲 10/13（平價）・札幌 10/16、10/17（中等）・千歲 10/18（中等）</b>。'+
+      '✅ 已訂：機票、白金温泉（2 晚）。</div>';
+    box.innerHTML=html;
   })();
 
   /* ===== 分類分頁 ===== */
