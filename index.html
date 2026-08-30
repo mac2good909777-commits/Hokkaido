@@ -102,6 +102,13 @@
   .totcard .t{text-align:center;}
   .totcard .t .v{font-size:23px;font-weight:900;letter-spacing:.5px;}
   .totcard .t .k{font-size:12px;opacity:.92;margin-top:2px;}
+  .albumrow{border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:10px;background:#fff;}
+  .albumrow.filled{background:#f2f7f3;border-color:#cfe6cb;}
+  .albumhead{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px;}
+  .albumname{font-weight:800;color:var(--accent2);}
+  .albumrow input{width:100%;font-family:inherit;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff;}
+  .albumopen{display:none;}
+  .albumrow.filled .albumopen{display:inline-block;}
   .navbtn{display:inline-block;min-width:104px;text-align:center;padding:14px 18px !important;border-radius:12px;
     font-weight:800 !important;color:#fff !important;text-decoration:none;box-shadow:0 2px 6px rgba(0,0,0,.18);white-space:nowrap;}
   .navbtn:active{transform:scale(.97);}
@@ -181,6 +188,7 @@
   <button class="tab-btn" data-tab="stay">交通住宿</button>
   <button class="tab-btn" data-tab="budget">費用</button>
   <button class="tab-btn" data-tab="check">準備清單</button>
+  <button class="tab-btn" data-tab="album">📷 相簿</button>
   <button class="tab-btn" data-tab="ref">參考</button>
 </div></nav>
 
@@ -719,6 +727,31 @@
     </div>
   </section>
 
+
+  <!-- 相簿 -->
+  <section id="album-sec" data-tab="album" style="order:1">
+    <h2>📷 相簿</h2>
+    <div class="warn">
+      <b>把 Google 相簿連結貼進下面欄位即可</b>，會自動記住（存在這台裝置的瀏覽器），之後點「開啟相簿」就能看。
+      <div class="small" style="margin-top:6px;color:inherit">⚠️ <b>只存在你自己的裝置</b>——別人開這個網頁看不到你貼的連結。若要讓大家（叔叔姑姑的小孩）都看得到，<b>把連結給我，我幫你寫死進網頁</b>，就會對所有人顯示。</div>
+    </div>
+
+    <div class="card" style="margin-top:14px">
+      <div id="albumlist"></div>
+      <button class="ckreset" onclick="resetAlbums()" style="margin-top:6px">清除全部連結</button>
+    </div>
+
+    <div class="card" style="margin-top:14px">
+      <h3 style="margin:0 0 10px">📌 Google 相簿使用建議</h3>
+      <ul class="clean">
+        <li><b>建立「共享相簿」</b>：在 Google 相簿建立相簿 → 分享 → <b>開啟「共同協作」</b>，把連結給同行的人，大家拍的照片都能丟進同一本，回國不用互相傳照片。</li>
+        <li><b>連結權限</b>：選「<b>知道連結的人都可以查看</b>」，這樣長輩的小孩不用 Google 帳號也能看。</li>
+        <li><b>建議分本</b>：可以每天一本（對應下面的欄位），或全程一本再用「相簿內分區」；每天一本之後找照片比較快。</li>
+        <li><b>手機自動備份</b>：出發前確認手機的 Google 相簿<b>自動備份已開啟</b>，避免手機遺失照片全失。旅途中盡量連 WiFi 再備份，省行動數據。</li>
+      </ul>
+    </div>
+  </section>
+
   <!-- 參考網站 -->
   <section id="ref-sec" data-tab="ref" style="order:13">
     <h2 id="ref">參考網站</h2>
@@ -1043,6 +1076,46 @@
     setTimeout(refit,300);
     window.addEventListener('load',refit);
     var rzt; window.addEventListener('resize',function(){ clearTimeout(rzt); rzt=setTimeout(function(){ refit(); if(window._map) window._map.invalidateSize(); },200); });
+  })();
+
+
+  /* ===== 相簿連結（localStorage） ===== */
+  (function(){
+    var box=document.getElementById('albumlist');
+    if(!box) return;
+    var DAYS=[
+      ['all','🌟 全程總相簿'],
+      ['d13','10/13　抵達・千歲'],
+      ['d14','10/14　北上美瑛・白金温泉'],
+      ['d15','10/15　青池・美瑛精華日'],
+      ['d16','10/16　南下札幌'],
+      ['d17','10/17　定山溪泡湯'],
+      ['d18','10/18　北大・小樽'],
+      ['d19','10/19　賦歸']
+    ];
+    var KEY='hokkaido_albums_v1', saved={};
+    try{ saved=JSON.parse(localStorage.getItem(KEY)||'{}'); }catch(e){}
+    function persist(){ try{ localStorage.setItem(KEY,JSON.stringify(saved)); }catch(e){} }
+    DAYS.forEach(function(d){
+      var row=document.createElement('div');
+      row.className='albumrow';
+      row.innerHTML='<div class="albumhead"><span class="albumname">'+d[1]+'</span>'+
+        '<a class="navbtn albumopen" style="background:var(--blue)" target="_blank">開啟相簿 ↗</a></div>'+
+        '<input type="url" placeholder="貼上 Google 相簿連結（https://photos.app.goo.gl/...）">';
+      var inp=row.querySelector('input'), link=row.querySelector('.albumopen');
+      function sync(){
+        var v=(inp.value||'').trim();
+        if(v){ row.classList.add('filled'); link.href=v; } else { row.classList.remove('filled'); link.removeAttribute('href'); }
+      }
+      if(saved[d[0]]) inp.value=saved[d[0]];
+      sync();
+      inp.addEventListener('input',function(){ saved[d[0]]=inp.value.trim(); persist(); sync(); });
+      box.appendChild(row);
+    });
+    window.resetAlbums=function(){
+      saved={}; try{ localStorage.removeItem(KEY); }catch(e){}
+      [].forEach.call(box.querySelectorAll('.albumrow'),function(r){ r.querySelector('input').value=''; r.classList.remove('filled'); });
+    };
   })();
 
   /* ===== 分類分頁 ===== */
