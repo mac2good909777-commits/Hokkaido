@@ -43,7 +43,8 @@
   .grid{display:grid;gap:12px;}
   .g4{grid-template-columns:repeat(4,1fr);}
   .g2{grid-template-columns:repeat(2,1fr);}
-  @media(max-width:720px){.g4{grid-template-columns:repeat(2,1fr);}.g2{grid-template-columns:1fr;}}
+  @media(max-width:720px){.g4{grid-template-columns:repeat(2,1fr);}.g2{grid-template-columns:1fr;}
+    .grid[style*="repeat(3"]{grid-template-columns:1fr !important;}}
   .kpi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;text-align:center;}
   .kpi .n{font-size:19px;font-weight:800;color:var(--accent2);}
   .kpi .l{font-size:12px;color:var(--sub);margin-top:2px;}
@@ -101,6 +102,10 @@
   .totcard .t{text-align:center;}
   .totcard .t .v{font-size:23px;font-weight:900;letter-spacing:.5px;}
   .totcard .t .k{font-size:12px;opacity:.92;margin-top:2px;}
+  .navbtn{display:inline-block;min-width:104px;text-align:center;padding:14px 18px !important;border-radius:12px;
+    font-weight:800 !important;color:#fff !important;text-decoration:none;box-shadow:0 2px 6px rgba(0,0,0,.18);white-space:nowrap;}
+  .navbtn:active{transform:scale(.97);}
+  .spotlist li{padding:14px 14px;}
   a.mlink{display:inline-block;font-size:12px;text-decoration:none;color:#fff;background:var(--blue);padding:5px 10px;border-radius:8px;font-weight:600;white-space:nowrap;}
   a.mlink:hover{filter:brightness(.92);}
   .refgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
@@ -172,6 +177,7 @@
   <button class="tab-btn" data-tab="overview">總覽</button>
   <button class="tab-btn" data-tab="weather">天氣</button>
   <button class="tab-btn" data-tab="plan">行程</button>
+  <button class="tab-btn" data-tab="nav">🧭 導航</button>
   <button class="tab-btn" data-tab="stay">交通住宿</button>
   <button class="tab-btn" data-tab="budget">費用</button>
   <button class="tab-btn" data-tab="check">準備清單</button>
@@ -303,13 +309,12 @@
     <div class="small" style="margin-bottom:14px"><b>用車共 5 天：露營車 3 天 ＋ 7 人座客車 2 天</b>。露營車（10/14–10/16）跑<b>美瑛</b>——去程、定點日、回程，中間那天完全不趕路；還回千歲後換客車（10/17–10/18）跑<b>定山溪／札幌／小樽</b>短程圈。<b>每晚都住旅館、不車泊</b>，最後一晚回千歲，隔天飯店接駁直達機場（航班 15:00 起飛，約 12:30 出發即可）。</div>
 
     <div class="card">
-      <div style="margin-bottom:10px"><span class="pill rec">★ 採用</span> <b>露營車體驗美瑛 ＋ 7人座客車遊後段</b>　<span class="small">露營車 3 天只當「白天用車」跑美瑛環線、當晚一律住旅館，還車後換 7 人座客車，不需再靠 JR。</span></div>
+      <div style="margin-bottom:10px"><span class="pill rec">★ 採用</span> <b>露營車體驗美瑛 ＋ 7人座客車遊後段</b>　<span class="small">露營車 3 天只當「白天用車」跑美瑛環線、當晚一律住旅館，還車後換 7 人座客車。</span></div>
 
-      <div class="grid g4" style="margin-bottom:14px">
+      <div class="grid" style="grid-template-columns:repeat(3,1fr);margin-bottom:14px">
         <div class="kpi"><div class="n">🚐 3 天</div><div class="l">露營車・10/14–10/16<br>千歲取車→千歲還車</div></div>
-        <div class="kpi"><div class="n">🚙 2 天</div><div class="l">7人座客車・10/17–10/18<br>千歲取車→千歲還車</div></div>
+        <div class="kpi"><div class="n">🚙 2 天</div><div class="l">7人座客車・10/17–10/18<br>札幌取車→千歲還車</div></div>
         <div class="kpi"><div class="n">6 晚旅館</div><div class="l">每晚都睡飯店，不睡車上</div></div>
-        <div class="kpi"><div class="n">不車泊</div><div class="l">純白天體驗乘坐</div></div>
       </div>
 
       <table>
@@ -325,21 +330,6 @@
         </tbody>
       </table>
 
-      <div class="note" style="margin-top:12px"><b>租車邏輯：</b>
-        <ul class="clean" style="margin-top:4px">
-          <li><b>露營車（NOMAD ZIL520）</b>：10/14 09:00 取車 → 10/16 約 15:30–16:00 千歲原點還車，共 3 天。<b>去程→定點日→回程</b>的結構讓 10/15 一整天不必長途移動。10/16 <b>先把長輩與行李送到札幌飯店</b>，再由<b>駕駛獨自</b>開回千歲還車、搭 JR 返回札幌——長輩不必陪著跑還車這一段。</li>
-          <li><b>7人座客車</b>：<b>10/17 上午在札幌取車</b>（駕駛獨自前往租車行，取完開回飯店接長輩）→ <b>10/18 傍晚在千歲還車</b>，共 2 天。屬<b>異地還車（乗り捨て）</b>——札幌↔新千歲/千歲多數租車公司免費或低額，<b>訂車時務必確認費用</b>。</li>
-        </ul>
-      </div>
-
-      <div class="note" style="margin-top:12px"><b>❓ 為什麼是「露營車 3 天 ＋ 客車 2 天」，不是 2＋3？</b>
-        <ul class="clean" style="margin-top:4px">
-          <li><b>美瑛離千歲單程 2.5 小時</b>，露營車又必須開回千歲還車 → 光來回就 5 小時。給它 <b>3 天</b>才能形成「去程／定點日／回程」，讓 <b>10/15 一整天不搬行李、不坐長途</b>——這對 4 位長輩最關鍵。</li>
-          <li>若只給 2 天，變成「上去睡一晚就下來」，<b>兩天都有 2.5 小時車程</b>，而且四季彩之丘、拼布之路、新栄之丘會被砍掉，美瑛只玩得到一半。</li>
-          <li>後段（支笏湖 30 分、定山溪 1 小時、小樽 40 分）<b>全是短程</b>，2 天綽綽有餘，不需要第 3 天。</li>
-        </ul>
-      </div>
-
       <div class="note" style="margin-top:12px"><b>🧳 行李與住宿安排</b>
         <div class="small" style="margin-top:6px;color:inherit">美瑛（10/14・15）與札幌（10/16・17）都是<b>連住兩晚不搬行李</b>，中間只需搬 2 次。10/16 抵達札幌後長輩直接進飯店休息／逛街，行李一次搬進去即可，<b>不必陪著跑還車</b>。</div>
       </div>
@@ -350,10 +340,10 @@
         <table>
           <thead><tr><th>租車公司</th><th>地址</th><th>與還車點關係</th><th>電話</th><th>地圖</th></tr></thead>
           <tbody>
-            <tr><td><b>北海道レンタカー</b><br><span class="small">（北海道租車）</span></td><td>千歳市<b>青葉 8丁目9-8</b></td><td><span class="vd-ok">✅ 同為青葉區</span>・最近，車程約 3–5 分</td><td>0123-22-4040</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=北海道レンタカー+千歳市青葉8丁目9-8">地圖 ↗</a></td></tr>
-            <tr><td><b>ＫＧＳカーレンタル</b></td><td>千歳市<b>青葉丘 937-6</b></td><td><span class="vd-ok">✅ 青葉丘</span>・車程約 5 分</td><td>070-9355-0088</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=KGSカーレンタル+千歳市青葉丘">地圖 ↗</a></td></tr>
-            <tr><td><b>プライムレンタカー千歳店</b></td><td>千歳市春日町1丁目2-10</td><td><span class="vd-ok">✅ 千歲市區</span>・車程約 5–8 分</td><td>0120-181-555</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=プライムレンタカー千歳店">地圖 ↗</a></td></tr>
-            <tr><td><b>Hokkaido Bubu Car Rental</b></td><td><b>JR千歳駅</b>大樓 2F（千歳ステーションホテル內）</td><td><span class="vd-mid">△ 在車站建物內</span>・不必搭車、但需到站</td><td>0120-125-651</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Hokkaido+Bubu+Car+Rental+千歳ステーションプラザ">地圖 ↗</a></td></tr>
+            <tr><td><b>北海道レンタカー</b><br><span class="small">（北海道租車）</span></td><td>千歳市<b>青葉 8丁目9-8</b></td><td><span class="vd-ok">✅ 同為青葉區</span>・最近，車程約 3–5 分</td><td>0123-22-4040</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=北海道レンタカー+千歳市青葉8丁目9-8&travelmode=driving">🧭 導航</a></td></tr>
+            <tr><td><b>ＫＧＳカーレンタル</b></td><td>千歳市<b>青葉丘 937-6</b></td><td><span class="vd-ok">✅ 青葉丘</span>・車程約 5 分</td><td>070-9355-0088</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=KGSカーレンタル+千歳市青葉丘&travelmode=driving">🧭 導航</a></td></tr>
+            <tr><td><b>プライムレンタカー千歳店</b></td><td>千歳市春日町1丁目2-10</td><td><span class="vd-ok">✅ 千歲市區</span>・車程約 5–8 分</td><td>0120-181-555</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=プライムレンタカー千歳店&travelmode=driving">🧭 導航</a></td></tr>
+            <tr><td><b>Hokkaido Bubu Car Rental</b></td><td><b>JR千歳駅</b>大樓 2F（千歳ステーションホテル內）</td><td><span class="vd-mid">△ 在車站建物內</span>・不必搭車、但需到站</td><td>0120-125-651</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=Hokkaido+Bubu+Car+Rental+千歳ステーションプラザ&travelmode=driving">🧭 導航</a></td></tr>
           </tbody>
         </table>
         </div>
@@ -485,10 +475,10 @@
       <table>
         <thead><tr><th>飯店</th><th>距 JR千歲站</th><th>特色・3人房</th><th>每晚／房（日圓・台幣約）</th><th>地圖</th></tr></thead>
         <tbody>
-          <tr><td><b>ANA クラウンプラザ<br>ホテル千歳</b><br><span class="small">北栄2-2-1</span></td><td><b>步行 7 分</b></td><td>千歲最具規模的國際品牌飯店・房間大、設施齊、長輩舒適<br><span class="vd-ok">✅ 較可能有 3 人房</span></td><td><span class="j2t" data-jpy="16000-28000"></span></td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=ANAクラウンプラザホテル千歳">地圖 ↗</a></td></tr>
-          <tr><td><b>JR イン千歳</b></td><td><b>站旁 1 分</b></td><td>新穎・頂樓大浴場・動線最短<br><span class="vd-mid">△ 3 人房少，需查</span></td><td><span class="j2t" data-jpy="10000-16000"></span></td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=JR+イン千歳">地圖 ↗</a></td></tr>
-          <tr><td><b>スーパーホテル千歳</b></td><td>步行 5 分</td><td>平價・人工溫泉大浴場・免費早餐<br><span class="vd-mid">△ 多為單／雙人房</span></td><td><span class="j2t" data-jpy="8000-13000"></span></td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=スーパーホテル千歳">地圖 ↗</a></td></tr>
-          <tr><td><b>ホテルグランテラス千歳</b></td><td>步行 5 分</td><td>商務舒適・早餐口碑佳</td><td><span class="j2t" data-jpy="9000-15000"></span></td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=ホテルグランテラス千歳">地圖 ↗</a></td></tr>
+          <tr><td><b>ANA クラウンプラザ<br>ホテル千歳</b><br><span class="small">北栄2-2-1</span></td><td><b>步行 7 分</b></td><td>千歲最具規模的國際品牌飯店・房間大、設施齊、長輩舒適<br><span class="vd-ok">✅ 較可能有 3 人房</span></td><td><span class="j2t" data-jpy="16000-28000"></span></td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=ANAクラウンプラザホテル千歳&travelmode=driving">🧭 導航</a></td></tr>
+          <tr><td><b>JR イン千歳</b></td><td><b>站旁 1 分</b></td><td>新穎・頂樓大浴場・動線最短<br><span class="vd-mid">△ 3 人房少，需查</span></td><td><span class="j2t" data-jpy="10000-16000"></span></td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=JR+イン千歳&travelmode=driving">🧭 導航</a></td></tr>
+          <tr><td><b>スーパーホテル千歳</b></td><td>步行 5 分</td><td>平價・人工溫泉大浴場・免費早餐<br><span class="vd-mid">△ 多為單／雙人房</span></td><td><span class="j2t" data-jpy="8000-13000"></span></td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=スーパーホテル千歳&travelmode=driving">🧭 導航</a></td></tr>
+          <tr><td><b>ホテルグランテラス千歳</b></td><td>步行 5 分</td><td>商務舒適・早餐口碑佳</td><td><span class="j2t" data-jpy="9000-15000"></span></td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=ホテルグランテラス千歳&travelmode=driving">🧭 導航</a></td></tr>
         </tbody>
       </table>
       </div>
@@ -496,8 +486,8 @@
       <div class="warn" style="margin-top:10px"><b>選千歲飯店的第一條件：有「新千歲機場免費接駁」</b>——長輩只有「機場↔第一晚飯店」與「最後一晚飯店↔機場」這兩段需要接送，有接駁巴士就完全免搭電車；沒有的話請飯店代訂<b>大型計程車（ジャンボタクシー）</b>，5 人＋行李一車直達，車程約 10 分。</div>
       <div class="note" style="margin-top:10px"><b>🚶 千歲飯店附近・不用坐車就能逛（10/13 傍晚・10/18 傍晚・10/19 上午都適用）</b>
         <ul class="clean" style="margin-top:6px">
-          <li><b>インディアン水車（鮭魚捕魚車）</b>　JR千歲站<b>步行約 10 分</b>・沿千歲川平坦好走。<b>10 月正是鮭魚洄游高峰</b>，可看到鮭魚逆流而上被水車撈起，是季節限定的畫面。<a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=インディアン水車 千歳">地圖 ↗</a></li>
-          <li><b>道の駅 サーモンパーク千歳</b>　JR千歲站<b>步行約 15 分</b>（距水車僅 100 公尺，兩點一起走）。有<b>千歲水族館</b>（室內、平坦、可看鮭魚水下洄游）、名產店與美食區，天氣不好也能待。<a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=道の駅 サーモンパーク千歳">地圖 ↗</a></li>
+          <li><b>インディアン水車（鮭魚捕魚車）</b>　JR千歲站<b>步行約 10 分</b>・沿千歲川平坦好走。<b>10 月正是鮭魚洄游高峰</b>，可看到鮭魚逆流而上被水車撈起，是季節限定的畫面。<a class="mlink" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=インディアン水車 千歳&travelmode=driving">🧭 導航</a></li>
+          <li><b>道の駅 サーモンパーク千歳</b>　JR千歲站<b>步行約 15 分</b>（距水車僅 100 公尺，兩點一起走）。有<b>千歲水族館</b>（室內、平坦、可看鮭魚水下洄游）、名產店與美食區，天氣不好也能待。<a class="mlink" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=道の駅 サーモンパーク千歳&travelmode=driving">🧭 導航</a></li>
           <li><b>千歲川河畔散步道</b>　連接上面兩點，全程平坦、有長椅可休息，秋天沿岸有紅葉。</li>
         </ul>
         <div class="small" style="margin-top:6px;color:inherit">建議住<b>JR千歲站周邊</b>的飯店，站內外有商店可買東西。若長輩覺得 10–15 分太遠，計程車約 5 分鐘就到（車資很低）。<b>需開車的</b>千歲アウトレット・レラ、イオン千歲則留給有車的日子（10/18 傍晚還車前順路）。</div>
@@ -509,10 +499,10 @@
       <table>
         <thead><tr><th>溫泉旅館</th><th>距青池</th><th>特色</th><th>地圖</th></tr></thead>
         <tbody>
-          <tr><td><b>碧の美 ゆゆ</b><br><span class="small">（原・湯元白金温泉ホテル）</span></td><td><b>車程約 5 分</b></td><td>白金温泉老牌溫泉旅館・有大浴場與露天風呂，房型選擇多</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=碧の美ゆゆ 白金温泉">地圖 ↗</a></td></tr>
-          <tr><td><b>大雪山白金観光ホテル</b></td><td>車程約 5 分</td><td>可眺望大雪山連峰・和室房型多（<span class="vd-ok">✅ 較易訂 3 人房</span>）</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=大雪山白金観光ホテル">地圖 ↗</a></td></tr>
+          <tr><td><b>碧の美 ゆゆ</b><br><span class="small">（原・湯元白金温泉ホテル）</span></td><td><b>車程約 5 分</b></td><td>白金温泉老牌溫泉旅館・有大浴場與露天風呂，房型選擇多</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=碧の美ゆゆ 白金温泉&travelmode=driving">🧭 導航</a></td></tr>
+          <tr><td><b>大雪山白金観光ホテル</b></td><td>車程約 5 分</td><td>可眺望大雪山連峰・和室房型多（<span class="vd-ok">✅ 較易訂 3 人房</span>）</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=大雪山白金観光ホテル&travelmode=driving">🧭 導航</a></td></tr>
           <tr><td><b>美瑛白金温泉<br>ホテルパークヒルズ</b></td><td>車程約 5 分</td><td>森林環繞・露天風呂，設施較新</td><td><a class="mlink" target="_blank" href="https://www.biei-hotelparkhills.com/" >官網 ↗</a></td></tr>
-          <tr><td><b>森の旅亭 びえい</b></td><td>車程約 5 分</td><td><b>高級和風旅亭</b>・部分房型附露天風呂，最適合寵愛長輩（價位高）</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=森の旅亭びえい">地圖 ↗</a></td></tr>
+          <tr><td><b>森の旅亭 びえい</b></td><td>車程約 5 分</td><td><b>高級和風旅亭</b>・部分房型附露天風呂，最適合寵愛長輩（價位高）</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=森の旅亭びえい&travelmode=driving">🧭 導航</a></td></tr>
         </tbody>
       </table>
       </div>
@@ -523,10 +513,10 @@
       <table>
         <thead><tr><th>飯店</th><th>特色</th><th>每晚／房（日圓・台幣約）</th><th>地圖</th></tr></thead>
         <tbody>
-          <tr><td><b>JR イン札幌</b></td><td>札幌駅近・大浴場・商務 CP，逛街方便</td><td><span class="j2t" data-jpy="11000-18000"></span></td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=JRイン札幌">地圖 ↗</a></td></tr>
-          <tr><td><b>ホテルグレイスリー札幌</b></td><td>札幌駅前・房間舒適・近狸小路</td><td><span class="j2t" data-jpy="12000-20000"></span></td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=ホテルグレイスリー札幌">地圖 ↗</a></td></tr>
-          <tr><td><b>三井ガーデンホテル札幌</b></td><td>駅近・大浴場・舒適</td><td><span class="j2t" data-jpy="13000-22000"></span></td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=三井ガーデンホテル札幌">地圖 ↗</a></td></tr>
-          <tr><td><b>JR タワーホテル日航札幌</b></td><td>札幌駅直結・高級・房間大<br><span class="vd-ok">✅ 較可能有 3 人房</span></td><td><span class="j2t" data-jpy="25000-42000"></span></td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=JRタワーホテル日航札幌">地圖 ↗</a></td></tr>
+          <tr><td><b>JR イン札幌</b></td><td>札幌駅近・大浴場・商務 CP，逛街方便</td><td><span class="j2t" data-jpy="11000-18000"></span></td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=JRイン札幌&travelmode=driving">🧭 導航</a></td></tr>
+          <tr><td><b>ホテルグレイスリー札幌</b></td><td>札幌駅前・房間舒適・近狸小路</td><td><span class="j2t" data-jpy="12000-20000"></span></td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=ホテルグレイスリー札幌&travelmode=driving">🧭 導航</a></td></tr>
+          <tr><td><b>三井ガーデンホテル札幌</b></td><td>駅近・大浴場・舒適</td><td><span class="j2t" data-jpy="13000-22000"></span></td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=三井ガーデンホテル札幌&travelmode=driving">🧭 導航</a></td></tr>
+          <tr><td><b>JR タワーホテル日航札幌</b></td><td>札幌駅直結・高級・房間大<br><span class="vd-ok">✅ 較可能有 3 人房</span></td><td><span class="j2t" data-jpy="25000-42000"></span></td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=JRタワーホテル日航札幌&travelmode=driving">🧭 導航</a></td></tr>
         </tbody>
       </table>
       </div>
@@ -615,27 +605,15 @@
       </div>
 
       <div class="ckgroup">
-        <h3>叔叔</h3>
-        <label class="ck"><input type="checkbox" data-k="uncle-pass"><span class="cktext"><b>護照</b>：效期 ≥ 2026/04（不足需重辦，約 10 個工作天）<span class="urgent hot">最優先</span></span></label>
-        <label class="ck"><input type="checkbox" data-k="uncle-meds"><span class="cktext"><b>常用藥・慢性病紀錄</b>：備足 7 天以上藥量，藥名抄英/日文備查<span class="urgent">重要</span></span></label>
-        <label class="ck"><input type="checkbox" data-k="uncle-health"><span class="cktext"><b>行走耐力確認</b>：能連續走多久？是否需要輪椅／助行器？</span></label>
-        <label class="ck"><input type="checkbox" data-k="uncle-esim"><span class="cktext"><b>手機是否支援 eSIM</b>（不支援則需準備實體 SIM 或共用 WiFi 分享器）</span></label>
-        <label class="ck"><input type="checkbox" data-k="uncle-find"><span class="cktext"><b>設定「尋找我的裝置」</b>（Android：Google 尋找我的裝置／iPhone：尋找）並確認可被家人定位</span></label>
-        <label class="ck"><input type="checkbox" data-k="uncle-insurance"><span class="cktext">海外旅遊平安＋<b>醫療險</b>投保</span></label>
-        <label class="ck"><input type="checkbox" data-k="uncle-onsen"><span class="cktext"><b>泡湯用品</b>：小毛巾、換洗內衣褲 ×3 套以上、<b>防滑拖鞋</b>、小提袋（行程有 3–4 次溫泉＋飯店大浴場）</span></label>
+        <h3>叔叔・嬸嬸（夫妻一起確認）</h3>
+        <label class="ck"><input type="checkbox" data-k="uncle-pass"><span class="cktext"><b>護照 ×2</b>：兩人效期都 ≥ 2026/04（不足需重辦，約 10 個工作天）<span class="urgent hot">最優先</span></span></label>
+        <label class="ck"><input type="checkbox" data-k="uncle-meds"><span class="cktext"><b>常用藥・慢性病紀錄 ×2</b>：各自備足 7 天以上藥量，藥名抄英/日文備查<span class="urgent">重要</span></span></label>
+        <label class="ck"><input type="checkbox" data-k="uncle-health"><span class="cktext"><b>行走耐力確認 ×2</b>：各能連續走多久？是否需要輪椅／助行器？</span></label>
+        <label class="ck"><input type="checkbox" data-k="uncle-esim"><span class="cktext"><b>兩人手機是否支援 eSIM</b>（不支援則需準備實體 SIM 或共用 WiFi 分享器）</span></label>
+        <label class="ck"><input type="checkbox" data-k="uncle-find"><span class="cktext"><b>兩人都設定「尋找我的裝置」</b>（Android：Google 尋找我的裝置／iPhone：尋找）並確認可被家人定位</span></label>
+        <label class="ck"><input type="checkbox" data-k="uncle-insurance"><span class="cktext">海外旅遊平安＋<b>醫療險</b>投保 ×2</span></label>
+        <label class="ck"><input type="checkbox" data-k="uncle-onsen"><span class="cktext"><b>泡湯用品 ×2</b>：小毛巾、換洗內衣褲各 3 套以上、<b>防滑拖鞋</b>、小提袋（行程有 3–4 次溫泉＋飯店大浴場）</span></label>
         <label class="ck"><input type="checkbox" data-k="uncle-luggage"><span class="cktext">行李精簡（軟袋為主）＋保暖衣物（早晚 2–8°C）</span></label>
-      </div>
-
-      <div class="ckgroup">
-        <h3>嬸嬸</h3>
-        <label class="ck"><input type="checkbox" data-k="aunt1-pass"><span class="cktext"><b>護照</b>：效期 ≥ 2026/04（不足需重辦，約 10 個工作天）<span class="urgent hot">最優先</span></span></label>
-        <label class="ck"><input type="checkbox" data-k="aunt1-meds"><span class="cktext"><b>常用藥・慢性病紀錄</b>：備足 7 天以上藥量，藥名抄英/日文備查<span class="urgent">重要</span></span></label>
-        <label class="ck"><input type="checkbox" data-k="aunt1-health"><span class="cktext"><b>行走耐力確認</b>：能連續走多久？是否需要輪椅／助行器？</span></label>
-        <label class="ck"><input type="checkbox" data-k="aunt1-esim"><span class="cktext"><b>手機是否支援 eSIM</b>（不支援則需準備實體 SIM 或共用 WiFi 分享器）</span></label>
-        <label class="ck"><input type="checkbox" data-k="aunt1-find"><span class="cktext"><b>設定「尋找我的裝置」</b>（Android：Google 尋找我的裝置／iPhone：尋找）並確認可被家人定位</span></label>
-        <label class="ck"><input type="checkbox" data-k="aunt1-insurance"><span class="cktext">海外旅遊平安＋<b>醫療險</b>投保</span></label>
-        <label class="ck"><input type="checkbox" data-k="aunt1-onsen"><span class="cktext"><b>泡湯用品</b>：小毛巾、換洗內衣褲 ×3 套以上、<b>防滑拖鞋</b>、小提袋（行程有 3–4 次溫泉＋飯店大浴場）</span></label>
-        <label class="ck"><input type="checkbox" data-k="aunt1-luggage"><span class="cktext">行李精簡（軟袋為主）＋保暖衣物（早晚 2–8°C）</span></label>
       </div>
 
       <div class="ckgroup">
@@ -671,6 +649,7 @@
         <label class="ck"><input type="checkbox" data-k="jumbo-taxi"><span class="cktext">機場接送：飯店接駁班次，或預約<b>大型計程車</b>（5人＋行李一車）<span class="urgent">重要</span></span></label>
         <label class="ck"><input type="checkbox" data-k="shuttle-confirm"><span class="cktext">確認 <b>NOMAD 接駁可送到 JR 千歲站</b>（10/16 駕駛還車後搭 JR 回札幌）</span></label>
         <label class="ck"><input type="checkbox" data-k="wheelchair"><span class="cktext">輕便折疊輪椅 <b>1–2 台</b>（大型景點備用）</span></label>
+        <label class="ck"><input type="checkbox" data-k="wheelchair-air"><span class="cktext"><b>向星宇航空確認輪椅規定</b>：自備折疊輪椅可否<b>帶上機／託運</b>、是否算行李額度、需否事先申請<b>機場輪椅服務</b>（登機／轉機協助）<span class="urgent">重要</span><br><span class="small">星宇客服 ☎ 02-2791-1199｜訂位後越早申請越好，特殊服務多需 48 小時前提出</span></span></label>
         <label class="ck"><input type="checkbox" data-k="wifi"><span class="cktext">網路備援：WiFi 分享器（給不支援 eSIM 的成員共用）</span></label>
         <label class="ck"><input type="checkbox" data-k="onsen-hours"><span class="cktext">日歸溫泉營業時間＋費用（豊平峡・定山渓・朝里川）＋<b>是否提供毛巾、沐浴用品</b></span></label>
         <label class="ck"><input type="checkbox" data-k="onsen-tattoo"><span class="cktext">若有<b>刺青</b>成員，先確認該溫泉是否可入浴</span></label>
@@ -683,17 +662,20 @@
   </section>
 
   <!-- 景點連結 -->
-  <section id="spots" data-tab="plan" style="order:6">
-    <h2>景點・溫泉（含 Google 地圖）</h2>
-    <div class="card">
-      <div class="small" style="margin-bottom:10px">依<b>日期順序</b>排列；每個露營車夜都含 <b>♨ 洗澡溫泉</b>。標 <span class="optpill">可選</span> 者為未排入的備案景點，想去再機動加。</div>
+  <section id="spots" data-tab="nav" style="order:1">
+    <h2>🧭 導航（開車用）</h2>
+    <div class="warn">
+      <b>點「🧭 導航」＝ 直接啟動 Google 地圖路線導引</b>（自動以你目前位置為起點、開車模式）。依<b>日期順序</b>排列，當天要去哪就點哪個。
+      <div class="small" style="margin-top:6px;color:inherit">⚠️ <b>請在停車時操作</b>，行駛中交由副駕點選。出發前先確認手機有網路（eSIM／分享器）。標 <span class="optpill">可選</span> 者為備案景點。</div>
+    </div>
+    <div class="card" style="margin-top:14px">
       <ul class="spotlist" id="spotlist"></ul>
       <div class="small" style="margin-top:10px">溫泉與景點的營業時間、公休日請於行前查官網確認；10 月中下旬部分山區設施會提早結束營業。</div>
     </div>
   </section>
 
   <!-- 候選景點評估 -->
-  <section id="cand-sec" data-tab="plan" style="order:7">
+  <section id="cand-sec" data-tab="nav" style="order:2">
     <h2 id="cand">大點之間・候選景點評估</h2>
     <div class="card">
       <div class="small" style="margin-bottom:10px">你提供的候選露營地／景點，依「是否順路」評估（本趟路線 Plan B：千歲→美瑛→定山溪→小樽→千歲）。<span class="vd-ok">✅ 建議納入</span>、<span class="vd-mid">⚠️ 可評估・需小繞</span>。（離路線太遠者已移除，留待下次道東／道北專程。）順路的 6 個已加到上方地圖（金色點）。</div>
@@ -701,10 +683,10 @@
       <table>
         <thead><tr><th>候選</th><th>類型</th><th>位置</th><th>順路評估</th><th>地圖</th></tr></thead>
         <tbody>
-          <tr><td><b>北の住まい設計社</b><br><span class="small">北之住傢俱中心</span></td><td>選物/咖啡</td><td>東川町（美瑛旁）</td><td><span class="vd-ok">✅ 順路</span>・平坦好走、質感咖啡，長輩友善</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=北の住まい設計社 東川">地圖 ↗</a></td></tr>
-          <tr><td><b>バーチ 白樺 PAACHI</b></td><td>森林餐廳</td><td>東川町（美瑛旁）</td><td><span class="vd-ok">✅ 順路</span>・美瑛區用餐點</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=バーチ PAACHI 東川">地圖 ↗</a></td></tr>
-          <tr><td><b>旭山動物園</b></td><td>景點</td><td>旭川（美瑛北約 40 分）</td><td><span class="vd-mid">⚠️ 小繞</span>・可半日加碼，但步行多、建議用輪椅</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=旭山動物園">地圖 ↗</a></td></tr>
-          <tr><td><b>かなやま湖</b><br><span class="small">金山湖・湖畔露營場</span></td><td>湖/露營</td><td>南富良野（美瑛南約 1h）</td><td><span class="vd-mid">⚠️ 小繞</span>・往南才順路</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=かなやま湖">地圖 ↗</a></td></tr>
+          <tr><td><b>北の住まい設計社</b><br><span class="small">北之住傢俱中心</span></td><td>選物/咖啡</td><td>東川町（美瑛旁）</td><td><span class="vd-ok">✅ 順路</span>・平坦好走、質感咖啡，長輩友善</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=北の住まい設計社 東川&travelmode=driving">🧭 導航</a></td></tr>
+          <tr><td><b>バーチ 白樺 PAACHI</b></td><td>森林餐廳</td><td>東川町（美瑛旁）</td><td><span class="vd-ok">✅ 順路</span>・美瑛區用餐點</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=バーチ PAACHI 東川&travelmode=driving">🧭 導航</a></td></tr>
+          <tr><td><b>旭山動物園</b></td><td>景點</td><td>旭川（美瑛北約 40 分）</td><td><span class="vd-mid">⚠️ 小繞</span>・可半日加碼，但步行多、建議用輪椅</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=旭山動物園&travelmode=driving">🧭 導航</a></td></tr>
+          <tr><td><b>かなやま湖</b><br><span class="small">金山湖・湖畔露營場</span></td><td>湖/露營</td><td>南富良野（美瑛南約 1h）</td><td><span class="vd-mid">⚠️ 小繞</span>・往南才順路</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=かなやま湖&travelmode=driving">🧭 導航</a></td></tr>
         </tbody>
       </table>
       </div>
@@ -805,6 +787,7 @@
     {name:'支笏湖', lat:42.7549, lng:141.3517, cat:'onsen', q:'支笏湖', day:'10/17', opt:false, ds:'順路湖景・平坦好走'},
   ];
   function gmap(q){ return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q); }
+  function gnav(q){ return 'https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(q)+'&travelmode=driving'; }
 
   const map = L.map('leafletmap').setView([43.15, 141.75], 8);
   window._map = map;
@@ -860,7 +843,7 @@
       const li = document.createElement('li');
       li.innerHTML = '<div><span class="nm" style="border-left:3px solid '+C[s.cat]+';padding-left:8px">'+
         s.name+(s.opt?' <span class="optpill">可選</span>':'')+'</span><br><span class="ds">'+s.ds+'</span></div>'+
-        '<a style="background:'+C[s.cat]+'" href="'+gmap(s.q)+'" target="_blank">Google 地圖 ↗</a>';
+        '<a class="navbtn" style="background:'+C[s.cat]+'" href="'+gnav(s.q)+'" target="_blank">🧭 導航</a>';
       ul.appendChild(li);
     });
   });
