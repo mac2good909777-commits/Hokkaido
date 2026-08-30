@@ -203,6 +203,34 @@
   .ok b{display:block;color:#137a37;font-size:calc(var(--fs)*0.92);margin-bottom:2px;}
   .ok b:before{content:"✓ ";font-weight:900;}
   @media(max-width:720px){ .kpi{min-height:118px;padding:14px 10px;} }
+  /* ===== 各分頁氛圍浮水印 ===== */
+  .wrap > section{position:relative;isolation:isolate;}
+  .wrap > section::before{
+    content:"";position:absolute;top:-10px;right:4px;font-size:150px;line-height:1;
+    opacity:.055;z-index:-1;pointer-events:none;filter:grayscale(.2);}
+  #summary::before{content:"🍁";}
+  #cal-sec::before{content:"🗓";}
+  #route-sec::before{content:"⛰";}
+  #weather-sec::before{content:"🌤";}
+  #plan::before{content:"🚌";}
+  #map-sec::before{content:"🗺";}
+  #spots::before{content:"🧭";}
+  #cand-sec::before{content:"✨";}
+  #transport-sec::before{content:"✈";}
+  #van::before{content:"🚐";}
+  #hotel::before{content:"♨";}
+  #inquiry-sec::before{content:"📝";}
+  #budget-sec::before{content:"💴";}
+  #checklist-sec::before{content:"✅";}
+  #album-sec::before{content:"📷";}
+  #ref-sec::before{content:"🔗";}
+  @media(max-width:720px){.wrap > section::before{font-size:110px;opacity:.05;}}
+  /* 頁面底紋 */
+  body{background-image:
+    radial-gradient(circle at 12% 8%, rgba(224,90,43,.045) 0, transparent 42%),
+    radial-gradient(circle at 88% 22%, rgba(124,58,237,.04) 0, transparent 40%),
+    radial-gradient(circle at 50% 92%, rgba(22,163,74,.035) 0, transparent 45%);
+    background-attachment:fixed;}
 </style>
 </head>
 <body>
@@ -230,7 +258,7 @@
 
   <!-- 總覽 -->
   <section id="summary" data-tab="overview" style="order:1">
-    <h2>行程總覽</h2>
+    <h2>🍁 行程總覽</h2>
     <div class="grid g4 kpigrid">
       <div class="kpi"><div class="k">旅行日期</div><div class="n">10/13 – 10/19</div><div class="l">7 天 6 夜</div></div>
       <div class="kpi"><div class="k">航班・星宇直飛</div><div class="n nsm">去 09:00 → 13:55<br>回 15:00 → 18:25</div><div class="l">台中 ⇄ 新千歲</div></div>
@@ -283,7 +311,7 @@
 
   <!-- 行程日曆 -->
   <section id="cal-sec" data-tab="overview" style="order:2">
-    <h2 id="calendar">行程日曆（2026 年 10 月）</h2>
+    <h2 id="calendar">🗓 行程日曆（2026 年 10 月）</h2>
     <div class="card">
       <div class="cal" id="cal"></div>
       <div class="callegend">
@@ -296,7 +324,7 @@
 
   <!-- 地圖 -->
   <section id="map-sec" data-tab="plan" style="order:5">
-    <h2 id="map">互動地圖</h2>
+    <h2 id="map">🗺 互動地圖</h2>
     <div id="leafletmap"></div>
     <div class="legend">
       <span><span class="d" style="background:var(--blue)"></span>機場・取還車</span>
@@ -311,7 +339,7 @@
 
   <!-- 日期路徑圖 -->
   <section id="route-sec" data-tab="overview" style="order:3">
-    <h2 id="route">日期路徑圖</h2>
+    <h2 id="route">⛰ 日期路徑圖</h2>
     <div class="card">
       <div id="routemap"></div>
       <div style="overflow-x:auto;margin-top:10px">
@@ -338,7 +366,7 @@
 
   <!-- 天氣 -->
   <section id="weather-sec" data-tab="weather" style="order:1">
-    <h2>天氣參考</h2>
+    <h2>🌤 天氣參考</h2>
     <div class="warn"><b>⚠️ 下表為歷史氣候平均（非即時預報）</b>，用來抓穿衣與行程節奏的大方向。<b>出發前 7–10 天請務必查「即時預報」再決定當天怎麼穿、要不要調整戶外時段</b>——連結見下方。</div>
 
     <div class="card" style="margin-top:14px">
@@ -378,7 +406,7 @@
 
   <!-- 行程方案（採用版） -->
   <section id="plan" data-tab="plan" style="order:4">
-    <h2>行程方案（採用）</h2>
+    <h2>🚌 每日行程</h2>
     <div class="small" style="margin-bottom:14px"><b>用車共 5 天：露營車 3 天 ＋ 7人座客車 2 天</b>。露營車＝<b>移動的休息室</b>（隨時停下來吃東西、小歇、看風景）。露營車（10/14–10/16）跑<b>美瑛</b>——去程、定點日、回程，中間那天完全不趕路；還回千歲後換客車（10/17–10/18）跑<b>定山溪／札幌／小樽</b>短程圈。<b>每晚都住旅館、不車泊</b>，最後一晚回千歲，隔天飯店接駁直達機場（航班 15:00 起飛，約 12:30 出發即可）。</div>
 
     <div class="card">
@@ -449,7 +477,7 @@
   <!-- 露營車 -->
   <!-- 交通方式 -->
   <section id="transport-sec" data-tab="stay" style="order:7">
-    <h2>交通方式</h2>
+    <h2>✈ 交通方式</h2>
     <div class="card">
       <div style="overflow-x:auto">
       <table>
@@ -477,7 +505,7 @@
 
   <!-- 露營車 -->
   <section id="van" data-tab="stay" style="order:8">
-    <h2>露營車 — NOMAD ZIL520</h2>
+    <h2>🚐 露營車 — NOMAD ZIL520</h2>
     <div class="card">
       <div class="grid g4 kpigrid" style="margin-bottom:12px">
         <div class="kpi"><div class="k">乘車定員</div><div class="n">6 <span class="u">人</span></div><div class="l">你們 5 人・座位寬鬆</div></div>
@@ -518,7 +546,7 @@
 
   <!-- 飯店動線 -->
   <section id="hotel" data-tab="stay" style="order:9">
-    <h2>飯店動線建議</h2>
+    <h2>♨ 住宿與溫泉</h2>
     <div class="card">
       <b>飯店配置：千歲 ×2 ＋ 美瑛 ×2 ＋ 札幌 ×2</b>
       <ul class="clean">
@@ -614,7 +642,7 @@
 
   <!-- 費用試算 -->
   <section id="budget-sec" data-tab="budget" style="order:10">
-    <h2 id="budget">費用試算（可自行填入・自動加總）</h2>
+    <h2 id="budget">💴 費用試算</h2>
     <div class="card">
       <div class="rate">
         <b>匯率設定：</b>1 日圓 =
@@ -641,7 +669,7 @@
 
   <!-- 準備清單 -->
   <section id="checklist-sec" data-tab="check" style="order:1">
-    <h2>出發前準備清單</h2>
+    <h2>✅ 出發前準備清單</h2>
     <div class="card" id="checklist">
       <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
         <div><b>完成進度：</b><span class="ckprog" id="ckprog">—</span></div>
@@ -731,7 +759,7 @@
 
   <!-- 候選景點評估 -->
   <section id="cand-sec" data-tab="nav" style="order:2">
-    <h2 id="cand">大點之間・候選景點評估</h2>
+    <h2 id="cand">✨ 候選景點</h2>
     <div class="card">
       <div class="small" style="margin-bottom:10px">你提供的候選露營地／景點，依「是否順路」評估（本趟路線 Plan B：千歲→美瑛→定山溪→小樽→千歲）。<span class="vd-ok">✅ 建議納入</span>、<span class="vd-mid">⚠️ 可評估・需小繞</span>。（離路線太遠者已移除，留待下次道東／道北專程。）順路的 6 個已加到上方地圖（金色點）。</div>
       <div style="overflow-x:auto">
@@ -751,7 +779,7 @@
 
   <!-- 必問清單 -->
   <section id="inquiry-sec" data-tab="stay" style="order:10">
-    <h2>下訂前必問清單 & 詢問訊息</h2>
+    <h2>📝 租車詢問訊息</h2>
     <div class="warn">
       <b>最關鍵一題：</b>第 5 題（台灣駕照日文譯本）決定你能不能合法把車開出去，務必先確認。其餘為費用與交接細節。<b>因為不在車上過夜</b>，過夜相關配備（棉被、夜間供暖、營區電源）都不必詢問。
     </div>
@@ -843,7 +871,7 @@
 
   <!-- 參考網站 -->
   <section id="ref-sec" data-tab="ref" style="order:13">
-    <h2 id="ref">參考網站</h2>
+    <h2 id="ref">🔗 參考網站</h2>
     <div class="card">
       <div class="refgrid">
         <div class="refgroup">
