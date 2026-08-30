@@ -23,10 +23,17 @@
   .tab-btn:hover{border-color:var(--accent);color:var(--accent);}
   .tab-btn.active{background:var(--accent);color:#fff;border-color:var(--accent);}
   .tabbreak{flex-basis:100%;height:0;}
-  header.hero{background:linear-gradient(135deg,#e05a2b 0%,#c9451c 55%,#9c3312 100%);
-    color:#fff;padding:38px 20px 30px;text-align:center;position:relative;overflow:hidden;}
-  header.hero:before{content:"🍁";position:absolute;font-size:120px;opacity:.12;right:10px;top:-10px;}
-  header.hero:after{content:"🏔️";position:absolute;font-size:110px;opacity:.10;left:0px;bottom:-20px;}
+  header.hero{
+    background-image:
+      linear-gradient(180deg, rgba(28,18,12,.42) 0%, rgba(120,44,16,.62) 55%, rgba(150,58,20,.80) 100%),
+      url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201600%20520%22%20preserveAspectRatio%3D%22xMidYMid%20slice%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22sky%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%2324406b%22%2F%3E%3Cstop%20offset%3D%22.38%22%20stop-color%3D%22%236d5f83%22%2F%3E%3Cstop%20offset%3D%22.72%22%20stop-color%3D%22%23c2734a%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23e3a468%22%2F%3E%3C%2FlinearGradient%3E%3ClinearGradient%20id%3D%22mt%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%234a6480%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2333485f%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%221600%22%20height%3D%22520%22%20fill%3D%22url%28%23sky%29%22%2F%3E%3Ccircle%20cx%3D%221215%22%20cy%3D%22300%22%20r%3D%2252%22%20fill%3D%22%23ffdca6%22%20opacity%3D%22.8%22%2F%3E%3Ccircle%20cx%3D%221215%22%20cy%3D%22300%22%20r%3D%2296%22%20fill%3D%22%23ffdca6%22%20opacity%3D%22.16%22%2F%3E%3Cpath%20d%3D%22M0%2C300%20L170%2C208%20L292%2C268%20L430%2C182%20L556%2C262%20L700%2C196%20L858%2C276%20L1002%2C224%20L1178%2C288%20L1318%2C236%20L1462%2C282%20L1600%2C246%20L1600%2C520%20L0%2C520Z%22%20fill%3D%22url%28%23mt%29%22%2F%3E%3Cpath%20d%3D%22M430%2C182%20L472%2C210%20L451%2C215%20L430%2C205%20L409%2C217%20L388%2C211Z%22%20fill%3D%22%23eef3f7%22%20opacity%3D%22.92%22%2F%3E%3Cpath%20d%3D%22M700%2C196%20L738%2C222%20L717%2C227%20L700%2C218%20L681%2C229%20L661%2C223Z%22%20fill%3D%22%23eef3f7%22%20opacity%3D%22.92%22%2F%3E%3Cpath%20d%3D%22M1002%2C224%20L1034%2C246%20L1017%2C250%20L1002%2C243%20L986%2C252%20L969%2C247Z%22%20fill%3D%22%23eef3f7%22%20opacity%3D%22.85%22%2F%3E%3Cpath%20d%3D%22M0%2C344%20C220%2C302%20384%2C364%20604%2C338%20C824%2C312%20986%2C368%201206%2C338%20C1386%2C312%201506%2C352%201600%2C332%20L1600%2C520%20L0%2C520Z%22%20fill%3D%22%239c5f38%22%20opacity%3D%22.92%22%2F%3E%3Cpath%20d%3D%22M0%2C398%20C204%2C362%20424%2C418%20646%2C392%20C888%2C364%201066%2C412%201286%2C386%20C1446%2C368%201546%2C402%201600%2C390%20L1600%2C520%20L0%2C520Z%22%20fill%3D%22%237a4a2c%22%2F%3E%3Cpath%20d%3D%22M0%2C446%20C264%2C414%20526%2C458%20786%2C434%20C1046%2C410%201308%2C452%201600%2C430%20L1600%2C520%20L0%2C520Z%22%20fill%3D%22%23553220%22%2F%3E%3Cg%20fill%3D%22%232f1c12%22%20opacity%3D%22.55%22%3E%3Cpath%20d%3D%22M120%2C446%20l9%2C-30%20l9%2C30Z%22%2F%3E%3Cpath%20d%3D%22M150%2C452%20l7%2C-24%20l7%2C24Z%22%2F%3E%3Cpath%20d%3D%22M1380%2C438%20l10%2C-32%20l10%2C32Z%22%2F%3E%3Cpath%20d%3D%22M1412%2C444%20l8%2C-26%20l8%2C26Z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"),
+      linear-gradient(135deg,#e05a2b 0%,#c9451c 55%,#9c3312 100%);
+    background-size:cover,cover,cover;
+    background-position:center,center 62%,center;
+    background-repeat:no-repeat;
+    color:#fff;padding:52px 20px 44px;text-align:center;position:relative;overflow:hidden;
+    text-shadow:0 2px 10px rgba(0,0,0,.45);}
+  header.hero:before,header.hero:after{content:none;}
   header.hero h1{margin:0 0 6px;font-size:26px;font-weight:900;letter-spacing:1px;}
   header.hero .sub{opacity:.95;font-size:14px;}
   header.hero .tag{display:inline-block;margin-top:12px;background:rgba(255,255,255,.18);
@@ -202,7 +209,7 @@
 
 <header class="hero">
   <h1>2026 北海道 溫泉慢遊</h1>
-  <div class="sub">天天泡湯 × 不趕行程 × 露營車體驗　｜　5 人（我 ＋ 媽媽・叔叔・嬸嬸・姑姑）</div>
+  <div class="sub">溫泉 ‧ 慢行 ‧ 露營車體驗　｜　5 人成行（媽媽・叔叔・嬸嬸・姑姑・駕駛）</div>
   <div class="tag">🗓 2026 / 10 / 13（二） – 10 / 19（一）　7 天 6 夜</div>
 </header>
 
@@ -228,48 +235,48 @@
       <div class="kpi"><div class="k">旅行日期</div><div class="n">10/13 – 10/19</div><div class="l">7 天 6 夜</div></div>
       <div class="kpi"><div class="k">航班・星宇直飛</div><div class="n nsm">去 09:00 → 13:55<br>回 15:00 → 18:25</div><div class="l">台中 ⇄ 新千歲</div></div>
       <div class="kpi"><div class="k">用車</div><div class="n">5 <span class="u">天</span></div><div class="l">露營車 3 ＋ 客車 2</div></div>
-      <div class="kpi"><div class="k">露營車</div><div class="n">移動休息室</div><div class="l">車上吃東西・小歇・看風景<br>晚上住飯店，不車泊</div></div>
+      <div class="kpi"><div class="k">露營車</div><div class="n">移動休息室</div><div class="l">隨時歇腳、用餐、賞景<br>夜宿飯店，不車泊</div></div>
     </div>
 
     <div class="card" style="margin-top:14px">
-      <h3 style="margin:0 0 10px">一眼看懂</h3>
+      <h3 style="margin:0 0 10px">每日行程一覽</h3>
       <div style="overflow-x:auto">
       <table>
-        <thead><tr><th>日期</th><th>住哪</th><th>那天做什麼</th></tr></thead>
+        <thead><tr><th>日期</th><th>住宿</th><th>行程內容</th></tr></thead>
         <tbody>
-          <tr><td class="day">10/13 二</td><td><b>千歲</b></td><td>下午落地 → 飯店休息、附近散步</td></tr>
-          <tr><td class="day">10/14 三</td><td><b>白金温泉</b></td><td>開<b>露營車</b>上美瑛 → 泡溫泉</td></tr>
-          <tr><td class="day">10/15 四</td><td>白金温泉<br><span class="small">不搬行李</span></td><td><b>青池</b>、美瑛丘陵 → 再泡一次溫泉</td></tr>
-          <tr><td class="day">10/16 五</td><td><b>札幌</b></td><td>南下札幌 → 大家逛街休息（我去還露營車）</td></tr>
-          <tr><td class="day">10/17 六</td><td>札幌<br><span class="small">不搬行李</span></td><td>換<b>7人座客車</b> → <b>定山溪泡湯</b> → 狸小路晚餐</td></tr>
-          <tr><td class="day">10/18 日</td><td><b>千歲</b></td><td>北大銀杏 → <b>小樽</b> → 朝里川溫泉 → 還車</td></tr>
-          <tr><td class="day">10/19 一</td><td>—</td><td>上午從容 → 下午班機回台中</td></tr>
+          <tr><td class="day">10/13 二</td><td><b>千歲</b></td><td>抵達新千歲，接送入住千歲，稍作休息</td></tr>
+          <tr><td class="day">10/14 三</td><td><b>白金温泉</b></td><td><b>露營車</b>啟程北上美瑛，入住溫泉旅館泡湯</td></tr>
+          <tr><td class="day">10/15 四</td><td>白金温泉<br><span class="small">連泊</span></td><td>晨訪<b>青池</b>，午後美瑛丘陵，返回旅館泡湯</td></tr>
+          <tr><td class="day">10/16 五</td><td><b>札幌</b></td><td>南下札幌入住，市區自由活動（駕駛辦理還車）</td></tr>
+          <tr><td class="day">10/17 六</td><td>札幌<br><span class="small">連泊</span></td><td>改乘<b>7人座專車</b>，<b>定山溪溫泉</b>，晚間狸小路</td></tr>
+          <tr><td class="day">10/18 日</td><td><b>千歲</b></td><td>北大銀杏並木、<b>小樽</b>漫遊、朝里川溫泉</td></tr>
+          <tr><td class="day">10/19 一</td><td>—</td><td>上午自由活動，午後接送前往機場，搭機返台</td></tr>
         </tbody>
       </table>
       </div>
-      <div class="small" style="margin-top:10px">住宿共 6 晚：<b>千歲 ×2、白金温泉 ×2、札幌 ×2</b>。美瑛與札幌都<b>連住兩晚不搬行李</b>，全程<b>不搭電車</b>。<b>核心：慢遊＋泡湯，不趕景點。</b></div>
+      <div class="small" style="margin-top:10px">住宿共 6 晚：<b>千歲 ×2、白金温泉 ×2、札幌 ×2</b>，美瑛與札幌<b>連泊兩晚免整理行李</b>；全程<b>專車接送、不搭乘大眾運輸</b>。行程以<b>溫泉與慢行</b>為主軸，不趕景點。</div>
     </div>
 
     <div class="card" style="margin-top:14px">
-      <h3 style="margin:0 0 10px">😌 可以放心</h3>
+      <h3 style="margin:0 0 10px">本行程特色</h3>
       <div class="okgrid">
-        <div class="ok"><b>不必拖行李走遠路</b>車停飯店門口，行李下車就進房</div>
-        <div class="ok"><b>全程不搭電車</b>7 天都是自家車門到門</div>
-        <div class="ok"><b>只換 3 次飯店</b>美瑛、札幌各連住 2 晚</div>
-        <div class="ok"><b>不睡車上</b>每晚都住有暖氣的飯店</div>
-        <div class="ok"><b>天天泡湯</b>白金 2 晚＋定山溪＋朝里川</div>
-        <div class="ok"><b>不趕行程</b>每天 2–3 個點，傍晚就休息</div>
-        <div class="ok"><b>不會走散</b>隨身小卡＋手機互相定位</div>
-        <div class="ok"><b>走路不多</b>每天步行 2 小時內，備輪椅</div>
-        <div class="ok"><b>車上就能休息</b>露營車有桌椅沙發，隨時吃東西、看風景</div>
+        <div class="ok"><b>行李免拖行</b>專車直達飯店門口，下車即入房</div>
+        <div class="ok"><b>全程專車接送</b>不搭乘大眾運輸，門到門</div>
+        <div class="ok"><b>僅換宿 3 次</b>美瑛、札幌各連泊 2 晚</div>
+        <div class="ok"><b>夜宿飯店</b>不車泊，每晚均有暖氣</div>
+        <div class="ok"><b>天天泡湯</b>白金連泊、定山溪、朝里川</div>
+        <div class="ok"><b>節奏從容</b>每日 2–3 個景點，傍晚即入住</div>
+        <div class="ok"><b>安心同行</b>備隨身聯絡卡與手機定位</div>
+        <div class="ok"><b>步行量低</b>每日步行 2 小時內，備輪椅</div>
+        <div class="ok"><b>車上即休息室</b>露營車備桌椅沙發，可隨時歇腳賞景</div>
       </div>
     </div>
 
-    <div class="warn" style="margin-top:14px"><b>出發前最重要 3 件事</b>
+    <div class="warn" style="margin-top:14px"><b>行前準備・三項重點</b>
       <ul class="clean" style="margin-top:4px">
-        <li><b>護照</b>效期需 ≥ 2026/04（不足要重辦，約 10 個工作天）</li>
-        <li><b>機票、白金温泉旅館</b>盡早訂（紅葉季搶手）</li>
-        <li>駕駛的<b>台灣駕照日文譯本</b>（非國際駕照）</li>
+        <li><b>護照</b>效期須 ≥ 2026/04（不足須重辦，約 10 個工作天）</li>
+        <li><b>機票與白金温泉旅館</b>請及早訂位（紅葉季房源緊俏）</li>
+        <li>駕駛須備<b>台灣駕照日文譯本</b>（非國際駕照）</li>
       </ul>
     </div>
   </section>
@@ -348,8 +355,8 @@
         </tbody>
       </table>
       </div>
-      <div class="note" style="margin-top:10px"><b>穿著重點：</b><b>10/15 清晨的美瑛（青池）可能只有 2–5°C</b>，是全程最冷的時段——當天早上務必<b>洋蔥式穿法</b>：發熱衣＋刷毛／羽絨背心＋防風外套，加帽子與手套。<b>每晚都住旅館有暖氣</b>，不必擔心夜間保暖；白天在車上也有空調。10 月北海道降雨機率中等，備一件輕便雨衣／防風外套即可，不需重裝雨具。</div>
-      <div class="note" style="margin-top:10px"><b>♨ 多天泡湯・注意事項：</b>本行程有 <b>3–4 次溫泉</b>（10/14・10/15 白金温泉、10/17 豊平峡／定山渓）再加飯店大浴場，幾乎天天可泡。提醒：<b>單次浸泡 10–15 分鐘就起身</b>、水溫勿過高；<b>飯後、飲酒後、剛吃完藥先別泡</b>；泡前泡後都要<b>補充水分</b>；有高血壓／心臟疾病者先諮詢醫師，泡湯時<b>結伴不要單獨</b>。浴場地面濕滑，<b>務必穿防滑拖鞋、扶著扶手慢走</b>——這是最常見的意外。</div>
+      <div class="note" style="margin-top:10px"><b>穿著建議：</b><b>10/15 清晨的美瑛（青池）可能只有 2–5°C</b>，為全程最低溫時段，建議採<b>洋蔥式穿法</b>：發熱衣、刷毛或羽絨背心、防風外套，並備帽子與手套。<b>每晚住宿均有暖氣</b>，車內亦有空調，無須擔心保暖。10 月北海道降雨機率中等，備輕便雨具或防風外套即可。</div>
+      <div class="note" style="margin-top:10px"><b>♨ 入浴注意事項：</b>本行程有 <b>3–4 次溫泉</b>（10/14・10/15 白金温泉、10/17 豊平峡／定山渓）再加飯店大浴場，幾乎每日可入浴。提醒事項：<b>單次浸泡 10–15 分鐘就起身</b>、水溫勿過高；<b>飯後、飲酒後、剛吃完藥先別泡</b>；泡前泡後都要<b>補充水分</b>；有高血壓／心臟疾病者先諮詢醫師，泡湯時<b>結伴不要單獨</b>。浴場地面濕滑，<b>務必穿防滑拖鞋、扶著扶手慢走</b>——這是最常見的意外。</div>
       <div class="small" style="margin-top:8px">日落時間約在 <b>16:35–16:45</b>（10/13→10/19 逐漸提早），比夏天早很多——戶外景點建議安排在 16:00 前結束，避免摸黑走山路。</div>
     </div>
 
@@ -387,13 +394,13 @@
       <table>
         <thead><tr><th>日期</th><th>定位</th><th>主要內容</th><th>車程</th></tr></thead>
         <tbody>
-          <tr><td class="day">10/13 二</td><td>抵達適應</td><td><b>✈ JX318 台中 09:00 → 新千歲 13:55 落地</b> → <b>飯店免費接駁／計程車</b>直達<b>千歲</b>飯店（約 10 分，免搭電車）→ 下午千歲アウトレット・レラ 或 サーモンパーク 輕鬆散步＋晚餐</td><td>接駁</td></tr>
-          <tr><td class="day">10/14 三</td><td>北上・富良野線</td><td>09:00 千歲取車 → 北上途中在<b>ファーム富田</b>／富良野停留午餐 → 下午<b>四季彩之丘</b>（電動車代步、輪椅友善）→ 入住<b>白金温泉</b>旅館，<b>泡湯</b>放鬆</td><td>~2.5h</td></tr>
-          <tr><td class="day">10/15 四</td><td>美瑛精華日（定點）</td><td><b>清晨先攻青池</b>（人最少、水色最藍）→ <b>白鬚瀑布</b>（就在旁邊）→ 下午<b>拼布之路</b>車上賞丘陵、<b>新栄の丘</b>看夕陽 → 回旅館<b>再泡一次溫泉</b>（續住不搬行李）<br><span class="small">🐧 <b>備案</b>：當天早上若大家有體力，可改跑<b>旭山動物園</b>（見下方說明）</span></td><td>短程</td></tr>
-          <tr><td class="day">10/16 五</td><td>南下札幌・還露營車</td><td>上午退房 → 南下（中途休息站喝咖啡）→ 中午抵<b>札幌</b>，<b>大家直接進飯店</b>／狸小路逛街休息 → <b>駕駛獨自</b>開露營車到千歲還車（約 50 分）→ NOMAD 接駁至 JR 千歲站 → <b>JR 回札幌</b>會合</td><td>~2.25h<br><span class="small">＋駕駛獨自往返</span></td></tr>
-          <tr><td class="day">10/17 六</td><td>定山溪溫泉日</td><td><b>駕駛獨自</b>到札幌租車行取<b>7人座客車</b> → <b>開回飯店接大家</b> → <b>定山溪</b>（約 1h）：二見吊橋紅葉＋<b>豊平峡温泉</b> → 傍晚回<b>札幌</b>（續住同飯店，不搬行李），<b>狸小路</b>湯咖哩晚餐</td><td>~2h</td></tr>
-          <tr><td class="day">10/18 日</td><td>小樽 → 千歲</td><td>晨<b>北大銀杏並木</b>（平坦好走）→ 自駕往<b>小樽</b>：運河・堺町通・LeTAO 咖啡 → 順泡<b>朝里川温泉</b> → 南下<b>千歲還客車</b> → 入住<b>千歲</b>飯店（機場旁，隔天最輕鬆）</td><td>~2h</td></tr>
-          <tr><td class="day">10/19 一</td><td>賦歸</td><td>上午從容整理行李（飯店旁散步）→ <b>約 12:30 飯店接駁／大型計程車</b>到機場（約 10 分）→ <b>✈ JX319 新千歲 15:00 → 台中 18:25</b></td><td>接駁</td></tr>
+          <tr><td class="day">10/13 二</td><td>抵達・整裝</td><td><b>✈ JX318 台中 09:00 → 新千歲 13:55</b>　抵達後由<b>飯店接駁／專車</b>直達千歲飯店（約 10 分）。午後可至<b>千歲アウトレット・レラ</b>或<b>サーモンパーク千歳</b>散步，並於當地用晚餐。</td><td>接駁</td></tr>
+          <tr><td class="day">10/14 三</td><td>富良野・美瑛</td><td>09:00 領取<b>露營車</b>啟程北上。途經<b>富良野・ファーム富田</b>停留用餐，午後遊覽<b>四季彩之丘</b>（園內備有電動遊園車）。傍晚入住<b>白金温泉</b>旅館，泡湯休息。</td><td>~2.5h</td></tr>
+          <tr><td class="day">10/15 四</td><td>美瑛全日遊覽</td><td>晨間造訪<b>青い池</b>（清晨遊客最少、水色最清透），續往鄰近的<b>白鬚瀑布</b>。午後沿<b>拼布之路</b>車覽美瑛丘陵，於<b>新栄の丘</b>觀賞夕照。返回旅館泡湯，<b>連泊免整理行李</b>。<br><span class="small">🐧 <b>備案</b>：當天早上若大家有體力，可改跑<b>旭山動物園</b>（見下方說明）</span></td><td>短程</td></tr>
+          <tr><td class="day">10/16 五</td><td>南下札幌</td><td>上午退房南下，中途於休息站稍作停留。中午抵達<b>札幌</b>，先行入住並於<b>狸小路</b>一帶自由活動。<b>露營車還車由駕駛單獨前往千歲辦理</b>（約 50 分），完成後搭乘 JR 返回札幌會合。</td><td>~2.25h<br><span class="small">＋駕駛獨自往返</span></td></tr>
+          <tr><td class="day">10/17 六</td><td>定山溪溫泉</td><td>駕駛先行取<b>7人座專車</b>後返回飯店接送。前往<b>定山溪</b>（約 1 小時），漫步<b>二見吊橋</b>賞紅葉，並於<b>豊平峡温泉</b>泡湯。傍晚返回札幌，晚間於<b>狸小路</b>享用湯咖哩。<b>連泊同一飯店。</b></td><td>~2h</td></tr>
+          <tr><td class="day">10/18 日</td><td>小樽・返回千歲</td><td>晨間漫步<b>北海道大學銀杏並木</b>（路面平坦）。續往<b>小樽</b>，遊覽運河、堺町通並於 LeTAO 品嚐甜點，順道至<b>朝里川温泉</b>泡湯。傍晚南下千歲辦理還車，入住<b>千歲</b>飯店。</td><td>~2h</td></tr>
+          <tr><td class="day">10/19 一</td><td>返回台灣</td><td>上午自由活動、整理行李。<b>約 12:30</b> 由飯店接駁／專車前往新千歲機場（約 10 分）。<b>✈ JX319 新千歲 15:00 → 台中 18:25</b>，結束愉快旅程。</td><td>接駁</td></tr>
         </tbody>
       </table>
       </div>
@@ -579,28 +586,28 @@
     </div>
 
     <div class="card" style="margin-top:16px">
-      <h3 style="margin:0 0 10px">♨ 全程溫泉安排（幾乎天天可泡）</h3>
+      <h3 style="margin:0 0 10px">♨ 全程溫泉安排</h3>
       <div style="overflow-x:auto">
       <table>
         <thead><tr><th>日期</th><th>溫泉</th><th>形式</th><th>備註</th></tr></thead>
         <tbody>
           <tr><td><b>10/13</b> 千歲</td><td>飯店大浴場</td><td>住宿附設</td><td>選有大浴場的飯店（スーパーホテル千歳為人工溫泉、JRイン千歳有大浴場）</td></tr>
-          <tr><td><b>10/14</b> 白金</td><td><b>白金温泉</b>（旅館內湯・露天）</td><td>住宿溫泉</td><td>抵達後泡、晚餐後再泡，最放鬆</td></tr>
-          <tr><td><b>10/15</b> 白金</td><td><b>白金温泉</b>（第二晚）</td><td>住宿溫泉</td><td>青池回來就能泡；想加碼可去<b>吹上温泉保養センター 白銀荘</b>（車程約 20 分・山路，體力好再去）</td></tr>
+          <tr><td><b>10/14</b> 白金</td><td><b>白金温泉</b>（旅館內湯・露天）</td><td>住宿溫泉</td><td>抵達後與晚餐後皆可入浴</td></tr>
+          <tr><td><b>10/15</b> 白金</td><td><b>白金温泉</b>（第二晚）</td><td>住宿溫泉</td><td>返回旅館後入浴；另可加遊<b>吹上温泉 白銀荘</b>（車程約 20 分・山路）</td></tr>
           <tr><td><b>10/16</b> 札幌</td><td>飯店大浴場</td><td>住宿附設</td><td>札幌飯店建議<b>指定有大浴場者</b>（如 JRイン札幌、ドーミーイン札幌）</td></tr>
-          <tr><td><b>10/17</b> 定山溪</td><td><b>豊平峡温泉</b>／<b>定山渓温泉</b></td><td><span class="vd-ok">日歸泡湯</span></td><td>本行程的溫泉重頭戲。豊平峡以<b>大露天風呂＋印度咖哩</b>聞名；定山渓溫泉街也有多家可日歸</td></tr>
-          <tr><td><b>10/18</b> 小樽→千歲</td><td><b>朝里川温泉</b>（小樽近郊）</td><td><span class="vd-ok">日歸泡湯</span></td><td>小樽玩完順路，泡完再南下千歲還車</td></tr>
-          <tr><td><b>10/18</b> 千歲</td><td>飯店大浴場</td><td>住宿附設</td><td>回千歲後還能再泡一次</td></tr>
+          <tr><td><b>10/17</b> 定山溪</td><td><b>豊平峡温泉</b>／<b>定山渓温泉</b></td><td><span class="vd-ok">日歸泡湯</span></td><td>本行程溫泉重點。豊平峡以<b>大露天風呂</b>與咖哩聞名；定山渓溫泉街亦有多家可日歸入浴</td></tr>
+          <tr><td><b>10/18</b> 小樽→千歲</td><td><b>朝里川温泉</b>（小樽近郊）</td><td><span class="vd-ok">日歸泡湯</span></td><td>小樽行程結束後順道入浴，續往千歲</td></tr>
+          <tr><td><b>10/18</b> 千歲</td><td>飯店大浴場</td><td>住宿附設</td><td>返抵千歲後可再次入浴</td></tr>
         </tbody>
       </table>
       </div>
-      <div class="note" style="margin-top:10px"><b>訂房重點：每一晚都挑「有大浴場」的飯店</b>——這樣即使沒排到日歸溫泉，每晚都能泡。訂房網站篩選「<b>大浴場あり</b>」即可。</div>
+      <div class="note" style="margin-top:10px"><b>訂房重點：</b>各晚住宿均以「<b>附大浴場</b>」為優先，訂房網站可篩選「大浴場あり」。</div>
       <div class="small" style="margin-top:8px"><b>其他可選（想多泡再加）：</b>
         <b>支笏湖・丸駒温泉旅館</b>（湖畔天然露天風呂，全日本少見與湖水相連的浴池；<span class="vd-mid">日歸僅 11:00–14:00、週一～週四休</span>，10/18 是週日可去但時間卡小樽，需取捨）、
         <b>小金湯温泉</b>（札幌往定山溪路上）、
         <b>休暇村支笏湖</b>（日歸時段較寬）。
       </div>
-      <div class="warn" style="margin-top:10px"><b>泡湯安全（重要）：</b>單次 <b>10–15 分鐘</b>就起身、水溫勿過高；<b>飯後・飲酒後・剛服藥先別泡</b>；泡前泡後都要<b>補水</b>；有高血壓／心臟病者先問醫師；<b>結伴不單獨</b>入浴。浴場地面濕滑，<b>務必穿防滑拖鞋、扶扶手慢走</b>。</div>
+      <div class="warn" style="margin-top:10px"><b>入浴注意事項：</b>單次浸泡以 <b>10–15 分鐘</b>為宜、水溫不宜過高；<b>飯後、飲酒後、服藥後請暫緩入浴</b>；入浴前後補充水分；有高血壓或心臟疾病者請先諮詢醫師；建議<b>結伴入浴</b>。浴場地面濕滑，請穿防滑拖鞋並扶握扶手。</div>
     </div>
 
   </section>
