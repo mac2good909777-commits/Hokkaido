@@ -164,7 +164,7 @@
 
 <header class="hero">
   <h1>2026 北海道 露營車公路旅行</h1>
-  <div class="sub">露營車 × 長輩慢旅 × 秋日紅葉　｜　5 人（我 ＋ 媽媽・叔叔・嬸嬸・姑姑・皆 70 幾歲）</div>
+  <div class="sub">露營車 × 長輩慢旅 × 秋日紅葉　｜　5 人（我 ＋ 媽媽・叔叔・嬸嬸・姑姑）</div>
   <div class="tag">🗓 2026 / 10 / 13（二） – 10 / 19（一）　7 天 6 夜</div>
 </header>
 
@@ -173,7 +173,8 @@
   <button class="tab-btn" data-tab="weather">天氣</button>
   <button class="tab-btn" data-tab="plan">行程</button>
   <button class="tab-btn" data-tab="stay">交通住宿</button>
-  <button class="tab-btn" data-tab="budget">費用・清單</button>
+  <button class="tab-btn" data-tab="budget">費用</button>
+  <button class="tab-btn" data-tab="check">準備清單</button>
   <button class="tab-btn" data-tab="ref">參考</button>
 </div></nav>
 
@@ -185,7 +186,7 @@
     <div class="grid g4">
       <div class="kpi"><div class="n">10/13→10/19</div><div class="l">星宇直飛・7天6夜</div></div>
       <div class="kpi"><div class="n">✈ 去 10:05→15:10</div><div class="l">回 16:25→19:35（台北⇄新千歲）</div></div>
-      <div class="kpi"><div class="n">3 晚車泊</div><div class="l">露營車 10/14–10/17</div></div>
+      <div class="kpi"><div class="n">6 晚旅館</div><div class="l">全程住宿・不車泊</div></div>
       <div class="kpi"><div class="n">最長 2.5h</div><div class="l">單日車程上限</div></div>
     </div>
     <div class="card" style="margin-top:12px">
@@ -207,7 +208,7 @@
     <div class="card">
       <div class="cal" id="cal"></div>
       <div class="callegend">
-        <span>🚐 = 露營車車泊夜（10/14–10/16，共 3 晚）</span>
+        <span>🚐 = 露營車使用日（10/14–10/16，白天乘坐體驗）</span>
         <span>取車 10/14 09:00　·　還車 10/17 約 15:30–16:00</span>
         <span>飯店：千歲 10/13　·　札幌 10/17・10/18</span>
       </div>
@@ -295,57 +296,19 @@
     </div>
   </section>
 
-  <!-- 行程方案 -->
+  <!-- 行程方案（採用版） -->
   <section id="plan" data-tab="plan" style="order:4">
-    <h2>行程方案</h2>
-    <div class="small" style="margin-bottom:14px">兩個版本並列參考：<b>方案一</b>露營車三晚車泊（原定案）；<b>方案二</b>露營車只白天環駛、全程住旅館，後段改租 7 人座客車。5 人成行後，方案二能讓每位長輩每晚都睡正常床、不受露營車就寢定員（剛好 5 人）限制。</div>
+    <h2>行程方案（採用）</h2>
+    <div class="small" style="margin-bottom:14px"><b>露營車 = 白天體驗乘坐，不車泊</b>：10/14–10/16 用露營車跑美瑛，<b>每晚都住旅館</b>；10/16 還車後改租 7 人座客車跑定山溪／小樽／札幌，全程自駕、長輩門到門。</div>
 
     <div class="card">
-      <div style="margin-bottom:10px"><span class="pill rec">方案一・車泊版</span> <b>湖畔溫泉派 — 單晚美瑛 ＋ 定山溪溫泉</b>　<span class="small">車程均勻、溫泉多、青池在清晨最清爽時去，最貼近「舒服放鬆」的核心。</span></div>
-      <table>
-        <thead><tr><th>日期</th><th>定位</th><th>主要內容</th><th>車程</th></tr></thead>
-        <tbody>
-          <tr><td class="day">10/13 二</td><td>抵達適應</td><td><b>✈ 台北 10:05 → 新千歲 15:10 落地</b> → <b>飯店免費接駁／計程車</b>直達<b>千歲</b>飯店（約 10 分，免搭電車）→ 休息</td><td>接駁</td></tr>
-          <tr><td class="day">10/14 三</td><td>去程公路旅行</td><td>09:00 取車 → 開往美瑛；下午輕鬆、<b>白金温泉洗澡</b>，早安頓車泊</td><td>~2.5h</td></tr>
-          <tr><td class="day">10/15 四</td><td>美瑛精華＋南移</td><td>上午精神好時看<b>青池</b>＋四季彩之丘 → 午後南下定山溪，<b>定山渓温泉洗澡</b>＋車泊</td><td>~2.5h</td></tr>
-          <tr><td class="day">10/16 五</td><td>湖畔溫泉慢日</td><td><b>短車程</b>：定山溪二見吊橋紅葉 → <b>豊平峡温泉洗澡</b>＋咖啡，幾乎不趕路</td><td>30–60m</td></tr>
-          <tr><td class="day">10/17 六</td><td>還車＋進札幌</td><td>定山溪／湖畔 → 千歲 15:30–16:00 <b>還露營車</b> → 接駁＋JR 進<b>札幌</b>；傍晚<b>狸小路＋湯咖哩</b>晚餐</td><td>~1.5h</td></tr>
-          <tr><td class="day">10/18 日</td><td>小樽一日</td><td>晨遊<b>北大銀杏並木</b> → <b>租車（5人座休旅／小型廂型車）</b>往<b>小樽</b>（運河・堺町通・咖啡），可順遊<b>余市／朝里</b> → 傍晚回札幌還車</td><td>租車</td></tr>
-          <tr><td class="day">10/19 一</td><td>賦歸</td><td>晨<b>北海道神宮・円山公園</b>（<span class="vd-mid">彈性・可略過</span>，累就留北大）→ JR 札幌→新千歲 約 40 分 → <b>✈ 新千歲 16:25 → 台北 19:35</b></td><td>JR</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="small" style="margin-top:10px">＊已依需求捨棄「美瑛雙晚」替代案（無追求丘陵紅葉深度的執著），全程以均勻車程＋溫泉慢節奏為主軸。</div>
-
-    <div class="warn" style="margin-top:12px"><b>⚠️ 方案一的弱點（長輩不搭大眾運輸的話）：</b>方案一在 10/17 還車後是<b>搭 JR 進札幌</b>、10/18 租車、10/19 再搭 JR 去機場——中間夾了<b>兩段鐵路轉乘＋扛行李上下車</b>。若長輩移動有困難，建議改採<b>方案二</b>（還車後直接接 7 人座客車、後段全程自駕），或把方案一的 10/17 也改成「還車後就近租車自駕進札幌」。</div>
-
-    <div class="note" style="margin-top:12px"><b>🏕♨ 露營車三晚・住宿＋洗澡溫泉：</b>
-      <ul class="clean" style="margin-top:4px">
-        <li><b>10/14 車泊①</b>　住：<b>道の駅 白金ビルケ</b>（近青池・可車中泊・全年）　洗澡：白金温泉　<span class="vd-no">※星に手のとどく丘 2026 只開到 10/11、本趟已閉園</span></li>
-        <li><b>10/15 車泊②</b>　住：<b>オートリゾート滝野</b>（札幌南区・有電源可整夜供暖・確認開到 10/31）　洗澡：定山渓温泉</li>
-        <li><b>10/16 車泊③</b>　住：<b>オートリゾート滝野</b>　洗澡：豊平峡温泉（露天＋咖哩）</li>
-      </ul>
-      滝野的<b>電源サイト</b>能讓地暖整夜運轉（暖氣不靠發電機）；10/14 道の駅無電源，靠車上 FF 暖房。<b>下訂前仍請電話確認</b>；備援：道の駅望羊中山（近定山溪、可車宿）。
-    </div>
-
-    <div class="note" style="margin-top:12px"><b>札幌市區散策（已納入你想去的點）＋長輩貼心：</b>
-      <ul class="clean" style="margin-top:4px">
-        <li><b>狸小路＋湯咖哩</b>（10/17 傍晚）：<span class="vd-ok">✅</span> 有頂棚、平坦、有座位、避風雨，最輕鬆；湯咖哩選一樓／有電梯的店，免爬樓梯。</li>
-        <li><b>北海道大學 銀杏並木</b>（10/18 晨，距札幌駅步行約 7 分）：<span class="vd-ok">✅</span> 10 月下旬金黃盛開、路面平坦好推輪椅——<b>只走銀杏並木精華段</b>，別走全校（校園很大）。</li>
-        <li><b>北海道神宮・円山公園</b>（10/19 晨・<span class="vd-mid">彈性・可略過</span>）：地下鐵円山公園駅＋步行約 15 分，紅葉美但<b>參道有碎石與台階</b>、主殿前有階梯；讓長輩慢走、平坦段用輪椅。<b>時間／體力不足或天氣差就直接略過</b>，改在札幌駅旁悠閒吃早餐或看北大銀杏即可。</li>
-      </ul>
-    </div>
-
-    <!-- 方案二 -->
-    <div class="card" style="margin-top:20px">
-      <div style="margin-bottom:10px"><span class="pill alt">方案二・旅館版</span> <b>露營車環駛美瑛 ＋ 7人座客車遊後段</b>　<span class="small">起點同方案一；露營車 3 天只當「白天用車」跑美瑛環線、當晚一律住旅館，還車後換 7 人座客車跑定山溪／小樽／札幌，不需再靠 JR。</span></div>
+      <div style="margin-bottom:10px"><span class="pill rec">★ 採用</span> <b>露營車體驗美瑛 ＋ 7人座客車遊後段</b>　<span class="small">露營車 3 天只當「白天用車」跑美瑛環線、當晚一律住旅館，還車後換 7 人座客車，不需再靠 JR。</span></div>
 
       <div class="grid g4" style="margin-bottom:14px">
         <div class="kpi"><div class="n">🚐 3 天</div><div class="l">露營車・10/14–10/16<br>千歲取車→千歲還車</div></div>
         <div class="kpi"><div class="n">🚙 3 天</div><div class="l">7人座客車・10/17–10/19</div></div>
         <div class="kpi"><div class="n">6 晚旅館</div><div class="l">每晚都睡飯店，不睡車上</div></div>
-        <div class="kpi"><div class="n">0 車泊</div><div class="l">免煩惱營區營業季／電源</div></div>
+        <div class="kpi"><div class="n">不車泊</div><div class="l">純白天體驗乘坐</div></div>
       </div>
 
       <table>
@@ -364,7 +327,7 @@
       <div class="note" style="margin-top:12px"><b>租車邏輯：</b>
         <ul class="clean" style="margin-top:4px">
           <li><b>露營車（NOMAD ZIL520）</b>：10/14 09:00 取車 → 10/16 約 15:30–16:00 千歲原點還車，共 3 天。3 天全部<b>白天用車、晚上住旅館</b>，就寢定員 5 人的限制完全不影響（不睡車上）；行李每晚搬進旅館，車上不用長時間堆放。</li>
-          <li><b>7人座客車</b>：10/17 09:00 千歲取車 → 10/19 還車後直接前往機場，共 3 天。5 人＋行李坐 7 人座相當寬鬆，且<b>全程自駕、不必再靠 JR 轉乘</b>（比方案一的還車後搭 JR 更省一道轉乘手續，對長輩更省力）。</li>
+          <li><b>7人座客車</b>：10/17 09:00 千歲取車 → 10/19 還車後直接前往機場，共 3 天。5 人＋行李坐 7 人座相當寬鬆，且<b>全程自駕、不必再靠 JR 轉乘</b>（全程門到門，長輩不必轉乘）。</li>
         </ul>
       </div>
 
@@ -394,25 +357,25 @@
         <div class="note" style="margin-top:12px;background:#eef7f0;border-color:#bfe6cb"><b>✈ 頭尾兩段機場接送（長輩同樣免搭大眾運輸）</b>
           <ul class="clean" style="margin-top:6px">
             <li><b>第 1 天 機場 → 千歲飯店</b>：千歲的飯店多半有<b>新千歲機場免費接駁巴士</b>（訂房時先確認班次與是否需預約）；沒有的話搭<b>計程車約 10 分</b>，5 人可分乘 2 台或叫 1 台大型計程車（ジャンボタクシー，可載 7–9 人＋行李）。</li>
-            <li><b>最後一晚 → 機場</b>：<span class="pill alt" style="font-size:calc(var(--fs)*0.7)">方案二</span>當天有 7 人座客車，<b>直接開到機場</b>，先放下長輩與行李再去還車，完全不需接送。<span class="pill rec" style="font-size:calc(var(--fs)*0.7)">方案一</span>則同樣用<b>飯店接駁或大型計程車</b>。</li>
+            <li><b>最後一晚 → 機場</b>：當天有 7 人座客車，<b>直接開到機場</b>，先放下長輩與行李再由駕駛去還車，完全不需接送。</li>
           </ul>
           <div class="small" style="margin-top:6px;color:inherit"><b>訂房小訣竅：</b>挑千歲飯店時把「<b>有機場免費接駁</b>」當成必要條件之一，頭尾兩段就都解決了。<b>ジャンボタクシー</b>（大型計程車）建議提前一天請飯店櫃檯代訂，5 人＋行李一車搞定。</div>
         </div>
       </div>
 
       <div class="grid g2" style="margin-top:12px">
-        <div class="note"><b>方案二的優點：</b>
+        <div class="note"><b>此安排的優點：</b>
           <ul class="clean" style="margin-top:4px">
             <li>每晚正常床＋獨立衛浴，長輩睡眠品質更穩定</li>
             <li>不必查露營場 10 月營業季、不必確認電源／FF暖房整夜供暖</li>
             <li>後段全程自駕，不用扛行李轉乘 JR</li>
           </ul>
         </div>
-        <div class="warn"><b>方案二的代價：</b>
+        <div class="warn"><b>需留意之處：</b>
           <ul class="clean" style="margin-top:4px">
-            <li>多訂 <b>2 晚美瑛／富良野旅館</b>（方案一沒有這筆，改成免費車泊）</li>
+            <li>需訂 <b>2 晚美瑛／富良野旅館</b>（紅葉旺季要早訂）</li>
             <li><b>多一次租還車手續</b>（兩台車、兩次交接），10/16 與 10/17 之間銜接要抓寬裕時間</li>
-            <li>總費用通常<b>比方案一略高</b>（多旅館＋兩段租車基本費），少了「睡車上」的 Vanlife 體驗感</li>
+            <li>兩段租車各有基本費，總車資略高於單租一台</li>
           </ul>
         </div>
       </div>
@@ -440,8 +403,8 @@
         </tbody>
       </table>
       </div>
-      <div class="warn" style="margin-top:10px"><b>⚠️ 長輩移動有困難 → 建議避開 JR：</b>上表的 JR 段屬<b>方案一</b>；若同行長輩不便搭乘大眾運輸（需扛行李上下車、走月台、轉乘），建議改採<b>方案二</b>——還露營車後直接在<b>千歲市區（青葉）</b>租 7 人座客車，後段全程自駕、門到門。租車據點與接送安排見「行程」分頁方案二的說明表。</div>
-      <div class="note" style="margin-top:10px"><b>🚆 JR 快速エアポート（僅方案一使用）：</b>札幌 ⇄ 新千歲空港／小樽方向的快速列車，<b>班次密集（約每 15 分一班）、車程短</b>，5 人到站直接買票即可（無需訂位）。實際班次以 JR 北海道官網為準。</div>
+      <div class="note" style="margin-top:10px"><b>✅ 全程不搭大眾運輸：</b>長輩僅「機場↔第一晚飯店」「最後一晚飯店↔機場」需接送，用<b>飯店接駁或大型計程車</b>解決；中段全部自駕（露營車→7人座客車），門到門。</div>
+      
     </div>
   </section>
 
@@ -452,7 +415,7 @@
       <div class="grid g4" style="margin-bottom:12px">
         <div class="kpi"><div class="n">就寢 5 人</div><div class="l">你們剛好 5 人・已滿載</div></div>
         <div class="kpi"><div class="n">地板暖氣＋空調</div><div class="l">10月夜間 0–4°C 關鍵配備</div></div>
-        <div class="kpi"><div class="n">10/14→10/17</div><div class="l">4 天・3 晚車泊</div></div>
+        <div class="kpi"><div class="n">10/14→10/16</div><div class="l">3 天・白天乘坐體驗</div></div>
         <div class="kpi"><div class="n"><span class="stars">★</span>4.7 (43)</div><div class="l">千歲店評價</div></div>
       </div>
       <b>取還車地點：</b>北海道千歲市青葉2丁目17-32（近 JR 千歲站 5–10 分、新千歲機場 8–10 分，免費接送）
@@ -543,12 +506,12 @@
         <div class="t"><div class="v" id="totPP">—</div><div class="k">每人（台幣 ÷ 5）</div></div>
       </div>
       <div class="small" style="margin-top:8px">預設數字為<b>粗估草案</b>，請依實際報價修改。<b>日圓與台幣兩欄會自動互相換算</b>——填任一欄，另一欄依匯率自動帶出；改匯率時全表重算。小計與總計一律以<b>台幣</b>計。空白＝0；可新增或刪除任何項目。</div>
-      <div class="note" style="margin-top:8px"><b>若改採方案二：</b>把上表「10/18 日租車」那列數量改成 0（方案二不需要），再把最下面兩列「（方案二選用）」填入實際報價即可切換成方案二的預算。</div>
+      
     </div>
   </section>
 
   <!-- 準備清單 -->
-  <section id="checklist-sec" data-tab="budget" style="order:11">
+  <section id="checklist-sec" data-tab="check" style="order:1">
     <h2>出發前準備清單</h2>
     <div class="card" id="checklist">
       <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
@@ -557,70 +520,89 @@
       </div>
       <div class="ckbar"><i id="ckbarfill"></i></div>
       <div class="small" style="margin-bottom:14px">打勾會自動記在這台裝置的瀏覽器（重整、關頁再開都還在）。<span class="urgent hot">最優先</span> 為有前置時間、拖不得的項目。</div>
-      <div class="warn" style="margin-bottom:14px"><b>👥 4 位長輩（皆 70 幾歲）＋ 駕駛 1 人：</b>全程節奏已依「<b>全員都是長輩</b>」設定——每天最多 2–3 個重點、單日步行控制在 2 小時內、長車程日不排景點、下午就進飯店休息。<b>建議準備 1–2 台輕便輪椅</b>（大型景點/商場備用），並確認每位長輩的<b>常用藥、慢性病、行走耐力</b>；有任何一位需要更慢的節奏，跟我說我再往下調。</div>
-      <div class="note" style="margin-bottom:14px"><b>兩個方案並存：</b>下方 B 組訂位項目<span class="pill rec" style="font-size:calc(var(--fs)*0.7)">方案一</span>／<span class="pill alt" style="font-size:calc(var(--fs)*0.7)">方案二</span> 已標明適用哪個版本，確定選哪個之後只需勾該版本的項目即可。</div>
+      <div class="note" style="margin-bottom:14px"><b>👨‍👩‍👧 給協助確認的家人：</b>下方<b>依人分組</b>，每位長輩一區——請各自協助確認自己家長輩的項目並回報。共用事項（訂位、租車、公用物品）集中在最後一區，由主辦人負責。</div>
 
       <div class="ckgroup">
-        <h3>A. 護照・證件（前置時間最長，先辦）</h3>
-        <label class="ck"><input type="checkbox" data-k="pass-mom"><span class="cktext"><b>媽媽：更新護照</b>（效期需 ≥ 出發後 6 個月，即 ≥ 2026/04）<span class="urgent hot">最優先</span></span></label>
-        <label class="ck"><input type="checkbox" data-k="pass-uncle"><span class="cktext"><b>叔叔：護照效期／是否需辦新照</b>（≥ 2026/04）<span class="urgent hot">最優先</span></span></label>
-        <label class="ck"><input type="checkbox" data-k="pass-auntie1"><span class="cktext"><b>嬸嬸：護照效期／是否需辦新照</b>（≥ 2026/04）<span class="urgent hot">最優先</span></span></label>
-        <label class="ck"><input type="checkbox" data-k="pass-auntie2"><span class="cktext"><b>姑姑：護照效期／是否需辦新照</b>（≥ 2026/04）<span class="urgent hot">最優先</span></span></label>
-        <label class="ck"><input type="checkbox" data-k="pass-me"><span class="cktext">我：確認護照效期 ≥ 2026/04</span></label>
-        <label class="ck"><input type="checkbox" data-k="license"><span class="cktext">台灣駕照「<b>日文譯本</b>」（JAF／日台交流協會核發，非國際駕照）<span class="urgent">急</span></span></label>
-        <label class="ck"><input type="checkbox" data-k="id-copy"><span class="cktext">證件影本備份（護照＋駕照＋譯本各一份）</span></label>
+        <h3>媽媽</h3>
+        <label class="ck"><input type="checkbox" data-k="mom-pass"><span class="cktext"><b>護照</b>：效期 ≥ 2026/04（不足需重辦，約 10 個工作天）<span class="urgent hot">最優先</span></span></label>
+        <label class="ck"><input type="checkbox" data-k="mom-meds"><span class="cktext"><b>常用藥・慢性病紀錄</b>：備足 7 天以上藥量，藥名抄英/日文備查<span class="urgent">重要</span></span></label>
+        <label class="ck"><input type="checkbox" data-k="mom-health"><span class="cktext"><b>行走耐力確認</b>：能連續走多久？是否需要輪椅／助行器？</span></label>
+        <label class="ck"><input type="checkbox" data-k="mom-esim"><span class="cktext"><b>手機是否支援 eSIM</b>（不支援則需準備實體 SIM 或共用 WiFi 分享器）</span></label>
+        <label class="ck"><input type="checkbox" data-k="mom-find"><span class="cktext"><b>設定「尋找我的裝置」</b>（Android：Google 尋找我的裝置／iPhone：尋找）並確認可被家人定位</span></label>
+        <label class="ck"><input type="checkbox" data-k="mom-insurance"><span class="cktext">海外旅遊平安＋<b>醫療險</b>投保</span></label>
+        <label class="ck"><input type="checkbox" data-k="mom-luggage"><span class="cktext">行李精簡（軟袋為主）＋保暖衣物（早晚 2–8°C）</span></label>
       </div>
 
       <div class="ckgroup">
-        <h3>B. 訂位・預約（越早越省、越有位）</h3>
+        <h3>叔叔</h3>
+        <label class="ck"><input type="checkbox" data-k="uncle-pass"><span class="cktext"><b>護照</b>：效期 ≥ 2026/04（不足需重辦，約 10 個工作天）<span class="urgent hot">最優先</span></span></label>
+        <label class="ck"><input type="checkbox" data-k="uncle-meds"><span class="cktext"><b>常用藥・慢性病紀錄</b>：備足 7 天以上藥量，藥名抄英/日文備查<span class="urgent">重要</span></span></label>
+        <label class="ck"><input type="checkbox" data-k="uncle-health"><span class="cktext"><b>行走耐力確認</b>：能連續走多久？是否需要輪椅／助行器？</span></label>
+        <label class="ck"><input type="checkbox" data-k="uncle-esim"><span class="cktext"><b>手機是否支援 eSIM</b>（不支援則需準備實體 SIM 或共用 WiFi 分享器）</span></label>
+        <label class="ck"><input type="checkbox" data-k="uncle-find"><span class="cktext"><b>設定「尋找我的裝置」</b>（Android：Google 尋找我的裝置／iPhone：尋找）並確認可被家人定位</span></label>
+        <label class="ck"><input type="checkbox" data-k="uncle-insurance"><span class="cktext">海外旅遊平安＋<b>醫療險</b>投保</span></label>
+        <label class="ck"><input type="checkbox" data-k="uncle-luggage"><span class="cktext">行李精簡（軟袋為主）＋保暖衣物（早晚 2–8°C）</span></label>
+      </div>
+
+      <div class="ckgroup">
+        <h3>嬸嬸</h3>
+        <label class="ck"><input type="checkbox" data-k="aunt1-pass"><span class="cktext"><b>護照</b>：效期 ≥ 2026/04（不足需重辦，約 10 個工作天）<span class="urgent hot">最優先</span></span></label>
+        <label class="ck"><input type="checkbox" data-k="aunt1-meds"><span class="cktext"><b>常用藥・慢性病紀錄</b>：備足 7 天以上藥量，藥名抄英/日文備查<span class="urgent">重要</span></span></label>
+        <label class="ck"><input type="checkbox" data-k="aunt1-health"><span class="cktext"><b>行走耐力確認</b>：能連續走多久？是否需要輪椅／助行器？</span></label>
+        <label class="ck"><input type="checkbox" data-k="aunt1-esim"><span class="cktext"><b>手機是否支援 eSIM</b>（不支援則需準備實體 SIM 或共用 WiFi 分享器）</span></label>
+        <label class="ck"><input type="checkbox" data-k="aunt1-find"><span class="cktext"><b>設定「尋找我的裝置」</b>（Android：Google 尋找我的裝置／iPhone：尋找）並確認可被家人定位</span></label>
+        <label class="ck"><input type="checkbox" data-k="aunt1-insurance"><span class="cktext">海外旅遊平安＋<b>醫療險</b>投保</span></label>
+        <label class="ck"><input type="checkbox" data-k="aunt1-luggage"><span class="cktext">行李精簡（軟袋為主）＋保暖衣物（早晚 2–8°C）</span></label>
+      </div>
+
+      <div class="ckgroup">
+        <h3>姑姑</h3>
+        <label class="ck"><input type="checkbox" data-k="aunt2-pass"><span class="cktext"><b>護照</b>：效期 ≥ 2026/04（不足需重辦，約 10 個工作天）<span class="urgent hot">最優先</span></span></label>
+        <label class="ck"><input type="checkbox" data-k="aunt2-meds"><span class="cktext"><b>常用藥・慢性病紀錄</b>：備足 7 天以上藥量，藥名抄英/日文備查<span class="urgent">重要</span></span></label>
+        <label class="ck"><input type="checkbox" data-k="aunt2-health"><span class="cktext"><b>行走耐力確認</b>：能連續走多久？是否需要輪椅／助行器？</span></label>
+        <label class="ck"><input type="checkbox" data-k="aunt2-esim"><span class="cktext"><b>手機是否支援 eSIM</b>（不支援則需準備實體 SIM 或共用 WiFi 分享器）</span></label>
+        <label class="ck"><input type="checkbox" data-k="aunt2-find"><span class="cktext"><b>設定「尋找我的裝置」</b>（Android：Google 尋找我的裝置／iPhone：尋找）並確認可被家人定位</span></label>
+        <label class="ck"><input type="checkbox" data-k="aunt2-insurance"><span class="cktext">海外旅遊平安＋<b>醫療險</b>投保</span></label>
+        <label class="ck"><input type="checkbox" data-k="aunt2-luggage"><span class="cktext">行李精簡（軟袋為主）＋保暖衣物（早晚 2–8°C）</span></label>
+      </div>
+
+      <div class="ckgroup">
+        <h3>我（駕駛・主辦）</h3>
+        <label class="ck"><input type="checkbox" data-k="me-pass"><span class="cktext"><b>護照</b>：效期 ≥ 2026/04</span></label>
+        <label class="ck"><input type="checkbox" data-k="me-license"><span class="cktext">台灣駕照「<b>日文譯本</b>」（JAF／日台交流協會核發，<b>非</b>國際駕照）<span class="urgent hot">最優先</span></span></label>
+        <label class="ck"><input type="checkbox" data-k="me-esim"><span class="cktext"><b>手機是否支援 eSIM</b>＋開通日本上網方案（導航用，務必確保有網路）</span></label>
+        <label class="ck"><input type="checkbox" data-k="me-find"><span class="cktext"><b>設定「尋找我的裝置」</b>，並協助長輩開通與測試定位</span></label>
+        <label class="ck"><input type="checkbox" data-k="me-insurance"><span class="cktext">海外旅遊平安＋醫療險投保</span></label>
+      </div>
+
+      <div class="ckgroup">
+        <h3>共用事項（主辦人負責）</h3>
         <label class="ck"><input type="checkbox" data-k="flight"><span class="cktext"><b>機票</b>：星宇直飛（10/13 去・10/19 回・5 人）<span class="urgent hot">未訂</span></span></label>
-        <label class="ck"><input type="checkbox" data-k="camper"><span class="cktext"><b>露營車</b> NOMAD ZIL520（10/14 取・還車日依方案：<span class="pill rec" style="font-size:calc(var(--fs)*0.7)">一 10/17</span> ／ <span class="pill alt" style="font-size:calc(var(--fs)*0.7)">二 10/16</span>）</span></label>
-        <label class="ck"><input type="checkbox" data-k="camper-ins"><span class="cktext">露營車保險／免責補償加購</span></label>
-        <label class="ck"><input type="checkbox" data-k="hotel-chitose"><span class="cktext">千歲飯店 ×1（10/13）<span class="pill rec" style="font-size:calc(var(--fs)*0.7)">方案一</span>／ ×2（10/13・10/16）<span class="pill alt" style="font-size:calc(var(--fs)*0.7)">方案二</span>——<b>優先選有機場免費接駁者</b></span></label>
-        <label class="ck"><input type="checkbox" data-k="jumbo-taxi"><span class="cktext">確認機場接送方式：飯店接駁班次，或預約<b>大型計程車</b>（5人＋行李一車）<span class="urgent">重要</span></span></label>
+        <label class="ck"><input type="checkbox" data-k="camper"><span class="cktext"><b>露營車</b> NOMAD ZIL520（10/14 09:00 取・10/16 約 15:30 還）＋保險加購</span></label>
+        <label class="ck"><input type="checkbox" data-k="van-7seat"><span class="cktext"><b>7人座客車</b>租車（10/17 取・10/19 還，選離千歲飯店最近的據點）</span></label>
+        <label class="ck"><input type="checkbox" data-k="hotel-chitose"><span class="cktext">千歲飯店 ×2（10/13・10/16）——<b>優先選有機場免費接駁者</b></span></label>
+        <label class="ck"><input type="checkbox" data-k="hotel-biei"><span class="cktext">美瑛／富良野飯店 ×2（10/14・10/15）<b>紅葉旺季要早訂</b></span></label>
         <label class="ck"><input type="checkbox" data-k="hotel-sapporo"><span class="cktext">札幌飯店 ×2（10/17・10/18，近札幌駅）</span></label>
-        <label class="ck"><input type="checkbox" data-k="car-1018"><span class="cktext">10/18 小樽日租車・5人座休旅（含保險）<span class="pill rec" style="font-size:calc(var(--fs)*0.7)">方案一</span></span></label>
-        <label class="ck"><input type="checkbox" data-k="hotel-biei"><span class="cktext">美瑛／富良野飯店 ×2（10/14・10/15）<span class="pill alt" style="font-size:calc(var(--fs)*0.7)">方案二</span></span></label>
-        <label class="ck"><input type="checkbox" data-k="van-7seat"><span class="cktext">7人座客車租車（10/17 取・10/19 還，千歲）<span class="pill alt" style="font-size:calc(var(--fs)*0.7)">方案二</span></span></label>
-        <label class="ck"><input type="checkbox" data-k="shuttle-confirm"><span class="cktext"><b>確認 NOMAD 接駁可直送千歲飯店</b>（10/16 還車後，長輩免走路）<span class="urgent">重要</span></span></label>
-        <label class="ck"><input type="checkbox" data-k="rental-near-hotel"><span class="cktext">租車行選<b>離千歲飯店最近</b>者（10/17 駕駛單人去取車、開回飯店接長輩）<span class="pill alt" style="font-size:calc(var(--fs)*0.7)">方案二</span></span></label>
-        <label class="ck"><input type="checkbox" data-k="insurance"><span class="cktext"><b>海外旅遊平安＋醫療險</b>（長輩必備）</span></label>
-        <label class="ck"><input type="checkbox" data-k="wifi"><span class="cktext">網路：eSIM／WiFi 分享器</span></label>
-      </div>
-
-      <div class="ckgroup">
-        <h3>C. 露營車確認（下訂前問清楚）</h3>
-        <label class="ck"><input type="checkbox" data-k="heat"><span class="cktext"><b>暖氣能否熄火整夜運轉</b>（不靠發電機）</span></label>
-        <label class="ck"><input type="checkbox" data-k="tire"><span class="cktext">交車是否已換<b>冬胎</b>（スタッドレス）</span></label>
-        <label class="ck"><input type="checkbox" data-k="bedding"><span class="cktext">寢具是否含（冬用厚被）</span></label>
-        <label class="ck"><input type="checkbox" data-k="toilet"><span class="cktext">車上廁所（卡式馬桶）</span></label>
-        <label class="ck"><input type="checkbox" data-k="misc-car"><span class="cktext">里程／加油／ETC 卡／接送時段</span></label>
-      </div>
-
-      <div class="ckgroup">
-        <h3>D. 溫泉・車泊確認</h3>
-        <label class="ck"><input type="checkbox" data-k="onsen-hours"><span class="cktext">三晚溫泉營業時間＋費用（白金／定山渓／豊平峡）</span></label>
-        <label class="ck"><input type="checkbox" data-k="park-open"><span class="cktext">車泊點・道の駅 10 月中營業確認</span></label>
-      </div>
-
-      <div class="ckgroup">
-        <h3>E. 出發前打包（長輩優先）</h3>
-        <label class="ck"><input type="checkbox" data-k="wheelchair"><span class="cktext">輕便折疊輪椅 <b>1–2 台</b>（4 位長輩備用）</span></label>
-        <label class="ck"><input type="checkbox" data-k="elder-meds"><span class="cktext">每位長輩的<b>常用藥・慢性病紀錄</b>（含英/日文藥名備查）<span class="urgent">重要</span></span></label>
-        <label class="ck"><input type="checkbox" data-k="meds"><span class="cktext">常備藥＋保暖衣物（夜間 0–4°C）</span></label>
-        <label class="ck"><input type="checkbox" data-k="power"><span class="cktext">轉接插頭・行動電源</span></label>
+        <label class="ck"><input type="checkbox" data-k="room-req"><span class="cktext">訂房備註：<b>低樓層／近電梯</b>、長輩房型需求</span></label>
+        <label class="ck"><input type="checkbox" data-k="jumbo-taxi"><span class="cktext">機場接送：飯店接駁班次，或預約<b>大型計程車</b>（5人＋行李一車）<span class="urgent">重要</span></span></label>
+        <label class="ck"><input type="checkbox" data-k="shuttle-confirm"><span class="cktext">確認 <b>NOMAD 接駁可直送千歲飯店</b>（10/16 還車後，長輩免走路）</span></label>
+        <label class="ck"><input type="checkbox" data-k="wheelchair"><span class="cktext">輕便折疊輪椅 <b>1–2 台</b>（大型景點備用）</span></label>
+        <label class="ck"><input type="checkbox" data-k="wifi"><span class="cktext">網路備援：WiFi 分享器（給不支援 eSIM 的成員共用）</span></label>
+        <label class="ck"><input type="checkbox" data-k="onsen-hours"><span class="cktext">日歸溫泉營業時間＋費用（白金／定山渓／豊平峡）</span></label>
+        <label class="ck"><input type="checkbox" data-k="power"><span class="cktext">轉接插頭・行動電源・車用充電線</span></label>
         <label class="ck"><input type="checkbox" data-k="cash"><span class="cktext">日圓現金＋信用卡</span></label>
+        <label class="ck"><input type="checkbox" data-k="id-copy"><span class="cktext">全員證件影本備份（護照＋駕照＋譯本）</span></label>
       </div>
     </div>
   </section>
 
   <!-- 景點連結 -->
   <section id="spots" data-tab="plan" style="order:6">
-    <h2>景點・溫泉・車泊點（含 Google 地圖）</h2>
+    <h2>景點・溫泉（含 Google 地圖）</h2>
     <div class="card">
       <div class="small" style="margin-bottom:10px">依<b>日期順序</b>排列；每個露營車夜都含 <b>♨ 洗澡溫泉</b>。標 <span class="optpill">可選</span> 者為未排入的備案景點，想去再機動加。</div>
       <ul class="spotlist" id="spotlist"></ul>
-      <div class="small" style="margin-top:10px">🅿 車泊點（道の駅／露營車營地）與溫泉的營業季，10 月中下旬部分露營場會關閉過冬，<b>務必逐一致電/查官網確認 10/14–16 是否營業與可預約</b>；建議以「民營 露營車營地（多全年）＋道の駅」為可靠主力。</div>
+      <div class="small" style="margin-top:10px">溫泉與景點的營業時間、公休日請於行前查官網確認；10 月中下旬部分山區設施會提早結束營業。</div>
     </div>
   </section>
 
@@ -633,8 +615,6 @@
       <table>
         <thead><tr><th>候選</th><th>類型</th><th>位置</th><th>順路評估</th><th>地圖</th></tr></thead>
         <tbody>
-          <tr><td><b>苫小牧アルテン</b><br><span class="small">オートリゾート苫小牧アルテン</span></td><td>露營/車泊</td><td>苫小牧（千歲南 40km）</td><td><span class="vd-ok">✅ 順路</span>・全年五星，可當首/末晚車泊基地</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=オートリゾート苫小牧アルテン">地圖 ↗</a></td></tr>
-          <tr><td><b>星に手のとどく丘</b><br><span class="small">星手之丘</span></td><td>露營/觀星</td><td>中富良野（美瑛南）</td><td><span class="vd-no">✕ 2026 閉園</span>・只到 10/11，本趟不可用</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=星に手のとどく丘">地圖 ↗</a></td></tr>
           <tr><td><b>北の住まい設計社</b><br><span class="small">北之住傢俱中心</span></td><td>選物/咖啡</td><td>東川町（美瑛旁）</td><td><span class="vd-ok">✅ 順路</span>・平坦好走、質感咖啡，長輩友善</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=北の住まい設計社 東川">地圖 ↗</a></td></tr>
           <tr><td><b>バーチ 白樺 PAACHI</b></td><td>森林餐廳</td><td>東川町（美瑛旁）</td><td><span class="vd-ok">✅ 順路</span>・美瑛區用餐點</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=バーチ PAACHI 東川">地圖 ↗</a></td></tr>
           <tr><td><b>旭山動物園</b></td><td>景點</td><td>旭川（美瑛北約 40 分）</td><td><span class="vd-mid">⚠️ 小繞</span>・可半日加碼，但步行多、建議用輪椅</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=旭山動物園">地圖 ↗</a></td></tr>
@@ -642,12 +622,12 @@
         </tbody>
       </table>
       </div>
-      <div class="small" style="margin-top:8px">建議：<b>順路 4 點（苫小牧アルテン、星手之丘、北の住まい設計社、PAACHI）</b>可自然融入現有路線；旭山動物園與金山湖屬「想去才小繞」。露營地營業季請務必查官網。</div>
+      <div class="small" style="margin-top:8px">建議：<b>北の住まい設計社、バーチ PAACHI</b> 可自然融入美瑛行程（皆平坦好走、適合長輩休息用餐）；旭山動物園與金山湖屬「想去才小繞」。</div>
     </div>
   </section>
 
   <!-- 必問清單 -->
-  <section id="check" data-tab="budget" style="order:12">
+  <section id="inquiry-sec" data-tab="stay" style="order:10">
     <h2>下訂前必問清單 & 詢問訊息</h2>
     <div class="warn">
       <b>最關鍵兩題：</b>第 4 題（暖氣能否整夜供暖）決定長輩晚上暖不暖；第 7 題（台灣駕照譯本）決定你能不能合法把車開出去。這兩題答案回來後，車即可拍板。
@@ -666,7 +646,7 @@
 8. 里程限制、還車加油規定、ETC 卡、取消政策、免費接送時段（我 10/13 傍晚抵達、10/14 早上取車）？
 9. 就寢定員剛好 5 人，車內收納空間是否足夠 5 人的行李（含換洗衣物 4 天份）？
 
-另想請問：同行有 4 位 70 幾歲的長輩，是否有適用的高齡優惠？謝謝！</pre>
+另想請問：同行有 4 位長輩，是否有適用的高齡優惠？謝謝！</pre>
     </div>
   </section>
 
@@ -697,29 +677,18 @@
           <a href="https://www.visit-hokkaido.jp/" target="_blank">HOKKAIDO LOVE!（北海道官方）↗</a>
         </div>
         <div class="refgroup">
-          <div class="rt">🛏 車泊・道の駅</div>
-          <a href="https://www.rvpark.jp/" target="_blank">露營車營地 官方檢索 ↗</a>
-          <a href="https://carstay.jp/" target="_blank">Carstay 車泊點 ↗</a>
-          <a href="https://www.michi-no-eki.jp/" target="_blank">全國道の駅 ↗</a>
-        </div>
-        <div class="refgroup">
-          <div class="rt">🏕 露營場（先電話確認營業）</div>
-          <a href="https://www.takinopark.com/autoresorttakino/" target="_blank">オートリゾート滝野 官網（4/20–10/31・☎011-594-2121）↗</a>
-          <a href="https://www.hoshioka.com/" target="_blank">星に手のとどく丘 官網（2026 只到 10/11・☎080-3234-9169）↗</a>
-        </div>
-        <div class="refgroup">
           <div class="rt">🛡 安全・實用</div>
           <a href="https://jaf.or.jp/common/global-support/switch-to-japan/translation" target="_blank">JAF 駕照日文譯本 ↗</a>
           <a href="https://northern-road.jp/navi/" target="_blank">北海道道路情報（冬季路況）↗</a>
           <a href="https://tenki.jp/" target="_blank">tenki.jp 天氣預報 ↗</a>
         </div>
       </div>
-      <div class="small" style="margin-top:12px">連結為各服務官方／常用網站，內容以對方最新公告為準；行前請再次確認露營車條款、車泊點營業季與道路／天氣狀況。</div>
+      <div class="small" style="margin-top:12px">連結為各服務官方／常用網站，內容以對方最新公告為準；行前請再次確認露營車條款與道路／天氣狀況。</div>
     </div>
   </section>
 
   <footer>
-    北海道 露營車行程規劃　·　製作日 2026-07-11　·　資料為規劃草案，車泊點/溫泉營業與價格請以各官方最新公告為準
+    北海道 露營車行程規劃　·　製作日 2026-07-11　·　資料為規劃草案，營業時間與價格請以各官方最新公告為準
   </footer>
 </div>
 
@@ -729,20 +698,15 @@
   const spots = [
     {name:'新千歳空港', lat:42.7752, lng:141.6923, cat:'base', q:'新千歳空港', day:'10/13', opt:false, ds:'去程 15:10 落地／回程 16:25 起飛'},
     {name:'NOMAD 露營車 千歳店', lat:42.8180, lng:141.6565, cat:'base', q:'北海道千歳市青葉2丁目17-32', day:'10/14', opt:false, ds:'10/14 取車・10/17 還車'},
-    {name:'道の駅 白金ビルケ（車泊①）', lat:43.4472, lng:142.6360, cat:'biei', q:'道の駅 びえい白金ビルケ', day:'10/14', opt:false, ds:'⛺ 車泊①・車中泊（近青池・全年）'},
-    {name:'星に手のとどく丘', lat:43.4067, lng:142.4436, cat:'biei', q:'星に手のとどく丘', day:'10/14', opt:true, ds:'⚠️ 2026 只到 10/11・本趟已閉園'},
-    {name:'白金温泉', lat:43.4060, lng:142.6620, cat:'onsen', q:'白金温泉 美瑛', day:'10/14', opt:false, ds:'♨ 洗澡・日歸溫泉（車泊①）'},
+    {name:'白金温泉', lat:43.4060, lng:142.6620, cat:'onsen', q:'白金温泉 美瑛', day:'10/14', opt:false, ds:'♨ 美瑛日歸溫泉'},
     {name:'四季彩の丘', lat:43.5828, lng:142.4602, cat:'biei', q:'四季彩の丘 美瑛', day:'10/14', opt:false, ds:'有電動車・輪椅友善'},
     {name:'拼布之路（Ken&Mary之樹）', lat:43.6153, lng:142.4271, cat:'biei', q:'ケンとメリーの木 美瑛', day:'10/14', opt:true, ds:'車上看丘陵（可選）'},
     {name:'新栄の丘展望公園', lat:43.6421, lng:142.5028, cat:'biei', q:'新栄の丘展望公園', day:'10/14', opt:true, ds:'夕陽展望（可選）'},
     {name:'青い池（青池）', lat:43.4926, lng:142.6306, cat:'biei', q:'青い池 美瑛', day:'10/15', opt:false, ds:'必訪・清晨最美'},
     {name:'白鬚の滝', lat:43.4082, lng:142.6635, cat:'biei', q:'白ひげの滝 美瑛', day:'10/15', opt:true, ds:'白金・青池旁短程（可選）'},
-    {name:'定山渓温泉', lat:42.9686, lng:141.1600, cat:'onsen', q:'定山渓温泉', day:'10/15', opt:false, ds:'♨ 洗澡（紅葉溫泉鄉）'},
-    {name:'オートリゾート滝野（車泊②）', lat:42.9160, lng:141.3490, cat:'onsen', q:'オートリゾート滝野', day:'10/15', opt:false, ds:'⛺ 露營車泊②・可停露營車＋電源（需確認營業）'},
-    {name:'道の駅 望羊中山（車宿備援）', lat:42.8790, lng:141.1080, cat:'onsen', q:'道の駅 望羊中山', day:'10/15', opt:true, ds:'🅿 車宿備援・近定山溪、免費可靠'},
-    {name:'二見吊橋（定山渓）', lat:42.9648, lng:141.1583, cat:'onsen', q:'二見吊橋 定山渓', day:'10/16', opt:false, ds:'定山溪紅葉散策'},
-    {name:'豊平峡温泉', lat:42.9500, lng:141.1400, cat:'onsen', q:'豊平峡温泉', day:'10/16', opt:false, ds:'♨ 洗澡・露天名湯＋咖哩'},
-    {name:'オートリゾート滝野（車泊③）', lat:42.9160, lng:141.3490, cat:'onsen', q:'オートリゾート滝野', day:'10/16', opt:false, ds:'⛺ 露營車泊③・回滝野睡（同 10/15）'},
+    {name:'定山渓温泉', lat:42.9686, lng:141.1600, cat:'onsen', q:'定山渓温泉', day:'10/17', opt:true, ds:'♨ 紅葉溫泉鄉（可選）'},
+    {name:'二見吊橋（定山渓）', lat:42.9648, lng:141.1583, cat:'onsen', q:'二見吊橋 定山渓', day:'10/17', opt:false, ds:'定山溪紅葉散策'},
+    {name:'豊平峡温泉', lat:42.9500, lng:141.1400, cat:'onsen', q:'豊平峡温泉', day:'10/17', opt:false, ds:'♨ 洗澡・露天名湯＋咖哩'},
     {name:'狸小路商店街（湯咖哩）', lat:43.0567, lng:141.3536, cat:'sapporo', q:'狸小路商店街', day:'10/17', opt:false, ds:'✅ 有頂棚平坦・湯咖哩晚餐'},
     {name:'札幌 大通公園', lat:43.0608, lng:141.3469, cat:'sapporo', q:'大通公園 札幌', day:'10/17', opt:true, ds:'市區散步（可選）'},
     {name:'北海道大學 銀杏並木', lat:43.0757, lng:141.3419, cat:'sapporo', q:'北海道大学 銀杏並木', day:'10/18', opt:false, ds:'✅ 平坦・10月下旬金黃（晨）'},
@@ -751,7 +715,7 @@
     {name:'朝里川温泉', lat:43.1470, lng:141.0360, cat:'onsen', q:'朝里川温泉 小樽', day:'10/18', opt:true, ds:'♨ 小樽近郊（可選）'},
     {name:'北海道神宮（円山公園）', lat:43.0540, lng:141.3070, cat:'sapporo', q:'北海道神宮', day:'10/19', opt:true, ds:'⚠️ 彈性可略過・參道碎石台階'},
     {name:'札幌場外市場', lat:43.0774, lng:141.3180, cat:'sapporo', q:'札幌場外市場', day:'10/19', opt:true, ds:'海鮮早餐（可選）'},
-    {name:'支笏湖', lat:42.7549, lng:141.3517, cat:'onsen', q:'支笏湖', day:'備案', opt:true, ds:'近千歲・湖畔備案（可選）'},
+    {name:'支笏湖', lat:42.7549, lng:141.3517, cat:'onsen', q:'支笏湖', day:'10/17', opt:false, ds:'順路湖景・平坦好走'},
   ];
   function gmap(q){ return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q); }
 
@@ -772,8 +736,6 @@
 
   // 候選景點（金色，不影響地圖縮放範圍）
   const cands=[
-    {name:'苫小牧アルテン', lat:42.599, lng:141.606, q:'オートリゾート苫小牧アルテン'},
-    {name:'星に手のとどく丘', lat:43.4067, lng:142.4436, q:'星に手のとどく丘'},
     {name:'北の住まい設計社', lat:43.6866, lng:142.530, q:'北の住まい設計社 東川'},
     {name:'バーチ PAACHI', lat:43.660, lng:142.531, q:'バーチ PAACHI 東川'},
     {name:'旭山動物園', lat:43.7686, lng:142.4804, q:'旭山動物園'},
@@ -789,18 +751,16 @@
   const dayOrder = ['10/13','10/14','10/15','10/16','10/17','10/18','10/19','備案'];
   const dayTitle = {
     '10/13':'10/13 抵達',
-    '10/14':'10/14 美瑛丘陵・白金 ｜ 車泊① ♨白金温泉',
-    '10/15':'10/15 青池 → 定山溪 ｜ 車泊② ♨定山渓温泉',
-    '10/16':'10/16 定山溪湖畔慢日 ｜ 車泊③ ♨豊平峡温泉',
-    '10/17':'10/17 還車 → 進札幌',
-    '10/18':'10/18 小樽（租車）',
+    '10/14':'10/14 北上・富良野／美瑛丘陵',
+    '10/15':'10/15 美瑛精華日（青池・白金温泉）',
+    '10/16':'10/16 南下・還露營車',
+    '10/17':'10/17 取客車 → 支笏湖・定山溪 → 札幌',
+    '10/18':'10/18 北大銀杏 → 小樽',
     '10/19':'10/19 賦歸',
     '備案':'備案・機動（未排入）'
   };
   function spotRank(s){
-    const stay = /^道の駅|車泊|車宿|オートリゾート|星に手/.test(s.name); // 車宿露營場 → 墊底
-    const bath = !stay && /温泉/.test(s.name);                          // 洗澡溫泉 → 次後
-    return stay?2 : (bath?1:0);
+    return /温泉/.test(s.name) ? 1 : 0;   // 溫泉排當日較後
   }
   dayOrder.forEach(d=>{
     const items = spots.filter(s=>s.day===d).sort((a,b)=>spotRank(a)-spotRank(b));
@@ -834,15 +794,14 @@
     ['飯店（千歲1＋札幌2晚／5人・2–3房）','JPY',36000,3],
     ['JR（10/17 進札幌・10/19 去機場，5人）','JPY',11500,1],
     ['10/18 日租車（5人座休旅・含保險油資）','JPY',13000,1],
-    ['露營車營地／車泊費（每晚）','JPY',3000,2],
     ['日歸溫泉 泡湯（人 × 次）','JPY',1500,10],
     ['油費（露營車）','JPY',9000,1],
     ['高速公路過路費','JPY',5000,1],
     ['餐飲（每人每日）','JPY',3000,35],
     ['伴手禮／購物','JPY',0,1],
     ['其他（雜支／接送等）','JPY',0,1],
-    ['（方案二選用）美瑛/富良野飯店 ×2晚／5人','JPY',0,2],
-    ['（方案二選用）7人座客車 3天（10/17–19）','JPY',0,1],
+    ['美瑛／富良野飯店 ×2晚／5人','JPY',30000,2],
+    ['7人座客車 3天（10/17–19）','JPY',30000,1],
   ];
   function fmt(n){ return Math.round(n).toLocaleString('en-US'); }
   function getRate(){ return parseFloat(document.getElementById('rate').value)||0; }
