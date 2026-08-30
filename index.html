@@ -107,7 +107,11 @@
   .albumrow.filled{background:#f2f7f3;border-color:#cfe6cb;}
   .albumhead{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px;}
   .albumname{font-weight:800;color:var(--accent2);}
-  .albumrow input{width:100%;font-family:inherit;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff;}
+  .albumrow input{width:100%;font-family:inherit;font-size:var(--fs);border:2px dashed var(--accent);border-radius:10px;
+    padding:14px 14px;background:#fffdf9;color:var(--ink);}
+  .albumrow input:focus{outline:none;border-style:solid;background:#fff;box-shadow:0 0 0 3px rgba(224,90,43,.15);}
+  .albumrow.filled input{border:1px solid #cfe6cb;border-style:solid;background:#fff;}
+  .albumhint{font-size:calc(var(--fs)*0.82);color:var(--sub);margin-bottom:6px;}
   .albumopen{display:none;}
   .albumrow.filled .albumopen{display:inline-block;}
   .navbtn{display:inline-block;min-width:104px;text-align:center;padding:14px 18px !important;border-radius:12px;
@@ -737,7 +741,7 @@
   <section id="album-sec" data-tab="album" style="order:1">
     <h2>📷 相簿</h2>
     <div class="warn">
-      <b>把 Google 相簿連結貼進下面欄位即可</b>，會自動記住（存在這台裝置的瀏覽器），之後點「開啟相簿」就能看。
+      <b>操作方式：</b>下面每一天都有一個<b>虛線框</b>——在 Google 相簿裡按「分享 → 複製連結」，然後<b>點一下虛線框、長按貼上</b>即可。貼好會自動記住，該格變綠並出現「開啟相簿」按鈕。
       <div class="small" style="margin-top:6px;color:inherit">⚠️ <b>只存在你自己的裝置</b>——別人開這個網頁看不到你貼的連結。若要讓大家（叔叔姑姑的小孩）都看得到，<b>把連結給我，我幫你寫死進網頁</b>，就會對所有人顯示。</div>
     </div>
 
@@ -1106,7 +1110,8 @@
       row.className='albumrow';
       row.innerHTML='<div class="albumhead"><span class="albumname">'+d[1]+'</span>'+
         '<a class="navbtn albumopen" style="background:var(--blue)" target="_blank">開啟相簿 ↗</a></div>'+
-        '<input type="url" placeholder="貼上 Google 相簿連結（https://photos.app.goo.gl/...）">';
+        '<div class="albumhint">↓ 把 Google 相簿連結貼在這個框裡</div>'+
+        '<input type="url" placeholder="https://photos.app.goo.gl/...">';
       var inp=row.querySelector('input'), link=row.querySelector('.albumopen');
       function sync(){
         var v=(inp.value||'').trim();
