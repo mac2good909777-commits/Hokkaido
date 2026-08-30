@@ -189,7 +189,7 @@
   .kpi .n.nsm{font-size:calc(var(--fs)*0.86) !important;white-space:nowrap;}
   .kpi .l{font-size:calc(var(--fs)*0.76) !important;}
   .kpigrid{grid-auto-rows:1fr;}
-  .okgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+  .okgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;grid-auto-rows:1fr;}
   @media(max-width:720px){.okgrid{grid-template-columns:1fr;}}
   .ok{background:#f2f7f3;border:1px solid #cfe6cb;border-radius:10px;padding:12px 14px;
     font-size:calc(var(--fs)*0.8);color:var(--sub);line-height:1.55;}
@@ -228,7 +228,7 @@
       <div class="kpi"><div class="k">旅行日期</div><div class="n">10/13 – 10/19</div><div class="l">7 天 6 夜</div></div>
       <div class="kpi"><div class="k">航班・星宇直飛</div><div class="n nsm">去 09:00 → 13:55<br>回 15:00 → 18:25</div><div class="l">台中 ⇄ 新千歲</div></div>
       <div class="kpi"><div class="k">用車</div><div class="n">5 <span class="u">天</span></div><div class="l">露營車 3 ＋ 客車 2</div></div>
-      <div class="kpi"><div class="k">住宿</div><div class="n">每晚住飯店</div><div class="l">露營車只白天乘坐<br>不車泊</div></div>
+      <div class="kpi"><div class="k">露營車</div><div class="n">移動休息室</div><div class="l">車上吃東西・小歇・看風景<br>晚上住飯店，不車泊</div></div>
     </div>
 
     <div class="card" style="margin-top:14px">
@@ -240,18 +240,18 @@
           <tr><td class="day">10/13 二</td><td><b>千歲</b></td><td>下午落地 → 飯店休息、附近散步</td></tr>
           <tr><td class="day">10/14 三</td><td><b>白金温泉</b></td><td>開<b>露營車</b>上美瑛 → 泡溫泉</td></tr>
           <tr><td class="day">10/15 四</td><td>白金温泉<br><span class="small">不搬行李</span></td><td><b>青池</b>、美瑛丘陵 → 再泡一次溫泉</td></tr>
-          <tr><td class="day">10/16 五</td><td><b>札幌</b></td><td>南下札幌 → 長輩逛街休息（我去還露營車）</td></tr>
+          <tr><td class="day">10/16 五</td><td><b>札幌</b></td><td>南下札幌 → 大家逛街休息（我去還露營車）</td></tr>
           <tr><td class="day">10/17 六</td><td>札幌<br><span class="small">不搬行李</span></td><td>換<b>7人座客車</b> → <b>定山溪泡湯</b> → 狸小路晚餐</td></tr>
           <tr><td class="day">10/18 日</td><td><b>千歲</b></td><td>北大銀杏 → <b>小樽</b> → 朝里川溫泉 → 還車</td></tr>
           <tr><td class="day">10/19 一</td><td>—</td><td>上午從容 → 下午班機回台中</td></tr>
         </tbody>
       </table>
       </div>
-      <div class="small" style="margin-top:10px">住宿共 6 晚：<b>千歲 ×2、白金温泉 ×2、札幌 ×2</b>。美瑛與札幌都<b>連住兩晚不搬行李</b>，全程長輩<b>不搭電車</b>。<b>核心：慢遊＋泡湯，不趕景點。</b></div>
+      <div class="small" style="margin-top:10px">住宿共 6 晚：<b>千歲 ×2、白金温泉 ×2、札幌 ×2</b>。美瑛與札幌都<b>連住兩晚不搬行李</b>，全程<b>不搭電車</b>。<b>核心：慢遊＋泡湯，不趕景點。</b></div>
     </div>
 
     <div class="card" style="margin-top:14px">
-      <h3 style="margin:0 0 10px">😌 長輩可以放心</h3>
+      <h3 style="margin:0 0 10px">😌 可以放心</h3>
       <div class="okgrid">
         <div class="ok"><b>不必拖行李走遠路</b>車停飯店門口，行李下車就進房</div>
         <div class="ok"><b>全程不搭電車</b>7 天都是自家車門到門</div>
@@ -261,6 +261,7 @@
         <div class="ok"><b>不趕行程</b>每天 2–3 個點，傍晚就休息</div>
         <div class="ok"><b>不會走散</b>隨身小卡＋手機互相定位</div>
         <div class="ok"><b>走路不多</b>每天步行 2 小時內，備輪椅</div>
+        <div class="ok"><b>車上就能休息</b>露營車有桌椅沙發，隨時吃東西、看風景</div>
       </div>
     </div>
 
@@ -313,7 +314,7 @@
                     <tr><td><span class="dnum" style="background:#2563eb">①</span></td><td>10/13</td><td>新千歲機場 → 千歲飯店</td><td><span class="lsw" style="border-top:4px solid #2563eb"></span>🚌 接駁／計程車</td><td>約 10 分</td></tr>
           <tr><td><span class="dnum" style="background:#e05a2b">②</span></td><td>10/14</td><td>千歲 → 富良野 → 美瑛</td><td><span class="lsw" style="border-top:4px solid #e05a2b"></span>🚐 露營車</td><td>~180 km／約 2.5h</td></tr>
           <tr><td><span class="dnum" style="background:#d1491f">③</span></td><td>10/15</td><td>美瑛定點日（青池・白金）</td><td><span class="lsw" style="border-top:4px solid #d1491f"></span>🚐 露營車</td><td>短程 &lt;40 km</td></tr>
-          <tr><td><span class="dnum" style="background:#7c3aed">④</span></td><td>10/16</td><td>美瑛 → 札幌（放長輩）→ 千歲還車</td><td><span class="lsw" style="border-top:4px solid #7c3aed"></span>🚐 露營車</td><td>~180 km／約 2.5h</td></tr>
+          <tr><td><span class="dnum" style="background:#7c3aed">④</span></td><td>10/16</td><td>美瑛 → 札幌（先放大家）→ 千歲還車</td><td><span class="lsw" style="border-top:4px solid #7c3aed"></span>🚐 露營車</td><td>~180 km／約 2.5h</td></tr>
           <tr><td><span class="dnum" style="background:#16a34a">⑤</span></td><td>10/17</td><td>札幌 → 定山溪 → 札幌</td><td><span class="lsw" style="border-top:4px solid #16a34a"></span>🚙 7人座客車</td><td>~70 km／約 2h（來回）</td></tr>
           <tr><td><span class="dnum" style="background:#0891b2">⑥</span></td><td>10/18</td><td>札幌 → 小樽 → 千歲（還客車）</td><td><span class="lsw" style="border-top:4px solid #0891b2"></span>🚙 7人座客車</td><td>~110 km／約 2h</td></tr>
           <tr><td><span class="dnum" style="background:#6b7280">⑦</span></td><td>10/19</td><td>千歲飯店 → 新千歲機場</td><td><span class="lsw" style="border-top:4px solid #6b7280"></span>🚌 接駁／計程車</td><td>約 10 分</td></tr>
@@ -347,8 +348,8 @@
         </tbody>
       </table>
       </div>
-      <div class="note" style="margin-top:10px"><b>給 4 位長輩的重點：</b><b>10/15 清晨的美瑛（青池）可能只有 2–5°C</b>，是全程最冷的時段——當天早上務必<b>洋蔥式穿法</b>：發熱衣＋刷毛／羽絨背心＋防風外套，加帽子與手套。<b>每晚都住旅館有暖氣</b>，不必擔心夜間保暖；白天在車上也有空調。10 月北海道降雨機率中等，備一件輕便雨衣／防風外套即可，不需重裝雨具。</div>
-      <div class="note" style="margin-top:10px"><b>♨ 多天泡湯・長輩注意事項：</b>本行程有 <b>3–4 次溫泉</b>（10/14・10/15 白金温泉、10/17 豊平峡／定山渓）再加飯店大浴場，幾乎天天可泡。給長輩的提醒：<b>單次浸泡 10–15 分鐘就起身</b>、水溫勿過高；<b>飯後、飲酒後、剛吃完藥先別泡</b>；泡前泡後都要<b>補充水分</b>；有高血壓／心臟疾病者先諮詢醫師，泡湯時<b>結伴不要單獨</b>。浴場地面濕滑，<b>務必穿防滑拖鞋、扶著扶手慢走</b>——這是長輩旅遊最常見的意外。</div>
+      <div class="note" style="margin-top:10px"><b>穿著重點：</b><b>10/15 清晨的美瑛（青池）可能只有 2–5°C</b>，是全程最冷的時段——當天早上務必<b>洋蔥式穿法</b>：發熱衣＋刷毛／羽絨背心＋防風外套，加帽子與手套。<b>每晚都住旅館有暖氣</b>，不必擔心夜間保暖；白天在車上也有空調。10 月北海道降雨機率中等，備一件輕便雨衣／防風外套即可，不需重裝雨具。</div>
+      <div class="note" style="margin-top:10px"><b>♨ 多天泡湯・注意事項：</b>本行程有 <b>3–4 次溫泉</b>（10/14・10/15 白金温泉、10/17 豊平峡／定山渓）再加飯店大浴場，幾乎天天可泡。提醒：<b>單次浸泡 10–15 分鐘就起身</b>、水溫勿過高；<b>飯後、飲酒後、剛吃完藥先別泡</b>；泡前泡後都要<b>補充水分</b>；有高血壓／心臟疾病者先諮詢醫師，泡湯時<b>結伴不要單獨</b>。浴場地面濕滑，<b>務必穿防滑拖鞋、扶著扶手慢走</b>——這是最常見的意外。</div>
       <div class="small" style="margin-top:8px">日落時間約在 <b>16:35–16:45</b>（10/13→10/19 逐漸提早），比夏天早很多——戶外景點建議安排在 16:00 前結束，避免摸黑走山路。</div>
     </div>
 
@@ -371,7 +372,7 @@
   <!-- 行程方案（採用版） -->
   <section id="plan" data-tab="plan" style="order:4">
     <h2>行程方案（採用）</h2>
-    <div class="small" style="margin-bottom:14px"><b>用車共 5 天：露營車 3 天 ＋ 7人座客車 2 天</b>。露營車（10/14–10/16）跑<b>美瑛</b>——去程、定點日、回程，中間那天完全不趕路；還回千歲後換客車（10/17–10/18）跑<b>定山溪／札幌／小樽</b>短程圈。<b>每晚都住旅館、不車泊</b>，最後一晚回千歲，隔天飯店接駁直達機場（航班 15:00 起飛，約 12:30 出發即可）。</div>
+    <div class="small" style="margin-bottom:14px"><b>用車共 5 天：露營車 3 天 ＋ 7人座客車 2 天</b>。露營車＝<b>移動的休息室</b>（隨時停下來吃東西、小歇、看風景）。露營車（10/14–10/16）跑<b>美瑛</b>——去程、定點日、回程，中間那天完全不趕路；還回千歲後換客車（10/17–10/18）跑<b>定山溪／札幌／小樽</b>短程圈。<b>每晚都住旅館、不車泊</b>，最後一晚回千歲，隔天飯店接駁直達機場（航班 15:00 起飛，約 12:30 出發即可）。</div>
 
     <div class="card">
       <div style="margin-bottom:10px"><span class="pill rec">★ 採用</span> <b>露營車體驗美瑛 ＋ 7人座客車遊後段</b>　<span class="small">露營車 3 天只當「白天用車」跑美瑛環線、當晚一律住旅館，還車後換 7人座客車。</span></div>
@@ -389,8 +390,8 @@
           <tr><td class="day">10/13 二</td><td>抵達適應</td><td><b>✈ JX318 台中 09:00 → 新千歲 13:55 落地</b> → <b>飯店免費接駁／計程車</b>直達<b>千歲</b>飯店（約 10 分，免搭電車）→ 下午千歲アウトレット・レラ 或 サーモンパーク 輕鬆散步＋晚餐</td><td>接駁</td></tr>
           <tr><td class="day">10/14 三</td><td>北上・富良野線</td><td>09:00 千歲取車 → 北上途中在<b>ファーム富田</b>／富良野停留午餐 → 下午<b>四季彩之丘</b>（電動車代步、輪椅友善）→ 入住<b>白金温泉</b>旅館，<b>泡湯</b>放鬆</td><td>~2.5h</td></tr>
           <tr><td class="day">10/15 四</td><td>美瑛精華日（定點）</td><td><b>清晨先攻青池</b>（人最少、水色最藍）→ <b>白鬚瀑布</b>（就在旁邊）→ 下午<b>拼布之路</b>車上賞丘陵、<b>新栄の丘</b>看夕陽 → 回旅館<b>再泡一次溫泉</b>（續住不搬行李）</td><td>短程</td></tr>
-          <tr><td class="day">10/16 五</td><td>南下札幌・還露營車</td><td>上午退房 → 南下（中途休息站喝咖啡）→ 中午抵<b>札幌</b>，<b>長輩直接進飯店</b>／狸小路逛街休息 → <b>駕駛獨自</b>開露營車到千歲還車（約 50 分）→ NOMAD 接駁至 JR 千歲站 → <b>JR 回札幌</b>與長輩會合</td><td>~2.25h<br><span class="small">＋駕駛獨自往返</span></td></tr>
-          <tr><td class="day">10/17 六</td><td>定山溪溫泉日</td><td><b>駕駛獨自</b>到札幌租車行取<b>7人座客車</b> → <b>開回飯店接長輩</b> → <b>定山溪</b>（約 1h）：二見吊橋紅葉＋<b>豊平峡温泉</b> → 傍晚回<b>札幌</b>（續住同飯店，不搬行李），<b>狸小路</b>湯咖哩晚餐</td><td>~2h</td></tr>
+          <tr><td class="day">10/16 五</td><td>南下札幌・還露營車</td><td>上午退房 → 南下（中途休息站喝咖啡）→ 中午抵<b>札幌</b>，<b>大家直接進飯店</b>／狸小路逛街休息 → <b>駕駛獨自</b>開露營車到千歲還車（約 50 分）→ NOMAD 接駁至 JR 千歲站 → <b>JR 回札幌</b>會合</td><td>~2.25h<br><span class="small">＋駕駛獨自往返</span></td></tr>
+          <tr><td class="day">10/17 六</td><td>定山溪溫泉日</td><td><b>駕駛獨自</b>到札幌租車行取<b>7人座客車</b> → <b>開回飯店接大家</b> → <b>定山溪</b>（約 1h）：二見吊橋紅葉＋<b>豊平峡温泉</b> → 傍晚回<b>札幌</b>（續住同飯店，不搬行李），<b>狸小路</b>湯咖哩晚餐</td><td>~2h</td></tr>
           <tr><td class="day">10/18 日</td><td>小樽 → 千歲</td><td>晨<b>北大銀杏並木</b>（平坦好走）→ 自駕往<b>小樽</b>：運河・堺町通・LeTAO 咖啡 → 順泡<b>朝里川温泉</b> → 南下<b>千歲還客車</b> → 入住<b>千歲</b>飯店（機場旁，隔天最輕鬆）</td><td>~2h</td></tr>
           <tr><td class="day">10/19 一</td><td>賦歸</td><td>上午從容整理行李（飯店旁散步）→ <b>約 12:30 飯店接駁／大型計程車</b>到機場（約 10 分）→ <b>✈ JX319 新千歲 15:00 → 台中 18:25</b></td><td>接駁</td></tr>
         </tbody>
@@ -398,13 +399,13 @@
       </div>
 
       <div class="note" style="margin-top:12px"><b>🧳 行李與住宿安排</b>
-        <div class="small" style="margin-top:6px;color:inherit">美瑛（10/14・15）與札幌（10/16・17）都是<b>連住兩晚不搬行李</b>，中間只需搬 2 次。10/16 抵達札幌後長輩直接進飯店休息／逛街，行李一次搬進去即可，<b>不必陪著跑還車</b>。</div>
+        <div class="small" style="margin-top:6px;color:inherit">美瑛（10/14・15）與札幌（10/16・17）都是<b>連住兩晚不搬行李</b>，中間只需搬 2 次。10/16 抵達札幌後直接進飯店休息／逛街，行李一次搬進去即可，<b>不必陪著跑還車</b>。</div>
       </div>
 
-      <div class="warn" style="margin-top:12px"><b>🚗 換車怎麼接（長輩不搭大眾運輸）</b>
+      <div class="warn" style="margin-top:12px"><b>🚗 換車怎麼接（不搭大眾運輸）</b>
         <ul class="clean" style="margin-top:6px">
-          <li><b>10/16</b>：先把長輩送到札幌飯店 → <b>我獨自</b>開露營車回千歲還車 → 搭 JR 回札幌。</li>
-          <li><b>10/17</b>：<b>我獨自</b>去札幌租車行取客車 → 開回飯店接長輩。</li>
+          <li><b>10/16</b>：先把大家送到札幌飯店 → <b>我獨自</b>開露營車回千歲還車 → 搭 JR 回札幌。</li>
+          <li><b>10/17</b>：<b>我獨自</b>去札幌租車行取客車 → 開回飯店接大家。</li>
           <li><b>頭尾機場接送</b>：用<b>飯店接駁</b>或<b>大型計程車</b>（5人＋行李一車，約 10 分）。</li>
         </ul>
       </div>
@@ -412,7 +413,7 @@
       <div class="grid g2" style="margin-top:12px">
         <div class="note"><b>此安排的優點：</b>
           <ul class="clean" style="margin-top:4px">
-            <li>每晚正常床＋獨立衛浴，長輩睡眠品質更穩定</li>
+            <li>每晚正常床＋獨立衛浴，睡眠品質更穩定</li>
             <li>不必受露營場營業季、電源、就寢定員等限制</li>
             <li>後段全程自駕，不用扛行李轉乘 JR</li>
           </ul>
@@ -440,9 +441,9 @@
         <thead><tr><th>日期</th><th>交通</th><th>路段</th><th>時間／說明</th></tr></thead>
         <tbody>
           <tr><td>10/13（二）</td><td>✈ 星宇 JX318</td><td>台中清泉崗 → 新千歲</td><td>09:00 → 13:55 落地</td></tr>
-          <tr><td>10/13</td><td>🚌 飯店接駁／大型計程車</td><td>新千歲機場 → 千歲飯店</td><td>約 10 分（長輩免搭電車）</td></tr>
-          <tr><td>10/16</td><td>🚆 JR（<b>僅駕駛一人</b>）</td><td>千歲 → 札幌（還完露營車後返回）</td><td>約 40 分・長輩已在札幌飯店</td></tr>
-          <tr><td>10/14–10/16</td><td>🚐 露營車（NOMAD ZIL520）</td><td>千歲 → 美瑛 → <b>札幌（放長輩）</b> → 千歲原點還車</td><td>10/14 09:00 取・10/16 約 15:30 還・共 3 天</td></tr>
+          <tr><td>10/13</td><td>🚌 飯店接駁／大型計程車</td><td>新千歲機場 → 千歲飯店</td><td>約 10 分（免搭電車）</td></tr>
+          <tr><td>10/16</td><td>🚆 JR（<b>僅駕駛一人</b>）</td><td>千歲 → 札幌（還完露營車後返回）</td><td>約 40 分・大家已在札幌飯店</td></tr>
+          <tr><td>10/14–10/16</td><td>🚐 露營車（NOMAD ZIL520）</td><td>千歲 → 美瑛 → <b>札幌（先放大家）</b> → 千歲原點還車</td><td>10/14 09:00 取・10/16 約 15:30 還・共 3 天</td></tr>
           
           <tr><td>10/17–10/18</td><td>🚙 7人座客車</td><td><b>札幌取車</b> → 定山溪 → 小樽 → <b>千歲還車</b></td><td>10/17 上午取・10/18 傍晚還・共 2 天<br><span class="small">異地還車，需確認乗り捨て費</span></td></tr>
           <tr><td>10/19</td><td>🚌 飯店接駁／大型計程車</td><td>千歲飯店 → 新千歲機場</td><td>約 10 分・<b>約 12:30 出發</b></td></tr>
@@ -454,7 +455,7 @@
         <div class="small" style="margin-top:6px;color:inherit">去 JX318 09:00→13:55／回 JX319 15:00→18:25。每週一二三五六飛（<b>週四、週日停飛</b>）。此航線 <b>2026/10/02 才首航</b>，班表仍可能微調。<b>回程 15:00，最後一天約 12:30 就要往機場。</b></div>
       </div>
 
-      <div class="note" style="margin-top:10px"><b>✅ 長輩全程不搭大眾運輸：</b>頭尾兩段機場接送用<b>飯店接駁或大型計程車</b>；中段全部自駕、門到門。<b>唯一搭 JR 的是駕駛一人</b>——10/16 把長輩送到札幌飯店後，獨自開露營車回千歲還車再搭 JR 返回札幌。</div>
+      <div class="note" style="margin-top:10px"><b>✅ 全程不搭大眾運輸：</b>頭尾兩段機場接送用<b>飯店接駁或大型計程車</b>；中段全部自駕、門到門。<b>唯一搭 JR 的是駕駛一人</b>——10/16 把大家送到札幌飯店後，獨自開露營車回千歲還車再搭 JR 返回札幌。</div>
       
     </div>
   </section>
@@ -465,7 +466,7 @@
     <div class="card">
       <div class="grid g4 kpigrid" style="margin-bottom:12px">
         <div class="kpi"><div class="k">乘車定員</div><div class="n">6 <span class="u">人</span></div><div class="l">你們 5 人・座位寬鬆</div></div>
-        <div class="kpi"><div class="k">車內設備</div><div class="n">空調</div><div class="l">白天行駛保暖舒適</div></div>
+        <div class="kpi"><div class="k">車內</div><div class="n">桌椅・沙發</div><div class="l">隨時坐著吃東西、小歇</div></div>
         <div class="kpi"><div class="k">租用期間</div><div class="n">10/14 – 10/16</div><div class="l">3 天・千歲原點取還</div></div>
         <div class="kpi"><div class="k">千歲店評價</div><div class="n"><span class="stars">★</span> 4.7</div><div class="l">43 則評論</div></div>
       </div>
@@ -486,6 +487,16 @@
       </div>
       <div class="note" style="margin-top:10px"><b>本趟車資：</b>3 天（10/14–16 皆平日）約 <b><span class="j2t" data-jpy="105600"></span></b>。「一日」＝09:00–17:00，<b>超時每小時加收 <span class="j2t" data-jpy="5280"></span></b> → 10/16 務必 15:30–16:00 前還車。</div>
       <div class="small" style="margin-top:8px">駕駛提醒：ZIL520 是車高約 3m 的「キャブコン」，比廂型車高寬。注意限高、側風、倒車，第一天先在空曠處熟悉車身。</div>
+      <div class="note" style="margin-top:10px"><b>🛋 為什麼用露營車：它就是「移動的休息室」</b>
+        <ul class="clean" style="margin-top:4px">
+          <li><b>隨時可以停下來休息</b>——看到漂亮的風景就靠邊停，坐在車裡吃東西、泡茶、聊天，不必找餐廳或咖啡廳。</li>
+          <li><b>累了就上車躺一下</b>——有沙發、床鋪可以躺著小歇，不用硬撐到下一個景點。</li>
+          <li><b>下雨、風大也不怕</b>——車內有空調，是隨身帶著的避風港。</li>
+          <li><b>行李隨車</b>——外套、藥品、熱水都在身邊，不用背在身上走。</li>
+        </ul>
+        這是一般轎車或遊覽車做不到的：<b>景點之間的空檔，本身就變成舒服的休息時間。</b>
+      </div>
+
       <div class="note" style="margin-top:10px"><b>👥 5 人乘坐 ZIL520：</b>乘車定員 6 人（含駕駛），5 人坐<b>相當寬鬆</b>；因為<b>不在車上過夜</b>，上層臥舖與後方床鋪可直接<b>當行李置放空間</b>，收納完全不成問題。每晚行李搬進旅館即可，建議仍以軟袋為主方便搬運。</div>
     </div>
   </section>
@@ -498,7 +509,7 @@
       <ul class="clean">
         <li><b>10/13 千歲</b>：機場接駁／計程車直達，隔天 09:00 就近取露營車。</li>
         <li><b>10/14・10/15 美瑛／富良野</b>：連住兩晚<b>不搬行李</b>，10/15 一整天定點玩美瑛。</li>
-        <li><b>10/16・10/17 札幌</b>：<b>選能逛街的地段</b>（狸小路／大通／札幌駅周邊）——10/16 長輩先進飯店逛街休息，駕駛獨自去還露營車；連住兩晚不搬行李。</li>
+        <li><b>10/16・10/17 札幌</b>：<b>選能逛街的地段</b>（狸小路／大通／札幌駅周邊）——10/16 先進飯店逛街休息，駕駛獨自去還露營車；連住兩晚不搬行李。</li>
         <li><b>10/18 千歲</b>：小樽玩完南下還客車，住機場旁，隔天最輕鬆。</li>
         <li><b>10/19</b>：飯店接駁／大型計程車 → 新千歲機場（約 10 分）。</li>
       </ul>
@@ -513,7 +524,7 @@
       <table>
         <thead><tr><th>飯店</th><th>距 JR千歲站</th><th>特色・3人房</th><th>每晚／房（日圓・台幣約）</th><th>地圖</th></tr></thead>
         <tbody>
-          <tr><td><b>ANA クラウンプラザ<br>ホテル千歳</b><br><span class="small">北栄2-2-1</span></td><td><b>步行 7 分</b></td><td>千歲最具規模的國際品牌飯店・房間大、設施齊、長輩舒適<br><span class="vd-ok">✅ 較可能有 3 人房</span></td><td><span class="j2t" data-jpy="16000-28000"></span></td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=ANAクラウンプラザホテル千歳&travelmode=driving">🧭 導航</a></td></tr>
+          <tr><td><b>ANA クラウンプラザ<br>ホテル千歳</b><br><span class="small">北栄2-2-1</span></td><td><b>步行 7 分</b></td><td>千歲最具規模的國際品牌飯店・房間大、設施齊、住起來舒適<br><span class="vd-ok">✅ 較可能有 3 人房</span></td><td><span class="j2t" data-jpy="16000-28000"></span></td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=ANAクラウンプラザホテル千歳&travelmode=driving">🧭 導航</a></td></tr>
           <tr><td><b>JR イン千歳</b></td><td><b>站旁 1 分</b></td><td>新穎・頂樓大浴場・動線最短<br><span class="vd-mid">△ 3 人房少，需查</span></td><td><span class="j2t" data-jpy="10000-16000"></span></td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=JR+イン千歳&travelmode=driving">🧭 導航</a></td></tr>
           <tr><td><b>スーパーホテル千歳</b></td><td>步行 5 分</td><td>平價・人工溫泉大浴場・免費早餐<br><span class="vd-mid">△ 多為單／雙人房</span></td><td><span class="j2t" data-jpy="8000-13000"></span></td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=スーパーホテル千歳&travelmode=driving">🧭 導航</a></td></tr>
           <tr><td><b>ホテルグランテラス千歳</b></td><td>步行 5 分</td><td>商務舒適・早餐口碑佳</td><td><span class="j2t" data-jpy="9000-15000"></span></td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=ホテルグランテラス千歳&travelmode=driving">🧭 導航</a></td></tr>
@@ -535,7 +546,7 @@
           <tr><td><b>碧の美 ゆゆ</b><br><span class="small">（原・湯元白金温泉ホテル）</span></td><td><b>車程約 5 分</b></td><td>白金温泉老牌溫泉旅館・有大浴場與露天風呂，房型選擇多</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=碧の美ゆゆ 白金温泉&travelmode=driving">🧭 導航</a></td></tr>
           <tr><td><b>大雪山白金観光ホテル</b></td><td>車程約 5 分</td><td>可眺望大雪山連峰・和室房型多（<span class="vd-ok">✅ 較易訂 3 人房</span>）</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=大雪山白金観光ホテル&travelmode=driving">🧭 導航</a></td></tr>
           <tr><td><b>美瑛白金温泉<br>ホテルパークヒルズ</b></td><td>車程約 5 分</td><td>森林環繞・露天風呂，設施較新</td><td><a class="mlink" target="_blank" href="https://www.biei-hotelparkhills.com/" >官網 ↗</a></td></tr>
-          <tr><td><b>森の旅亭 びえい</b></td><td>車程約 5 分</td><td><b>高級和風旅亭</b>・部分房型附露天風呂，最適合寵愛長輩（價位高）</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=森の旅亭びえい&travelmode=driving">🧭 導航</a></td></tr>
+          <tr><td><b>森の旅亭 びえい</b></td><td>車程約 5 分</td><td><b>高級和風旅亭</b>・部分房型附露天風呂，最舒服的選擇（價位高）</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=森の旅亭びえい&travelmode=driving">🧭 導航</a></td></tr>
         </tbody>
       </table>
       </div>
@@ -553,20 +564,20 @@
         </tbody>
       </table>
       </div>
-      <div class="small" style="margin-top:8px">連住同一家<b>不搬行李</b>，選<b>札幌駅／大通／狸小路</b>一帶（有頂棚、平坦，10/16 長輩可自行逛街）。長輩房請指定<b>低樓層／近電梯</b>。<b>10/17（六）與白金温泉最搶手，務必提早訂。</b></div>
+      <div class="small" style="margin-top:8px">連住同一家<b>不搬行李</b>，選<b>札幌駅／大通／狸小路</b>一帶（有頂棚、平坦，10/16 可自行逛街）。房型請指定<b>低樓層／近電梯</b>。<b>10/17（六）與白金温泉最搶手，務必提早訂。</b></div>
 
       <div style="font-weight:700;color:var(--accent2);margin:16px 0 4px">④ 小樽（<span class="vd-mid">不過夜・已定案</span>）</div>
       <div class="small">小樽維持 10/18 <b>一日遊</b>（札幌 → 小樽 → 千歲還車），不住宿——最後一晚必須落在千歲才能用飯店接駁去機場。小樽當天可順泡<b>朝里川温泉</b>（見下方溫泉安排）。</div>
     </div>
 
     <div class="card" style="margin-top:16px">
-      <h3 style="margin:0 0 10px">♨ 全程溫泉安排（長輩最愛・幾乎天天可泡）</h3>
+      <h3 style="margin:0 0 10px">♨ 全程溫泉安排（幾乎天天可泡）</h3>
       <div style="overflow-x:auto">
       <table>
         <thead><tr><th>日期</th><th>溫泉</th><th>形式</th><th>備註</th></tr></thead>
         <tbody>
           <tr><td><b>10/13</b> 千歲</td><td>飯店大浴場</td><td>住宿附設</td><td>選有大浴場的飯店（スーパーホテル千歳為人工溫泉、JRイン千歳有大浴場）</td></tr>
-          <tr><td><b>10/14</b> 白金</td><td><b>白金温泉</b>（旅館內湯・露天）</td><td>住宿溫泉</td><td>抵達後泡、晚餐後再泡，長輩最放鬆</td></tr>
+          <tr><td><b>10/14</b> 白金</td><td><b>白金温泉</b>（旅館內湯・露天）</td><td>住宿溫泉</td><td>抵達後泡、晚餐後再泡，最放鬆</td></tr>
           <tr><td><b>10/15</b> 白金</td><td><b>白金温泉</b>（第二晚）</td><td>住宿溫泉</td><td>青池回來就能泡；想加碼可去<b>吹上温泉保養センター 白銀荘</b>（車程約 20 分・山路，體力好再去）</td></tr>
           <tr><td><b>10/16</b> 札幌</td><td>飯店大浴場</td><td>住宿附設</td><td>札幌飯店建議<b>指定有大浴場者</b>（如 JRイン札幌、ドーミーイン札幌）</td></tr>
           <tr><td><b>10/17</b> 定山溪</td><td><b>豊平峡温泉</b>／<b>定山渓温泉</b></td><td><span class="vd-ok">日歸泡湯</span></td><td>本行程的溫泉重頭戲。豊平峡以<b>大露天風呂＋印度咖哩</b>聞名；定山渓溫泉街也有多家可日歸</td></tr>
@@ -575,13 +586,13 @@
         </tbody>
       </table>
       </div>
-      <div class="note" style="margin-top:10px"><b>訂房重點：每一晚都挑「有大浴場」的飯店</b>——這樣即使沒排到日歸溫泉，長輩每晚都能泡。訂房網站篩選「<b>大浴場あり</b>」即可。</div>
+      <div class="note" style="margin-top:10px"><b>訂房重點：每一晚都挑「有大浴場」的飯店</b>——這樣即使沒排到日歸溫泉，每晚都能泡。訂房網站篩選「<b>大浴場あり</b>」即可。</div>
       <div class="small" style="margin-top:8px"><b>其他可選（想多泡再加）：</b>
         <b>支笏湖・丸駒温泉旅館</b>（湖畔天然露天風呂，全日本少見與湖水相連的浴池；<span class="vd-mid">日歸僅 11:00–14:00、週一～週四休</span>，10/18 是週日可去但時間卡小樽，需取捨）、
         <b>小金湯温泉</b>（札幌往定山溪路上）、
         <b>休暇村支笏湖</b>（日歸時段較寬）。
       </div>
-      <div class="warn" style="margin-top:10px"><b>長輩泡湯安全（重要）：</b>單次 <b>10–15 分鐘</b>就起身、水溫勿過高；<b>飯後・飲酒後・剛服藥先別泡</b>；泡前泡後都要<b>補水</b>；有高血壓／心臟病者先問醫師；<b>結伴不單獨</b>入浴。浴場地面濕滑，<b>務必穿防滑拖鞋、扶扶手慢走</b>。</div>
+      <div class="warn" style="margin-top:10px"><b>泡湯安全（重要）：</b>單次 <b>10–15 分鐘</b>就起身、水溫勿過高；<b>飯後・飲酒後・剛服藥先別泡</b>；泡前泡後都要<b>補水</b>；有高血壓／心臟病者先問醫師；<b>結伴不單獨</b>入浴。浴場地面濕滑，<b>務必穿防滑拖鞋、扶扶手慢走</b>。</div>
     </div>
 
   </section>
@@ -623,7 +634,7 @@
       </div>
       <div class="ckbar"><i id="ckbarfill"></i></div>
       <div class="small" style="margin-bottom:14px">打勾會自動記在這台裝置的瀏覽器（重整、關頁再開都還在）。<span class="urgent hot">最優先</span> 為有前置時間、拖不得的項目。</div>
-      <div class="note" style="margin-bottom:14px"><b>👨‍👩‍👧 給協助確認的家人：</b>下方<b>依人分組</b>，每位長輩一區——請各自協助確認自己家長輩的項目並回報。共用事項（訂位、租車、公用物品）集中在最後一區，由主辦人負責。</div>
+      <div class="note" style="margin-bottom:14px"><b>👨‍👩‍👧 給協助確認的家人：</b>下方<b>依人分組</b>，每人一區——請各自協助確認自己家人的項目並回報。共用事項（訂位、租車、公用物品）集中在最後一區，由主辦人負責。</div>
 
       <div class="ckgroup">
         <h3>媽媽</h3>
@@ -663,7 +674,7 @@
         <label class="ck"><input type="checkbox" data-k="me-pass"><span class="cktext"><b>護照</b>：效期 ≥ 2026/04</span></label>
         <label class="ck"><input type="checkbox" data-k="me-license"><span class="cktext">台灣駕照「<b>日文譯本</b>」（JAF／日台交流協會核發，<b>非</b>國際駕照）<span class="urgent hot">最優先</span></span></label>
         <label class="ck"><input type="checkbox" data-k="me-esim"><span class="cktext"><b>手機是否支援 eSIM</b>＋開通日本上網方案（導航用，務必確保有網路）</span></label>
-        <label class="ck"><input type="checkbox" data-k="me-find"><span class="cktext"><b>設定「尋找我的裝置」</b>，並協助長輩開通與測試定位</span></label>
+        <label class="ck"><input type="checkbox" data-k="me-find"><span class="cktext"><b>設定「尋找我的裝置」</b>，並協助家人開通與測試定位</span></label>
         <label class="ck"><input type="checkbox" data-k="me-insurance"><span class="cktext">海外旅遊平安＋醫療險投保</span></label>
       </div>
 
@@ -675,7 +686,7 @@
         <label class="ck"><input type="checkbox" data-k="hotel-chitose"><span class="cktext">千歲飯店 <b>×2（10/13・10/18）</b>——近 JR 千歲站、有機場接駁、<b>有大浴場</b>者</span></label>
         <label class="ck"><input type="checkbox" data-k="hotel-biei"><span class="cktext"><b>白金温泉</b>旅館 ×2（10/14・10/15）<b>紅葉季最搶手，第一優先訂</b><b>紅葉旺季要早訂</b></span></label>
         <label class="ck"><input type="checkbox" data-k="hotel-sapporo"><span class="cktext">札幌飯店 <b>×2（10/16・10/17）</b>——選<b>狸小路／大通／札幌駅</b>能逛街、且<b>有大浴場</b>者</span></label>
-        <label class="ck"><input type="checkbox" data-k="room-req"><span class="cktext">訂房備註：<b>低樓層／近電梯</b>、長輩房型需求、<b>千歲飯店行李寄放</b></span></label>
+        <label class="ck"><input type="checkbox" data-k="room-req"><span class="cktext">訂房備註：<b>低樓層／近電梯</b>、房型需求、<b>千歲飯店行李寄放</b></span></label>
         <label class="ck"><input type="checkbox" data-k="jumbo-taxi"><span class="cktext">機場接送：飯店接駁班次，或預約<b>大型計程車</b>（5人＋行李一車）<span class="urgent">重要</span></span></label>
         <label class="ck"><input type="checkbox" data-k="shuttle-confirm"><span class="cktext">確認 <b>NOMAD 接駁可送到 JR 千歲站</b>（10/16 駕駛還車後搭 JR 回札幌）</span></label>
         <label class="ck"><input type="checkbox" data-k="wheelchair"><span class="cktext">輕便折疊輪椅 <b>1–2 台</b>（大型景點備用）</span></label>
@@ -687,7 +698,7 @@
         <label class="ck"><input type="checkbox" data-k="power"><span class="cktext">轉接插頭・行動電源・車用充電線</span></label>
         <label class="ck"><input type="checkbox" data-k="cash"><span class="cktext">日圓現金＋信用卡</span></label>
         <label class="ck"><input type="checkbox" data-k="id-copy"><span class="cktext">全員證件影本備份（護照＋駕照＋譯本）</span></label>
-        <label class="ck"><input type="checkbox" data-k="lost-card"><span class="cktext">印<b>隨身小卡</b>給每位長輩：當天飯店名稱地址（日文）、我的手機、當天行程<br><span class="small">走散時交給店家或警察就能聯絡到我</span><span class="urgent">重要</span></span></label>
+        <label class="ck"><input type="checkbox" data-k="lost-card"><span class="cktext">印<b>隨身小卡</b>給每個人：當天飯店名稱地址（日文）、我的手機、當天行程<br><span class="small">走散時交給店家或警察就能聯絡到我</span><span class="urgent">重要</span></span></label>
         <label class="ck"><input type="checkbox" data-k="meetpoint"><span class="cktext">每個景點<b>下車前先講好集合點與時間</b>（停車場或明顯店家）</span></label>
       </div>
     </div>
@@ -715,14 +726,14 @@
       <table>
         <thead><tr><th>候選</th><th>類型</th><th>位置</th><th>順路評估</th><th>地圖</th></tr></thead>
         <tbody>
-          <tr><td><b>北の住まい設計社</b><br><span class="small">北之住傢俱中心</span></td><td>選物/咖啡</td><td>東川町（美瑛旁）</td><td><span class="vd-ok">✅ 順路</span>・平坦好走、質感咖啡，長輩友善</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=北の住まい設計社 東川&travelmode=driving">🧭 導航</a></td></tr>
+          <tr><td><b>北の住まい設計社</b><br><span class="small">北之住傢俱中心</span></td><td>選物/咖啡</td><td>東川町（美瑛旁）</td><td><span class="vd-ok">✅ 順路</span>・平坦好走、質感咖啡，好走好休息</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=北の住まい設計社 東川&travelmode=driving">🧭 導航</a></td></tr>
           <tr><td><b>バーチ 白樺 PAACHI</b></td><td>森林餐廳</td><td>東川町（美瑛旁）</td><td><span class="vd-ok">✅ 順路</span>・美瑛區用餐點</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=バーチ PAACHI 東川&travelmode=driving">🧭 導航</a></td></tr>
           <tr><td><b>旭山動物園</b></td><td>景點</td><td>旭川（美瑛北約 40 分）</td><td><span class="vd-mid">⚠️ 小繞</span>・可半日加碼，但步行多、建議用輪椅</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=旭山動物園&travelmode=driving">🧭 導航</a></td></tr>
           <tr><td><b>かなやま湖</b><br><span class="small">金山湖・湖畔露營場</span></td><td>湖/露營</td><td>南富良野（美瑛南約 1h）</td><td><span class="vd-mid">⚠️ 小繞</span>・往南才順路</td><td><a class="mlink" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=かなやま湖&travelmode=driving">🧭 導航</a></td></tr>
         </tbody>
       </table>
       </div>
-      <div class="small" style="margin-top:8px">建議：<b>北の住まい設計社、バーチ PAACHI</b> 可自然融入美瑛行程（皆平坦好走、適合長輩休息用餐）；旭山動物園與金山湖屬「想去才小繞」。</div>
+      <div class="small" style="margin-top:8px">建議：<b>北の住まい設計社、バーチ PAACHI</b> 可自然融入美瑛行程（皆平坦好走、適合休息用餐）；旭山動物園與金山湖屬「想去才小繞」。</div>
     </div>
   </section>
 
@@ -736,7 +747,7 @@
       <button class="copybtn" onclick="copyMsg()">📋 複製</button>
       <pre class="msg" id="inquiry">您好，我想預約 ZIL520（10/14 09:00 取車～10/16 約 15:30 還車，共 3 天、5 名乘客），有幾點想確認：
 
-※ 我們不會在車上過夜（每晚住旅館），主要是讓長輩體驗乘坐露營車。
+※ 我們不會在車上過夜（每晚住旅館），主要是讓家人體驗乘坐露營車。
 
 1. 這段日期（10/14–10/16，皆為平日）的實際車資與含稅總額？
 2. 保險／免責補償制度與費用？是否有「免責額全免（安心補償）」可加購？
@@ -747,7 +758,7 @@
 7. 免費接送：10/13 傍晚抵達（可否接到千歲市區飯店）、10/16 還車後可否送我們到千歲市區飯店？
 8. 車內置物空間？行李會放在車上但不過夜。
 
-另想請問：同行有 4 位長輩，是否有適用的高齡優惠？謝謝！</pre>
+另想請問：同行有 4 位年長者，是否有適用的高齡優惠？謝謝！</pre>
     </div>
   </section>
 
@@ -811,7 +822,7 @@
       <h3 style="margin:0 0 10px">📌 Google 相簿建議做法</h3>
       <ul class="clean">
         <li><b>建共享相簿</b>：Google 相簿 → 建立相簿 → 分享 → 開啟「<b>共同協作</b>」，同行的人都能把照片丟進同一本，回國不用互傳。</li>
-        <li><b>權限選「知道連結的人都可以查看」</b>，長輩的小孩不用 Google 帳號也能看。</li>
+        <li><b>權限選「知道連結的人都可以查看」</b>，家人不用 Google 帳號也能看。</li>
         <li><b>照上面的地點分本</b>（或先開一本總相簿就好），之後找照片比較快。</li>
         <li>出發前確認手機<b>自動備份已開啟</b>；旅途中盡量連 WiFi 再備份，省行動數據。</li>
       </ul>
@@ -1105,7 +1116,7 @@
     function seg(a,b,color,jr){ L.polyline([a,b],{color:color,weight:4,opacity:0.9,dashArray:jr?'3 9':null,lineCap:'round'}).addTo(rmap); }
     seg(P.kuko,P.chitose,'#2563eb',true);     // ① 接駁
     seg(P.chitose,P.biei,'#e05a2b',false);    // ② 露營車 北上
-    seg(P.biei,P.sapp,'#7c3aed',false);       // ④ 露營車 南下到札幌（放長輩）
+    seg(P.biei,P.sapp,'#7c3aed',false);       // ④ 露營車 南下到札幌（先放大家）
     seg(P.sapp,P.chitose,'#7c3aed',true);     // ④ 駕駛獨自去還車＋JR 返回
     seg(P.sapp,P.joza,'#16a34a',false);       // ⑤ 客車 札幌⇄定山溪
     seg(P.sapp,P.otaru,'#0891b2',false);      // ⑥ 札幌→小樽
