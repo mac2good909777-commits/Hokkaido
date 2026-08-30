@@ -186,8 +186,15 @@
   /* 資訊卡字級：比例縮放，避免撐破 */
   .kpi .k{font-size:calc(var(--fs)*0.72) !important;}
   .kpi .n{font-size:calc(var(--fs)*1.02) !important;}
+  .kpi .n.nsm{font-size:calc(var(--fs)*0.86) !important;white-space:nowrap;}
   .kpi .l{font-size:calc(var(--fs)*0.76) !important;}
   .kpigrid{grid-auto-rows:1fr;}
+  .okgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+  @media(max-width:720px){.okgrid{grid-template-columns:1fr;}}
+  .ok{background:#f2f7f3;border:1px solid #cfe6cb;border-radius:10px;padding:12px 14px;
+    font-size:calc(var(--fs)*0.8);color:var(--sub);line-height:1.55;}
+  .ok b{display:block;color:#137a37;font-size:calc(var(--fs)*0.92);margin-bottom:2px;}
+  .ok b:before{content:"✓ ";font-weight:900;}
   @media(max-width:720px){ .kpi{min-height:118px;padding:14px 10px;} }
 </style>
 </head>
@@ -219,7 +226,7 @@
     <h2>行程總覽</h2>
     <div class="grid g4 kpigrid">
       <div class="kpi"><div class="k">旅行日期</div><div class="n">10/13 – 10/19</div><div class="l">7 天 6 夜</div></div>
-      <div class="kpi"><div class="k">航班・星宇直飛</div><div class="n">去 09:00 → 13:55<br>回 15:00 → 18:25</div><div class="l">台中 ⇄ 新千歲</div></div>
+      <div class="kpi"><div class="k">航班・星宇直飛</div><div class="n nsm">去 09:00 → 13:55<br>回 15:00 → 18:25</div><div class="l">台中 ⇄ 新千歲</div></div>
       <div class="kpi"><div class="k">用車</div><div class="n">5 <span class="u">天</span></div><div class="l">露營車 3 ＋ 客車 2</div></div>
       <div class="kpi"><div class="k">住宿</div><div class="n">每晚住飯店</div><div class="l">露營車只白天乘坐<br>不車泊</div></div>
     </div>
@@ -244,23 +251,16 @@
     </div>
 
     <div class="card" style="margin-top:14px">
-      <h3 style="margin:0 0 12px">😌 長輩擔心的事，這趟都不會發生</h3>
-      <div style="overflow-x:auto">
-      <table>
-        <thead><tr><th style="width:34%">常見的擔心</th><th>這趟怎麼安排</th></tr></thead>
-        <tbody>
-          <tr><td><b>「會不會走到腳痠？」</b></td><td>每天只排 <b>2–3 個重點</b>、步行控制在 2 小時內。四季彩之丘有<b>電動遊園車</b>、青池與小樽運河都是<b>平坦步道</b>；地面不平的北海道神宮已標成「<b>累了就略過</b>」。</td></tr>
-          <tr><td><b>「要拖著行李走很遠嗎？」</b></td><td><b>完全不用。</b>車子直接停<b>飯店門口</b>，行李從後車廂拿了就進房；機場來回是<b>飯店接駁／大型計程車到門口</b>。<b>不必在車站拖行李、走月台、上下樓梯。</b></td></tr>
-          <tr><td><b>「一直換飯店、一直打包？」</b></td><td>6 晚只住 <b>3 個地方</b>。美瑛連住 2 晚、札幌連住 2 晚，<b>行李只需整理 3 次</b>。</td></tr>
-          <tr><td><b>「車子會不會坐太久？」</b></td><td>最長單程 <b>2.5 小時</b>，而且隔天（10/15）<b>整天定點不移動</b>。後段每段都只有 40–60 分鐘。</td></tr>
-          <tr><td><b>「要擠電車、轉車看不懂站名？」</b></td><td><b>長輩全程不搭大眾運輸。</b>7 天都是自家車門到門——露營車 3 天、7人座客車 2 天、頭尾機場用接駁車。<br><span class="small">（唯一搭 JR 的是我一個人：10/16 送大家到飯店後，自己去還露營車再搭車回來。）</span></td></tr>
-          <tr><td><b>「晚上會不會冷、睡不好？」</b></td><td><b>不睡車上</b>，每晚都住有暖氣的飯店。日期選在 10 月中，比 11 月初<b>暖約 5°C</b>。</td></tr>
-          <tr><td><b>「想泡湯方便嗎？」</b></td><td><b>幾乎天天有溫泉</b>：白金温泉住 2 晚、定山溪日歸泡湯、小樽朝里川温泉，連飯店都挑<b>有大浴場</b>的。</td></tr>
-          <tr><td><b>「會不會一直被催、很趕？」</b></td><td><b>傍晚就進飯店</b>、不排夜間行程。每個點都可以「<b>累了就先回車上或飯店休息</b>」，行程有留彈性。</td></tr>
-          <tr><td><b>「走散了怎麼辦？語言又不通。」</b></td><td><b>不會單獨行動</b>——全程有我開車帶著，景點都是小範圍、平坦、看得到彼此的地方（青池步道、小樽運河、狸小路）。每人手機都<b>先設定好「尋找我的裝置」</b>，可互相定位；出發前發給每人一張<b>卡片</b>：飯店名稱地址、我的手機、當天行程，走散時交給店家或警察就能找到我。<b>集合點事先講好</b>（例如停車場或某家店門口）。</td></tr>
-          <tr><td><b>「身體不舒服怎麼辦？」</b></td><td>全員投保<b>旅平險＋醫療險</b>，每人常用藥與病歷先備妥；<b>全程有人開車陪同</b>，不會落單。</td></tr>
-        </tbody>
-      </table>
+      <h3 style="margin:0 0 10px">😌 長輩可以放心</h3>
+      <div class="okgrid">
+        <div class="ok"><b>不必拖行李走遠路</b>車停飯店門口，行李下車就進房</div>
+        <div class="ok"><b>全程不搭電車</b>7 天都是自家車門到門</div>
+        <div class="ok"><b>只換 3 次飯店</b>美瑛、札幌各連住 2 晚</div>
+        <div class="ok"><b>不睡車上</b>每晚都住有暖氣的飯店</div>
+        <div class="ok"><b>天天泡湯</b>白金 2 晚＋定山溪＋朝里川</div>
+        <div class="ok"><b>不趕行程</b>每天 2–3 個點，傍晚就休息</div>
+        <div class="ok"><b>不會走散</b>隨身小卡＋手機互相定位</div>
+        <div class="ok"><b>走路不多</b>每天步行 2 小時內，備輪椅</div>
       </div>
     </div>
 
