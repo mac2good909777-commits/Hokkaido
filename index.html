@@ -46,9 +46,12 @@
   .g2{grid-template-columns:repeat(2,1fr);}
   @media(max-width:720px){.g4{grid-template-columns:repeat(2,1fr);}.g2{grid-template-columns:1fr;}
     .grid[style*="repeat(3"]{grid-template-columns:1fr !important;}}
-  .kpi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;text-align:center;}
-  .kpi .n{font-size:19px;font-weight:800;color:var(--accent2);}
-  .kpi .l{font-size:12px;color:var(--sub);margin-top:2px;}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 12px;text-align:center;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;min-height:132px;}
+  .kpi .k{font-size:13px;font-weight:700;color:var(--sub);letter-spacing:.06em;}
+  .kpi .n{font-size:19px;font-weight:900;color:var(--accent2);line-height:1.25;}
+  .kpi .l{font-size:12px;color:var(--sub);line-height:1.5;}
+  .kpi .n .u{font-size:.72em;font-weight:700;margin-left:2px;}
   table{width:100%;border-collapse:collapse;font-size:14px;}
   th,td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;}
   th{background:var(--soft);font-weight:700;font-size:13px;}
@@ -161,7 +164,7 @@
   :root{ --fs: clamp(20px, 0.9vw + 15px, 25px); --fs-key: clamp(24px, 1.3vw + 17px, 32px); }
   body{ font-size: var(--fs); overflow-wrap:break-word; }
   p, li, td, th, label, a, .cktext, .spotlist .ds, .spotlist a, .small, .note, .warn,
-  .callegend, .legend, .kpi .l, .totcard .t .k, .refgroup a, .refgroup .rt, .tab-btn,
+  .callegend, .legend, .kpi .l, .kpi .k, .totcard .t .k, .refgroup a, .refgroup .rt, .tab-btn,
   .bt input, .bt select, .addrow, .ckreset, a.mlink, .flag, .hero .sub, .tag,
   table, pre.msg, .rate, .ds-h { font-size: var(--fs) !important; }
   h1{ font-size: clamp(30px, 3vw + 18px, 44px) !important; }
@@ -180,6 +183,12 @@
     nav.toc .in{gap:6px;}
     .tabbreak{display:none;}
   }
+  /* 資訊卡字級：比例縮放，避免撐破 */
+  .kpi .k{font-size:calc(var(--fs)*0.72) !important;}
+  .kpi .n{font-size:calc(var(--fs)*1.02) !important;}
+  .kpi .l{font-size:calc(var(--fs)*0.76) !important;}
+  .kpigrid{grid-auto-rows:1fr;}
+  @media(max-width:720px){ .kpi{min-height:118px;padding:14px 10px;} }
 </style>
 </head>
 <body>
@@ -208,11 +217,11 @@
   <!-- 總覽 -->
   <section id="summary" data-tab="overview" style="order:1">
     <h2>行程總覽</h2>
-    <div class="grid g4">
-      <div class="kpi"><div class="n">10/13→10/19</div><div class="l">星宇直飛・7天6夜</div></div>
-      <div class="kpi"><div class="n">✈ 去 09:00→13:55</div><div class="l">回 15:00→18:25（台中⇄新千歲）</div></div>
-      <div class="kpi"><div class="n">用車 5 天</div><div class="l">露營車 3＋客車 2</div></div>
-      <div class="kpi"><div class="n">🚐 只體驗乘坐</div><div class="l">不車泊・每晚住飯店</div></div>
+    <div class="grid g4 kpigrid">
+      <div class="kpi"><div class="k">旅行日期</div><div class="n">10/13 – 10/19</div><div class="l">7 天 6 夜</div></div>
+      <div class="kpi"><div class="k">航班・星宇直飛</div><div class="n">去 09:00 → 13:55<br>回 15:00 → 18:25</div><div class="l">台中 ⇄ 新千歲</div></div>
+      <div class="kpi"><div class="k">用車</div><div class="n">5 <span class="u">天</span></div><div class="l">露營車 3 ＋ 客車 2</div></div>
+      <div class="kpi"><div class="k">住宿</div><div class="n">每晚住飯店</div><div class="l">露營車只白天乘坐<br>不車泊</div></div>
     </div>
 
     <div class="card" style="margin-top:14px">
@@ -346,10 +355,10 @@
     <div class="card">
       <div style="margin-bottom:10px"><span class="pill rec">★ 採用</span> <b>露營車體驗美瑛 ＋ 7人座客車遊後段</b>　<span class="small">露營車 3 天只當「白天用車」跑美瑛環線、當晚一律住旅館，還車後換 7人座客車。</span></div>
 
-      <div class="grid" style="grid-template-columns:repeat(3,1fr);margin-bottom:14px">
-        <div class="kpi"><div class="n">🚐 3 天</div><div class="l">露營車・10/14–10/16<br>千歲取車→千歲還車</div></div>
-        <div class="kpi"><div class="n">🚙 2 天</div><div class="l">7人座客車・10/17–10/18<br>札幌取車→千歲還車</div></div>
-        <div class="kpi"><div class="n">6 晚旅館</div><div class="l">每晚都睡飯店，不睡車上</div></div>
+      <div class="grid kpigrid" style="grid-template-columns:repeat(3,1fr);margin-bottom:14px">
+        <div class="kpi"><div class="k">🚐 露營車</div><div class="n">3 <span class="u">天</span></div><div class="l">10/14–10/16<br>千歲取・千歲還</div></div>
+        <div class="kpi"><div class="k">🚙 7人座客車</div><div class="n">2 <span class="u">天</span></div><div class="l">10/17–10/18<br>札幌取・千歲還</div></div>
+        <div class="kpi"><div class="k">住宿</div><div class="n">6 <span class="u">晚</span></div><div class="l">千歲2・白金2・札幌2</div></div>
       </div>
 
       <div style="overflow-x:auto">
@@ -433,11 +442,11 @@
   <section id="van" data-tab="stay" style="order:8">
     <h2>露營車 — NOMAD ZIL520</h2>
     <div class="card">
-      <div class="grid g4" style="margin-bottom:12px">
-        <div class="kpi"><div class="n">乘車 6 人</div><div class="l">你們 5 人・座位寬鬆</div></div>
-        <div class="kpi"><div class="n">車內空調</div><div class="l">白天行駛保暖舒適</div></div>
-        <div class="kpi"><div class="n">10/14→10/16</div><div class="l">3 天・千歲原點取還</div></div>
-        <div class="kpi"><div class="n"><span class="stars">★</span>4.7 (43)</div><div class="l">千歲店評價</div></div>
+      <div class="grid g4 kpigrid" style="margin-bottom:12px">
+        <div class="kpi"><div class="k">乘車定員</div><div class="n">6 <span class="u">人</span></div><div class="l">你們 5 人・座位寬鬆</div></div>
+        <div class="kpi"><div class="k">車內設備</div><div class="n">空調</div><div class="l">白天行駛保暖舒適</div></div>
+        <div class="kpi"><div class="k">租用期間</div><div class="n">10/14 – 10/16</div><div class="l">3 天・千歲原點取還</div></div>
+        <div class="kpi"><div class="k">千歲店評價</div><div class="n"><span class="stars">★</span> 4.7</div><div class="l">43 則評論</div></div>
       </div>
       <b>取還車地點：</b>北海道千歲市青葉2丁目17-32（近 JR 千歲站 5–10 分、新千歲機場 8–10 分，免費接送）
       <a class="inline" href="https://www.google.com/maps/search/?api=1&query=%E5%8C%97%E6%B5%B7%E9%81%93%E5%8D%83%E6%AD%B3%E5%B8%82%E9%9D%92%E8%91%892%E4%B8%81%E7%9B%AE17-32" target="_blank">（地圖）</a>
