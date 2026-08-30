@@ -103,15 +103,14 @@
   .totcard .t{text-align:center;}
   .totcard .t .v{font-size:23px;font-weight:900;letter-spacing:.5px;}
   .totcard .t .k{font-size:12px;opacity:.92;margin-top:2px;}
-  .albumrow{border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:10px;background:#fff;}
+  .albumrow{border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:12px;background:#fff;}
+  .albumtag{font-size:calc(var(--fs)*0.78);color:var(--sub);background:var(--soft);border-radius:999px;padding:3px 12px;white-space:nowrap;}
+  .albumspots{font-size:calc(var(--fs)*0.85);color:var(--sub);line-height:1.6;margin-bottom:10px;}
+  .albumempty{display:inline-block;font-size:calc(var(--fs)*0.8);color:#9a8f80;background:var(--soft);border:1px dashed var(--line);border-radius:10px;padding:8px 14px;}
   .albumrow.filled{background:#f2f7f3;border-color:#cfe6cb;}
   .albumhead{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px;}
   .albumname{font-weight:800;color:var(--accent2);}
-  .albumrow input{width:100%;font-family:inherit;font-size:var(--fs);border:2px dashed var(--accent);border-radius:10px;
     padding:14px 14px;background:#fffdf9;color:var(--ink);}
-  .albumrow input:focus{outline:none;border-style:solid;background:#fff;box-shadow:0 0 0 3px rgba(224,90,43,.15);}
-  .albumrow.filled input{border:1px solid #cfe6cb;border-style:solid;background:#fff;}
-  .albumhint{font-size:calc(var(--fs)*0.82);color:var(--sub);margin-bottom:6px;}
   .albumopen{display:none;}
   .albumrow.filled .albumopen{display:inline-block;}
   .navbtn{display:inline-block;min-width:104px;text-align:center;padding:14px 18px !important;border-radius:12px;
@@ -740,23 +739,65 @@
   <!-- 相簿 -->
   <section id="album-sec" data-tab="album" style="order:1">
     <h2>📷 相簿</h2>
-    <div class="warn">
-      <b>操作方式：</b>下面每一天都有一個<b>虛線框</b>——在 Google 相簿裡按「分享 → 複製連結」，然後<b>點一下虛線框、長按貼上</b>即可。貼好會自動記住，該格變綠並出現「開啟相簿」按鈕。
-      <div class="small" style="margin-top:6px;color:inherit">⚠️ <b>只存在你自己的裝置</b>——別人開這個網頁看不到你貼的連結。若要讓大家（叔叔姑姑的小孩）都看得到，<b>把連結給我，我幫你寫死進網頁</b>，就會對所有人顯示。</div>
+    <div class="note">依<b>地點</b>分類。相簿連結建好後給我，我直接寫進網頁，<b>所有人打開都看得到</b>（不需登入、不用自己貼）。</div>
+
+    <div class="card" style="margin-top:14px">
+      <div class="albumrow">
+        <div class="albumhead"><span class="albumname">🛬 千歲</span><span class="albumtag">10/13・10/18</span></div>
+        <div class="albumspots">新千歲機場・インディアン水車（鮭魚洄游）・サーモンパーク千歳・千歲川散步道</div>
+        <div class="albumempty">尚未建立相簿</div>
+      </div>
+
+      <div class="albumrow">
+        <div class="albumhead"><span class="albumname">🌾 富良野</span><span class="albumtag">10/14</span></div>
+        <div class="albumspots">ファーム富田・富良野田園風景（北上途中）</div>
+        <div class="albumempty">尚未建立相簿</div>
+      </div>
+
+      <div class="albumrow">
+        <div class="albumhead"><span class="albumname">🏞 美瑛・白金温泉</span><span class="albumtag">10/14–10/15</span></div>
+        <div class="albumspots">青い池（青池）・白鬚の滝・四季彩の丘・拼布之路（Ken&amp;Mary之樹）・新栄の丘・白金温泉旅館</div>
+        <div class="albumempty">尚未建立相簿</div>
+      </div>
+
+      <div class="albumrow">
+        <div class="albumhead"><span class="albumname">🏙 札幌</span><span class="albumtag">10/16–10/17</span></div>
+        <div class="albumspots">狸小路商店街・湯咖哩・北海道大學銀杏並木・大通公園・北海道神宮・場外市場</div>
+        <div class="albumempty">尚未建立相簿</div>
+      </div>
+
+      <div class="albumrow">
+        <div class="albumhead"><span class="albumname">♨ 定山溪</span><span class="albumtag">10/17</span></div>
+        <div class="albumspots">二見吊橋紅葉・豊平峡温泉・定山渓温泉街</div>
+        <div class="albumempty">尚未建立相簿</div>
+      </div>
+
+      <div class="albumrow">
+        <div class="albumhead"><span class="albumname">⚓ 小樽</span><span class="albumtag">10/18</span></div>
+        <div class="albumspots">小樽運河・堺町通り・LeTAO・朝里川温泉</div>
+        <div class="albumempty">尚未建立相簿</div>
+      </div>
+
+      <div class="albumrow">
+        <div class="albumhead"><span class="albumname">🚐 露營車・車上生活</span><span class="albumtag">10/14–10/16</span></div>
+        <div class="albumspots">NOMAD ZIL520 車內外・沿途休息站・大家在車上的畫面</div>
+        <div class="albumempty">尚未建立相簿</div>
+      </div>
+
+      <div class="albumrow">
+        <div class="albumhead"><span class="albumname">🌟 全程總相簿</span><span class="albumtag">10/13–10/19</span></div>
+        <div class="albumspots">不分類、所有人的照片都丟這本</div>
+        <div class="albumempty">尚未建立相簿</div>
+      </div>
     </div>
 
     <div class="card" style="margin-top:14px">
-      <div id="albumlist"></div>
-      <button class="ckreset" onclick="resetAlbums()" style="margin-top:6px">清除全部連結</button>
-    </div>
-
-    <div class="card" style="margin-top:14px">
-      <h3 style="margin:0 0 10px">📌 Google 相簿使用建議</h3>
+      <h3 style="margin:0 0 10px">📌 Google 相簿建議做法</h3>
       <ul class="clean">
-        <li><b>建立「共享相簿」</b>：在 Google 相簿建立相簿 → 分享 → <b>開啟「共同協作」</b>，把連結給同行的人，大家拍的照片都能丟進同一本，回國不用互相傳照片。</li>
-        <li><b>連結權限</b>：選「<b>知道連結的人都可以查看</b>」，這樣長輩的小孩不用 Google 帳號也能看。</li>
-        <li><b>建議分本</b>：可以每天一本（對應下面的欄位），或全程一本再用「相簿內分區」；每天一本之後找照片比較快。</li>
-        <li><b>手機自動備份</b>：出發前確認手機的 Google 相簿<b>自動備份已開啟</b>，避免手機遺失照片全失。旅途中盡量連 WiFi 再備份，省行動數據。</li>
+        <li><b>建共享相簿</b>：Google 相簿 → 建立相簿 → 分享 → 開啟「<b>共同協作</b>」，同行的人都能把照片丟進同一本，回國不用互傳。</li>
+        <li><b>權限選「知道連結的人都可以查看」</b>，長輩的小孩不用 Google 帳號也能看。</li>
+        <li><b>照上面的地點分本</b>（或先開一本總相簿就好），之後找照片比較快。</li>
+        <li>出發前確認手機<b>自動備份已開啟</b>；旅途中盡量連 WiFi 再備份，省行動數據。</li>
       </ul>
     </div>
   </section>
@@ -1088,45 +1129,6 @@
   })();
 
 
-  /* ===== 相簿連結（localStorage） ===== */
-  (function(){
-    var box=document.getElementById('albumlist');
-    if(!box) return;
-    var DAYS=[
-      ['all','🌟 全程總相簿'],
-      ['d13','10/13　抵達・千歲'],
-      ['d14','10/14　北上美瑛・白金温泉'],
-      ['d15','10/15　青池・美瑛精華日'],
-      ['d16','10/16　南下札幌'],
-      ['d17','10/17　定山溪泡湯'],
-      ['d18','10/18　北大・小樽'],
-      ['d19','10/19　賦歸']
-    ];
-    var KEY='hokkaido_albums_v1', saved={};
-    try{ saved=JSON.parse(localStorage.getItem(KEY)||'{}'); }catch(e){}
-    function persist(){ try{ localStorage.setItem(KEY,JSON.stringify(saved)); }catch(e){} }
-    DAYS.forEach(function(d){
-      var row=document.createElement('div');
-      row.className='albumrow';
-      row.innerHTML='<div class="albumhead"><span class="albumname">'+d[1]+'</span>'+
-        '<a class="navbtn albumopen" style="background:var(--blue)" target="_blank">開啟相簿 ↗</a></div>'+
-        '<div class="albumhint">↓ 把 Google 相簿連結貼在這個框裡</div>'+
-        '<input type="url" placeholder="https://photos.app.goo.gl/...">';
-      var inp=row.querySelector('input'), link=row.querySelector('.albumopen');
-      function sync(){
-        var v=(inp.value||'').trim();
-        if(v){ row.classList.add('filled'); link.href=v; } else { row.classList.remove('filled'); link.removeAttribute('href'); }
-      }
-      if(saved[d[0]]) inp.value=saved[d[0]];
-      sync();
-      inp.addEventListener('input',function(){ saved[d[0]]=inp.value.trim(); persist(); sync(); });
-      box.appendChild(row);
-    });
-    window.resetAlbums=function(){
-      saved={}; try{ localStorage.removeItem(KEY); }catch(e){}
-      [].forEach.call(box.querySelectorAll('.albumrow'),function(r){ r.querySelector('input').value=''; r.classList.remove('filled'); });
-    };
-  })();
 
   /* ===== 分類分頁 ===== */
   (function(){
