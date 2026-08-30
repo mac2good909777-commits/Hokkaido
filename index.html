@@ -231,9 +231,20 @@
     radial-gradient(circle at 88% 22%, rgba(124,58,237,.04) 0, transparent 40%),
     radial-gradient(circle at 50% 92%, rgba(22,163,74,.035) 0, transparent 45%);
     background-attachment:fixed;}
+  /* ===== 飄落楓葉 ===== */
+  #leaves{position:fixed;inset:0;pointer-events:none;z-index:9;overflow:hidden;}
+  #leaves i{position:absolute;top:-8vh;display:block;will-change:transform;font-style:normal;
+    animation:leafFall linear infinite;user-select:none;}
+  @keyframes leafFall{
+    0%{transform:translate3d(0,-10vh,0) rotate(0deg);}
+    100%{transform:translate3d(var(--dx,40px),112vh,0) rotate(var(--rot,420deg));}
+  }
+  @media (prefers-reduced-motion: reduce){ #leaves{display:none;} }
+  @media(max-width:720px){ #leaves i{opacity:.4 !important;} }
 </style>
 </head>
 <body>
+<div id="leaves" aria-hidden="true"></div>
 
 <header class="hero">
   <h1>2026 北海道 溫泉慢遊</h1>
@@ -243,13 +254,13 @@
 
 <nav class="toc"><div class="in">
   <button class="tab-btn" data-tab="overview">總覽</button>
-  <button class="tab-btn" data-tab="weather">天氣</button>
   <button class="tab-btn" data-tab="plan">行程</button>
-  <button class="tab-btn" data-tab="nav">🧭 導航</button>
   <button class="tab-btn" data-tab="stay">交通住宿</button>
+  <button class="tab-btn" data-tab="weather">天氣</button>
   <span class="tabbreak"></span>
-  <button class="tab-btn" data-tab="budget">費用</button>
   <button class="tab-btn" data-tab="check">準備清單</button>
+  <button class="tab-btn" data-tab="budget">費用</button>
+  <button class="tab-btn" data-tab="nav">🧭 導航</button>
   <button class="tab-btn" data-tab="album">📷 相簿</button>
   <button class="tab-btn" data-tab="ref">參考</button>
 </div></nav>
@@ -1200,6 +1211,28 @@
   })();
 
 
+
+
+  /* ===== 飄落楓葉 ===== */
+  (function(){
+    var box=document.getElementById('leaves');
+    if(!box) return;
+    if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var glyphs=['🍁','🍂','🍁'];
+    var n=window.innerWidth<720?10:16;
+    for(var i=0;i<n;i++){
+      var el=document.createElement('i');
+      el.textContent=glyphs[i%glyphs.length];
+      el.style.left=(Math.random()*100).toFixed(2)+'vw';
+      el.style.fontSize=(13+Math.random()*16).toFixed(0)+'px';
+      el.style.animationDuration=(14+Math.random()*16).toFixed(1)+'s';
+      el.style.animationDelay=(-Math.random()*30).toFixed(1)+'s';
+      el.style.setProperty('--dx',((Math.random()*160)-80).toFixed(0)+'px');
+      el.style.setProperty('--rot',((Math.random()*540)+180).toFixed(0)+'deg');
+      el.style.opacity=(0.35+Math.random()*0.3).toFixed(2);
+      box.appendChild(el);
+    }
+  })();
 
   /* ===== 分類分頁 ===== */
   (function(){
