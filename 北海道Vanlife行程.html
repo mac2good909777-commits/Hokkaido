@@ -218,6 +218,7 @@
   #cand-sec::before{content:"✨";}
   #transport-sec::before{content:"✈";}
   #van::before{content:"🚐";}
+  #minivan::before{content:"🚙";}
   #hotel::before{content:"♨";}
   #inquiry-sec::before{content:"📝";}
   #budget-sec::before{content:"💴";}
@@ -570,7 +571,53 @@
   </section>
 
   <!-- 飯店動線 -->
-  <section id="hotel" data-tab="stay" style="order:9">
+  <!-- 7人座客車 -->
+  <section id="minivan" data-tab="stay" style="order:9">
+    <h2>🚙 7人座客車（10/17–10/19）</h2>
+    <div class="card">
+      <div class="grid kpigrid" style="grid-template-columns:repeat(3,1fr);margin-bottom:14px">
+        <div class="kpi"><div class="k">租期</div><div class="n">3 <span class="u">天</span></div><div class="l">10/17 札幌取<br>10/19 機場周邊還</div></div>
+        <div class="kpi"><div class="k">異地還車費</div><div class="n">¥1,650 <span class="u">起</span></div><div class="l">札幌→新千歲<br>最貴也僅 ¥3,300</div></div>
+        <div class="kpi"><div class="k">建議車型</div><div class="n">7–8 人座</div><div class="l">5 人乘坐<br>第三排收起放行李</div></div>
+      </div>
+
+      <h3 style="margin:0 0 10px">車型建議</h3>
+      <div style="overflow-x:auto">
+      <table>
+        <thead><tr><th>等級</th><th>車型</th><th>特點</th></tr></thead>
+        <tbody>
+          <tr><td><b>基本</b><br><span class="pill rec" style="font-size:calc(var(--fs)*0.62)">建議</span></td><td><b>トヨタ ノア／ヴォクシー</b><br><b>日産 セレナ</b></td><td><b>電動側滑門＋低地板</b>，上下車不必抬腿跨高；<b>5 人坐 7 人座、第三排收起</b>剛好放 5 個大行李箱。CP 值最高。</td></tr>
+          <tr><td><b>升級</b></td><td><b>トヨタ アルファード</b><br><b>ヴェルファイア</b></td><td>第二排<b>獨立座椅</b>（附扶手、腿部空間大、可放腳），定山溪與小樽的車程坐起來明顯舒適。價格約貴 1.5–2 倍。</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h3 style="margin:16px 0 10px">租車公司・札幌→新千歲 異地還車費</h3>
+      <div style="overflow-x:auto">
+      <table>
+        <thead><tr><th>公司</th><th>異地還車費</th><th>說明</th></tr></thead>
+        <tbody>
+          <tr><td><b>ニッポンレンタカー</b><br><span class="pill rec" style="font-size:calc(var(--fs)*0.62)">最便宜</span></td><td><b><span class="j2t" data-jpy="1650"></span></b></td><td>異地還車費約為其他家的一半</td></tr>
+          <tr><td><b>トヨタレンタカー</b></td><td><span class="j2t" data-jpy="3300"></span></td><td>札幌駅前有店、新千歲空港店規模最大，接駁班次密</td></tr>
+          <tr><td>日産レンタカー</td><td><span class="j2t" data-jpy="3300"></span></td><td>—</td></tr>
+          <tr><td>オリックスレンタカー</td><td><span class="j2t" data-jpy="3300"></span></td><td>—</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="small" style="margin-top:8px"><b>中文訂車：</b>可用 <b>ToCoo!（租車通）</b> 或 <b>Tabirai 日本租車</b> 這類繁中平台一次比價多家（含 Toyota、Nissan、Orix），台灣旅客常用，也會標示異地還車費。</div>
+
+      <div class="warn" style="margin-top:12px"><b>訂車時要確認的 4 件事</b>
+        <ul class="clean" style="margin-top:6px">
+          <li><b>行李容量</b>：<b>5 人＋5 個大行李箱</b>放得下嗎（請對方確認該車型）</li>
+          <li><b>4WD</b>：10/17 要上定山溪山路，務必確認</li>
+          <li><b>還車後接駁</b>：能載 5 人＋行李到航廈、班次間隔、需否預約</li>
+          <li><b>取車據點位置</b>：離札幌飯店越近越好（10/17 早上駕駛獨自前往）</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="hotel" data-tab="stay" style="order:10">
     <h2>♨ 住宿與溫泉</h2>
     <div class="card">
       <b>飯店配置：千歲 ×1 ＋ 白金温泉 ×2 ＋ 札幌 ×3</b>
@@ -821,7 +868,7 @@
   </section>
 
   <!-- 必問清單 -->
-  <section id="inquiry-sec" data-tab="stay" style="order:10">
+  <section id="inquiry-sec" data-tab="stay" style="order:11">
     <h2>📝 租車詢問訊息</h2>
     <div class="warn">
       <b>最關鍵一題：</b>第 5 題（台灣駕照日文譯本）決定你能不能合法把車開出去，務必先確認。其餘為費用與交接細節。<b>因為不在車上過夜</b>，過夜相關配備（棉被、夜間供暖、營區電源）都不必詢問。
