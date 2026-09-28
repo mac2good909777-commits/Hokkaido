@@ -237,6 +237,18 @@
   #deadline.urgent{background:#fdecec;border-color:#e88;}
   #deadline .dl-t{font-weight:900;color:var(--accent2);font-size:calc(var(--fs)*1.02);}
   #deadline .dl-n{font-size:calc(var(--fs)*1.5);font-weight:900;color:#b23b3b;}
+  /* ===== 穿著 ===== */
+  .layer{display:grid;grid-template-columns:82px 1fr;gap:12px;align-items:start;
+    border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:10px;background:#fff;}
+  .layer-n{background:var(--accent);color:#fff;border-radius:10px;text-align:center;
+    padding:10px 4px;font-weight:900;font-size:calc(var(--fs)*0.78);line-height:1.4;}
+  .layer-b{font-size:calc(var(--fs)*0.82);line-height:1.7;}
+  .layer-b b{color:var(--accent2);}
+  .must{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+  @media(max-width:720px){.must{grid-template-columns:1fr;}}
+  .must div{background:#fff4e6;border:1px solid #f0b26b;border-radius:10px;padding:11px 13px;
+    font-size:calc(var(--fs)*0.8);line-height:1.6;}
+  .must b{display:block;color:var(--accent2);margin-bottom:2px;}
   /* ===== 重點筆記 ===== */
   .ntblock{border:2px solid var(--line);border-radius:14px;margin-bottom:18px;overflow:hidden;background:#fff;}
   .nthead{background:var(--accent);color:#fff;padding:10px 16px;font-weight:900;font-size:calc(var(--fs)*1.0);}
@@ -283,7 +295,7 @@
   <button class="tab-btn" data-tab="overview">總覽</button>
   <button class="tab-btn" data-tab="plan">行程</button>
   <button class="tab-btn" data-tab="stay">交通住宿</button>
-  <button class="tab-btn" data-tab="weather">天氣</button>
+  <button class="tab-btn" data-tab="weather">穿著</button>
   <span class="tabbreak"></span>
   <button class="tab-btn" data-tab="check">準備清單</button>
   <button class="tab-btn" data-tab="budget">費用</button>
@@ -406,7 +418,98 @@
 
   <!-- 天氣 -->
   <section id="weather-sec" data-tab="weather" style="order:1">
-    <h2>🌤 天氣參考</h2>
+    <h2>🧥 穿著提醒</h2>
+
+    <div class="warn"><b>結論：保暖標準抓「初冬」，但你們<u>全程自駕</u>，實際要穿的比一般旅客少。</b>
+      <div class="small" style="margin-top:6px;color:inherit">10 月中的北海道夜間常低於 10°C，旅客最常犯的錯是停留在初秋思維。<b>但那些「冷到受不了」的經驗，多半來自等電車、走路轉乘、在月台吹風</b>——你們沒有這一段。</div>
+    </div>
+
+    <div class="card" style="margin-top:14px;background:#f2f7f3;border-color:#cfe6cb">
+      <h3 style="margin:0 0 10px;color:#137a37">🚗 自駕讓穿著簡單很多</h3>
+      <div class="small" style="line-height:1.8">
+        <b>你們的戶外時間是「一段一段的」</b>，不是連續暴露：車停好 → 走幾分鐘 → 進室內／回車上。露營車與客車都有暖氣，<b>車子本身就是移動的避風港</b>。<br><br>
+        <b>所以策略是：</b>
+        <ul class="clean" style="margin-top:4px">
+          <li><b>不用穿得像要在外面站一整天</b> —— 身上維持「內層＋中層」就好，厚的外層放車上，下車再套。</li>
+          <li><b>「好穿脫」比「夠厚」重要</b> —— 一天上下車十幾次，<b>拉鍊式外套＋背心</b>遠勝套頭厚衣。</li>
+          <li><b>車上放一個「保暖備用袋」</b> —— 圍巾、手套、毛帽、備用襪子全丟在車上，需要時才拿，不用整天背著。</li>
+        </ul>
+      </div>
+      <div class="note" style="margin-top:10px;background:#fff;border-color:var(--line)"><b>真正會冷的，其實只有這幾個短時段：</b>
+        <div class="small" style="margin-top:6px;color:inherit">
+        ① <b>10/15 清晨 07:00 青池</b>（山區、日出前，可能 2–5°C・約 40 分鐘）<br>
+        ② <b>10/15 傍晚新榮之丘</b>看夕照（開闊、風大・約 20 分鐘）<br>
+        ③ <b>10/17 定山溪二見吊橋</b>（溪谷風・約 30 分鐘）<br>
+        ④ <b>10/18 小樽運河與堺町通</b>（靠海、風大・約 2 小時，這天走最多）<br>
+        其他時間多半在車上、旅館或室內。<b>把保暖火力集中在這四段就夠了。</b></div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:14px">
+      <h3 style="margin:0 0 10px">洋蔥式三層：具體要帶什麼</h3>
+      <div class="layer">
+        <div class="layer-n">內層<br>排汗</div>
+        <div class="layer-b"><b>發熱衣（Heattech 等）長袖</b><br>
+        每人 <b>3–4 件</b>替換。<span class="vd-mid">不要穿純棉</span>——流汗後濕冷貼身，是感冒主因。泡完溫泉一定要換乾的。</div>
+      </div>
+      <div class="layer">
+        <div class="layer-n">中層<br>保暖</div>
+        <div class="layer-b"><b>刷毛外套</b>或<b>輕羽絨背心</b><br>
+        ⭐ <b>羽絨背心是這趟 CP 值最高的一件</b>：軀幹保暖、手臂能活動、壓縮後不占行李。<br>
+        <span class="vd-mid">不要用厚毛衣當中層</span>——日本室內、車上暖氣很強，厚毛衣脫下來後很難收。</div>
+      </div>
+      <div class="layer">
+        <div class="layer-n">外層<br>擋風</div>
+        <div class="layer-b"><b>防風防潑水外套</b>（連帽佳）<br>
+        10 月中<b>不需要厚重羽絨大衣</b>，但外層一定要能擋風。北海道的冷主要是<b>風冷</b>，擋住風體感差很多。<br>小樽靠海、美瑛丘陵開闊，風都不小。</div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:14px">
+      <h3 style="margin:0 0 10px">最容易忘記、但真的會用到</h3>
+      <div class="must">
+        <div><b>🧣 圍巾</b>比多一件外套有效。頸部保暖對長者特別明顯，而且好收好脫。</div>
+        <div><b>🧤 薄手套</b>只有 10/15 清晨青池真的需要。<b>放車上</b>就好，不用隨身帶。</div>
+        <div><b>🧢 毛帽</b>清晨青池、傍晚新榮之丘很有感。同樣<b>放車上</b>。</div>
+        <div><b>👟 防水防滑鞋</b><b>不用雪靴</b>。青池步道、溫泉區地面可能濕滑，抓地力比厚度重要——你們走的路不多，但都在濕滑處。</div>
+        <div><b>🧦 厚襪備用</b>腳濕了整天都冷。每天一雙乾的。</div>
+        <div><b>☂️ 輕便雨具</b>10 月降雨機率中等，摺疊傘或輕雨衣即可，<b>不用重裝</b>。</div>
+      </div>
+      <div class="small" style="margin-top:10px"><b>不用從台灣帶：暖暖包</b>——日本便利商店、藥妝店到處都有，還更便宜好用（有貼式、握式）。10/13 在永旺順手買一包。</div>
+    </div>
+
+    <div class="card" style="margin-top:14px">
+      <h3 style="margin:0 0 10px">這趟的四個特殊狀況</h3>
+      <div style="overflow-x:auto">
+      <table>
+        <thead><tr><th style="width:26%">情境</th><th>怎麼應對</th></tr></thead>
+        <tbody>
+          <tr><td><b>10/15 清晨青池</b><br><span class="small">全程最冷</span></td><td>可能只有 <b>2–5°C</b>，且在山區。<b>三層全上＋圍巾＋手套＋毛帽</b>，這天早上不要省。回車上就能脫。</td></tr>
+          <tr><td><b>泡完溫泉</b><br><span class="small">最容易感冒</span></td><td><b>頭髮一定要吹乾</b>再走出更衣室；外套帶進更衣室，出來直接穿上。泡湯後血管擴張、體溫流失快，這是長者最容易著涼的時刻。</td></tr>
+          <tr><td><b>上下露營車</b><br><span class="small">溫差反覆</span></td><td>車內有空調、外面冷，一天上下車十幾次。<b>穿「好脫好穿」的組合</b>，不要套頭厚衣。拉鍊式外套＋背心最理想。</td></tr>
+          <tr><td><b>日本室內超熱</b></td><td>飯店、餐廳、商場暖氣都很強。<b>中層要能隨手脫掉塞包包</b>，這就是不建議厚毛衣的原因。</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:14px">
+      <h3 style="margin:0 0 10px">給 4 位長輩的重點</h3>
+      <ul class="clean">
+        <li><b>比年輕人多一層</b>——年長者體溫調節較慢，同樣溫度會更冷。羽絨背心是最省事的那一層。</li>
+        <li><b>每人各帶一條圍巾</b>，比再多帶一件外套實用。</li>
+        <li><b>手套帽子放在隨身小包</b>，不要收在行李箱底——需要的時候多半在戶外。</li>
+        <li><b>鞋子要穿慣的</b>，不要為了這趟買新鞋。防滑比好看重要。</li>
+        <li><b>泡湯用品</b>（小毛巾、換洗內衣褲 3 套以上、<b>防滑拖鞋</b>）已列在準備清單。</li>
+      </ul>
+    </div>
+
+    <div class="note" style="margin-top:14px"><b>📦 每人行李抓這樣就夠</b>
+      <div class="small" style="margin-top:6px;color:inherit">發熱衣 3–4、刷毛或背心 1、防風外套 1、長褲 2–3、厚襪 4、圍巾 1、手套 1、毛帽 1、摺疊傘 1、泡湯用小毛巾與防滑拖鞋。<br>
+      <b>7 天不用帶 7 套</b>——飯店都有洗衣機，白金溫泉連泊兩晚可以洗一次。少帶一半，回程才裝得下伴手禮。<br><b>自駕的好處</b>：行李都在車上，不用扛著走，所以「多帶一件備用」的成本很低——但別因此帶整箱，10/19 五人五箱要塞進 7 人座。</div>
+    </div>
+
+    <h2 style="margin-top:26px">🌤 天氣參考</h2>
     <div class="warn"><b>⚠️ 下表為歷史氣候平均（非即時預報）</b>，用來抓穿衣與行程節奏的大方向。<b>出發前 7–10 天請務必查「即時預報」再決定當天怎麼穿、要不要調整戶外時段</b>——連結見下方。</div>
 
     <div class="card" style="margin-top:14px">
