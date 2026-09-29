@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>隨身小卡 ｜ 2026 北海道溫泉慢遊</title>
+<!-- Google tag (gtag.js) — GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H5VLHW8761"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  (function(){
+    var K='ga_internal', q=location.search, internal=false;
+    try{
+      if(q.indexOf('ga=off')>-1){ localStorage.setItem(K,'1'); }
+      if(q.indexOf('ga=on')>-1){ localStorage.removeItem(K); }
+      internal = localStorage.getItem(K)==='1';
+    }catch(e){}
+    gtag('config','G-H5VLHW8761', internal ? {traffic_type:'internal'} : {});
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#faf7f2; --card:#ffffff; --ink:#2b2622; --sub:#6b6156;
+    --line:#e8ded0; --accent:#e05a2b; --accent2:#c9451c;
+    --green:#137a37; --blue:#2563eb; --soft:#f3ece1;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-size:16px;line-height:1.75;
+    font-family:"Noto Sans TC",system-ui,-apple-system,"Microsoft JhengHei",sans-serif;
+    -webkit-text-size-adjust:100%;}
+
+  /* ===== 工具列（只在螢幕上） ===== */
+  .bar{position:sticky;top:0;z-index:10;background:rgba(250,247,242,.95);backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);padding:10px 16px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;}
+  .bar .t{font-weight:900;margin-right:auto;font-size:15px}
+  .btn{font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;
+    border:1px solid var(--accent);background:var(--accent);color:#fff;border-radius:999px;padding:8px 16px;}
+  .btn.ghost{background:#fff;color:var(--accent)}
+  .bar .hint{width:100%;font-size:13px;color:var(--sub);line-height:1.6}
+
+  /* ===== A4 版面 ===== */
+  .sheet{background:#fff;max-width:186mm;margin:16px auto;padding:11mm 11mm 9mm;
+    border:1px solid var(--line);border-radius:10px;box-shadow:0 2px 14px rgba(0,0,0,.05);}
+
+  .head{display:flex;align-items:flex-end;gap:12px;border-bottom:3px solid var(--accent);
+    padding-bottom:7px;margin-bottom:12px;flex-wrap:wrap}
+  .head h1{margin:0;font-size:21px;letter-spacing:.5px}
+  .pg{font-size:12px;color:var(--sub);border:1px solid var(--line);border-radius:999px;padding:1px 9px;
+    margin-left:auto;white-space:nowrap}
+  .nameline{font-size:14px;color:var(--sub);margin-bottom:12px;display:flex;flex-wrap:wrap;gap:4px 26px}
+  .nameline > span{white-space:nowrap}
+  .fill{display:inline-block;min-width:120px;border-bottom:1.5px dashed #b9ab97;}
+
+  .box{border:1px solid var(--line);border-radius:10px;padding:11px 13px;margin-bottom:11px;
+    break-inside:avoid;page-break-inside:avoid;}
+  .box:last-child{margin-bottom:0}
+  .box > h2{margin:0 0 7px;font-size:16px;color:var(--accent2);
+    border-left:5px solid var(--accent);padding-left:9px;line-height:1.4}
+  .box.hot{background:#fff6f2;border-color:#f3c9b6}
+  .box.warm{background:#fffaf0;border-color:#f0dcae}
+  .box.cool{background:#f4f8f4;border-color:#cfe6cb}
+  .box.cool > h2{color:var(--green);border-left-color:var(--green)}
+
+  ol,ul{margin:5px 0 0;padding-left:1.25em}
+  li{margin-bottom:3px}
+  .clean{list-style:none;padding-left:0}
+  .clean li{padding-left:1.1em;position:relative}
+  .clean li:before{content:"・";position:absolute;left:0;color:var(--accent)}
+  p{margin:0 0 5px}
+  .small{font-size:13px;color:var(--sub);line-height:1.6}
+  b{font-weight:700}
+
+  /* 主辦人電話 */
+  .tel{display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+    background:#fff;border:2px solid var(--accent);border-radius:10px;padding:9px 13px;margin-top:9px}
+  .tel .lab{font-size:14px;font-weight:700;color:var(--accent2);white-space:nowrap}
+  .tel .num{font-size:25px;font-weight:900;letter-spacing:1px;flex:1;min-width:150px}
+  .tel .num .fill{min-width:150px;border-bottom-width:2px}
+
+  /* 飯店區塊（不用表格，手機不會橫向溢出） */
+  .hotel{border-top:1px solid var(--line);padding:9px 0 1px}
+  .hotel:first-of-type{border-top:0;padding-top:1px}
+  .hotel .when{display:inline-block;background:var(--accent);color:#fff;font-size:12px;font-weight:800;
+    border-radius:999px;padding:1px 10px;margin-right:6px;vertical-align:2px}
+  .hotel .zh{font-weight:800;font-size:15px}
+  .hotel .jp{margin-top:4px;background:var(--soft);border-radius:8px;padding:7px 10px;
+    font-size:15px;line-height:1.7;word-break:break-word}
+  .hotel .jp b{font-size:16px}
+  .hotel .ph{margin-top:3px;font-size:14px;font-weight:700}
+
+  /* 日文求助卡 */
+  .jp-card{background:var(--soft);border:1px dashed #cdbba0;border-radius:10px;padding:10px 12px;margin-top:7px;
+    font-size:15.5px;line-height:1.8;white-space:pre-line;word-break:break-word}
+  .jp-zh{font-size:12.5px;color:var(--sub);margin-top:4px;line-height:1.55}
+
+  /* 表格 */
+  table{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:3px}
+  th,td{border:1px solid var(--line);padding:5px 7px;text-align:left;vertical-align:top}
+  th{background:var(--soft);font-weight:800;white-space:nowrap}
+  td.d{white-space:nowrap;font-weight:800;color:var(--accent2)}
+  td.s{white-space:nowrap}
+
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .foot{text-align:center;font-size:12px;color:var(--sub);margin-top:9px;
+    border-top:1px solid var(--line);padding-top:7px;line-height:1.6;word-break:break-all}
+
+  /* ===== 手機 ===== */
+  @media (max-width:820px){
+    body{font-size:17px}
+    .sheet{margin:10px auto;padding:16px 14px;border-radius:8px}
+    .two{grid-template-columns:1fr}
+    .head h1{font-size:19px}
+    .pg{margin-left:0}
+    .tel .num{font-size:24px}
+    table{font-size:14px}
+    th,td{padding:6px 7px}
+  }
+
+  /* ===== 列印（A4） ===== */
+  @page{size:A4 portrait;margin:11mm 10mm}
+  @media print{
+    body{background:#fff;font-size:10pt;line-height:1.52}
+    .bar{display:none !important}
+    .sheet{max-width:none;margin:0;padding:0;border:0;border-radius:0;box-shadow:none;
+      page-break-after:always;break-after:page}
+    .sheet:last-of-type{page-break-after:auto;break-after:auto}
+    .head{padding-bottom:5px;margin-bottom:8px;border-bottom-width:2.5px}
+    .head h1{font-size:13.6pt}
+    .pg{font-size:8.4pt}
+    .nameline{font-size:9pt;margin-bottom:8px}
+    .box{margin-bottom:6px;padding:7px 9px;border-radius:7px}
+    .box > h2{font-size:11.2pt;margin-bottom:4px}
+    ol,ul{margin-top:3px}
+    li{margin-bottom:1px}
+    p{margin-bottom:3px}
+    .tel{padding:6px 10px;margin-top:6px}
+    .tel .lab{font-size:9.5pt}
+    .tel .num{font-size:16.5pt}
+    .hotel{padding:5px 0 0}
+    .hotel .zh{font-size:10pt}
+    .hotel .when{font-size:8pt}
+    .hotel .jp{font-size:10.2pt;padding:4px 8px;line-height:1.5;margin-top:3px}
+    .hotel .jp b{font-size:10.8pt}
+    .hotel .ph{font-size:9.5pt;margin-top:2px}
+    .jp-card{font-size:10.2pt;line-height:1.62;padding:6px 9px;margin-top:5px}
+    table{font-size:8.6pt}
+    th,td{padding:2.5px 5px}
+    .small,.jp-zh{font-size:8.3pt;line-height:1.45}
+    .two{gap:8px}
+    .foot{font-size:8pt;margin-top:7px;padding-top:5px}
+    a{color:#000;text-decoration:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="t">📇 隨身小卡（A4・共 3 頁）</div>
+  <button class="btn" onclick="window.print()">🖨 列印 / 存成 PDF</button>
+  <a class="btn ghost" href="./" style="text-decoration:none">← 回完整行程</a>
+  <div class="hint">列印請選 <b>A4 直向</b>，並把「背景圖形／背景色」打開。<b>第 1 頁是走散時用的，一定要印</b>；第 2、3 頁是行程與行前提醒，趕時間可以只印第 1 頁。一人一份，放隨身包裡。</div>
+</div>
+
+<!-- ============ 第 1 頁：走散・求助 ============ -->
+<section class="sheet">
+  <div class="head">
+    <h1>🍁 隨身小卡・走散時看這張</h1>
+    <div class="pg">第 1 頁 / 共 3 頁</div>
+  </div>
+  <div class="nameline"><span>姓名：<span class="fill">&nbsp;</span></span><span>我的手機：<span class="fill">&nbsp;</span></span></div>
+
+  <div class="box hot">
+    <h2>🆘 和大家走散了，照這三步做</h2>
+    <ol>
+      <li><b>先停下來，待在原地別走動</b>——我們會回原處找您。</li>
+      <li><b>打電話給現傑</b>，號碼在下面那一格。</li>
+      <li><b>打不通，就把這張紙拿給店員或警察看</b>——下面有日文，他們會幫您打電話或送您回飯店。</li>
+    </ol>
+    <div class="tel">
+      <div class="lab">主辦人・張現傑</div>
+      <div class="num">☎ <span class="fill">&nbsp;</span></div>
+    </div>
+    <div class="small" style="margin-top:5px">出發前用筆把號碼寫上去，寫大一點——手機沒電時，這張紙就是唯一的聯絡方式。</div>
+  </div>
+
+  <div class="box">
+    <h2>🏨 今天住哪裡（這頁可直接給日本人看）</h2>
+    <div class="hotel">
+      <div><span class="when">10/13</span><span class="zh">千歲站飯店</span></div>
+      <div class="jp"><b>千歳ステーションホテル</b><br>〒066-0062 北海道千歳市千代田町7丁目1789-3（JR千歳駅 北改札口 直結）</div>
+      <div class="ph">☎ 0123-49-3000</div>
+    </div>
+    <div class="hotel">
+      <div><span class="when">10/14・15</span><span class="zh">白金溫泉・碧之美 YUYU</span></div>
+      <div class="jp"><b>碧の美 ゆゆ（旧・湯元白金温泉ホテル）</b><br>〒071-0235 北海道上川郡美瑛町字白金</div>
+      <div class="ph">☎ 0166-94-3333</div>
+    </div>
+    <div class="hotel">
+      <div><span class="when">10/16・17・18</span><span class="zh">札幌・Holiday Inn Express 薄野</span></div>
+      <div class="jp"><b>ホリデイ・イン エクスプレス札幌すすきの</b><br>北海道札幌市中央区南5条西6丁目14-1（地下鉄すすきの駅 徒歩5分）</div>
+      <div class="ph">☎ 011-513-2200</div>
+    </div>
+  </div>
+
+  <div class="box warm">
+    <h2>💬 求助日文（指給對方看，不用唸）</h2>
+    <div class="jp-card">すみません、家族とはぐれてしまいました。
+台湾から来ました。日本語が分かりません。
+この紙の電話番号に連絡していただけますか。
+今日泊まるホテルも、この紙に書いてあります。</div>
+    <div class="jp-zh">中文意思：我和家人走散了，不懂日文，可以幫我打這張紙上的電話嗎？今天住的飯店也寫在紙上。</div>
+
+    <div class="jp-card">具合が悪いです。救急車を呼んでいただけますか。</div>
+    <div class="jp-zh">中文意思：我身體不舒服，可以幫我叫救護車嗎？（自己打的話是 119）</div>
+  </div>
+
+  <div class="box">
+    <h2>📞 緊急電話</h2>
+    <div class="two">
+      <ul class="clean">
+        <li><b>警察</b>　110</li>
+        <li><b>救護車・消防</b>　119</li>
+      </ul>
+      <ul class="clean">
+        <li><b>台北駐札幌經濟文化辦事處</b>　011-222-2930</li>
+        <li><b>急難救助（24 小時）</b>　080-1460-2568</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="foot">在日本打市話不用加國碼；用台灣手機打日本號碼請加 +81 並去掉第一個 0。</div>
+</section>
+
+<!-- ============ 第 2 頁：航班與行程 ============ -->
+<section class="sheet">
+  <div class="head">
+    <h1>🗓 航班與每日行程</h1>
+    <div class="pg">第 2 頁 / 共 3 頁</div>
+  </div>
+
+  <div class="box">
+    <h2>✈ 航班</h2>
+    <table>
+      <tbody>
+        <tr><td class="d">去程<br>10/13（二）</td><td><b>星宇 JX318</b>　台中清泉崗 <b>09:00</b> → 新千歲 <b>13:55</b></td></tr>
+        <tr><td class="d">回程<br>10/19（一）</td><td><b>星宇 JX319</b>　新千歲 <b>15:00</b> → 台中清泉崗 <b>18:25</b></td></tr>
+      </tbody>
+    </table>
+    <div class="small" style="margin-top:6px"><b>出發當天請約 07:00 到清泉崗機場。</b>我們先一起去國際航廈 1 樓出境大廳辦「<b>自動通關</b>」——免費、一人約 1 分鐘、終身有效，以後出國都不必再排人工查驗——辦完再去劃位託運。<br>
+    日本的入境表與海關申報，現傑已在網路上幫大家辦好，落地只要出示手機裡的 QR，<b>飛機上不必填任何表格</b>。</div>
+  </div>
+
+  <div class="box">
+    <h2>📍 每天去哪裡・住哪裡</h2>
+    <table>
+      <thead><tr><th>日期</th><th>住宿</th><th>當天重點</th></tr></thead>
+      <tbody>
+        <tr><td class="d">10/13 二</td><td class="s">千歲</td><td>下午落地，專車進飯店；<b>永旺購物中心就在飯店旁</b>，採買與晚餐都在這裡</td></tr>
+        <tr><td class="d">10/14 三</td><td class="s">白金溫泉</td><td>換<b>露營車</b>北上，富田農場午餐、四季彩之丘，傍晚入住泡湯</td></tr>
+        <tr><td class="d">10/15 四</td><td class="s">白金溫泉<br><span class="small">連泊</span></td><td>清晨<b>青池</b>與白鬚瀑布，午後美瑛丘陵、新榮之丘夕照</td></tr>
+        <tr><td class="d">10/16 五</td><td class="s">札幌</td><td>南下札幌入住，<b>狸小路</b>自由活動（現傑獨自去還露營車）</td></tr>
+        <tr><td class="d">10/17 六</td><td class="s">札幌<br><span class="small">連泊</span></td><td>改乘 <b>7 人座專車</b>，定山溪賞紅葉、<b>豐平峽溫泉</b>，晚上湯咖哩</td></tr>
+        <tr><td class="d">10/18 日</td><td class="s">札幌<br><span class="small">連泊</span></td><td>北大銀杏、<b>小樽</b>運河與堺町通、朝里川溫泉（戶外最久的一天）</td></tr>
+        <tr><td class="d">10/19 一</td><td class="s">—</td><td><b>場外市場</b>海鮮早餐，11:00 出發還車，搭接駁進航廈</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="box cool">
+    <h2>😌 這趟是這樣安排的，請放心</h2>
+    <div class="two">
+      <ul class="clean">
+        <li><b>全程專車門到門</b>，不搭電車、不趕轉乘</li>
+        <li><b>只住 3 個地方</b>，行李只要搬 3 次</li>
+        <li><b>每晚都住旅館、有暖氣</b>，不睡車上</li>
+      </ul>
+      <ul class="clean">
+        <li><b>六晚全含早餐</b>，白金兩晚另含晚餐</li>
+        <li><b>每天只排 2–3 個點</b>，傍晚就進飯店</li>
+        <li><b>備有輪椅</b>，走累了隨時說</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="box warm">
+    <h2>🤝 兩個小約定</h2>
+    <ul class="clean">
+      <li><b>每到一個景點，下車前先講好集合點與時間</b>——通常是停車場，或門口明顯的店家。</li>
+      <li><b>走路請靠內側、慢慢來，不必跟上誰。</b>我們不趕行程，累了就上車休息，車上有沙發可以躺。</li>
+    </ul>
+  </div>
+
+  <div class="foot">完整行程・地圖・相簿：https://mac2good909777-commits.github.io/Hokkaido/</div>
+</section>
+
+<!-- ============ 第 3 頁：行前準備 ============ -->
+<section class="sheet">
+  <div class="head">
+    <h1>🧳 出發前的準備</h1>
+    <div class="pg">第 3 頁 / 共 3 頁</div>
+  </div>
+
+  <div class="box cool">
+    <h2>✅ 請自己準備這些</h2>
+    <div class="two">
+      <ul class="clean">
+        <li><b>護照</b>（效期要到 2026/04 以後）</li>
+        <li><b>常用藥</b>：備足 7 天以上，藥名抄一份英文或日文備查</li>
+        <li><b>泡湯用品</b>：小毛巾、換洗內衣褲 3 套以上、<b>防滑拖鞋</b>、小提袋</li>
+      </ul>
+      <ul class="clean">
+        <li><b>保暖</b>：發熱衣 3–4 件、刷毛或背心、防風外套、厚襪、圍巾手套毛帽</li>
+        <li><b>手機</b>：開國際漫遊（只開簡訊就好，很便宜）、設定「尋找我的裝置」</li>
+        <li><b>行李精簡</b>，軟袋為主好搬</li>
+      </ul>
+    </div>
+    <div class="small" style="margin-top:6px"><b>7 天不必帶 7 套</b>：白金溫泉連泊兩晚可以手洗，札幌飯店還有自助洗衣。少帶一半，回程才裝得下伴手禮。</div>
+  </div>
+
+  <div class="box warm">
+    <h2>🧥 怎麼穿</h2>
+    <p>白天約 <b>11–16°C</b>、早晚 <b>2–9°C</b>。用<b>洋蔥式三層</b>：發熱衣 ＋ 刷毛或背心 ＋ 防風外套。</p>
+    <ul class="clean">
+      <li><b>全程自駕，不必穿得太厚重</b>——厚外套放車上，下車再套就好；<b>拉鍊式</b>比套頭方便，一天要上下車十幾次</li>
+      <li><b>10/15 清晨的青池最冷（2–5°C）</b>：三層全上，加圍巾、手套、毛帽，回車上就能脫</li>
+      <li><b>10/18 小樽靠海風大</b>，是戶外待最久的一天，外套記得帶著</li>
+    </ul>
+  </div>
+
+  <div class="box hot">
+    <h2>♨ 泡湯請注意</h2>
+    <div class="two">
+      <ul class="clean">
+        <li>一次泡 <b>10–15 分鐘</b>就起身，水溫不要太高</li>
+        <li><b>飯後、喝酒後、剛吃完藥，先別泡</b></li>
+        <li>泡前泡後都要<b>補充水分</b></li>
+      </ul>
+      <ul class="clean">
+        <li>有<b>高血壓或心臟疾病</b>，請先問過醫師</li>
+        <li><b>結伴入浴，不要一個人泡</b></li>
+        <li>浴場地面很滑：<b>穿防滑拖鞋、扶扶手慢慢走</b></li>
+      </ul>
+    </div>
+    <div class="small" style="margin-top:6px">本趟共 <b>4 次溫泉</b>：10/14・10/15 白金溫泉（源泉掛流・溪谷露天），10/17 豐平峽／定山溪，10/18 朝里川。千歲與札幌的飯店是房內衛浴。</div>
+  </div>
+
+  <div class="box">
+    <h2>📱 行程隨時查得到</h2>
+    <div class="small" style="font-size:14px;color:var(--ink)">完整行程、地圖、導航與相簿都在這個網站：<br>
+    <b>https://mac2good909777-commits.github.io/Hokkaido/</b><br>
+    建議<b>加到手機主畫面</b>，開過一次就有快取，山區沒訊號也看得到。</div>
+  </div>
+
+  <div class="foot">祝旅途平安順心 🍁</div>
+</section>
+
+</body>
+</html>
