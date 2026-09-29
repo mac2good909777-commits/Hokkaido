@@ -1,0 +1,14 @@
+# 這個 repo 是公開的 GitHub Pages，以下內容只留本機
+
+# 交接檔含訂單編號等私人資訊
+交接/
+
+# 敏感憑證一律不進 git（全域鐵則）
+敏感憑證/
+*.env
+*credentials*.json
+*service-account*.json
+
+# 暫存
+*.tmp
+*.bak
