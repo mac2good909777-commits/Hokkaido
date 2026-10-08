@@ -355,6 +355,7 @@
         <div class="ok"><b>車上即休息室</b>露營車備桌椅沙發，可隨時歇腳賞景</div>
         <div class="ok"><b>早餐都含了</b>六晚住宿全附早餐，白金兩晚另含晚餐</div>
         <div class="ok"><b>入境免填單</b>行前線上預辦，落地出示 QR 即可通關</div>
+        <div class="ok"><b>已投保旅平險</b>國泰產險・海外突發疾病醫療每人 120 萬</div>
       </div>
     </div>
 
@@ -757,7 +758,7 @@
     <div class="card">
       <div class="grid kpigrid" style="grid-template-columns:repeat(3,1fr);margin-bottom:14px">
         <div class="kpi"><div class="k">租期</div><div class="n">3 <span class="u">天</span></div><div class="l">10/17 10:00 薄野取<br>10/19 12:00 機場還</div></div>
-        <div class="kpi"><div class="k">總車資</div><div class="n nsm">¥53,861</div><div class="l">含稅・已訂付<br>甲地租乙地還</div></div>
+        <div class="kpi"><div class="k">總車資</div><div class="n nsm">¥53,861</div><div class="l">含稅・取車時付<br>甲地租乙地還</div></div>
         <div class="kpi"><div class="k">車型</div><div class="n">7–8 人座</div><div class="l">5 人乘坐<br>第三排收起放行李</div></div>
       </div>
 
@@ -767,7 +768,7 @@
           <tr><th style="width:32%">租車公司</th><td><b>Toyota Rent a Car</b>（官網直訂）・車款 NOAH／VOXY 級距</td></tr>
           <tr><th>取車</th><td><b>10/17（六）10:00</b>　地鐵薄野站前店・<b>飯店步行約 5 分</b></td></tr>
           <tr><th>還車</th><td><b>10/19（一）12:00</b>　新千歲機場 POPLAR 店・還車後<b>免費接駁到航廈</b></td></tr>
-          <tr><th>車資</th><td><b>¥53,861</b>（含稅，已付）</td></tr>
+          <tr><th>車資</th><td><b>¥53,861</b>（含稅）・<b>取車時付款</b><br><span class="small">官網訂車多為現場結帳，取車時備好現金或信用卡</span></td></tr>
           <tr><th>規格</th><td>乘載 7 人・含 ETC 與英語 GPS（免費）</td></tr>
         </tbody></table>
         </div>
@@ -951,7 +952,7 @@
       </div>
       <div style="overflow-x:auto">
       <table class="bt">
-        <thead><tr><th>項目</th><th>單價<br>日圓 ¥</th><th>單價<br>台幣 NT$</th><th>數量</th><th>小計<br>台幣</th><th></th></tr></thead>
+        <thead><tr><th>項目</th><th>單價<br>日圓 ¥</th><th>單價<br>台幣 NT$</th><th>數量</th><th>小計<br>台幣</th><th>現場<br>付現</th><th></th></tr></thead>
         <tbody id="budgetBody"></tbody>
       </table>
       </div>
@@ -962,7 +963,33 @@
         <div class="t"><div class="v" id="totJPY">—</div><div class="k">約合日圓</div></div>
         <div class="t"><div class="v" id="totPP">—</div><div class="k">每人（台幣 ÷ 5）</div></div>
       </div>
-      <div class="small" style="margin-top:8px">標「已訂」者為<b>實際金額</b>，其餘為<b>粗估</b>，請依實際支出修改。<b>日圓與台幣兩欄會自動互相換算</b>——填任一欄，另一欄依匯率自動帶出；改匯率時全表重算。小計與總計一律以<b>台幣</b>計。空白＝0；可新增或刪除任何項目。</div>
+      <h3 style="margin:22px 0 8px;font-size:15px">💴 日幣現金</h3>
+      <div class="rate" style="margin-bottom:10px">
+        <b>手上日幣現金：</b>¥
+        <input type="number" id="cashJPY" value="242000" step="1000" min="0" oninput="calcBudget()">
+        <span class="small">（2026/10/08 已換）</span>
+      </div>
+      <div class="totcard">
+        <div class="t"><div class="v" id="cashNeed">—</div><div class="k">現場需付現（日圓）</div></div>
+        <div class="t"><div class="v" id="cashLeft">—</div><div class="k" id="cashLeftK">現金餘裕</div></div>
+      </div>
+      <div class="small" style="margin-top:8px">勾選「<b>現場付現</b>」的項目會算進「現場需付現」。已刷卡預付的（機票、三家飯店、露營車、保險）預設不勾。<b>伴手禮與購物沒抓預算</b>，餘裕就是可以花的額度。</div>
+
+      <h3 style="margin:22px 0 8px;font-size:15px">💰 已收款</h3>
+      <div style="overflow-x:auto">
+      <table class="bt">
+        <thead><tr><th>項目</th><th>金額（台幣）</th><th></th></tr></thead>
+        <tbody id="incomeBody"></tbody>
+      </table>
+      </div>
+      <button class="addrow" onclick="addInRow()">＋ 新增收款</button>
+
+      <div class="totcard">
+        <div class="t"><div class="v" id="totIn">—</div><div class="k">已收款合計</div></div>
+        <div class="t"><div class="v" id="totNet">—</div><div class="k" id="totNetK">差額</div></div>
+      </div>
+
+      <div class="small" style="margin-top:8px">標「已訂」者為<b>實際金額</b>，其餘為<b>粗估</b>，請依實際支出修改。<b>日圓與台幣兩欄會自動互相換算</b>——填任一欄，另一欄依匯率自動帶出；改匯率時全表重算。小計與總計一律以<b>台幣</b>計。空白＝0；可新增或刪除任何項目。<br><b>已收款</b>與支出連動：差額為正代表還有剩，為負代表要自己再補。</div>
       
     </div>
   </section>
@@ -1034,7 +1061,7 @@
         <label class="ck"><input type="checkbox" data-k="room-req"><span class="cktext">訂房備註：<b>低樓層／近電梯</b>、房型需求、<b>千歲飯店行李寄放</b></span></label>
         <label class="ck"><input type="checkbox" data-k="jumbo-taxi"><span class="cktext">機場接送：飯店接駁班次，或預約<b>大型計程車</b>（5人＋行李一車）<span class="urgent">重要</span></span></label>
         <label class="ck"><input type="checkbox" data-k="shuttle-confirm"><span class="cktext"><b>NOMAD 接送已確認</b> <span class="pill rec" style="font-size:calc(var(--fs)*0.7)">✅ 已回覆</span>：10/14 從飯店搭計程車來店、10/16 還車後由 NOMAD 叫車，<b>兩趟車資都 NOMAD 付</b><br><span class="small">改成計程車了，不必再去 JR 站等接駁</span></span></label>
-        <label class="ck"><input type="checkbox" data-k="insurance-all"><span class="cktext"><b>海外旅遊平安＋醫療險</b>：<b>5 人統一投保</b>（我辦）<br><span class="small">需準備全員英文姓名（同護照）、出生年月日、護照號碼、受益人</span><span class="urgent">重要</span></span></label>
+        <label class="ck"><input type="checkbox" data-k="insurance-all"><span class="cktext"><b>海外旅遊平安＋醫療險</b>：<b>5 人統一投保</b> <span class="pill rec" style="font-size:calc(var(--fs)*0.7)">✅ 已投保</span><br><span class="small">國泰世紀產物・2026/10/08 刷卡完成・TWD 9,441。<b>每人海外突發疾病醫療 120 萬</b>（當初設的門檻是 ≥40 萬）。保障明細與理賠文件見「筆記」分頁。</span></span></label>
         <label class="ck"><input type="checkbox" data-k="wheelchair"><span class="cktext">輕便折疊輪椅 <b>1–2 台</b>（大型景點備用）</span></label>
         <label class="ck"><input type="checkbox" data-k="wheelchair-air"><span class="cktext"><b>向星宇航空確認輪椅規定</b>：自備折疊輪椅可否<b>帶上機／託運</b>、是否算行李額度、需否事先申請<b>機場輪椅服務</b>（登機／轉機協助）<span class="urgent">重要</span><br><span class="small">星宇客服 ☎ 02-2791-1199｜訂位後越早申請越好，特殊服務多需 48 小時前提出</span></span></label>
         <label class="ck"><input type="checkbox" data-k="wifi"><span class="cktext">網路備援：WiFi 分享器（給不支援 eSIM 的成員共用）</span></label>
@@ -1441,6 +1468,20 @@ Toyota 官方店鋪頁載明「機場航廈與店鋪之間<b>提供免費接送�
     </div></div>
 
     <div class="ntblock"><div class="nthead">🆘 緊急時（希望用不到）</div><div class="ntbody">
+      <div class="ntitem"><div class="nttitle">🏥 保險已投保 —— 就醫時這張最重要</div>
+      <div class="ntdesc"><b>國泰世紀產物・海外旅遊平安險</b>　5 人統一投保・<b>TWD 9,441</b>（2026/10/08 刷卡完成）<br>
+      進件編號 <b>2610001371675740</b>　／　銷帳編號 60952771307997<br>
+      <b>每人保障</b>：海外突發疾病醫療（乙型）<b>120 萬</b>・傷害醫療實支實付 <b>120 萬</b>・重大燒燙傷 120 萬・旅遊不便 U3<br>
+      意外身故失能：我與姑姑各 1,000 萬，媽媽・叔叔・嬸嬸各 500 萬（恐怖主義事故加倍）<br>
+      <span class="small">金額單位為新台幣萬元。<b>被保險人名冊含身分證字號，只留在國泰系統與你手機裡，不要外傳、不要上傳雲端。</b></span></div>
+      <div class="ntkey"><b>⚠️ 在日本就醫，一定要帶回這三樣（缺一不可，都要正本）</b><br>
+      ① <b>醫療費用收據正本</b>（要有醫院章戳與費用明細）<br>
+      ② <b>診斷證明書正本</b>（寫明病名與治療日期；非中英文要附中文翻譯）<br>
+      ③ <b>護照影本或出入境紀錄</b>（證明事故發生在旅途中）<br>
+      日本就醫一律<b>先自費</b>，回台再申請理賠。回台另需理賠申請書、存摺影本、身分證、印章。</div>
+      <div class="ntwarn"><b>國泰產險 24 小時海外急難救助（中文）</b>　<b>+886-2-2755-1258</b><br>
+      在日本直撥這個號碼（需自費），可請他們協助找醫院、安排就醫與翻譯。</div>
+      </div>
       <div class="ntitem"><div class="nttitle">📞 重要電話</div>
       <div class="ntdesc"><b>警察</b> 110　／　<b>救護車・消防</b> 119<br><b>NOMAD 千歲店</b> 0123-21-8572（9:00–17:00）<br><b>三井住友海上 24h（露營車事故）</b> 0476-31-3643<br>　→ 接通後說「<b>Chinese please</b>」可轉中文專員<br><b>Toyota 薄野站前店</b> 011-513-0100<br><b>Holiday Inn Express 薄野</b> 011-513-2200<br><b>台北駐札幌經濟文化辦事處</b> 011-222-2930<br>　急難救助行動電話 080-1460-2568</div>
       </div>
@@ -1615,22 +1656,22 @@ Toyota 官方店鋪頁載明「機場航廈與店鋪之間<b>提供免費接送�
 
   /* ===== 費用試算（日圓＋台幣雙欄・自動換算・總計台幣） ===== */
   const defaultRows=[
-    ['機票 星宇 台中↔札幌（已訂）','TWD',22046,5],
-    ['千歲站飯店 10/13（已訂・含早餐）','TWD',8439,1],
-    ['白金溫泉 碧之美 YUYU 2晚（已訂・含早晚餐）','TWD',36341,1],
-    ['Holiday Inn Express 薄野 3晚2房（已訂・含早餐）','TWD',27435,1],
-    ['露營車 ZIL520 3天（已訂・含保險炊具）','JPY',130790,1],
-    ['Toyota 客車 10/17–19（已訂・含稅）','JPY',53861,1],
-    ['機場接送 大型計程車（10/13 抵達）','JPY',6000,1],
-    ['札幌飯店停車費（10/17・10/18）','JPY',2000,2],
-    ['油費（露營車＋客車）','JPY',9000,1],
-    ['高速公路過路費','JPY',5000,1],
-    ['日歸溫泉（10/17・10/18 兩次×5人）','JPY',1000,10],
-    ['餐飲（住宿已含 6 份早餐＋2 份晚餐，其餘自理）','JPY',1500,50],
-    ['海外旅遊保險 5 人（待投保）','TWD',0,1],
-    ['eSIM／網路（5 人）','TWD',0,1],
-    ['伴手禮／購物','JPY',0,1],
-    ['其他（雜支／接送等）','JPY',0,1],
+    ['機票 星宇 台中↔札幌（已訂）','TWD',22046,5,false],
+    ['千歲站飯店 10/13（已訂・含早餐）','TWD',8439,1,false],
+    ['白金溫泉 碧之美 YUYU 2晚（已訂・含早晚餐）','TWD',36341,1,false],
+    ['Holiday Inn Express 薄野 3晚2房（已訂・含早餐）','TWD',27435,1,false],
+    ['露營車 ZIL520 3天（已訂・已付款）','JPY',130790,1,false],
+    ['Toyota 客車 10/17–19（取車時付）','JPY',53861,1,true],
+    ['機場接送 大型計程車（10/13 抵達）','JPY',6000,1,true],
+    ['札幌飯店停車費（10/17・10/18）','JPY',2000,2,true],
+    ['油費（露營車＋客車）','JPY',9000,1,true],
+    ['高速公路過路費','JPY',5000,1,true],
+    ['日歸溫泉（10/17・10/18 兩次×5人）','JPY',1000,10,true],
+    ['餐飲（住宿已含 6 份早餐＋2 份晚餐，其餘自理）','JPY',1500,50,true],
+    ['海外旅遊保險 5 人（已投保・國泰產險）','TWD',9441,1,false],
+    ['eSIM／網路（5 人）','TWD',0,1,false],
+    ['伴手禮／購物','JPY',0,1,true],
+    ['其他（雜支／接送等）','JPY',0,1,true],
   ];
   function fmt(n){ return Math.round(n).toLocaleString('en-US'); }
   function getRate(){ return parseFloat(document.getElementById('rate').value)||0; }
@@ -1640,6 +1681,7 @@ Toyota 官方店鋪頁載明「機場航廈與店鋪之間<b>提供免費接送�
       '<td><input class="num twd" type="number" min="0" value="'+twd+'" oninput="onTWD(this)"></td>'+
       '<td><input class="qty" type="number" min="0" value="1" oninput="calcBudget()"></td>'+
       '<td class="sub">—</td>'+
+      '<td style="text-align:center"><input type="checkbox" class="cash" onchange="calcBudget()"></td>'+
       '<td><button class="delrow" onclick="delRow(this)">✕</button></td>';
   }
   function syncRow(tr){
@@ -1660,18 +1702,36 @@ Toyota 官方店鋪頁載明「機場航廈與店鋪之間<b>提供免費接送�
     });
   }
   function syncAll(){ document.querySelectorAll('#budgetBody tr').forEach(syncRow); calcBudget(); renderJ2T(); }
-  function addRow(label,cur,value,qty){
+  function addRow(label,cur,value,qty,cash){
     const tr=document.createElement('tr');
     const isJ=(cur||'JPY')==='JPY';
     tr.dataset.src=isJ?'jpy':'twd';
     tr.innerHTML=rowHTML(label||'新項目', isJ?(value!=null?value:0):0, isJ?0:(value!=null?value:0));
     tr.querySelector('.qty').value = qty!=null?qty:1;
+    tr.querySelector('.cash').checked = (cash===undefined) ? isJ : !!cash;
     document.getElementById('budgetBody').appendChild(tr);
     syncRow(tr); calcBudget();
   }
   function delRow(btn){ btn.closest('tr').remove(); calcBudget(); }
+  /* ===== 已收款 ===== */
+  const incomeRows=[
+    ['10/04 旅遊贊助金',100000],
+    ['10/04 叔叔 旅費',50000],
+    ['10/04 嬸嬸 旅費',50000],
+    ['10/04 姑姑 旅費',50000],
+  ];
+  function addInRow(label,amt){
+    const tr=document.createElement('tr');
+    tr.innerHTML='<td><input class="lbl" value="'+String(label||'新收款').replace(/"/g,'&quot;')+'"></td>'+
+      '<td><input class="num inamt" type="number" min="0" value="'+(amt!=null?amt:0)+'" oninput="calcBudget()"></td>'+
+      '<td><button class="delrow" onclick="delInRow(this)">✕</button></td>';
+    document.getElementById('incomeBody').appendChild(tr);
+    calcBudget();
+  }
+  function delInRow(b){ b.closest('tr').remove(); calcBudget(); }
+
   function calcBudget(){
-    const r=getRate(); let totalTWD=0;
+    const r=getRate(); let totalTWD=0, cashNeedJPY=0;
     document.querySelectorAll('#budgetBody tr').forEach(tr=>{
       const qty=parseFloat(tr.querySelector('.qty').value)||0;
       const src=tr.dataset.src||'jpy';
@@ -1680,12 +1740,34 @@ Toyota 官方店鋪頁載明「機場航廈與店鋪之間<b>提供免費接送�
         : (parseFloat(tr.querySelector('.jpy').value)||0)*r;
       const sub=unitTWD*qty; totalTWD+=sub;
       tr.querySelector('.sub').innerText='NT$'+fmt(sub);
+      const cb=tr.querySelector('.cash');
+      if(cb && cb.checked && r>0) cashNeedJPY += sub/r;
     });
     document.getElementById('totTWD').innerText='NT$ '+fmt(totalTWD);
     document.getElementById('totJPY').innerText= r>0 ? '¥ '+fmt(totalTWD/r) : '—';
     document.getElementById('totPP').innerText='NT$ '+fmt(totalTWD/5);
+
+    const cj=document.getElementById('cashJPY');
+    if(cj){
+      const have=parseFloat(cj.value)||0;
+      document.getElementById('cashNeed').innerText='¥ '+fmt(cashNeedJPY);
+      const left=have-cashNeedJPY;
+      document.getElementById('cashLeft').innerText=(left<0?'−¥ ':'¥ ')+fmt(Math.abs(left));
+      document.getElementById('cashLeftK').innerText= left<0 ? '現金不足，要再換' : '現金餘裕（可購物）';
+    }
+
+    let totalIn=0;
+    document.querySelectorAll('#incomeBody .inamt').forEach(i=>{ totalIn+=parseFloat(i.value)||0; });
+    const inEl=document.getElementById('totIn');
+    if(inEl){
+      inEl.innerText='NT$ '+fmt(totalIn);
+      const diff=totalIn-totalTWD;
+      document.getElementById('totNet').innerText=(diff<0?'−NT$ ':'NT$ ')+fmt(Math.abs(diff));
+      document.getElementById('totNetK').innerText= diff<0 ? '差額（我再補）' : '結餘（還有剩）';
+    }
   }
-  defaultRows.forEach(r=>addRow(r[0],r[1],r[2],r[3]));
+  defaultRows.forEach(r=>addRow(r[0],r[1],r[2],r[3],r[4]));
+  incomeRows.forEach(r=>addInRow(r[0],r[1]));
   renderJ2T();
 
   /* ===== 行程日曆（2026 年 10 月，10/1 = 週四） ===== */
@@ -1845,7 +1927,7 @@ Toyota 官方店鋪頁載明「機場航廈與店鋪之間<b>提供免費接送�
       box.classList.add('urgent');
       html='<div class="dl-t">⚠️ Toyota 免費取消期限（10/10）已過</div><div style="margin-top:6px">距出發只剩 <span class="dl-n">'+d2+'</span> 天</div>';
     } else { box.style.display='none'; return; }
-    html+='<div class="small" style="margin-top:8px;color:inherit">① <b>保險</b>5 人統一投保　② <b>eSIM／網路</b>　③ <b>印隨身小卡</b>　④ <b>星宇輪椅規定</b>　⑤ <b>行前登入驗證</b>　⑥ <b>建 Google 共享相簿</b><br>✅ 訂位全部完成　✅ 三封信已寄出（<b>留意回覆</b>）　✅ 駕照日文譯本、護照效期已確認。</div>';
+    html+='<div class="small" style="margin-top:8px;color:inherit">① <b>eSIM／網路</b>　② <b>印隨身小卡</b>　③ <b>星宇輪椅規定</b>　④ <b>行前登入驗證</b>　⑤ <b>建 Google 共享相簿</b>　⑥ <b>回信給 NOMAD</b><br>✅ 訂位全部完成　✅ <b>保險已投保</b>（國泰產險 10/08）　✅ 駕照日文譯本、護照效期已確認。</div>';
     box.innerHTML=html;
   })();
 
