@@ -118,6 +118,9 @@
   .albumspots{font-size:calc(var(--fs)*0.85);color:var(--sub);line-height:1.6;margin-bottom:10px;}
   .albumempty{display:inline-block;font-size:calc(var(--fs)*0.8);color:#9a8f80;background:var(--soft);border:1px dashed var(--line);border-radius:10px;padding:8px 14px;}
   .albumrow.filled{background:#f2f7f3;border-color:#cfe6cb;}
+  .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:4px;}
+  .pgrid a{display:block;position:relative;border-radius:8px;overflow:hidden;background:var(--soft);}
+  .pgrid img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;}
   .albumhead{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px;}
   .albumname{font-weight:800;color:var(--accent2);}
     padding:14px 14px;background:#fffdf9;color:var(--ink);}
@@ -329,11 +332,11 @@
         <thead><tr><th>日期</th><th>住宿</th><th>行程內容</th></tr></thead>
         <tbody>
           <tr><td class="day">10/13 二</td><td><b>千歲</b></td><td>抵達新千歲，專車入住千歲；<b>永旺購物中心就在飯店旁</b>，採買與晚餐都在這裡</td></tr>
-          <tr><td class="day">10/14 三</td><td><b>白金溫泉</b></td><td><b>露營車</b>北上，中途休息站稍停，<b>富良野起司工房</b>吃披薩，午後四季彩之丘，入住泡湯</td></tr>
-          <tr><td class="day">10/15 四</td><td>白金溫泉<br><span class="small">連泊</span></td><td>晨訪<b>青池</b>，午後美瑛丘陵，返回旅館泡湯</td></tr>
-          <tr><td class="day">10/16 五</td><td><b>札幌</b></td><td>南下札幌入住，市區自由活動（駕駛辦理還車）</td></tr>
-          <tr><td class="day">10/17 六</td><td>札幌<br><span class="small">連泊</span></td><td>改乘<b>7人座專車</b>，<b>定山溪溫泉</b>，晚間狸小路</td></tr>
-          <tr><td class="day">10/18 日</td><td>札幌<br><span class="small">連泊</span></td><td>北大銀杏並木、<b>小樽</b>漫遊、朝里川溫泉</td></tr>
+          <tr><td class="day">10/14 三</td><td><b>白金溫泉</b></td><td>領<b>露營車</b>北上，<b>占冠道之驛</b>休息、富良野午餐，午後<b>富田農場</b>，傍晚入住泡湯</td></tr>
+          <tr><td class="day">10/15 四</td><td>白金溫泉<br><span class="small">連泊</span></td><td><b>白鬚瀑布</b>、<b>青池</b>、<b>新榮之丘</b>，午後<b>旭山動物園</b>，返回旅館泡湯</td></tr>
+          <tr><td class="day">10/16 五</td><td><b>札幌</b></td><td>南下，<b>美瑛選果</b>、<b>三井 Outlet</b>，入住札幌（駕駛辦理還露營車）</td></tr>
+          <tr><td class="day">10/17 六</td><td>札幌<br><span class="small">連泊</span></td><td>改乘<b>7人座客車</b>，<b>小樽堺町通與運河</b>，晚間永旺採買</td></tr>
+          <tr><td class="day">10/18 日</td><td>札幌<br><span class="small">連泊</span></td><td><b>藻岩山</b>、迴轉壽司、<b>白色戀人公園</b>，晚間狸小路</td></tr>
           <tr><td class="day">10/19 一</td><td>—</td><td><b>場外市場</b>海鮮早餐 → 專車直達機場，搭機返台</td></tr>
         </tbody>
       </table>
@@ -1214,42 +1217,49 @@
         <div class="albumhead"><span class="albumname">🛬 千歲</span><span class="albumtag">10/13・10/19</span></div>
         <div class="albumspots">新千歲機場・千歲站飯店・永旺千歲店</div>
         <div class="small" style="line-height:1.75;margin-bottom:10px">📷 星宇班機上的自拍與合照、新千歲機場走道、計程車車內、飯店房間、餃子の王將晚餐、永旺超市採買。</div>
+        <div class="pgrid"><a href="photos/chitose-009.jpg" target="_blank" rel="noopener"><img src="photos/chitose-009.jpg" alt="新千歲機場走道" loading="lazy"></a><a href="photos/chitose-014.jpg" target="_blank" rel="noopener"><img src="photos/chitose-014.jpg" alt="千歲站飯店旁的晚餐" loading="lazy"></a></div>
       </div>
 
       <div class="albumrow">
         <div class="albumhead"><span class="albumname">🌾 富良野</span><span class="albumtag">10/14</span></div>
         <div class="albumspots">占冠道之驛・富田農場</div>
         <div class="small" style="line-height:1.75;margin-bottom:10px">📷 占冠道之驛的紅葉與露營車合影、木屋風格餐廳午餐、富田農場的彩色花田與木造倉庫商店（傍晚光線很美）。</div>
+        <div class="pgrid"><a href="photos/furano-052.jpg" target="_blank" rel="noopener"><img src="photos/furano-052.jpg" alt="占冠道之驛的紅葉" loading="lazy"></a><a href="photos/furano-076.jpg" target="_blank" rel="noopener"><img src="photos/furano-076.jpg" alt="木屋風格的午餐店" loading="lazy"></a><a href="photos/furano-091.jpg" target="_blank" rel="noopener"><img src="photos/furano-091.jpg" alt="富田農場花田" loading="lazy"></a><a href="photos/furano-103.jpg" target="_blank" rel="noopener"><img src="photos/furano-103.jpg" alt="FARM TOMITA" loading="lazy"></a><a href="photos/furano-111.jpg" target="_blank" rel="noopener"><img src="photos/furano-111.jpg" alt="富田農場的花牆" loading="lazy"></a></div>
       </div>
 
       <div class="albumrow">
         <div class="albumhead"><span class="albumname">🏞 美瑛・白金溫泉</span><span class="albumtag">10/14–10/16</span></div>
         <div class="albumspots">白金溫泉旅館・白鬚瀑布・青池・新榮之丘・美瑛選果</div>
         <div class="small" style="line-height:1.75;margin-bottom:10px">📷 旅館和室鋪被與自助晚餐、早餐、白鬚瀑布的鋼橋與瀑布、青池的湛藍水色、新榮之丘展望、美瑛選果門市。</div>
+        <div class="pgrid"><a href="photos/biei-113.jpg" target="_blank" rel="noopener"><img src="photos/biei-113.jpg" alt="白金溫泉旅館和室" loading="lazy"></a><a href="photos/biei-195.jpg" target="_blank" rel="noopener"><img src="photos/biei-195.jpg" alt="旅館自助晚餐" loading="lazy"></a><a href="photos/biei-128.jpg" target="_blank" rel="noopener"><img src="photos/biei-128.jpg" alt="白鬚瀑布的鋼橋" loading="lazy"></a><a href="photos/biei-134.jpg" target="_blank" rel="noopener"><img src="photos/biei-134.jpg" alt="白鬚瀑布" loading="lazy"></a><a href="photos/biei-138.jpg" target="_blank" rel="noopener"><img src="photos/biei-138.jpg" alt="白金溪谷秋色" loading="lazy"></a><a href="photos/biei-147.jpg" target="_blank" rel="noopener"><img src="photos/biei-147.jpg" alt="青池" loading="lazy"></a><a href="photos/biei-154.jpg" target="_blank" rel="noopener"><img src="photos/biei-154.jpg" alt="青池水色" loading="lazy"></a><a href="photos/biei-201.jpg" target="_blank" rel="noopener"><img src="photos/biei-201.jpg" alt="南下途中的美瑛街景" loading="lazy"></a><a href="photos/biei-202.jpg" target="_blank" rel="noopener"><img src="photos/biei-202.jpg" alt="美瑛選果" loading="lazy"></a></div>
       </div>
 
       <div class="albumrow">
         <div class="albumhead"><span class="albumname">🐧 旭川・旭山動物園</span><span class="albumtag">10/15</span></div>
         <div class="albumspots">旭山動物園・旭川拉麵午餐</div>
         <div class="small" style="line-height:1.75;margin-bottom:10px">📷 企鵝、山羊、黑猩猩，園內秋葉步道與大家的合照；午餐是旭川拉麵。</div>
+        <div class="pgrid"><a href="photos/asahikawa-177.jpg" target="_blank" rel="noopener"><img src="photos/asahikawa-177.jpg" alt="旭山動物園：企鵝" loading="lazy"></a><a href="photos/asahikawa-181.jpg" target="_blank" rel="noopener"><img src="photos/asahikawa-181.jpg" alt="國王企鵝" loading="lazy"></a><a href="photos/asahikawa-187.jpg" target="_blank" rel="noopener"><img src="photos/asahikawa-187.jpg" alt="小貓熊空中步道" loading="lazy"></a><a href="photos/asahikawa-188.jpg" target="_blank" rel="noopener"><img src="photos/asahikawa-188.jpg" alt="園內秋葉步道" loading="lazy"></a><a href="photos/asahikawa-194.jpg" target="_blank" rel="noopener"><img src="photos/asahikawa-194.jpg" alt="山羊" loading="lazy"></a></div>
       </div>
 
       <div class="albumrow">
         <div class="albumhead"><span class="albumname">🏙 札幌</span><span class="albumtag">10/16–10/18</span></div>
         <div class="albumspots">薄野・三井 Outlet・藻岩山・根室花まる・白色戀人公園</div>
         <div class="small" style="line-height:1.75;margin-bottom:10px">📷 薄野夜景與拉麵晚餐、藻岩山山頂的札幌全景與纜車、根室花まる迴轉壽司（疊起來的盤子）、白色戀人公園的鐘塔與花壇。</div>
+        <div class="pgrid"><a href="photos/sapporo-282.jpg" target="_blank" rel="noopener"><img src="photos/sapporo-282.jpg" alt="藻岩山纜車站" loading="lazy"></a><a href="photos/sapporo-294.jpg" target="_blank" rel="noopener"><img src="photos/sapporo-294.jpg" alt="藻岩山看札幌市區" loading="lazy"></a><a href="photos/sapporo-297.jpg" target="_blank" rel="noopener"><img src="photos/sapporo-297.jpg" alt="藻岩山山頂" loading="lazy"></a></div>
       </div>
 
       <div class="albumrow">
         <div class="albumhead"><span class="albumname">⚓ 小樽</span><span class="albumtag">10/17</span></div>
         <div class="albumspots">北一硝子・堺町通・小樽運河</div>
         <div class="small" style="line-height:1.75;margin-bottom:10px">📷 北一硝子石造倉庫、堺町通（蒸氣時鐘、音樂盒堂、北菓樓）、小樽運河沿岸合影、午餐。</div>
+        <div class="pgrid"><a href="photos/otaru-230.jpg" target="_blank" rel="noopener"><img src="photos/otaru-230.jpg" alt="北一硝子石造倉庫" loading="lazy"></a><a href="photos/otaru-233.jpg" target="_blank" rel="noopener"><img src="photos/otaru-233.jpg" alt="堺町通" loading="lazy"></a><a href="photos/otaru-244.jpg" target="_blank" rel="noopener"><img src="photos/otaru-244.jpg" alt="長輩的戰利品" loading="lazy"></a><a href="photos/otaru-246.jpg" target="_blank" rel="noopener"><img src="photos/otaru-246.jpg" alt="小樽舊建築" loading="lazy"></a><a href="photos/otaru-277.jpg" target="_blank" rel="noopener"><img src="photos/otaru-277.jpg" alt="小樽運河" loading="lazy"></a><a href="photos/otaru-278.jpg" target="_blank" rel="noopener"><img src="photos/otaru-278.jpg" alt="運河旁的倉庫" loading="lazy"></a></div>
       </div>
 
       <div class="albumrow">
         <div class="albumhead"><span class="albumname">🚐 露營車・車上生活</span><span class="albumtag">10/14–10/16</span></div>
         <div class="albumspots">NOMAD ZIL520 車內外・沿途休息站・大家在車上的畫面</div>
         <div class="small" style="line-height:1.75;margin-bottom:10px">📷 千歲 NOMAD 領車、停車棚下的露營車、車內座椅與桌面、車上用餐與大家的合照。</div>
+        <div class="pgrid"><a href="photos/van-028.jpg" target="_blank" rel="noopener"><img src="photos/van-028.jpg" alt="NOMAD 露營車領車處" loading="lazy"></a><a href="photos/van-034.jpg" target="_blank" rel="noopener"><img src="photos/van-034.jpg" alt="車內餐桌與座位" loading="lazy"></a><a href="photos/van-215.jpg" target="_blank" rel="noopener"><img src="photos/van-215.jpg" alt="夜裡的露營車" loading="lazy"></a></div>
       </div>
 
       <div class="albumrow filled">
