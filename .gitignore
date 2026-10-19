@@ -18,3 +18,6 @@
 # 暫存
 *.tmp
 *.bak
+
+# 分享版是獨立的 repo（Hokkaido-2026），不放進這個 repo
+share-site/
