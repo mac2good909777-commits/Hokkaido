@@ -14,26 +14,40 @@ def cut(s, start_pat, end_pat, label, end_inclusive=True):
     return s[:a] + s[b:]
 
 # 1. 拿掉整個分頁的 section
-for sid in ["budget-sec", "checklist-sec", "entry-sec", "jp-sec"]:
+for sid in ["checklist-sec", "entry-sec", "jp-sec"]:
     a = s.index('<section id="%s"' % sid)
     b = s.index("</section>", a) + len("</section>")
     print("section", sid, b - a)
     s = s[:a] + s[b:]
 
 # 2. 拿掉分頁按鈕
-for tab in ["check", "budget", "jp"]:
+for tab in ["check", "jp"]:
     pat = re.compile(r'\s*<button class="tab-btn"[^>]*data-tab="%s"[^>]*>[^<]*</button>' % tab)
     assert len(pat.findall(s)) == 1, tab
     s = pat.sub("", s)
 
 # 3. JS：預算區塊與準備清單區塊
-a = s.index("const defaultRows")
-a = s.rfind("\n", 0, s.rfind("/*", 0, a)) + 1 if s.rfind("/*", 0, a) > a - 400 else s.rfind("\n", 0, a) + 1
-b = s.index("renderJ2T();", s.index("incomeRows.forEach")) + len("renderJ2T();")
-print("js budget", b - a); s = s[:a] + s[b:]
+a = s.index("const incomeRows=["); b = s.index("];", a) + 2
+print("js incomeRows", b - a); s = s[:a] + "const incomeRows=[];" + s[b:]
 a = s.index("/* ===== 準備清單")
 b = s.index("window.resetCheck=resetCheck;") + len("window.resetCheck=resetCheck;")
 print("js check", b - a); s = s[:a] + s[b:]
+
+# 3b. 費用分頁：只移除「已收款」
+a = s.index('<h3 style="margin:22px 0 8px;font-size:15px">💰 已收款</h3>')
+b = s.index('<div class="small" style="margin-top:8px">標「已訂」者', a)
+print("cut 已收款", b - a); s = s[:a] + s[b:]
+old = "<br><b>已收款</b>與支出連動：差額為正代表還有剩，為負代表要自己再補。"
+assert s.count(old) == 1; s = s.replace(old, "")
+
+# 3c. JS 裡殘留的已收款函式與差額計算
+NL = chr(10)
+a = s.index("/* ===== 已收款 ===== */"); b = s.index("function calcBudget()")
+print("js 已收款 funcs", b - a); s = s[:a] + s[b:]
+a = s.index("let totalIn=0;"); b = s.index(NL + "  }" + NL + "  defaultRows", a)
+print("js 差額", b - a); s = s[:a].rstrip() + NL + s[b:]
+s = s.replace("incomeRows.forEach(r=>addInRow(r[0],r[1]));", "")
+s = s.replace("const incomeRows=[];", "")
 
 # 4. 私人資訊
 s = re.sub(r'<tr><th[^>]*>(?:車資|房價)</th>.*?</tr>\s*', "", s, flags=re.S)
