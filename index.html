@@ -123,7 +123,7 @@
   .pgrid img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;}
   .lb{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;flex-direction:column;touch-action:pan-y;}
   .lb.on{display:flex;}
-  .lb img{max-width:100vw;max-height:78vh;object-fit:contain;user-select:none;-webkit-user-drag:none;}
+  .lb img{max-width:100vw;max-height:70vh;object-fit:contain;user-select:none;-webkit-user-drag:none;}
   .lb .cap{color:#fff;font-size:15px;margin-top:10px;padding:0 56px;text-align:center;line-height:1.5;}
   .lb .cnt{color:#bbb;font-size:13px;margin-top:4px;}
   .lb button{position:absolute;border:2px solid rgba(255,255,255,.85);background:rgba(0,0,0,.55);color:#fff;border-radius:50%;width:52px;height:52px;font-size:30px;line-height:46px;cursor:pointer;padding:0;z-index:2;box-shadow:0 2px 8px rgba(0,0,0,.5);}
@@ -132,6 +132,9 @@
   .lb .prev{left:6px;top:50%;transform:translateY(-50%);}
   .lb .next{right:6px;top:50%;transform:translateY(-50%);}
   .lb .close{right:10px;top:10px;font-size:22px;}
+  .lb .bar{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:12px;width:100%;padding:0 12px;box-sizing:border-box;}
+  .lb .bar button{position:static;width:auto;height:48px;border-radius:24px;padding:0 20px;font-size:17px;line-height:44px;font-weight:700;flex:0 0 auto;}
+  .lb .bar .cnt{margin:0;min-width:64px;text-align:center;font-size:15px;color:#fff;}
   .albumhead{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px;}
   .albumname{font-weight:800;color:var(--accent2);}
     padding:14px 14px;background:#fffdf9;color:var(--ink);}
@@ -2115,7 +2118,11 @@ Toyota 官方店鋪頁載明「機場航廈與店鋪之間<b>提供免費接送�
   <img id="lbimg" alt="">
   <button class="next" aria-label="下一張">›</button>
   <div class="cap" id="lbcap"></div>
-  <div class="cnt" id="lbcnt"></div>
+  <div class="bar">
+    <button class="prev2" aria-label="上一張">‹ 上一張</button>
+    <div class="cnt" id="lbcnt"></div>
+    <button class="next2" aria-label="下一張">下一張 ›</button>
+  </div>
 </div>
 <script>
 (function(){
@@ -2140,6 +2147,8 @@ Toyota 官方店鋪頁載明「機場航廈與店鋪之間<b>提供免費接送�
   });
   lb.querySelector('.prev').onclick=function(e){ e.stopPropagation(); show(idx-1); };
   lb.querySelector('.next').onclick=function(e){ e.stopPropagation(); show(idx+1); };
+  lb.querySelector('.prev2').onclick=function(e){ e.stopPropagation(); show(idx-1); };
+  lb.querySelector('.next2').onclick=function(e){ e.stopPropagation(); show(idx+1); };
   lb.querySelector('.close').onclick=function(e){ e.stopPropagation(); close(); };
   lb.addEventListener('click',function(e){ if(e.target===lb) close(); });
   document.addEventListener('keydown',function(e){
